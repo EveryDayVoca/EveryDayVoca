@@ -27,7 +27,7 @@ final class UserView: BaseView {
     
     let profileImage = UIImageView().then {
         $0.backgroundColor = .gray100
-        $0.layer.cornerRadius = $0.frame.height/2
+        $0.layer.cornerRadius = 32
     }
     
     let userNameLabel = UILabel().then {
@@ -61,11 +61,17 @@ final class UserView: BaseView {
         $0.layer.shadowPath = nil
     }
     
-    let levelButton = UIButton().then {
-        $0.titleLabel?.text = "Lv.1"
-        $0.titleLabel?.textColor = UIColor.blue100
-        $0.titleLabel?.font = UIFont.pretendard(size: 18, weight: .regular)
-        $0.layer.cornerRadius = 20
+    let levelView = UIView().then {
+        $0.backgroundColor = .clear
+        $0.layer.cornerRadius = 17.5
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = UIColor.blue100.cgColor
+    }
+    
+    let levelLabel = UILabel().then {
+        $0.text = "Lv. 1"
+        $0.textColor = .blue100
+        $0.font = UIFont.pretendard(size: 18, weight: .regular)
     }
     
     let dayGoalCountLabel = UILabel().then {
@@ -76,8 +82,8 @@ final class UserView: BaseView {
     }
     
     let goalCountLabel = UILabel().then {
-        $0.text = "일일 학습 단어 수"
-        $0.font = UIFont.pretendard(size: 18, weight: .regular)
+        $0.text = "60개"
+        $0.font = UIFont.pretendard(size: 18, weight: .semibold)
         $0.textColor = UIColor.evText
         $0.textAlignment = .right
     }
@@ -111,7 +117,7 @@ final class UserView: BaseView {
     let fiveProgressView = UIProgressView().then
     
     
-    
+    // MARK: - methods
     override func configureUI() {
         super.configureUI()
         
@@ -129,9 +135,11 @@ final class UserView: BaseView {
          userNameLabel,
          nickNameLabel].forEach { profileView.addSubview($0) }
         
-        [levelButton,
+        [levelView,
          dayGoalCountLabel,
          goalCountLabel].forEach { dayGoalView.addSubview($0) }
+        
+        levelView.addSubview(levelLabel)
         
         [].forEach { levelProgressView.addSubview($0) }
         
@@ -194,12 +202,30 @@ final class UserView: BaseView {
             $0.leading.equalTo(profileImage.snp.trailing).offset(16)
         }
         
-        levelButton.snp.makeConstraints {
+        levelView.snp.makeConstraints {
+            $0.leading.equalToSuperview().offset(16)
             $0.top.equalToSuperview().offset(10)
             $0.bottom.equalToSuperview().offset(-10)
-            $0.leading.equalToSuperview().offset(16)
             $0.width.equalTo(87)
-            $0.height.equalTo(35)
+        }
+        
+        levelLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(8)
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalToSuperview().offset(-10)
+        }
+        
+        dayGoalCountLabel.snp.makeConstraints {
+            $0.leading.equalTo(levelView.snp.trailing).offset(36)
+            $0.top.equalToSuperview().offset(12)
+            $0.bottom.equalToSuperview().offset(-12)
+        }
+        
+        goalCountLabel.snp.makeConstraints {
+            $0.leading.equalTo(dayGoalCountLabel.snp.trailing).offset(36)
+            $0.trailing.equalToSuperview().offset(-16)
+            $0.top.equalToSuperview().offset(12)
+            $0.bottom.equalToSuperview().offset(-12)
         }
     }
 

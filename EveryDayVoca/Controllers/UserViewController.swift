@@ -7,23 +7,35 @@
 
 import UIKit
 
-class UserViewController: UIViewController {
-
+final class UserViewController: BaseViewController {
+    
+    let userView = UserView()
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "사용자 정보"
+        label.font = UIFont.pretendard(size: 17, weight: .bold)
+        label.textColor = UIColor.evText
+        label.textAlignment = .center
+        return label
+    }()
+    
+    // MARK: - life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        view = self.userView
+        
+        self.navigationItem.titleView = titleLabel
+        self.navigationController?.navigationBar.shadowImage = nil
+        
+    }
+ 
+    override func configureStyle() {
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func configureDelegate() {
     }
-    */
-
+    
+    override func bind() {
+    }
+    
 }
