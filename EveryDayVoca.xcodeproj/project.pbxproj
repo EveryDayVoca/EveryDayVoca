@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A39333A2BF5CDD700F3B825 /* VocaListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3933392BF5CDD700F3B825 /* VocaListTableViewCell.swift */; };
 		371D24322BF37ED7002B4DC5 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371D24312BF37ED7002B4DC5 /* BaseView.swift */; };
 		371D24342BF38AC1002B4DC5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371D24332BF38AC1002B4DC5 /* BaseViewController.swift */; };
 		37D776FF2BF30DBD0078D6E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D776FE2BF30DBD0078D6E8 /* AppDelegate.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A3933392BF5CDD700F3B825 /* VocaListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaListTableViewCell.swift; sourceTree = "<group>"; };
 		371D24312BF37ED7002B4DC5 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		371D24332BF38AC1002B4DC5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		37D776FB2BF30DBD0078D6E8 /* EveryDayVoca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EveryDayVoca.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +73,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A3933382BF5CD9800F3B825 /* WordList */ = {
+			isa = PBXGroup;
+			children = (
+				1A3933392BF5CDD700F3B825 /* VocaListTableViewCell.swift */,
+			);
+			path = WordList;
+			sourceTree = "<group>";
+		};
 		37D776F22BF30DBD0078D6E8 = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +106,7 @@
 				37D777402BF34CFA0078D6E8 /* Extensions */,
 				37D7772D2BF34BF30078D6E8 /* Fonts */,
 				37D777432BF357400078D6E8 /* Views */,
+				1A3933382BF5CD9800F3B825 /* WordList */,
 				37D777222BF31C800078D6E8 /* Controllers */,
 				37D7770A2BF30DBE0078D6E8 /* Assets.xcassets */,
 				37D7770F2BF30DBE0078D6E8 /* Info.plist */,
@@ -252,6 +263,7 @@
 				37D777242BF31DED0078D6E8 /* VocaBookViewController.swift in Sources */,
 				371D24322BF37ED7002B4DC5 /* BaseView.swift in Sources */,
 				37D777422BF34DED0078D6E8 /* UIFont+Extension.swift in Sources */,
+				1A39333A2BF5CDD700F3B825 /* VocaListTableViewCell.swift in Sources */,
 				37D777282BF31E640078D6E8 /* ReportViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
