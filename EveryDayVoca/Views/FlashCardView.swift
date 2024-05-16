@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FlashCardView: BaseView {
+final class FlashCardView: BaseView {
     
     // MARK: - properties
     private let progressRateLabel: UILabel = {
@@ -50,23 +50,16 @@ class FlashCardView: BaseView {
         view.addSubview(progressBar)
         return view
     }()
-    
-    let cardImageView: UIImageView = {
-        var image = UIImageView()
-        image.image = UIImage(named: "flash_card")
-        image.contentMode = .scaleAspectFill
-        image.clipsToBounds = true
-        return image
-    }()
-    
-    var wordLabel: UILabel = {
-        var label = UILabel()
-        label.text = "Apple"
-        label.textColor = .evText
-        label.font = UIFont.pretendard(size: 24, weight: .semibold)
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        return label
+   
+    var cardButton: UIButton = {
+        var button = UIButton()
+        button.setBackgroundImage(UIImage(named: "flash_card"), for: .normal)
+        let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.pretendard(size: 24, weight: .semibold),
+                                                         .foregroundColor: UIColor.evText,
+                                                         .underlineStyle: 0]
+        let attributedTitle = NSAttributedString(string: "Apple", attributes: attributes)
+        button.setAttributedTitle(attributedTitle, for: .normal)
+        return button
     }()
     
     let previousCardButton: UIButton = {
@@ -137,8 +130,7 @@ class FlashCardView: BaseView {
     override func configureHierarchy() {
         self.addSubview(progressRateLabel)
         self.addSubview(containerView)
-        self.addSubview(cardImageView)
-        self.addSubview(wordLabel)
+        self.addSubview(cardButton)
         self.addSubview(previousCardButton)
         self.addSubview(nextCardButton)
         self.addSubview(buttonStack)
@@ -166,34 +158,30 @@ class FlashCardView: BaseView {
             $0.height.equalToSuperview().multipliedBy(0.028)
         }
         
-        cardImageView.snp.makeConstraints {
-            $0.width.equalTo(cardImageView.snp.height)
+        cardButton.snp.makeConstraints {
+            $0.width.equalTo(cardButton.snp.height)
             $0.width.equalToSuperview().multipliedBy(0.78)
             $0.centerX.equalToSuperview()
             $0.centerY.equalToSuperview()
         }
         
-        wordLabel.snp.makeConstraints {
-            $0.edges.equalTo(cardImageView.snp.edges)
-        }
-        
         previousCardButton.snp.makeConstraints {
-            $0.trailing.equalTo(cardImageView.snp.leading)
+            $0.trailing.equalTo(cardButton.snp.leading)
             $0.leading.equalToSuperview().inset(12)
-            $0.top.equalTo(cardImageView.snp.top)
-            $0.bottom.equalTo(cardImageView.snp.bottom)
+            $0.top.equalTo(cardButton.snp.top)
+            $0.bottom.equalTo(cardButton.snp.bottom)
         }
         
         nextCardButton.snp.makeConstraints {
-            $0.leading.equalTo(cardImageView.snp.trailing)
+            $0.leading.equalTo(cardButton.snp.trailing)
             $0.trailing.equalToSuperview().inset(12)
-            $0.top.equalTo(cardImageView.snp.top)
-            $0.bottom.equalTo(cardImageView.snp.bottom)
+            $0.top.equalTo(cardButton.snp.top)
+            $0.bottom.equalTo(cardButton.snp.bottom)
         }
         
         buttonStack.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(28)
-            $0.top.equalTo(cardImageView.snp.bottom).offset(96)
+            $0.top.equalTo(cardButton.snp.bottom).offset(96)
             $0.height.equalToSuperview().multipliedBy(0.067)
         }
     }
