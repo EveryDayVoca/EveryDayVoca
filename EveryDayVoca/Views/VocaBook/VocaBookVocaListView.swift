@@ -11,6 +11,8 @@ final class VocaBookVocaListView: BaseView {
     
     // MARK: - Properties
     
+    
+    
     let vocaBookSelectionView = UIView().then {
         $0.backgroundColor = .none
     }
@@ -32,19 +34,9 @@ final class VocaBookVocaListView: BaseView {
         $0.backgroundColor = .none
     }
     
-    let tableFilterButton = UIButton().then {
-        $0.setTitle("모든단어", for: .normal)
-        $0.setImage(UIImage(systemName: "line.3.horizontal.decrease.circle.fill"), for: .normal)
-        $0.backgroundColor = UIColor.blue100
-        $0.tintColor = UIColor.evText
-    }
+    lazy var tableFilterButton = UIButton(configuration: makeButtonConfiguration(title: "모든 단어", titleSize: 14))
     
-    let tableDisplayOptionButton = UIButton().then {
-        $0.setTitle("단어 + 의미", for: .normal)
-        $0.setImage(UIImage(systemName: "line.3.horizontal.decrease.circle.fill"), for: .normal)
-        $0.backgroundColor = UIColor.blue100
-        $0.tintColor = UIColor.evText
-    }
+    lazy var tableDisplayOptionButton = UIButton(configuration: makeButtonConfiguration(title: "단어 + 의미", titleSize: 14))
     
     let tableItemCountLabel = UILabel().then {
         $0.textAlignment = .right
@@ -61,7 +53,7 @@ final class VocaBookVocaListView: BaseView {
     
     override func configureConstraints() {
         vocaBookSelectionView.snp.makeConstraints {
-            $0.top.horizontalEdges.equalToSuperview()
+            $0.top.horizontalEdges.equalTo(self.safeAreaLayoutGuide)
             $0.height.equalTo(52)
         }
         
@@ -70,7 +62,8 @@ final class VocaBookVocaListView: BaseView {
         }
         
         vocaBookSelectionImage.snp.makeConstraints {
-            $0.trailing.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(20)
+            $0.centerY.equalToSuperview()
         }
         
         tableOptionView.snp.makeConstraints {
@@ -81,13 +74,13 @@ final class VocaBookVocaListView: BaseView {
         
         tableFilterButton.snp.makeConstraints {
             $0.leading.verticalEdges.equalToSuperview()
-            $0.width.equalTo(91)
+//            $0.width.equalTo(91)
         }
         
         tableDisplayOptionButton.snp.makeConstraints {
             $0.leading.equalTo(tableFilterButton.snp.trailing).offset(10)
             $0.verticalEdges.equalToSuperview()
-            $0.width.equalTo(96)
+//            $0.width.equalTo(96)
         }
         
         tableItemCountLabel.snp.makeConstraints {
@@ -98,7 +91,7 @@ final class VocaBookVocaListView: BaseView {
         vocaListTableView.snp.makeConstraints {
             $0.top.equalTo(tableOptionView.snp.bottom).offset(16)
             $0.horizontalEdges.equalToSuperview().inset(26)
-            $0.bottom.equalToSuperview()
+            $0.bottom.equalTo(self.safeAreaLayoutGuide)
         }
     }
     
@@ -113,7 +106,22 @@ final class VocaBookVocaListView: BaseView {
         [tableFilterButton,
          tableDisplayOptionButton,
          tableItemCountLabel].forEach { tableOptionView.addSubview($0) }
-        
     }
     
+    func makeButtonConfiguration(title: String, titleSize: CGFloat) -> UIButton.Configuration {
+        var config = UIButton.Configuration.plain()
+        // title
+        config.attributedTitle = AttributedString(title)
+        config.attributedTitle?.font = UIFont.pretendard(size: titleSize, weight: .light)
+        // image
+        config.image = UIImage(systemName: "line.3.horizontal.decrease.circle.fill")?.applyingSymbolConfiguration(.init(pointSize: titleSize - 3))
+        config.imagePadding = 4
+        // color
+        config.background.backgroundColor = UIColor.blue100
+        config.baseForegroundColor = .white
+        // frame
+        config.contentInsets = NSDirectionalEdgeInsets(top: 1.0, leading: 8.0, bottom: 1.0, trailing: 8.0)
+        config.background.cornerRadius = 5
+        return config
+    }
 }
