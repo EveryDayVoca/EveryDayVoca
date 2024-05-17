@@ -75,6 +75,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E9DED9E2BF62AAA00A85C42 /* Study */ = {
+			isa = PBXGroup;
+			children = (
+				2E9DED9A2BF50C4500A85C42 /* FlashCardView.swift */,
+			);
+			path = Study;
+			sourceTree = "<group>";
+		};
 		37D776F22BF30DBD0078D6E8 = {
 			isa = PBXGroup;
 			children = (
@@ -148,7 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				37D777442BF37E9F0078D6E8 /* Bases */,
-				2E9DED9A2BF50C4500A85C42 /* FlashCardView.swift */,
+				2E9DED9E2BF62AAA00A85C42 /* Study */,
 			);
 			path = Views;
 			sourceTree = "<group>";

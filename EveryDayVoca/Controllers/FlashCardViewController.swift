@@ -51,5 +51,4 @@ final class FlashCardViewController: BaseViewController {
                           animations: nil,
                           completion: nil)
     }
-    
 }
