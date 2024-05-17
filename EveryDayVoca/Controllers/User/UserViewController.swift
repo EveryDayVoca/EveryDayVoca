@@ -10,14 +10,17 @@ import UIKit
 final class UserViewController: BaseViewController {
     
     let userView = UserView()
-    let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "사용자 정보"
-        label.font = UIFont.pretendard(size: 17, weight: .bold)
-        label.textColor = UIColor.evText
-        label.textAlignment = .center
-        return label
-    }()
+    private let titleLabel = UILabel().then {
+        $0.text = "사용자 정보"
+        $0.font = UIFont.pretendard(size: 17, weight: .bold)
+        $0.textColor = UIColor.evText
+        $0.textAlignment = .center
+    }
+    
+    let modifyButton = UIBarButtonItem().then {
+        $0.title = "수정"
+        $0.tintColor = .gray50
+    }
     
     // MARK: - life cycles
     override func viewDidLoad() {
@@ -26,9 +29,10 @@ final class UserViewController: BaseViewController {
         
         self.navigationItem.titleView = titleLabel
         self.navigationController?.navigationBar.shadowImage = nil
+        self.navigationItem.rightBarButtonItem = modifyButton
         
     }
- 
+    
     override func configureStyle() {
     }
     
@@ -37,5 +41,6 @@ final class UserViewController: BaseViewController {
     
     override func bind() {
     }
+    
     
 }

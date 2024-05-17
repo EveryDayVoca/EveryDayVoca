@@ -9,35 +9,35 @@ import UIKit
 
 final class UserView: BaseView {
     
-    let profileLabel = UILabel().then {
+    private let profileLabel = UILabel().then {
         $0.text = "프로필"
         $0.font = UIFont.pretendard(size: 17, weight: .semibold)
         $0.textColor = UIColor.evText
         $0.textAlignment = .left
     }
     
-    let profileView = UIView().then {
+    private let profileView = UIView().then {
         $0.backgroundColor = .evBackground
         $0.layer.cornerRadius = 12
-        $0.layer.shadowOpacity = 0.3
-        $0.layer.shadowRadius = 2
+        $0.layer.shadowOpacity = 0.15
+        $0.layer.shadowRadius = 12
         $0.layer.shadowOffset = CGSize(width: 0, height: 0)
         $0.layer.shadowPath = nil
     }
     
-    let profileImage = UIImageView().then {
+    private let profileImage = UIImageView().then {
         $0.backgroundColor = .gray100
         $0.layer.cornerRadius = 32
     }
     
-    let userNameLabel = UILabel().then {
+    private let userNameLabel = UILabel().then {
         $0.text = "데일리보카"
         $0.font = UIFont.pretendard(size: 18, weight: .semibold)
         $0.textColor = UIColor.evText
         $0.textAlignment = .left
     }
     
-    let nickNameLabel = UILabel().then {
+    private let nickNameLabel = UILabel().then {
         $0.text = "임시"
         $0.font = UIFont.pretendard(size: 18, weight: .regular)
         $0.textColor = UIColor.evText
@@ -45,76 +45,209 @@ final class UserView: BaseView {
     }
     
     
-    let dayGoalLabel = UILabel().then {
+    private let dayGoalLabel = UILabel().then {
         $0.text = "일일 학습량"
         $0.font = UIFont.pretendard(size: 17, weight: .semibold)
         $0.textColor = UIColor.evText
         $0.textAlignment = .left
     }
     
-    let dayGoalView = UIView().then {
+    private let dayGoalView = UIView().then {
         $0.backgroundColor = .evBackground
         $0.layer.cornerRadius = 12
-        $0.layer.shadowOpacity = 0.3
-        $0.layer.shadowRadius = 2
+        $0.layer.shadowOpacity = 0.15
+        $0.layer.shadowRadius = 12
         $0.layer.shadowOffset = CGSize(width: 0, height: 0)
         $0.layer.shadowPath = nil
     }
     
-    let levelView = UIView().then {
+    private let levelView = UIView().then {
         $0.backgroundColor = .clear
         $0.layer.cornerRadius = 17.5
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.blue100.cgColor
     }
     
-    let levelLabel = UILabel().then {
+    private let levelLabel = UILabel().then {
         $0.text = "Lv. 1"
         $0.textColor = .blue100
-        $0.font = UIFont.pretendard(size: 18, weight: .regular)
+        $0.font = UIFont.pretendard(size: 18, weight: .semibold)
     }
     
-    let dayGoalCountLabel = UILabel().then {
+    private let dayGoalCountLabel = UILabel().then {
         $0.text = "일일 학습 단어 수"
         $0.font = UIFont.pretendard(size: 18, weight: .regular)
         $0.textColor = UIColor.evText
         $0.textAlignment = .left
     }
     
-    let goalCountLabel = UILabel().then {
+    private let goalCountLabel = UILabel().then {
         $0.text = "60개"
         $0.font = UIFont.pretendard(size: 18, weight: .semibold)
         $0.textColor = UIColor.evText
         $0.textAlignment = .right
     }
     
-    let levelProgressLabel = UILabel().then {
+    private let levelProgressLabel = UILabel().then {
         $0.text = "레벨별 진도율"
         $0.font = UIFont.pretendard(size: 17, weight: .semibold)
         $0.textColor = UIColor.evText
         $0.textAlignment = .left
     }
     
-    let levelProgressView = UIView().then {
+    private let levelProgressView = UIView().then {
         $0.backgroundColor = .evBackground
         $0.layer.cornerRadius = 12
-        $0.layer.shadowOpacity = 0.3
-        $0.layer.shadowRadius = 2
+        $0.layer.shadowOpacity = 0.15
+        $0.layer.shadowRadius = 12
         $0.layer.shadowOffset = CGSize(width: 0, height: 0)
         $0.layer.shadowPath = nil
     }
     
-    let oneButton = UIButton().then
-    let twoButton = UIButton().then
-    let threeButton = UIButton().then
-    let fourButton = UIButton().then
-    let fiveButton = UIButton().then
+    private let oneButton = UIButton().then {
+        $0.setTitle("Lv. 1", for: .normal)
+        $0.titleLabel?.font = UIFont.pretendard(size: 18, weight: .semibold)
+        $0.layer.cornerRadius = 18
+        $0.setTitleColor(.gray50, for: .normal)
+        $0.backgroundColor = .blue10
+    }
     
-    let oneProgressView = UIProgressView().then
-    let twoProgressView = UIProgressView().then
-    let threeProgressView = UIProgressView().then
-    let fourProgressView = UIProgressView().then
-    let fiveProgressView = UIProgressView().then
+    private let twoButton = UIButton().then {
+        $0.setTitle("Lv. 2", for: .normal)
+        $0.titleLabel?.font = UIFont.pretendard(size: 18, weight: .semibold)
+        $0.layer.cornerRadius = 18
+        $0.setTitleColor(.white, for: .normal)
+        $0.backgroundColor = .blue25
+    }
+    
+    private let threeButton = UIButton().then {
+        $0.setTitle("Lv. 3", for: .normal)
+        $0.titleLabel?.font = UIFont.pretendard(size: 18, weight: .semibold)
+        $0.layer.cornerRadius = 18
+        $0.setTitleColor(.white, for: .normal)
+        $0.backgroundColor = .blue50
+    }
+    
+    private let fourButton = UIButton().then {
+        $0.setTitle("Lv. 4", for: .normal)
+        $0.titleLabel?.font = UIFont.pretendard(size: 18, weight: .semibold)
+        $0.layer.cornerRadius = 18
+        $0.setTitleColor(.white, for: .normal)
+        $0.backgroundColor = .blue75
+    }
+    
+    private let fiveButton = UIButton().then {
+        $0.setTitle("Lv. 5", for: .normal)
+        $0.titleLabel?.font = UIFont.pretendard(size: 18, weight: .semibold)
+        $0.layer.cornerRadius = 18
+        $0.setTitleColor(.white, for: .normal)
+        $0.backgroundColor = .blue100
+    }
+    
+    private let oneProgressView = UIProgressView().then {
+        $0.progress = 0.5
+        $0.trackTintColor = .evBackground
+        $0.progressTintColor = .blue10
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = UIColor.gray50.cgColor
+        $0.subviews[1].layer.borderWidth = 1
+        $0.subviews[1].layer.borderColor = UIColor.gray50.cgColor
+        $0.clipsToBounds = true
+        $0.subviews[1].clipsToBounds = true
+        $0.layer.cornerRadius = 15
+        $0.layer.sublayers?[1].cornerRadius = 15
+    }
+    
+    private let twoProgressView = UIProgressView().then {
+        $0.progress = 0.5
+        $0.trackTintColor = .evBackground
+        $0.progressTintColor = .blue25
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = UIColor.gray50.cgColor
+        $0.subviews[1].layer.borderWidth = 1
+        $0.subviews[1].layer.borderColor = UIColor.gray50.cgColor
+        $0.clipsToBounds = true
+        $0.subviews[1].clipsToBounds = true
+        $0.layer.cornerRadius = 15
+        $0.layer.sublayers?[1].cornerRadius = 15
+    }
+    
+    private let threeProgressView = UIProgressView().then {
+        $0.progress = 0.5
+        $0.trackTintColor = .evBackground
+        $0.progressTintColor = .blue50
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = UIColor.gray50.cgColor
+        $0.subviews[1].layer.borderWidth = 1
+        $0.subviews[1].layer.borderColor = UIColor.gray50.cgColor
+        $0.clipsToBounds = true
+        $0.subviews[1].clipsToBounds = true
+        $0.layer.cornerRadius = 15
+        $0.layer.sublayers?[1].cornerRadius = 15
+    }
+    
+    private let fourProgressView = UIProgressView().then {
+        $0.progress = 0.5
+        $0.trackTintColor = .evBackground
+        $0.progressTintColor = .blue75
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = UIColor.gray50.cgColor
+        $0.subviews[1].layer.borderWidth = 1
+        $0.subviews[1].layer.borderColor = UIColor.gray50.cgColor
+        $0.clipsToBounds = true
+        $0.subviews[1].clipsToBounds = true
+        $0.layer.cornerRadius = 15
+        $0.layer.sublayers?[1].cornerRadius = 15
+    }
+    
+    private let fiveProgressView = UIProgressView().then {
+        $0.progress = 0.5
+        $0.trackTintColor = .evBackground
+        $0.progressTintColor = .blue100
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = UIColor.gray50.cgColor
+        $0.subviews[1].layer.borderWidth = 1
+        $0.subviews[1].layer.borderColor = UIColor.gray50.cgColor
+        $0.clipsToBounds = true
+        $0.subviews[1].clipsToBounds = true
+        $0.layer.cornerRadius = 15
+        $0.layer.sublayers?[1].cornerRadius = 15
+    }
+    
+    private let oneProgressPercentLabel = UILabel().then {
+        $0.text = "50%"
+        $0.font = UIFont.pretendard(size: 13, weight: .semibold)
+        $0.textColor = .gray50
+        $0.textAlignment = .right
+    }
+    
+    private let twoProgressPercentLabel = UILabel().then {
+        $0.text = "50%"
+        $0.font = UIFont.pretendard(size: 13, weight: .semibold)
+        $0.textColor = .white
+        $0.textAlignment = .right
+    }
+    
+    private let threeProgressPercentLabel = UILabel().then {
+        $0.text = "50%"
+        $0.font = UIFont.pretendard(size: 13, weight: .semibold)
+        $0.textColor = .white
+        $0.textAlignment = .right
+    }
+    
+    private let fourProgressPercentLabel = UILabel().then {
+        $0.text = "50%"
+        $0.font = UIFont.pretendard(size: 13, weight: .semibold)
+        $0.textColor = .white
+        $0.textAlignment = .right
+    }
+    
+    private let fiveProgressPercentLabel = UILabel().then {
+        $0.text = "50%"
+        $0.font = UIFont.pretendard(size: 13, weight: .semibold)
+        $0.textColor = .white
+        $0.textAlignment = .right
+    }
     
     
     // MARK: - methods
@@ -141,7 +274,22 @@ final class UserView: BaseView {
         
         levelView.addSubview(levelLabel)
         
-        [].forEach { levelProgressView.addSubview($0) }
+        [oneButton,
+         twoButton,
+         threeButton,
+         fourButton,
+         fiveButton,
+         oneProgressView,
+         twoProgressView,
+         threeProgressView,
+         fourProgressView,
+         fiveProgressView].forEach { levelProgressView.addSubview($0) }
+        
+        oneProgressView.subviews[1].addSubview(oneProgressPercentLabel)
+        twoProgressView.subviews[1].addSubview(twoProgressPercentLabel)
+        threeProgressView.subviews[1].addSubview(threeProgressPercentLabel)
+        fourProgressView.subviews[1].addSubview(fourProgressPercentLabel)
+        fiveProgressView.subviews[1].addSubview(fiveProgressPercentLabel)
         
     }
     
@@ -226,6 +374,102 @@ final class UserView: BaseView {
             $0.trailing.equalToSuperview().offset(-16)
             $0.top.equalToSuperview().offset(12)
             $0.bottom.equalToSuperview().offset(-12)
+        }
+        
+        oneButton.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(16)
+            $0.leading.equalToSuperview().offset(16)
+            $0.trailing.equalToSuperview().offset(-266)
+            $0.height.equalTo(36)
+        }
+        
+        twoButton.snp.makeConstraints {
+            $0.top.equalTo(oneButton.snp.bottom).offset(20)
+            $0.leading.equalToSuperview().offset(16)
+            $0.trailing.equalToSuperview().offset(-266)
+            $0.height.equalTo(36)
+        }
+        
+        threeButton.snp.makeConstraints {
+            $0.top.equalTo(twoButton.snp.bottom).offset(20)
+            $0.leading.equalToSuperview().offset(16)
+            $0.trailing.equalToSuperview().offset(-266)
+            $0.height.equalTo(36)
+        }
+        
+        fourButton.snp.makeConstraints {
+            $0.top.equalTo(threeButton.snp.bottom).offset(20)
+            $0.leading.equalToSuperview().offset(16)
+            $0.trailing.equalToSuperview().offset(-266)
+            $0.height.equalTo(36)
+        }
+        
+        fiveButton.snp.makeConstraints {
+            $0.top.equalTo(fourButton.snp.bottom).offset(20)
+            $0.leading.equalToSuperview().offset(16)
+            $0.trailing.equalToSuperview().offset(-266)
+            $0.bottom.equalToSuperview().offset(-16)
+            $0.height.equalTo(36)
+        }
+        
+        oneProgressView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(18)
+            $0.leading.equalTo(oneButton.snp.trailing).offset(18)
+            $0.trailing.equalToSuperview().offset(-26)
+            $0.height.equalTo(30)
+        }
+        
+        twoProgressView.snp.makeConstraints {
+            $0.centerY.equalTo(twoButton.snp.centerY)
+            $0.leading.equalTo(twoButton.snp.trailing).offset(18)
+            $0.trailing.equalToSuperview().offset(-26)
+            $0.height.equalTo(30)
+        }
+        
+        threeProgressView.snp.makeConstraints {
+            $0.centerY.equalTo(threeButton.snp.centerY)
+            $0.leading.equalTo(threeButton.snp.trailing).offset(18)
+            $0.trailing.equalToSuperview().offset(-26)
+            $0.height.equalTo(30)
+        }
+        
+        fourProgressView.snp.makeConstraints {
+            $0.centerY.equalTo(fourButton.snp.centerY)
+            $0.leading.equalTo(fourButton.snp.trailing).offset(18)
+            $0.trailing.equalToSuperview().offset(-26)
+            $0.height.equalTo(30)
+        }
+        
+        fiveProgressView.snp.makeConstraints {
+            $0.centerY.equalTo(fiveButton.snp.centerY)
+            $0.leading.equalTo(fiveButton.snp.trailing).offset(18)
+            $0.trailing.equalToSuperview().offset(-26)
+            $0.height.equalTo(30)
+        }
+        
+        oneProgressPercentLabel.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().offset(-6)
+        }
+        
+        twoProgressPercentLabel.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().offset(-6)
+        }
+        
+        threeProgressPercentLabel.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().offset(-6)
+        }
+        
+        fourProgressPercentLabel.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().offset(-6)
+        }
+        
+        fiveProgressPercentLabel.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().offset(-6)
         }
     }
 
