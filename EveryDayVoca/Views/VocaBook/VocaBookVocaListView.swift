@@ -10,42 +10,40 @@ import UIKit
 final class VocaBookVocaListView: BaseView {
     
     // MARK: - Properties
-    
-    
-    
-    let vocaBookSelectionView = UIView().then {
+
+    private let vocaBookSelectionView = UIView().then {
         $0.backgroundColor = .none
     }
     
-    let vocaBookSelectionLabel = UILabel().then {
+    private let vocaBookSelectionLabel = UILabel().then {
         $0.textAlignment = .center
         $0.textColor = UIColor.evText
         $0.numberOfLines = 1
         $0.font = UIFont.pretendard(size: 12, weight: .medium)
     }
     
-    let vocaBookSelectionImage = UIImageView().then {
+    private let vocaBookSelectionImage = UIImageView().then {
         $0.image = UIImage(systemName: "chevron.forward")
         $0.contentMode = .scaleAspectFit
         $0.tintColor = UIColor.evText
     }
     
-    let tableOptionView = UIView().then {
+    private let tableOptionView = UIView().then {
         $0.backgroundColor = .none
     }
     
-    lazy var tableFilterButton = UIButton(configuration: makeButtonConfiguration(title: "모든 단어", titleSize: 14))
+    private lazy var tableFilterButton = UIButton(configuration: makeButtonConfiguration(title: "모든 단어", titleSize: 14))
     
-    lazy var tableDisplayOptionButton = UIButton(configuration: makeButtonConfiguration(title: "단어 + 의미", titleSize: 14))
+    private lazy var tableDisplayOptionButton = UIButton(configuration: makeButtonConfiguration(title: "단어 + 의미", titleSize: 14))
     
-    let tableItemCountLabel = UILabel().then {
+    private let tableItemCountLabel = UILabel().then {
         $0.textAlignment = .right
         $0.textColor = UIColor.gray100
         $0.numberOfLines = 1
         $0.font = UIFont.pretendard(size: 12, weight: .medium)
     }
     
-    let vocaListTableView = UITableView().then {
+    private let vocaListTableView = UITableView().then {
         $0.backgroundColor = UIColor.evBackground
     }
     
@@ -108,7 +106,7 @@ final class VocaBookVocaListView: BaseView {
          tableItemCountLabel].forEach { tableOptionView.addSubview($0) }
     }
     
-    func makeButtonConfiguration(title: String, titleSize: CGFloat) -> UIButton.Configuration {
+    private func makeButtonConfiguration(title: String, titleSize: CGFloat) -> UIButton.Configuration {
         var config = UIButton.Configuration.plain()
         // title
         config.attributedTitle = AttributedString(title)

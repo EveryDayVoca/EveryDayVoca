@@ -10,8 +10,8 @@ import UIKit
 final class VocaBookViewController: BaseViewController {
     
     // MARK: - Properties
-    let vocaBookVocaListView = VocaBookVocaListView()
-    let titleLabel = UILabel().then {
+    private let vocaBookVocaListView = VocaBookVocaListView()
+    private let titleLabel = UILabel().then {
         $0.text = "나의 단어 사전"
         $0.font = UIFont.pretendard(size: 17, weight: .semibold)
         $0.textColor = UIColor.evText
