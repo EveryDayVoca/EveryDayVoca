@@ -17,23 +17,36 @@ final class UserViewController: BaseViewController {
         $0.textAlignment = .center
     }
     
-    let modifyButton = UIBarButtonItem().then {
-        $0.title = "수정"
-        $0.tintColor = .gray50
-    }
+    lazy var modifyButton = UIBarButtonItem(title: "수정", style: .plain, target: self, action: #selector(tappedModifyButton))
+    
+//    let modifyButton = UIBarButtonItem().then {
+//        $0.title = "수정"
+//        $0.style = .plain
+//        $0.target = self
+//        $0.action = #selector(tappedModifyButton)
+//        $0.tintColor = .gray50
+//    }
+    
+
     
     // MARK: - life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         view = self.userView
-        
+    
         self.navigationItem.titleView = titleLabel
         self.navigationController?.navigationBar.shadowImage = nil
-        self.navigationItem.rightBarButtonItem = modifyButton
-        
+        navigationItem.rightBarButtonItem = modifyButton
     }
     
+    @objc func tappedModifyButton() {
+        let nextView = UserModifyViewController()
+        navigationController?.pushViewController(nextView, animated: true)
+    }
+    
+    
     override func configureStyle() {
+       
     }
     
     override func configureDelegate() {

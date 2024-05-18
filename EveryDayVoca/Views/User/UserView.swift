@@ -26,19 +26,19 @@ final class UserView: BaseView {
     }
     
     private let profileImage = UIImageView().then {
-        $0.backgroundColor = .gray100
+        $0.backgroundColor = .gray50
         $0.layer.cornerRadius = 32
     }
     
     private let userNameLabel = UILabel().then {
-        $0.text = "데일리보카"
+        $0.text = "사용자 이름"
         $0.font = UIFont.pretendard(size: 18, weight: .semibold)
         $0.textColor = UIColor.evText
         $0.textAlignment = .left
     }
     
     private let nickNameLabel = UILabel().then {
-        $0.text = "임시"
+        $0.text = "사용자 닉네임"
         $0.font = UIFont.pretendard(size: 18, weight: .regular)
         $0.textColor = UIColor.evText
         $0.textAlignment = .left
@@ -76,7 +76,7 @@ final class UserView: BaseView {
     
     private let dayGoalCountLabel = UILabel().then {
         $0.text = "일일 학습 단어 수"
-        $0.font = UIFont.pretendard(size: 18, weight: .regular)
+        $0.font = UIFont.pretendard(size: 18, weight: .ultraLight)
         $0.textColor = UIColor.evText
         $0.textAlignment = .left
     }
@@ -249,6 +249,10 @@ final class UserView: BaseView {
         $0.textAlignment = .right
     }
     
+    let modifyButton = UIButton().then {
+        $0.setTitle("수정", for: .normal)
+        $0.tintColor = .gray50
+    }
     
     // MARK: - methods
     override func configureUI() {
@@ -291,6 +295,7 @@ final class UserView: BaseView {
         fourProgressView.subviews[1].addSubview(fourProgressPercentLabel)
         fiveProgressView.subviews[1].addSubview(fiveProgressPercentLabel)
         
+        
     }
     
     override func configureConstraints() {
@@ -305,7 +310,7 @@ final class UserView: BaseView {
             $0.top.equalTo(profileLabel.snp.bottom).offset(12)
             $0.leading.equalToSuperview().offset(20)
             $0.trailing.equalToSuperview().offset(-20)
-            $0.height.equalTo(96)
+//            $0.height.equalTo(96)
         }
         
         dayGoalLabel.snp.makeConstraints {
@@ -471,7 +476,10 @@ final class UserView: BaseView {
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().offset(-6)
         }
+      
+        
     }
+    
 
     
 }
