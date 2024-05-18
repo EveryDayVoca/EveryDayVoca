@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SwiftUI
 
 class UserModifyViewController: UIViewController {
 
@@ -29,29 +28,4 @@ class UserModifyViewController: UIViewController {
 
 }
 
-extension UIViewController {
-    private struct Preview: UIViewControllerRepresentable {
-        let vc: UIViewController
-        
-        func makeUIViewController(context: Context) -> UIViewController {
-            return vc
-        }
-        
-        func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-        }
-    }
-    
-    func toPreview() -> some View {
-        Preview(vc: self)
-    }
-}
-
-#if DEBUG
-struct ViewControllerPreview: PreviewProvider {
-    static var previews: some View {
-        UserModifyViewController()
-            .toPreview()
-    }
-}
-#endif
 
