@@ -26,6 +26,8 @@ struct Voca {
 
 final class VocaListTableViewCell: UITableViewCell {
     
+    static let identifier = String(describing: VocaListTableViewCell.self)
+    
     // MARK: - Properties
     private let statusDotImage = UIImageView().then {
         $0.image = UIImage(systemName: "circle.fill")
@@ -109,35 +111,36 @@ final class VocaListTableViewCell: UITableViewCell {
             $0.bottom.equalToSuperview().inset(verticalEdge)
         }
         
-        
-        func configureHierarchy() {
-            [statusDotImage,
-             statusTextLabel,
-             vocaBookLabel,
-             englishLabel,
-             koreanLabel].forEach { contentView.addSubview($0) }
-        }
-        
-        
-        func bind(voca: Voca) {
-            switch voca.status {
-            case .difficult:
-                statusDotImage.tintColor = UIColor.red100
-                statusTextLabel.text = "어려워요"
-            case .ambiguous:
-                statusDotImage.tintColor = UIColor.yellow100
-                statusTextLabel.text = "애매해요"
-            case .memorized:
-                statusDotImage.tintColor = UIColor.green100
-                statusTextLabel.text = "외웠어요"
-            }
-            
-            vocaBookLabel.text = voca.vocaBook
-            
-            englishLabel.text = voca.english
-            
-            koreanLabel.text = voca.korean
-        }
-        
     }
+    
+    private func configureHierarchy() {
+        [statusDotImage,
+         statusTextLabel,
+         vocaBookLabel,
+         englishLabel,
+         koreanLabel].forEach { contentView.addSubview($0) }
+    }
+    
+    
+    func bind(voca: Voca) {
+        switch voca.status {
+        case .difficult:
+            statusDotImage.tintColor = UIColor.red100
+            statusTextLabel.text = "어려워요"
+        case .ambiguous:
+            statusDotImage.tintColor = UIColor.yellow100
+            statusTextLabel.text = "애매해요"
+        case .memorized:
+            statusDotImage.tintColor = UIColor.green100
+            statusTextLabel.text = "외웠어요"
+        }
+        
+        vocaBookLabel.text = voca.vocaBook
+        
+        englishLabel.text = voca.english
+        
+        koreanLabel.text = voca.korean
+    }
+    
+    
 }

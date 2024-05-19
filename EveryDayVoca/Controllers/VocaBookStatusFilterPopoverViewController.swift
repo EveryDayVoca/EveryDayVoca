@@ -37,7 +37,7 @@ extension VocaBookStatusFilterPopoverViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = self.vocaBookPopoverView.tableView.dequeueReusableCell(withIdentifier: VocaBookStatusFilterPopoverTableViewCell.identifier) as? VocaBookStatusFilterPopoverTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: VocaBookStatusFilterPopoverTableViewCell.identifier) as? VocaBookStatusFilterPopoverTableViewCell else { return UITableViewCell() }
         
         cell.bind(status: filters[indexPath.row])
         

@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import CoreData
 
 final class VocaBookViewController: BaseViewController {
     
     // MARK: - Properties
+
     private let vocaBookVocaListView = VocaBookVocaListView()
     private let titleLabel = UILabel().then {
         $0.text = "나의 단어 사전"
@@ -18,6 +20,7 @@ final class VocaBookViewController: BaseViewController {
         $0.textAlignment = .center
     }
     
+    var vocas: [Voca] = []
     
     // MARK: - Life Cycles
     
@@ -28,6 +31,33 @@ final class VocaBookViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    // MARK: - Methods
+    override func configureDelegate() {
+        super.configureDelegate()
+        
+        vocaBookVocaListView.vocaListTableView.dataSource = self
+    }
+    
+    
+    override func bind() {
+        
+    }
+    
+}
+
+extension VocaBookViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return vocas.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: VocaListTableViewCell.identifier, for: indexPath) as? VocaListTableViewCell else { return UITableViewCell() }
+        
+        cell.bind(voca: vocas[indexPath.row])
+        
+        return cell
     }
     
     

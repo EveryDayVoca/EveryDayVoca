@@ -49,7 +49,7 @@ final class VocaBookVocaListView: BaseView {
         $0.font = UIFont.pretendard(size: 12, weight: .medium)
     }
     
-    private let vocaListTableView = UITableView().then {
+    let vocaListTableView = UITableView().then {
         $0.backgroundColor = UIColor.evBackground
     }
     
