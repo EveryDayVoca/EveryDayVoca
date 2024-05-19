@@ -12,6 +12,8 @@
 		372711FB2BFA0D1200573AC4 /* StudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372711FA2BFA0D1200573AC4 /* StudyView.swift */; };
 		372711FE2BFA0EFA00573AC4 /* StudyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372711FD2BFA0EFA00573AC4 /* StudyCell.swift */; };
 		372712002BFA16FA00573AC4 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372711FF2BFA16FA00573AC4 /* BaseCollectionViewCell.swift */; };
+		372712022BFA6E0200573AC4 /* StudyAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372712012BFA6E0200573AC4 /* StudyAlertViewController.swift */; };
+		372712042BFA6E5400573AC4 /* StudyAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372712032BFA6E5400573AC4 /* StudyAlertView.swift */; };
 		37D776FF2BF30DBD0078D6E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D776FE2BF30DBD0078D6E8 /* AppDelegate.swift */; };
 		37D777012BF30DBD0078D6E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D777002BF30DBD0078D6E8 /* SceneDelegate.swift */; };
 		37D777092BF30DBD0078D6E8 /* EveryDayVoca.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37D777072BF30DBD0078D6E8 /* EveryDayVoca.xcdatamodeld */; };
@@ -41,6 +43,8 @@
 		372711FA2BFA0D1200573AC4 /* StudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyView.swift; sourceTree = "<group>"; };
 		372711FD2BFA0EFA00573AC4 /* StudyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyCell.swift; sourceTree = "<group>"; };
 		372711FF2BFA16FA00573AC4 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		372712012BFA6E0200573AC4 /* StudyAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyAlertViewController.swift; sourceTree = "<group>"; };
+		372712032BFA6E5400573AC4 /* StudyAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyAlertView.swift; sourceTree = "<group>"; };
 		37D776FB2BF30DBD0078D6E8 /* EveryDayVoca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EveryDayVoca.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37D776FE2BF30DBD0078D6E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37D777002BF30DBD0078D6E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				372711FA2BFA0D1200573AC4 /* StudyView.swift */,
+				372712032BFA6E5400573AC4 /* StudyAlertView.swift */,
 			);
 			path = Study;
 			sourceTree = "<group>";
@@ -125,6 +130,7 @@
 				37D777252BF31E390078D6E8 /* StudyViewController.swift */,
 				37D777272BF31E640078D6E8 /* ReportViewController.swift */,
 				37D777292BF31E700078D6E8 /* UserViewController.swift */,
+				372712012BFA6E0200573AC4 /* StudyAlertViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -265,6 +271,8 @@
 				37D777012BF30DBD0078D6E8 /* SceneDelegate.swift in Sources */,
 				37D777092BF30DBD0078D6E8 /* EveryDayVoca.xcdatamodeld in Sources */,
 				37D777262BF31E390078D6E8 /* StudyViewController.swift in Sources */,
+				372712022BFA6E0200573AC4 /* StudyAlertViewController.swift in Sources */,
+				372712042BFA6E5400573AC4 /* StudyAlertView.swift in Sources */,
 				371D24342BF38AC1002B4DC5 /* BaseViewController.swift in Sources */,
 				37D777242BF31DED0078D6E8 /* VocaBookViewController.swift in Sources */,
 				372711FB2BFA0D1200573AC4 /* StudyView.swift in Sources */,
