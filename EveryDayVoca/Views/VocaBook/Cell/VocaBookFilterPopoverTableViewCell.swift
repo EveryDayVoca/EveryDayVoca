@@ -30,11 +30,11 @@ final class VocaBookFilterPopoverTableViewCell: UITableViewCell {
     
     // MARK: - Methods
     
-    init() {
-        super.init(style: .default, reuseIdentifier: nil)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureUI()
-        configureConstraints()
         configureHierarchy()
+        configureConstraints()
     }
     
     required init?(coder: NSCoder) {
