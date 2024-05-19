@@ -9,11 +9,10 @@ import UIKit
 
 final class VocaBookFilterPopoverTableViewCell: UITableViewCell {
     
-    
     // MARK: - Properties
     static let identifier = String(describing: VocaBookFilterPopoverTableViewCell.self)
     
-    var checkStatus: Bool = false
+    var indexPath: IndexPath?
     
     let label = UILabel().then {
         $0.textAlignment = .left
@@ -62,8 +61,8 @@ final class VocaBookFilterPopoverTableViewCell: UITableViewCell {
         checkMarkImage].forEach { contentView.addSubview($0) }
     }
     
-    func bind(status: Status) {
-        switch status {
+    func bind(filter: Filter) {
+        switch filter.status {
         case .difficult:
             label.text = "어려워요"
             
@@ -73,9 +72,14 @@ final class VocaBookFilterPopoverTableViewCell: UITableViewCell {
         case .memorized:
             label.text = "외웠어요"
         }
+        
+        switch filter.isSelected {
+        case true:
+            checkMarkImage.isHidden = false
+            
+        case false:
+            checkMarkImage.isHidden = true
+        }
     }
     
-    func changeCheckStatus() {
-        self.checkStatus = !checkStatus
-    }
 }

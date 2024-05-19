@@ -78,7 +78,4 @@ extension VocaBookViewController: UITableViewDataSource {
         
         return cell
     }
-    
-    
-    
 }

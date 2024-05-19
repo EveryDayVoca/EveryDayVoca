@@ -12,6 +12,8 @@
 		1A3933402BF8B8AD00F3B825 /* VocaBookPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A39333F2BF8B8AD00F3B825 /* VocaBookPopoverView.swift */; };
 		1A3933422BF9EB2800F3B825 /* VocaBookFilterPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3933412BF9EB2800F3B825 /* VocaBookFilterPopoverViewController.swift */; };
 		1A3933442BF9F03500F3B825 /* VocaBookFilterPopoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3933432BF9F03500F3B825 /* VocaBookFilterPopoverTableViewCell.swift */; };
+		1A3933482BFA279700F3B825 /* VocaBookDisplayOptionPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3933472BFA279700F3B825 /* VocaBookDisplayOptionPopoverViewController.swift */; };
+		1A39334A2BFA27BE00F3B825 /* VocaBookDisplayOptionPopoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3933492BFA27BE00F3B825 /* VocaBookDisplayOptionPopoverTableViewCell.swift */; };
 		371D24322BF37ED7002B4DC5 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371D24312BF37ED7002B4DC5 /* BaseView.swift */; };
 		371D24342BF38AC1002B4DC5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371D24332BF38AC1002B4DC5 /* BaseViewController.swift */; };
 		37D776FF2BF30DBD0078D6E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D776FE2BF30DBD0078D6E8 /* AppDelegate.swift */; };
@@ -43,6 +45,8 @@
 		1A39333F2BF8B8AD00F3B825 /* VocaBookPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookPopoverView.swift; sourceTree = "<group>"; };
 		1A3933412BF9EB2800F3B825 /* VocaBookFilterPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookFilterPopoverViewController.swift; sourceTree = "<group>"; };
 		1A3933432BF9F03500F3B825 /* VocaBookFilterPopoverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookFilterPopoverTableViewCell.swift; sourceTree = "<group>"; };
+		1A3933472BFA279700F3B825 /* VocaBookDisplayOptionPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookDisplayOptionPopoverViewController.swift; sourceTree = "<group>"; };
+		1A3933492BFA27BE00F3B825 /* VocaBookDisplayOptionPopoverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookDisplayOptionPopoverTableViewCell.swift; sourceTree = "<group>"; };
 		371D24312BF37ED7002B4DC5 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		371D24332BF38AC1002B4DC5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		37D776FB2BF30DBD0078D6E8 /* EveryDayVoca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EveryDayVoca.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,8 +115,18 @@
 			isa = PBXGroup;
 			children = (
 				1A3933432BF9F03500F3B825 /* VocaBookFilterPopoverTableViewCell.swift */,
+				1A3933492BFA27BE00F3B825 /* VocaBookDisplayOptionPopoverTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		1A3933462BFA276500F3B825 /* VocaBookPopover */ = {
+			isa = PBXGroup;
+			children = (
+				1A3933412BF9EB2800F3B825 /* VocaBookFilterPopoverViewController.swift */,
+				1A3933472BFA279700F3B825 /* VocaBookDisplayOptionPopoverViewController.swift */,
+			);
+			path = VocaBookPopover;
 			sourceTree = "<group>";
 		};
 		37D776F22BF30DBD0078D6E8 = {
@@ -152,7 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				37D777232BF31DED0078D6E8 /* VocaBookViewController.swift */,
-				1A3933412BF9EB2800F3B825 /* VocaBookFilterPopoverViewController.swift */,
+				1A3933462BFA276500F3B825 /* VocaBookPopover */,
 				37D777252BF31E390078D6E8 /* StudyViewController.swift */,
 				37D777272BF31E640078D6E8 /* ReportViewController.swift */,
 				37D777292BF31E700078D6E8 /* UserViewController.swift */,
@@ -298,11 +312,13 @@
 				37D777262BF31E390078D6E8 /* StudyViewController.swift in Sources */,
 				1A39333D2BF60C5900F3B825 /* VocaBookVocaListView.swift in Sources */,
 				371D24342BF38AC1002B4DC5 /* BaseViewController.swift in Sources */,
+				1A3933482BFA279700F3B825 /* VocaBookDisplayOptionPopoverViewController.swift in Sources */,
 				37D777242BF31DED0078D6E8 /* VocaBookViewController.swift in Sources */,
 				371D24322BF37ED7002B4DC5 /* BaseView.swift in Sources */,
 				1A3933422BF9EB2800F3B825 /* VocaBookFilterPopoverViewController.swift in Sources */,
 				1A3933442BF9F03500F3B825 /* VocaBookFilterPopoverTableViewCell.swift in Sources */,
 				37D777422BF34DED0078D6E8 /* UIFont+Extension.swift in Sources */,
+				1A39334A2BFA27BE00F3B825 /* VocaBookDisplayOptionPopoverTableViewCell.swift in Sources */,
 				1A39333A2BF5CDD700F3B825 /* VocaListTableViewCell.swift in Sources */,
 				37D777282BF31E640078D6E8 /* ReportViewController.swift in Sources */,
 			);

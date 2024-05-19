@@ -7,12 +7,19 @@
 
 import UIKit
 
+struct Filter {
+    let status: Status
+    var isSelected: Bool
+}
+
 class VocaBookFilterPopoverViewController: BaseViewController {
 
     // MARK: - Properties
     
     private let vocaBookPopoverView = VocaBookPopoverView()
-    private let filters: [Status] = [.difficult, .ambiguous, .memorized]
+    var filters: [Filter] = [Filter(status: .difficult, isSelected: true),
+                             Filter(status: .ambiguous, isSelected: true),
+                             Filter(status: .memorized, isSelected: true)]
     
     
     // MARK: - Life Cycles
@@ -38,9 +45,13 @@ class VocaBookFilterPopoverViewController: BaseViewController {
     override func configureDelegate() {
         super.configureDelegate()
         
-        self.vocaBookPopoverView.tableView.register(VocaBookFilterPopoverTableViewCell.self, forCellReuseIdentifier: VocaBookFilterPopoverTableViewCell.identifier)
+//        let tableView = vocaBookPopoverView.tableView
         
+        self.vocaBookPopoverView.tableView.register(VocaBookFilterPopoverTableViewCell.self, forCellReuseIdentifier: VocaBookFilterPopoverTableViewCell.identifier)
         self.vocaBookPopoverView.tableView.dataSource = self
+        self.vocaBookPopoverView.tableView.delegate = self
+        
+        self.vocaBookPopoverView.tableView.allowsMultipleSelection = true
     }
 }
 
@@ -55,10 +66,20 @@ extension VocaBookFilterPopoverViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.bind(status: filters[indexPath.row])
-        
+        cell.bind(filter: filters[indexPath.row])
+//        cell.selectionStyle = .none
+        print("load cell???????")
         return cell
     }
     
+    
+}
+
+extension VocaBookFilterPopoverViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        filters[indexPath.row].isSelected = !filters[indexPath.row].isSelected
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+        print("filters: \(filters)")
+    }
     
 }
