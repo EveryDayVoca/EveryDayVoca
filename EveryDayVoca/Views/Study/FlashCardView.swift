@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import Shuffle
 
 final class FlashCardView: BaseView {
     
-    // MARK: - properties
+    // MARK: - Properties
+    
     private let progressRateLabel = UILabel().then {
         $0.text = "학습 진도율"
         $0.font = UIFont.pretendard(size: 17, weight: .semibold)
@@ -40,47 +42,40 @@ final class FlashCardView: BaseView {
         $0.layer.shadowRadius = 10
         $0.backgroundColor = .clear
     }
-   
-    var cardButton = UIButton().then {
-        $0.setBackgroundImage(UIImage(named: "flash_card"), for: .normal)
-        let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.pretendard(size: 24, weight: .semibold),
-                                                         .foregroundColor: UIColor.evText,
-                                                         .underlineStyle: 0]
-        let attributedTitle = NSAttributedString(string: "Apple", attributes: attributes)
-        $0.setAttributedTitle(attributedTitle, for: .normal)
-    }
+    
+    var cardStack = SwipeCardStack()
     
     let hardButton = UIButton().then {
-        $0.clipsToBounds = true
-        $0.layer.cornerRadius = 15
-        $0.backgroundColor = UIColor.blue25
         let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.pretendard(size: 20, weight: .light),
                                                          .foregroundColor: UIColor.evBackground,
                                                          .underlineStyle: 0]
         let attributedTitle = NSAttributedString(string: "어려워요", attributes: attributes)
         $0.setAttributedTitle(attributedTitle, for: .normal)
-    }
-    
-    let normalButton = UIButton().then {
         $0.clipsToBounds = true
         $0.layer.cornerRadius = 15
         $0.backgroundColor = UIColor.blue25
+    }
+    
+    let normalButton = UIButton().then {
         let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.pretendard(size: 20, weight: .light),
                                                          .foregroundColor: UIColor.evBackground,
                                                          .underlineStyle: 0]
         let attributedTitle = NSAttributedString(string: "애매해요", attributes: attributes)
         $0.setAttributedTitle(attributedTitle, for: .normal)
+        $0.clipsToBounds = true
+        $0.layer.cornerRadius = 15
+        $0.backgroundColor = UIColor.blue25
     }
     
     let perfectButton = UIButton().then {
-        $0.clipsToBounds = true
-        $0.layer.cornerRadius = 15
-        $0.backgroundColor = UIColor.blue100
         let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.pretendard(size: 20, weight: .semibold),
                                                          .foregroundColor: UIColor.evBackground,
                                                          .underlineStyle: 0]
         let attributedTitle = NSAttributedString(string: "외웠어요", attributes: attributes)
         $0.setAttributedTitle(attributedTitle, for: .normal)
+        $0.clipsToBounds = true
+        $0.layer.cornerRadius = 15
+        $0.backgroundColor = UIColor.blue100
     }
     
     private lazy var buttonStack = UIStackView(arrangedSubviews: [hardButton, normalButton, perfectButton]).then {
@@ -90,17 +85,19 @@ final class FlashCardView: BaseView {
         $0.distribution = .fillEqually
     }
     
-    // MARK: - methods
+    
+    // MARK: - Methods
+    
     override func configureUI() {
         super.configureUI()
     }
     
     override func configureHierarchy() {
         self.addSubview(progressRateLabel)
-        progressBar.addSubview(percentLabel)
-        containerView.addSubview(progressBar)
         self.addSubview(containerView)
-        self.addSubview(cardButton)
+        containerView.addSubview(progressBar)
+        progressBar.addSubview(percentLabel)
+        self.addSubview(cardStack)
         self.addSubview(buttonStack)
     }
     
@@ -120,22 +117,16 @@ final class FlashCardView: BaseView {
             $0.edges.equalTo(containerView.snp.edges)
         }
         
-        containerView.snp.makeConstraints {
-            $0.top.equalTo(self.progressRateLabel.snp.bottom).offset(16)
-            $0.leading.trailing.equalToSuperview().inset(28)
-            $0.height.equalToSuperview().multipliedBy(0.028)
-        }
-        
-        cardButton.snp.makeConstraints {
-            $0.width.equalTo(cardButton.snp.height)
-            $0.width.equalToSuperview().multipliedBy(0.78)
+        cardStack.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.centerY.equalToSuperview()
+            $0.width.equalToSuperview().multipliedBy(0.9)
+            $0.width.equalTo(cardStack.snp.height)
         }
         
         buttonStack.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(28)
-            $0.top.equalTo(cardButton.snp.bottom).offset(96)
+            $0.bottom.equalToSuperview().inset(40)
             $0.height.equalToSuperview().multipliedBy(0.067)
         }
     }

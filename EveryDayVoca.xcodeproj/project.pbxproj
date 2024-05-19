@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2E9DED9B2BF50C4500A85C42 /* FlashCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DED9A2BF50C4500A85C42 /* FlashCardView.swift */; };
 		2E9DED9D2BF5D0EC00A85C42 /* FlashCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DED9C2BF5D0EC00A85C42 /* FlashCardViewController.swift */; };
+		2E9DEDD72BF9FD6800A85C42 /* CardDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DEDD62BF9FD6800A85C42 /* CardDataModel.swift */; };
+		2E9DEDD92BFA167700A85C42 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DEDD82BFA167700A85C42 /* CardView.swift */; };
+		2E9DEDE22BFA77C900A85C42 /* Shuffle in Frameworks */ = {isa = PBXBuildFile; productRef = 2E9DEDE12BFA77C900A85C42 /* Shuffle */; };
 		371D24322BF37ED7002B4DC5 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371D24312BF37ED7002B4DC5 /* BaseView.swift */; };
 		371D24342BF38AC1002B4DC5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371D24332BF38AC1002B4DC5 /* BaseViewController.swift */; };
 		37D776FF2BF30DBD0078D6E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D776FE2BF30DBD0078D6E8 /* AppDelegate.swift */; };
@@ -37,6 +40,8 @@
 /* Begin PBXFileReference section */
 		2E9DED9A2BF50C4500A85C42 /* FlashCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardView.swift; sourceTree = "<group>"; };
 		2E9DED9C2BF5D0EC00A85C42 /* FlashCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardViewController.swift; sourceTree = "<group>"; };
+		2E9DEDD62BF9FD6800A85C42 /* CardDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDataModel.swift; sourceTree = "<group>"; };
+		2E9DEDD82BFA167700A85C42 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		371D24312BF37ED7002B4DC5 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		371D24332BF38AC1002B4DC5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		37D776FB2BF30DBD0078D6E8 /* EveryDayVoca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EveryDayVoca.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E9DEDE22BFA77C900A85C42 /* Shuffle in Frameworks */,
 				37D7771B2BF30EAC0078D6E8 /* SnapKit in Frameworks */,
 				37D7771E2BF30ECD0078D6E8 /* Then in Frameworks */,
 			);
@@ -78,6 +84,7 @@
 		2E9DED9E2BF62AAA00A85C42 /* Study */ = {
 			isa = PBXGroup;
 			children = (
+				2E9DEDD82BFA167700A85C42 /* CardView.swift */,
 				2E9DED9A2BF50C4500A85C42 /* FlashCardView.swift */,
 			);
 			path = Study;
@@ -105,6 +112,7 @@
 			children = (
 				37D776FE2BF30DBD0078D6E8 /* AppDelegate.swift */,
 				37D777002BF30DBD0078D6E8 /* SceneDelegate.swift */,
+				2E9DEDD62BF9FD6800A85C42 /* CardDataModel.swift */,
 				37D777402BF34CFA0078D6E8 /* Extensions */,
 				37D7772D2BF34BF30078D6E8 /* Fonts */,
 				37D777432BF357400078D6E8 /* Views */,
@@ -189,6 +197,7 @@
 			packageProductDependencies = (
 				37D7771A2BF30EAC0078D6E8 /* SnapKit */,
 				37D7771D2BF30ECD0078D6E8 /* Then */,
+				2E9DEDE12BFA77C900A85C42 /* Shuffle */,
 			);
 			productName = EveryDayVoca;
 			productReference = 37D776FB2BF30DBD0078D6E8 /* EveryDayVoca.app */;
@@ -221,6 +230,7 @@
 			packageReferences = (
 				37D777192BF30EAB0078D6E8 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				37D7771C2BF30ECD0078D6E8 /* XCRemoteSwiftPackageReference "Then" */,
+				2E9DEDE02BFA77C900A85C42 /* XCRemoteSwiftPackageReference "Shuffle" */,
 			);
 			productRefGroup = 37D776FC2BF30DBD0078D6E8 /* Products */;
 			projectDirPath = "";
@@ -257,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E9DEDD92BFA167700A85C42 /* CardView.swift in Sources */,
 				37D7772A2BF31E700078D6E8 /* UserViewController.swift in Sources */,
 				37D776FF2BF30DBD0078D6E8 /* AppDelegate.swift in Sources */,
 				37D777012BF30DBD0078D6E8 /* SceneDelegate.swift in Sources */,
@@ -267,6 +278,7 @@
 				37D777242BF31DED0078D6E8 /* VocaBookViewController.swift in Sources */,
 				2E9DED9B2BF50C4500A85C42 /* FlashCardView.swift in Sources */,
 				371D24322BF37ED7002B4DC5 /* BaseView.swift in Sources */,
+				2E9DEDD72BF9FD6800A85C42 /* CardDataModel.swift in Sources */,
 				37D777422BF34DED0078D6E8 /* UIFont+Extension.swift in Sources */,
 				37D777282BF31E640078D6E8 /* ReportViewController.swift in Sources */,
 			);
@@ -484,6 +496,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2E9DEDE02BFA77C900A85C42 /* XCRemoteSwiftPackageReference "Shuffle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mac-gallagher/Shuffle.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		37D777192BF30EAB0078D6E8 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -503,6 +523,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2E9DEDE12BFA77C900A85C42 /* Shuffle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2E9DEDE02BFA77C900A85C42 /* XCRemoteSwiftPackageReference "Shuffle" */;
+			productName = Shuffle;
+		};
 		37D7771A2BF30EAC0078D6E8 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 37D777192BF30EAB0078D6E8 /* XCRemoteSwiftPackageReference "SnapKit" */;
