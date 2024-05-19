@@ -58,6 +58,8 @@ final class VocaBookViewController: BaseViewController {
     @objc func tappedTableFilterButton() {
         let filterPopoverVC = VocaBookFilterPopoverViewController()
         filterPopoverVC.modalPresentationStyle = .popover
+        filterPopoverVC.preferredContentSize = CGSizeMake(filterPopoverVC.view.frame.width, filterPopoverVC.view.frame.height)
+//        filterPopoverVC.preferredContentSize = CGSizeMake(100, 88)
         self.present(filterPopoverVC, animated: true)
     }
     
