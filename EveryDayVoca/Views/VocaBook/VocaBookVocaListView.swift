@@ -43,6 +43,17 @@ final class VocaBookVocaListView: VocaBookBaseView {
    
    
        // MARK: - Methods
+    
+    override func configureHierarchy() {
+        super.configureHierarchy()
+        
+        [tableOptionView,
+         vocaListTableView].forEach { self.customView.addSubview($0) }
+
+        [tableFilterButton,
+         tableDisplayOptionButton,
+         tableItemCountLabel].forEach { tableOptionView.addSubview($0) }
+    }
    
        override func configureConstraints() {
            super.configureConstraints()
@@ -73,18 +84,7 @@ final class VocaBookVocaListView: VocaBookBaseView {
                $0.bottom.equalTo(self.customView)
            }
        }
-   
-       override func configureHierarchy() {
-           super.configureHierarchy()
-           
-           [tableOptionView,
-            vocaListTableView].forEach { self.customView.addSubview($0) }
-   
-           [tableFilterButton,
-            tableDisplayOptionButton,
-            tableItemCountLabel].forEach { tableOptionView.addSubview($0) }
-       }
-   
+    
        private func returnTableOptionButtonConfiguration(title: String, titleSize: CGFloat, image: UIImage) -> UIButton.Configuration {
            var config = UIButton.Configuration.plain()
            // title
