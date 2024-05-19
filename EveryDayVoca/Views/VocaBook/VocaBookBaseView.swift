@@ -33,6 +33,15 @@ class VocaBookBaseView: BaseView {
     
     // MARK: - Methods
     
+    override func configureHierarchy() {
+        [vocaBookSelectionView,
+         customView].forEach { self.addSubview($0) }
+        
+        [vocaBookSelectionLabel,
+         vocaBookSelectionImage].forEach { vocaBookSelectionView.addSubview($0) }
+        
+    }
+    
     override func configureConstraints() {
         vocaBookSelectionView.snp.makeConstraints {
             $0.top.horizontalEdges.equalTo(self.safeAreaLayoutGuide)
@@ -52,16 +61,6 @@ class VocaBookBaseView: BaseView {
             $0.top.equalTo(vocaBookSelectionView.snp.bottom)
             $0.horizontalEdges.bottom.equalTo(self.safeAreaLayoutGuide)
         }
-        
-    }
-    
-    override func configureHierarchy() {
-        [vocaBookSelectionView,
-         customView].forEach { self.addSubview($0) }
-        
-        [vocaBookSelectionLabel,
-         vocaBookSelectionImage].forEach { vocaBookSelectionView.addSubview($0) }
-        
     }
     
 }
