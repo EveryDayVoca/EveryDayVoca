@@ -7,6 +7,17 @@
 
 import UIKit
 
-class VocaBookPopOverView: UIView {
+final class VocaBookPopoverView: BaseView {
+    let tableView = UITableView().then {
+        $0.backgroundColor = UIColor.evBackground
+    }
+    
+    override func configureConstraints() {
+        super.configureConstraints()
+        
+        tableView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+    }
     
 }
