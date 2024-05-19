@@ -11,6 +11,13 @@ class MyVocaFlashCardView: VocaBookBaseView {
     
     // MARK: - Properties
     
+    private lazy var statusButtonStackView = UIStackView().then {
+        $0.axis = .horizontal
+        $0.spacing = 8
+        $0.alignment = .fill
+        $0.distribution = .fillEqually
+    }
+    
     lazy var hardButton = UIButton(
         configuration:
             returnButtonConfiguration(
@@ -29,9 +36,9 @@ class MyVocaFlashCardView: VocaBookBaseView {
                 title: "외웠어요", fgColor: UIColor.evBackground, bgColor: UIColor.blue25)
     )
     
-    private lazy var buttonStackView = UIStackView().then {
-        $0.axis = .horizontal
-        $0.spacing = 8
+    private let cardStackView = UIStackView().then {
+        $0.axis = .vertical
+        $0.spacing = 26
         $0.alignment = .fill
         $0.distribution = .fillEqually
     }
@@ -41,6 +48,13 @@ class MyVocaFlashCardView: VocaBookBaseView {
         $0.layer.shadowOpacity = 0.1
         $0.layer.shadowRadius = 16
         $0.backgroundColor = UIColor.evBackground
+    }
+    
+    private let englishLabelStackView = UIStackView().then {
+        $0.axis = .vertical
+        $0.spacing = 12
+        $0.alignment = .fill
+        $0.distribution = .fillEqually
     }
     
     private let englishLabel = UILabel().then {
@@ -71,9 +85,9 @@ class MyVocaFlashCardView: VocaBookBaseView {
         $0.font = UIFont.pretendard(size: 24, weight: .semibold)
     }
     
-    private let cardStackView = UIStackView().then {
-        $0.axis = .vertical
-        $0.spacing = 25
+    let pagingButtonStackView = UIStackView().then {
+        $0.axis = .horizontal
+        $0.spacing = 16
         $0.alignment = .fill
         $0.distribution = .fillEqually
     }
@@ -91,12 +105,7 @@ class MyVocaFlashCardView: VocaBookBaseView {
     )
     
     
-    let pageControlStackView = UIStackView().then {
-        $0.axis = .horizontal
-        $0.spacing = 16
-        $0.alignment = .fill
-        $0.distribution = .fillEqually
-    }
+    
     
     // MARK: - Methods
     
@@ -115,29 +124,60 @@ class MyVocaFlashCardView: VocaBookBaseView {
     override func configureHierarchy() { 
         super.configureHierarchy()
         
-        [buttonStackView, 
+        [statusButtonStackView, 
          cardStackView,
-        pageControlStackView].forEach { self.customView.addSubview($0) }
+        pagingButtonStackView].forEach { self.customView.addSubview($0) }
         
         [hardButton, 
          ambiguousButton,
-         memorizedButton].forEach { buttonStackView.addArrangedSubview($0) }
+         memorizedButton].forEach { statusButtonStackView.addArrangedSubview($0) }
         
         [englishCardView,
          koreanCardView].forEach { cardStackView.addArrangedSubview($0) }
         
+        englishCardView.addSubview(englishLabelStackView)
+        
         [englishLabel,
-         pronunciationLabel].forEach { englishCardView.addSubview($0) }
+         pronunciationLabel].forEach { englishLabelStackView.addArrangedSubview($0) }
         
         koreanCardView.addSubview(koreanLabel)
         
         [previousPageButton,
-         nextPageButton].forEach { pageControlStackView.addArrangedSubview($0) }
+         nextPageButton].forEach { pagingButtonStackView.addArrangedSubview($0) }
         
     }
     
     override func configureConstraints() {
         super.configureConstraints()
+        
+        statusButtonStackView.snp.makeConstraints {
+            $0.top.equalTo(customView).offset(16)
+            $0.horizontalEdges.equalTo(customView).inset(24)
+            $0.height.equalTo(56)
+        }
+
+        cardStackView.snp.makeConstraints {
+            $0.top.equalTo(statusButtonStackView.snp.bottom).offset(28)
+            $0.horizontalEdges.equalTo(statusButtonStackView)
+        }
+        
+        pagingButtonStackView.snp.makeConstraints {
+            $0.top.equalTo(cardStackView.snp.bottom).offset(104)
+            $0.horizontalEdges.equalTo(statusButtonStackView)
+            $0.bottom.equalTo(customView)
+            $0.height.equalTo(56)
+        }
+        
+        englishLabelStackView.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview().inset(50)
+        }
+        
+        koreanLabel.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview().inset(50)
+        }
+        
     }
     
     
