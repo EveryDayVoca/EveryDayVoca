@@ -7,23 +7,47 @@
 
 import UIKit
 
-class BasicCustomAlertViewController: UIViewController {
+protocol CustomAlertDelegate {
+    func confirm()
+}
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+class BasicCustomAlertViewController: BaseViewController {
+    
+    // MARK: - properties
+    
+    private var basicCustomAlert: BasicCustomAlertView!
+    var delegate: CustomAlertDelegate?
+    
+    // MARK: - life cycles
+    override func loadView() {
+        basicCustomAlert = BasicCustomAlertView()
+        
+        view = UIView()
+        view.addSubview(basicCustomAlert)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - methods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
     }
-    */
-
+    
+    override func configureStyle() {
+        view.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview().inset(-30)
+            $0.width.equalToSuperview().multipliedBy(0.95)
+            $0.height.equalToSuperview().multipliedBy(0.3)
+        }
+    }
+    
+    override func bind() {
+        basicCustomAlert.button.addTarget(self, action: #selector(tappedConfirmButton), for: .touchUpInside)
+    }
+    
+    @IBAction func tappedConfirmButton() {
+        self.dismiss(animated: true) {
+            self.delegate?.confirm()
+        }
+    }
 }
