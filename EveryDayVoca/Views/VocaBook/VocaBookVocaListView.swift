@@ -10,6 +10,10 @@ import UIKit
 final class VocaBookVocaListView: BaseView {
     
     // MARK: - Properties
+    
+    let filterImage = UIImage(systemName: "line.3.horizontal.decrease.circle.fill")!
+    let eyeImage = UIImage(systemName: "eye")!
+    
 
     private let vocaBookSelectionView = UIView().then {
         $0.backgroundColor = .none
@@ -32,9 +36,11 @@ final class VocaBookVocaListView: BaseView {
         $0.backgroundColor = .none
     }
     
-    private lazy var tableFilterButton = UIButton(configuration: makeButtonConfiguration(title: "모든 단어", titleSize: 14))
+    private lazy var tableFilterButton = UIButton(configuration: makeButtonConfiguration(title: "필터", titleSize: 14, image: filterImage))
     
-    private lazy var tableDisplayOptionButton = UIButton(configuration: makeButtonConfiguration(title: "단어 + 의미", titleSize: 14))
+    
+    
+    private lazy var tableDisplayOptionButton = UIButton(configuration: makeButtonConfiguration(title: "보이기 설정", titleSize: 14, image: eyeImage))
     
     private let tableItemCountLabel = UILabel().then {
         $0.textAlignment = .right
@@ -108,13 +114,13 @@ final class VocaBookVocaListView: BaseView {
          tableItemCountLabel].forEach { tableOptionView.addSubview($0) }
     }
     
-    private func makeButtonConfiguration(title: String, titleSize: CGFloat) -> UIButton.Configuration {
+    private func makeButtonConfiguration(title: String, titleSize: CGFloat, image: UIImage) -> UIButton.Configuration {
         var config = UIButton.Configuration.plain()
         // title
         config.attributedTitle = AttributedString(title)
         config.attributedTitle?.font = UIFont.pretendard(size: titleSize, weight: .light)
         // image
-        config.image = UIImage(systemName: "line.3.horizontal.decrease.circle.fill")?.applyingSymbolConfiguration(.init(pointSize: titleSize - 3))
+        config.image = image.applyingSymbolConfiguration(.init(pointSize: titleSize - 3))
         config.imagePadding = 4
         // color
         config.background.backgroundColor = UIColor.blue100
