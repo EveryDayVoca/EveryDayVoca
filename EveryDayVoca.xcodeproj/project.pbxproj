@@ -15,6 +15,7 @@
 		1A3933482BFA279700F3B825 /* VocaBookDisplayOptionPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3933472BFA279700F3B825 /* VocaBookDisplayOptionPopoverViewController.swift */; };
 		1A39334A2BFA27BE00F3B825 /* VocaBookDisplayOptionPopoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3933492BFA27BE00F3B825 /* VocaBookDisplayOptionPopoverTableViewCell.swift */; };
 		1A39334E2BFA80CD00F3B825 /* MyVocaFlashCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A39334D2BFA80CD00F3B825 /* MyVocaFlashCardView.swift */; };
+		1A3933502BFA834900F3B825 /* VocaBookBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A39334F2BFA834900F3B825 /* VocaBookBaseView.swift */; };
 		371D24322BF37ED7002B4DC5 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371D24312BF37ED7002B4DC5 /* BaseView.swift */; };
 		371D24342BF38AC1002B4DC5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371D24332BF38AC1002B4DC5 /* BaseViewController.swift */; };
 		37D776FF2BF30DBD0078D6E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D776FE2BF30DBD0078D6E8 /* AppDelegate.swift */; };
@@ -49,6 +50,7 @@
 		1A3933472BFA279700F3B825 /* VocaBookDisplayOptionPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookDisplayOptionPopoverViewController.swift; sourceTree = "<group>"; };
 		1A3933492BFA27BE00F3B825 /* VocaBookDisplayOptionPopoverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookDisplayOptionPopoverTableViewCell.swift; sourceTree = "<group>"; };
 		1A39334D2BFA80CD00F3B825 /* MyVocaFlashCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyVocaFlashCardView.swift; sourceTree = "<group>"; };
+		1A39334F2BFA834900F3B825 /* VocaBookBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookBaseView.swift; sourceTree = "<group>"; };
 		371D24312BF37ED7002B4DC5 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		371D24332BF38AC1002B4DC5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		37D776FB2BF30DBD0078D6E8 /* EveryDayVoca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EveryDayVoca.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +100,7 @@
 		1A39333B2BF60B7300F3B825 /* VocaBook */ = {
 			isa = PBXGroup;
 			children = (
+				1A39334F2BFA834900F3B825 /* VocaBookBaseView.swift */,
 				1A39333C2BF60C5900F3B825 /* VocaBookVocaListView.swift */,
 				1A39333F2BF8B8AD00F3B825 /* VocaBookPopoverView.swift */,
 				1A3933452BF9F30500F3B825 /* Cell */,
@@ -329,6 +332,7 @@
 				37D776FF2BF30DBD0078D6E8 /* AppDelegate.swift in Sources */,
 				37D777012BF30DBD0078D6E8 /* SceneDelegate.swift in Sources */,
 				37D777092BF30DBD0078D6E8 /* EveryDayVoca.xcdatamodeld in Sources */,
+				1A3933502BFA834900F3B825 /* VocaBookBaseView.swift in Sources */,
 				37D777262BF31E390078D6E8 /* StudyViewController.swift in Sources */,
 				1A39333D2BF60C5900F3B825 /* VocaBookVocaListView.swift in Sources */,
 				371D24342BF38AC1002B4DC5 /* BaseViewController.swift in Sources */,
