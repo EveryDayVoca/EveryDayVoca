@@ -25,4 +25,24 @@ class VocaBookStatusFilterPopoverViewController: BaseViewController {
         super.viewDidLoad()
     }
     
+    override func configureDelegate() {
+        super.configureDelegate()
+        self.vocaBookPopoverView.tableView.dataSource = self
+    }
+}
+
+extension VocaBookStatusFilterPopoverViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return filters.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = self.vocaBookPopoverView.tableView.dequeueReusableCell(withIdentifier: VocaBookStatusFilterPopoverTableViewCell.identifier) as? VocaBookStatusFilterPopoverTableViewCell else { return UITableViewCell() }
+        
+        cell.bind(status: filters[indexPath.row])
+        
+        return cell
+    }
+    
+    
 }
