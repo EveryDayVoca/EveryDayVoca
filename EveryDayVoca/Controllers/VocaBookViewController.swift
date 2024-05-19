@@ -31,19 +31,36 @@ final class VocaBookViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureAddTarget()
     }
     
     // MARK: - Methods
+    override func configureStyle() {
+        super.configureStyle()
+    }
+    
     override func configureDelegate() {
         super.configureDelegate()
-        
         vocaBookVocaListView.vocaListTableView.dataSource = self
     }
     
-    
     override func bind() {
-        
+        super.bind()
     }
+    
+    private func configureAddTarget() {
+        // 필터 버튼
+        vocaBookVocaListView.tableFilterButton.addTarget(self, action: #selector(tappedTableFilterButton), for: .touchUpInside)
+        
+        // 보기 옵션 버튼
+    }
+    
+    @objc func tappedTableFilterButton() {
+        let filterPopoverVC = VocaBookFilterPopoverViewController()
+        filterPopoverVC.modalPresentationStyle = .popover
+        self.present(filterPopoverVC, animated: true)
+    }
+    
     
 }
 
