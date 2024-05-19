@@ -45,16 +45,45 @@ final class FlashCardViewController: BaseViewController {
     
     
     // MARK: - methods
+    override func configureStyle() {
+        configureNavigation()
+        configureTarget()
+    }
     
     override func configureDelegate() {
         flashCardView.cardStack.dataSource = self
+        flashCardView.cardStack.delegate = self
     }
     
-    func card(data: CardDataModel) -> SwipeCard {
+    private func configureNavigation() {
+        let titleView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+        let titleLabel = UILabel(frame: titleView.bounds)
+        titleLabel.text = "학습하기"
+        titleLabel.textAlignment = .center
+        titleLabel.font = UIFont.pretendard(size: 17, weight: .semibold)
+        titleView.addSubview(titleLabel)
+        
+        navigationItem.titleView = titleView
+    }
+    
+    private func card(data: CardDataModel) -> SwipeCard {
         let card = CardView()
         card.configure(with: data)
         card.swipeDirections = [.left, .right]
         return card
+    }
+    
+    private func configureTarget() {
+        flashCardView.hardButton.addTarget(self, action: #selector(tappedButton), for: .touchUpInside)
+        flashCardView.normalButton.addTarget(self, action: #selector(tappedButton), for: .touchUpInside)
+        flashCardView.perfectButton.addTarget(self, action: #selector(tappedButton), for: .touchUpInside)
+    }
+    
+    @objc func tappedButton(sender: UIButton) {
+        // 데이터 업데이트
+        
+        // 다음 카드로 넘어가기
+        flashCardView.cardStack.swipe(.right, animated: true)
     }
 }
 
@@ -69,5 +98,10 @@ extension FlashCardViewController: SwipeCardStackDataSource {
     func numberOfCards(in cardStack: Shuffle.SwipeCardStack) -> Int {
         return wordData.count
     }
-    
+}
+
+extension FlashCardViewController: SwipeCardStackDelegate {
+    func didSwipeAllCards(_ cardStack: SwipeCardStack) {
+        // 모든 카드 소진시 얼럿창 호출 되며 이전 화면으로 되돌아가기
+    }
 }
