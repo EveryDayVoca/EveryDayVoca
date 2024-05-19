@@ -94,8 +94,8 @@ final class VocaBookVocaListView: VocaBookBaseView {
            config.image = image.applyingSymbolConfiguration(.init(pointSize: titleSize - 3))
            config.imagePadding = 4
            // color
-           config.background.backgroundColor = UIColor.blue100
            config.baseForegroundColor = .white
+           config.background.backgroundColor = UIColor.blue100
            // frame
            config.contentInsets = NSDirectionalEdgeInsets(top: 1.0, leading: 8.0, bottom: 1.0, trailing: 8.0)
            config.background.cornerRadius = 5
