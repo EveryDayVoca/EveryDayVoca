@@ -47,6 +47,8 @@ final class VocaBookVocaListView: BaseView {
         $0.backgroundColor = UIColor.evBackground
     }
     
+    
+    
     // MARK: - Methods
     
     override func configureConstraints() {
