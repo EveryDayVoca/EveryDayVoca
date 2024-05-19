@@ -28,7 +28,7 @@ class VocaBookBaseView: BaseView {
         $0.tintColor = UIColor.evText
     }
     
-    private let customView = UIView()
+    let customView = UIView()
     
     
     // MARK: - Methods
