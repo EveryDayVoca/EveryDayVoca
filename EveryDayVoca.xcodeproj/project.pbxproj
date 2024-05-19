@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2E10E7E02BFA94000049E1AB /* BasicCustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E10E7DF2BFA94000049E1AB /* BasicCustomAlertView.swift */; };
+		2E10E7E22BFA97F70049E1AB /* BasicCustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E10E7E12BFA97F70049E1AB /* BasicCustomAlertViewController.swift */; };
 		2E9DED9B2BF50C4500A85C42 /* FlashCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DED9A2BF50C4500A85C42 /* FlashCardView.swift */; };
 		2E9DED9D2BF5D0EC00A85C42 /* FlashCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DED9C2BF5D0EC00A85C42 /* FlashCardViewController.swift */; };
 		2E9DEDD72BF9FD6800A85C42 /* CardDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DEDD62BF9FD6800A85C42 /* CardDataModel.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		2E10E7DF2BFA94000049E1AB /* BasicCustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicCustomAlertView.swift; sourceTree = "<group>"; };
+		2E10E7E12BFA97F70049E1AB /* BasicCustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicCustomAlertViewController.swift; sourceTree = "<group>"; };
 		2E9DED9A2BF50C4500A85C42 /* FlashCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardView.swift; sourceTree = "<group>"; };
 		2E9DED9C2BF5D0EC00A85C42 /* FlashCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardViewController.swift; sourceTree = "<group>"; };
 		2E9DEDD62BF9FD6800A85C42 /* CardDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDataModel.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				37D777272BF31E640078D6E8 /* ReportViewController.swift */,
 				37D777292BF31E700078D6E8 /* UserViewController.swift */,
 				2E9DED9C2BF5D0EC00A85C42 /* FlashCardViewController.swift */,
+				2E10E7E12BFA97F70049E1AB /* BasicCustomAlertViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				2E9DEDD92BFA167700A85C42 /* CardView.swift in Sources */,
 				37D7772A2BF31E700078D6E8 /* UserViewController.swift in Sources */,
 				37D776FF2BF30DBD0078D6E8 /* AppDelegate.swift in Sources */,
+				2E10E7E22BFA97F70049E1AB /* BasicCustomAlertViewController.swift in Sources */,
 				37D777012BF30DBD0078D6E8 /* SceneDelegate.swift in Sources */,
 				2E9DED9D2BF5D0EC00A85C42 /* FlashCardViewController.swift in Sources */,
 				37D777092BF30DBD0078D6E8 /* EveryDayVoca.xcdatamodeld in Sources */,
