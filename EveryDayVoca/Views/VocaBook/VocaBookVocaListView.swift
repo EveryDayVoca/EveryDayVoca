@@ -11,7 +11,7 @@ final class VocaBookVocaListView: BaseView {
     
     // MARK: - Properties
     
-    let filterImage = UIImage(systemName: "line.3.horizontal.decrease.circle.fill")!
+    let filterImage = UIImage(systemName: "line.3.horizontal.decrease")!
     let eyeImage = UIImage(systemName: "eye")!
     
 
@@ -36,11 +36,9 @@ final class VocaBookVocaListView: BaseView {
         $0.backgroundColor = .none
     }
     
-    private lazy var tableFilterButton = UIButton(configuration: makeButtonConfiguration(title: "필터", titleSize: 14, image: filterImage))
+    lazy var tableFilterButton = UIButton(configuration: makeButtonConfiguration(title: "필터", titleSize: 14, image: filterImage))
     
-    
-    
-    private lazy var tableDisplayOptionButton = UIButton(configuration: makeButtonConfiguration(title: "보이기 설정", titleSize: 14, image: eyeImage))
+    lazy var tableDisplayOptionButton = UIButton(configuration: makeButtonConfiguration(title: "보기 옵션", titleSize: 14, image: eyeImage))
     
     private let tableItemCountLabel = UILabel().then {
         $0.textAlignment = .right
