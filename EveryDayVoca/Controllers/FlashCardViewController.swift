@@ -11,7 +11,7 @@ import Shuffle
 final class FlashCardViewController: BaseViewController {
     
     // MARK: - properties
-    var flashCardView: FlashCardView!
+    private var flashCardView: FlashCardView!
     
     // 임시 데이터
     private let wordData = [CardDataModel(word: "apple1", meaning: "사과1", options: .difficult),
@@ -52,13 +52,10 @@ final class FlashCardViewController: BaseViewController {
     
     func card(data: CardDataModel) -> SwipeCard {
         let card = CardView()
-        card.wordLabel.text = data.word
+        card.configure(with: data)
         card.swipeDirections = [.left, .right]
-        
         return card
     }
-    
-    
 }
 
 

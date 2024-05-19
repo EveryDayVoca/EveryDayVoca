@@ -19,11 +19,11 @@ final class FlashCardView: BaseView {
         $0.textAlignment = .left
     }
     
-    var percentLabel = UILabel().then {
-        $0.text = "50%"
-        $0.font = UIFont.pretendard(size: 13, weight: .semibold)
-        $0.textColor = UIColor.evBackground
-        $0.textAlignment = .center
+    private lazy var containerView = UIView().then {
+        $0.layer.shadowColor = UIColor.evText.cgColor
+        $0.layer.shadowOpacity = 0.1
+        $0.layer.shadowRadius = 10
+        $0.backgroundColor = .clear
     }
     
     lazy var progressBar = UIProgressView(progressViewStyle: .default).then {
@@ -36,14 +36,14 @@ final class FlashCardView: BaseView {
         $0.layer.sublayers![1].cornerRadius = 10
     }
     
-    private lazy var containerView = UIView().then {
-        $0.layer.shadowColor = UIColor.evText.cgColor
-        $0.layer.shadowOpacity = 0.1
-        $0.layer.shadowRadius = 10
-        $0.backgroundColor = .clear
+    var percentLabel = UILabel().then {
+        $0.text = "50%"
+        $0.font = UIFont.pretendard(size: 13, weight: .semibold)
+        $0.textColor = UIColor.evBackground
+        $0.textAlignment = .center
     }
     
-    var cardStack = SwipeCardStack()
+    let cardStack = SwipeCardStack()
     
     let hardButton = UIButton().then {
         let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.pretendard(size: 20, weight: .light),
@@ -107,14 +107,20 @@ final class FlashCardView: BaseView {
             $0.leading.trailing.equalToSuperview().inset(28)
         }
         
-        percentLabel.snp.makeConstraints {
-            $0.trailing.equalTo(progressBar.subviews[1].snp.trailing).inset(8)
-            $0.top.equalTo(progressBar.subviews[1].snp.top)
-            $0.bottom.equalTo(progressBar.subviews[1].snp.bottom)
+        containerView.snp.makeConstraints {
+            $0.top.equalTo(self.progressRateLabel.snp.bottom).offset(16)
+            $0.leading.trailing.equalToSuperview().inset(28)
+            $0.height.equalToSuperview().multipliedBy(0.028)
         }
         
         progressBar.snp.makeConstraints {
             $0.edges.equalTo(containerView.snp.edges)
+        }
+        
+        percentLabel.snp.makeConstraints {
+            $0.trailing.equalTo(progressBar.subviews[1].snp.trailing).inset(8)
+            $0.top.equalTo(progressBar.subviews[1].snp.top)
+            $0.bottom.equalTo(progressBar.subviews[1].snp.bottom)
         }
         
         cardStack.snp.makeConstraints {
@@ -126,7 +132,7 @@ final class FlashCardView: BaseView {
         
         buttonStack.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(28)
-            $0.bottom.equalToSuperview().inset(40)
+            $0.bottom.equalToSuperview().inset(100)
             $0.height.equalToSuperview().multipliedBy(0.067)
         }
     }

@@ -11,6 +11,8 @@ import Shuffle
 final class CardView: SwipeCard {
     
     // MARK: - properties
+    var dataModel: CardDataModel?
+    private var isWordPage = true
     
     private let cardImageView = UIImageView().then {
         $0.image = UIImage(named: "flash_card")
@@ -34,10 +36,16 @@ final class CardView: SwipeCard {
         super.backgroundColor = .clear
         configureHierarchy()
         configureConstraints()
+        configureTarget()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    func configure(with data: CardDataModel) {
+        dataModel = data
+        wordLabel.text = data.word
     }
     
     func configureHierarchy() {
@@ -53,5 +61,21 @@ final class CardView: SwipeCard {
         wordLabel.snp.makeConstraints {
             $0.edges.equalTo(cardImageView.snp.edges)
         }
+    }
+    
+    func configureTarget() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedCard))
+        self.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func tappedCard() {
+        guard let data = dataModel else { return }
+        isWordPage.toggle()
+        wordLabel.text = isWordPage ? data.word : data.meaning
+        UIView.transition(with: self,
+                            duration: 0.3,
+                            options: .transitionFlipFromLeft,
+                            animations: nil,
+                            completion: nil)
     }
 }
