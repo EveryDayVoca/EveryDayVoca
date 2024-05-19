@@ -27,7 +27,6 @@ final class VocaBookViewController: BaseViewController {
     override func loadView() {
         view = vocaBookVocaListView
         self.navigationItem.titleView = titleLabel
-        self.navigationController?.navigationBar.shadowImage
     }
 
     override func viewDidLoad() {
