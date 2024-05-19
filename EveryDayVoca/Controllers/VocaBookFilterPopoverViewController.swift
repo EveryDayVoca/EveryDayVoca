@@ -7,7 +7,7 @@
 
 import UIKit
 
-class VocaBookStatusFilterPopoverViewController: BaseViewController {
+class VocaBookFilterPopoverViewController: BaseViewController {
 
     // MARK: - Properties
     
@@ -31,7 +31,7 @@ class VocaBookStatusFilterPopoverViewController: BaseViewController {
     }
 }
 
-extension VocaBookStatusFilterPopoverViewController: UITableViewDataSource {
+extension VocaBookFilterPopoverViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filters.count
     }

@@ -15,9 +15,19 @@ final class VocaBookPopoverView: BaseView {
     override func configureConstraints() {
         super.configureConstraints()
         
-        tableView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+        self.snp.makeConstraints {
+            $0.width.equalTo(100)
+            $0.height.equalTo(88)
         }
+        
+        tableView.snp.makeConstraints {
+            $0.edges.equalTo(self)
+        }
+    }
+    
+    override func configureHierarchy() {
+        super.configureHierarchy()
+        self.addSubview(tableView)
     }
     
 }
