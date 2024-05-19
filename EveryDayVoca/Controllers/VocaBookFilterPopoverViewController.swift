@@ -25,8 +25,21 @@ class VocaBookFilterPopoverViewController: BaseViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    // MARK: - Methods
+    
+    override func configureStyle() {
+        super.configureStyle()
+    }
+    
     override func configureDelegate() {
         super.configureDelegate()
+        
+        self.vocaBookPopoverView.tableView.register(VocaBookFilterPopoverTableViewCell.self, forCellReuseIdentifier: VocaBookFilterPopoverTableViewCell.identifier)
+        
         self.vocaBookPopoverView.tableView.dataSource = self
     }
 }
@@ -37,7 +50,10 @@ extension VocaBookFilterPopoverViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: VocaBookStatusFilterPopoverTableViewCell.identifier) as? VocaBookStatusFilterPopoverTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: VocaBookFilterPopoverTableViewCell.identifier) as? VocaBookFilterPopoverTableViewCell 
+        else {
+            return UITableViewCell()
+        }
         
         cell.bind(status: filters[indexPath.row])
         

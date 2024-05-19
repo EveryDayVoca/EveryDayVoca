@@ -7,11 +7,11 @@
 
 import UIKit
 
-final class VocaBookStatusFilterPopoverTableViewCell: UITableViewCell {
+final class VocaBookFilterPopoverTableViewCell: UITableViewCell {
     
     
     // MARK: - Properties
-    static let identifier = String(describing: VocaBookStatusFilterPopoverTableViewCell.self)
+    static let identifier = String(describing: VocaBookFilterPopoverTableViewCell.self)
     
     var checkStatus: Bool = false
     
