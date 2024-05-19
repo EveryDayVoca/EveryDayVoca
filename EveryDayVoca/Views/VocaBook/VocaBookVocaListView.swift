@@ -21,12 +21,14 @@ final class VocaBookVocaListView: VocaBookBaseView {
     lazy var tableFilterButton = UIButton(
         configuration:
             returnTableOptionButtonConfiguration(
-                title: "필터", titleSize: 14, image: filterImage))
+                title: "필터", titleSize: 14, image: filterImage)
+    )
     
     lazy var tableDisplayOptionButton = UIButton(
         configuration:
             returnTableOptionButtonConfiguration(
-                title: "보기 옵션", titleSize: 14, image: eyeImage))
+                title: "보기 옵션", titleSize: 14, image: eyeImage)
+    )
    
        private let tableItemCountLabel = UILabel().then {
            $0.textAlignment = .right
