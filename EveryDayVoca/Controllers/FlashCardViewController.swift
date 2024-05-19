@@ -85,6 +85,17 @@ final class FlashCardViewController: BaseViewController {
         // 다음 카드로 넘어가기
         flashCardView.cardStack.swipe(.right, animated: true)
     }
+    
+    func setCustomAlert() {
+        let customAlertView = BasicCustomAlertViewController()
+        
+        customAlertView.titleText = "Notice"
+        customAlertView.subtitleText = "목표 단어를 모두 확인하였습니다."
+        customAlertView.buttonTitleText = "확인하기"
+        
+        customAlertView.modalPresentationStyle = .overFullScreen
+        self.present(customAlertView, animated: false)
+    }
 }
 
 
@@ -103,5 +114,6 @@ extension FlashCardViewController: SwipeCardStackDataSource {
 extension FlashCardViewController: SwipeCardStackDelegate {
     func didSwipeAllCards(_ cardStack: SwipeCardStack) {
         // 모든 카드 소진시 얼럿창 호출 되며 이전 화면으로 되돌아가기
+        setCustomAlert()
     }
 }
