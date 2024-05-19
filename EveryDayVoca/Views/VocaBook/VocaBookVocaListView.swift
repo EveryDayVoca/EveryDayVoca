@@ -18,9 +18,15 @@ final class VocaBookVocaListView: VocaBookBaseView {
            $0.backgroundColor = .none
        }
    
-       lazy var tableFilterButton = UIButton(configuration: makeButtonConfiguration(title: "필터", titleSize: 14, image: filterImage))
-   
-       lazy var tableDisplayOptionButton = UIButton(configuration: makeButtonConfiguration(title: "보기 옵션", titleSize: 14, image: eyeImage))
+    lazy var tableFilterButton = UIButton(
+        configuration:
+            returnTableOptionButtonConfiguration(
+                title: "필터", titleSize: 14, image: filterImage))
+    
+    lazy var tableDisplayOptionButton = UIButton(
+        configuration:
+            returnTableOptionButtonConfiguration(
+                title: "보기 옵션", titleSize: 14, image: eyeImage))
    
        private let tableItemCountLabel = UILabel().then {
            $0.textAlignment = .right
@@ -32,7 +38,6 @@ final class VocaBookVocaListView: VocaBookBaseView {
        let vocaListTableView = UITableView().then {
            $0.backgroundColor = UIColor.evBackground
        }
-   
    
    
        // MARK: - Methods
@@ -78,7 +83,7 @@ final class VocaBookVocaListView: VocaBookBaseView {
             tableItemCountLabel].forEach { tableOptionView.addSubview($0) }
        }
    
-       private func makeButtonConfiguration(title: String, titleSize: CGFloat, image: UIImage) -> UIButton.Configuration {
+       private func returnTableOptionButtonConfiguration(title: String, titleSize: CGFloat, image: UIImage) -> UIButton.Configuration {
            var config = UIButton.Configuration.plain()
            // title
            config.attributedTitle = AttributedString(title)
