@@ -9,6 +9,17 @@ import UIKit
 
 class MyVocaFlashCardView: VocaBookBaseView {
     
+    
+    // 임시-------------------------------
+    var vocas: [Voca] = [
+        Voca(english: "apple", korean: "사과", pronunciation: "ˈæpl", status: .memorized, vocaBook: "초등"),
+        Voca(english: "acid", korean: "산", pronunciation: "ˈæsɪd", status: .memorized, vocaBook: "중고등"),
+        Voca(english: "absorb", korean: "흡수하다", pronunciation: "əb|sɔːrb", status: .ambiguous, vocaBook: "중고등"),
+        Voca(english: "delicate", korean: "미묘한", pronunciation: "ˈdelɪkət", status: .difficult, vocaBook: "중고등")
+    ]
+    // ----------------------------------
+    
+    
     // MARK: - Properties
     
     private lazy var statusButtonStackView = UIStackView().then {
@@ -64,7 +75,7 @@ class MyVocaFlashCardView: VocaBookBaseView {
         $0.font = UIFont.pretendard(size: 24, weight: .semibold)
     }
     
-    private let pronunciationLabel = UILabel().then {
+    private let englishPronunciationLabel = UILabel().then {
         $0.textAlignment = .center
         $0.textColor = UIColor.gray50
         $0.numberOfLines = 0
@@ -138,7 +149,7 @@ class MyVocaFlashCardView: VocaBookBaseView {
         englishCardView.addSubview(englishLabelStackView)
         
         [englishLabel,
-         pronunciationLabel].forEach { englishLabelStackView.addArrangedSubview($0) }
+         englishPronunciationLabel].forEach { englishLabelStackView.addArrangedSubview($0) }
         
         koreanCardView.addSubview(koreanLabel)
         
@@ -180,6 +191,11 @@ class MyVocaFlashCardView: VocaBookBaseView {
         
     }
     
+    func bind(index: Int) {
+        englishLabel.text = vocas[index].english
+        englishPronunciationLabel.text = vocas[index].pronunciation
+        koreanLabel.text = vocas[index].korean
+    }
     
     
     private func returnButtonConfiguration(title: String, fgColor: UIColor, bgColor: UIColor) -> UIButton.Configuration {

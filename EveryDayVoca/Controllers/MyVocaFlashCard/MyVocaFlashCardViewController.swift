@@ -11,10 +11,17 @@ class MyVocaFlashCardViewController: BaseViewController {
     
     // MARK: - Properties
     
+    private let myVocaFlashCardView = MyVocaFlashCardView()
     
+    var index: Int = 0
     
     // MARK: - Life Cycles
-
+    
+    override func loadView() {
+        view = myVocaFlashCardView
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -32,6 +39,11 @@ class MyVocaFlashCardViewController: BaseViewController {
     
     override func bind() {
         super.bind()
+        myVocaFlashCardView.bind(index: index)
+    }
+    
+    func changeIndex(index: Int) {
+        self.index = index
     }
 
 }

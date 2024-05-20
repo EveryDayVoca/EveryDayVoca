@@ -98,7 +98,9 @@ extension VocaBookViewController: UITableViewDelegate {
         return 100    // 그림자 포함 높이
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let myVocaFlashCardVC =
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let myVocaFlashCardVC = MyVocaFlashCardViewController()
+        myVocaFlashCardVC.changeIndex(index: indexPath.row)
+        self.navigationController?.pushViewController(myVocaFlashCardVC, animated: true)
+    }
 }
