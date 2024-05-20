@@ -32,19 +32,19 @@ class MyVocaFlashCardView: VocaBookBaseView {
     lazy var hardButton = UIButton(
         configuration:
             returnButtonConfiguration(
-                title: "어려워요", fgColor: UIColor.evBackground, bgColor: UIColor.blue25, border: false)
+                title: "어려워요", fgColor: UIColor.evBackground, bgColor: UIColor.blue25, isBordered: false)
     )
     
     lazy var ambiguousButton = UIButton(
         configuration:
             returnButtonConfiguration(
-                title: "애매해요", fgColor: UIColor.evBackground, bgColor: UIColor.blue25, border: false)
+                title: "애매해요", fgColor: UIColor.evBackground, bgColor: UIColor.blue25, isBordered: false)
     )
     
     lazy var memorizedButton = UIButton(
         configuration:
             returnButtonConfiguration(
-                title: "외웠어요", fgColor: UIColor.evBackground, bgColor: UIColor.blue25, border: false)
+                title: "외웠어요", fgColor: UIColor.evBackground, bgColor: UIColor.blue25, isBordered: false)
     )
     
     private let cardStackView = UIStackView().then {
@@ -109,13 +109,13 @@ class MyVocaFlashCardView: VocaBookBaseView {
     lazy var previousPageButton = UIButton(
         configuration:
             returnButtonConfiguration(
-                title: "이전 단어", fgColor: UIColor.blue100, bgColor: UIColor.evBackground, border: true)
+                title: "이전 단어", fgColor: UIColor.blue100, bgColor: UIColor.evBackground, isBordered: true)
     )
     
     lazy var nextPageButton = UIButton(
         configuration:
             returnButtonConfiguration(
-                title: "다음 단어", fgColor: UIColor.evBackground, bgColor: UIColor.blue100, border: false)
+                title: "다음 단어", fgColor: UIColor.evBackground, bgColor: UIColor.blue100, isBordered: false)
     )
     
     
@@ -195,13 +195,14 @@ class MyVocaFlashCardView: VocaBookBaseView {
     }
     
     func bind(index: Int) {
+        currentVocaBookLabel.text = vocas[index].vocaBook
         englishLabel.text = vocas[index].english
         englishPronunciationLabel.text = vocas[index].pronunciation
         koreanLabel.text = vocas[index].korean
     }
     
     
-    private func returnButtonConfiguration(title: String, fgColor: UIColor, bgColor: UIColor, border: Bool) -> UIButton.Configuration {
+    private func returnButtonConfiguration(title: String, fgColor: UIColor, bgColor: UIColor, isBordered: Bool) -> UIButton.Configuration {
         var config = UIButton.Configuration.plain()
         // title
         config.attributedTitle = AttributedString(title)
@@ -211,7 +212,7 @@ class MyVocaFlashCardView: VocaBookBaseView {
         config.background.backgroundColor = bgColor
         // frame
         config.background.cornerRadius = 15
-        if border {
+        if isBordered {
             config.background.strokeWidth = 1
             config.background.strokeColor = UIColor.blue100
         }
