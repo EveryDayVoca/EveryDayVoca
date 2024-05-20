@@ -34,6 +34,8 @@ class BasicCustomAlertViewController: BaseViewController {
         view.addSubview(basicCustomAlert)
         
         super.viewDidLoad()
+        
+        configureAddTarget()
     }
     
     
@@ -49,11 +51,10 @@ class BasicCustomAlertViewController: BaseViewController {
             $0.centerX.equalToSuperview()
             $0.centerY.equalToSuperview().inset(-30)
             $0.width.equalToSuperview().multipliedBy(0.95)
-            $0.height.equalToSuperview().multipliedBy(0.22)
         }
     }
     
-    override func bind() {
+    private func configureAddTarget() {
         basicCustomAlert.button.addTarget(self, action: #selector(tappedConfirmButton), for: .touchUpInside)
     }
     

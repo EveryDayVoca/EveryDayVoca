@@ -11,17 +11,19 @@ struct CardDataModel {
     
     var word : String
     var meaning : String
-    var options : Options
-      
-    init(word: String, meaning: String, options: Options) {
+    var status : status
+    
+    init(word: String, meaning: String, status: status) {
         self.word = word
         self.meaning = meaning
-        self.options = options
+        self.status = status
     }
+      
 }
 
-enum Options: String {
-    case perfect = "외웠어요"
-    case normal = "애매해요"
+enum status: String {
+    case memorized = "외웠어요"
+    case ambiguous = "애매해요"
     case difficult = "어려워요"
+    case none = "미학습"
 }

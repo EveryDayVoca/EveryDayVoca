@@ -43,6 +43,10 @@ final class FlashCardView: BaseView {
         $0.textAlignment = .center
     }
     
+    var previousCardButton = UIButton().then {
+        $0.setImage(UIImage(named: "previous_button"), for: .normal)
+    }
+    
     let cardStack = SwipeCardStack()
     
     let hardButton = UIButton().then {
@@ -97,6 +101,7 @@ final class FlashCardView: BaseView {
         self.addSubview(containerView)
         containerView.addSubview(progressBar)
         progressBar.addSubview(percentLabel)
+        self.addSubview(previousCardButton)
         self.addSubview(cardStack)
         self.addSubview(buttonStack)
     }
@@ -123,6 +128,12 @@ final class FlashCardView: BaseView {
             $0.bottom.equalTo(progressBar.subviews[1].snp.bottom)
         }
         
+        previousCardButton.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(44)
+            $0.bottom.equalTo(cardStack.snp.top).offset(8)
+            $0.width.height.equalTo(24)
+        }
+    
         cardStack.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.centerY.equalToSuperview()

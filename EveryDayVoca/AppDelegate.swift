@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let attributes = [NSAttributedString.Key.font: UIFont.pretendard(size: 13, weight: .medium)]
         appearance.setTitleTextAttributes(attributes as [NSAttributedString.Key : Any], for: .normal)
         
-        let backButton = UIImage(named: "backButton")
+        let backButton = UIImage(named: "back_button")
         UINavigationBar.appearance().backIndicatorImage = backButton
         UINavigationBar.appearance().backIndicatorTransitionMaskImage = backButton
         UINavigationBar.appearance().tintColor = UIColor.evText
