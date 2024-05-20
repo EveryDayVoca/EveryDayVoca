@@ -22,7 +22,7 @@ final class UserViewController: BaseViewController {
         $0.style = .plain
         $0.target = self
         $0.action = #selector(tappedModifyButton)
-        $0.tintColor = .gray50
+        $0.tintColor = .gray100
     }
     
 
@@ -35,12 +35,16 @@ final class UserViewController: BaseViewController {
         self.navigationItem.titleView = titleLabel
         self.navigationController?.navigationBar.shadowImage = nil
         navigationItem.rightBarButtonItem = modifyButton
+        
+        
     }
     
     @objc func tappedModifyButton() {
         let nextView = UserModifyViewController()
         navigationController?.pushViewController(nextView, animated: true)
     }
+    
+   
     
     
     override func configureStyle() {
@@ -51,6 +55,7 @@ final class UserViewController: BaseViewController {
     }
     
     override func bind() {
+        
     }
     
     

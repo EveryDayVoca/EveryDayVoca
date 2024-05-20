@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserModifyView: BaseView {
+final class UserModifyView: BaseView {
     
     private let profileLabel = UILabel().then {
         $0.text = "프로필"
@@ -25,9 +25,11 @@ class UserModifyView: BaseView {
         $0.layer.shadowPath = nil
     }
     
-    private let profileImage = UIImageView().then {
+    var profileImage = UIImageView().then {
         $0.backgroundColor = .gray50
         $0.layer.cornerRadius = 32
+        $0.clipsToBounds = true
+        $0.contentMode = .scaleAspectFill
     }
     
     private let imageModifyButton = UIButton().then {
@@ -50,20 +52,28 @@ class UserModifyView: BaseView {
         $0.textAlignment = .left
     }
     
-    private let changeNameTextField = UITextField().then {
+    let changeNameTextField = UITextField().then {
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 32))
         $0.backgroundColor = .gray25
         $0.layer.cornerRadius = 16
         $0.leftView = paddingView
         $0.leftViewMode = .always
+        $0.autocorrectionType = .no
+        $0.spellCheckingType = .no
+        $0.keyboardType = .default
+        $0.tintColor = .evText
     }
     
-    private let changeNickNameTextField = UITextField().then {
+    let changeNickNameTextField = UITextField().then {
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 32))
         $0.backgroundColor = .gray25
         $0.layer.cornerRadius = 16
         $0.leftView = paddingView
         $0.leftViewMode = .always
+        $0.autocorrectionType = .no
+        $0.spellCheckingType = .no
+        $0.keyboardType = .default
+        $0.tintColor = .evText
     }
     
     private let dayGoalLabel = UILabel().then {
@@ -96,6 +106,30 @@ class UserModifyView: BaseView {
         $0.textAlignment = .left
     }
     
+    let levelTextField = UITextField().then {
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 32))
+        $0.backgroundColor = .gray25
+        $0.layer.cornerRadius = 16
+        $0.leftView = paddingView
+        $0.leftViewMode = .always
+        $0.autocorrectionType = .no
+        $0.spellCheckingType = .no
+        $0.keyboardType = .default
+        $0.tintColor = .clear
+    }
+    
+    let learningAmountTextField = UITextField().then {
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 32))
+        $0.backgroundColor = .gray25
+        $0.layer.cornerRadius = 16
+        $0.leftView = paddingView
+        $0.leftViewMode = .always
+        $0.autocorrectionType = .no
+        $0.spellCheckingType = .no
+        $0.keyboardType = .default
+        $0.tintColor = .clear
+    }
+    
     let doneEditButton = UIButton().then {
         $0.setTitle("변경 사항 저장", for: .normal)
         $0.backgroundColor = .blue100
@@ -122,7 +156,9 @@ class UserModifyView: BaseView {
          changeNickNameTextField].forEach { profileView.addSubview($0) }
         
         [levelLabel,
-         learningAmountLabel].forEach { dayGoalView.addSubview($0) }
+         learningAmountLabel,
+         levelTextField,
+         learningAmountTextField].forEach { dayGoalView.addSubview($0) }
         
     }
     
@@ -200,6 +236,20 @@ class UserModifyView: BaseView {
             $0.leading.equalToSuperview().offset(16)
         }
         
+        levelTextField.snp.makeConstraints {
+            $0.centerY.equalTo(levelLabel.snp.centerY)
+            $0.height.equalTo(32)
+            $0.width.equalTo(changeNameTextField)
+            $0.centerX.equalTo(changeNameTextField)
+        }
+        
+        learningAmountTextField.snp.makeConstraints {
+            $0.centerY.equalTo(learningAmountLabel.snp.centerY)
+            $0.height.equalTo(32)
+            $0.width.equalTo(changeNameTextField)
+            $0.centerX.equalTo(changeNameTextField)
+        }
+        
         doneEditButton.snp.makeConstraints {
             $0.bottom.equalTo(safeAreaLayoutGuide).offset(-20)
             $0.leading.equalToSuperview().offset(20)
@@ -208,3 +258,4 @@ class UserModifyView: BaseView {
         }
     }
 }
+

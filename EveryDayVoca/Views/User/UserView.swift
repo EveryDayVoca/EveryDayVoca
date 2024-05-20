@@ -25,19 +25,21 @@ final class UserView: BaseView {
         $0.layer.shadowPath = nil
     }
     
-    let profileImage = UIImageView().then {
+    var profileImage = UIImageView().then {
         $0.backgroundColor = .gray50
         $0.layer.cornerRadius = 32
+        $0.clipsToBounds = true
+        $0.contentMode = .scaleAspectFill
     }
     
-    let userNameLabel = UILabel().then {
+    var userNameLabel = UILabel().then {
         $0.text = "사용자 이름"
         $0.font = UIFont.pretendard(size: 18, weight: .semibold)
         $0.textColor = UIColor.evText
         $0.textAlignment = .left
     }
     
-    let nickNameLabel = UILabel().then {
+    var nickNameLabel = UILabel().then {
         $0.text = "사용자 닉네임"
         $0.font = UIFont.pretendard(size: 18, weight: .regular)
         $0.textColor = UIColor.evText
