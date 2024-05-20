@@ -47,6 +47,7 @@ final class VocaBookViewController: BaseViewController {
         super.configureDelegate()
         vocaBookVocaListView.vocaListTableView.register(VocaListTableViewCell.self, forCellReuseIdentifier: VocaListTableViewCell.identifier)
         vocaBookVocaListView.vocaListTableView.dataSource = self
+        vocaBookVocaListView.vocaListTableView.delegate = self
     }
     
     override func bind() {
@@ -82,5 +83,12 @@ extension VocaBookViewController: UITableViewDataSource {
         cell.bind(voca: vocas[indexPath.row])
         
         return cell
+    }
+    
+}
+
+extension VocaBookViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100    // 그림자 포함 높이
     }
 }
