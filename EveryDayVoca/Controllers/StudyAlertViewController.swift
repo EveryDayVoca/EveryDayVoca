@@ -7,23 +7,33 @@
 
 import UIKit
 
-class StudyAlertViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+final class StudyAlertViewController: BaseViewController {
+    
+    // MARK: - properties
+    private let studyAlertView = StudyAlertView()
+    
+    // MARK: - life cycles
+    override func loadView() {
+        view = studyAlertView
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        configureAddTarget()
     }
-    */
-
+    
+    // MARK: - methods
+    private func configureAddTarget() {
+        studyAlertView.addButton.addTarget(self, action: #selector(tappedAddButton), for: .touchUpInside)
+        studyAlertView.cancelButton.addTarget(self, action: #selector(tappedCancelButton), for: .touchUpInside)
+    }
+    
+    @objc private func tappedAddButton() {
+        
+    }
+    
+    @objc private func tappedCancelButton() {
+        dismiss(animated: false)
+    }
 }
