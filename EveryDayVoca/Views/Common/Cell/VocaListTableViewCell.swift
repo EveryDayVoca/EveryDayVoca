@@ -29,6 +29,15 @@ final class VocaListTableViewCell: UITableViewCell {
     static let identifier = String(describing: VocaListTableViewCell.self)
     
     // MARK: - Properties
+    
+    private let cellView = UIView().then {
+        $0.layer.cornerRadius = 12
+        $0.layer.shadowColor = UIColor.evText.cgColor
+        $0.layer.shadowOpacity = 0.1
+        $0.layer.shadowRadius = 8
+        $0.backgroundColor = UIColor.evBackground
+    }
+    
     private let statusDotImage = UIImageView().then {
         $0.image = UIImage(systemName: "circle.fill")
         $0.contentMode = .scaleAspectFit
@@ -69,37 +78,67 @@ final class VocaListTableViewCell: UITableViewCell {
     
     
     // MARK: - Methods
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        configureUI()
+        configureHierarchy()
+        configureConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private func configureUI() {
         self.backgroundColor = UIColor.evBackground
+        
+    }
+    
+    private func configureHierarchy() {
+        
+        contentView.addSubview(cellView)
+        
+        [statusDotImage,
+         statusTextLabel,
+         vocaBookLabel,
+         englishLabel,
+         koreanLabel].forEach { cellView.addSubview($0) }
     }
     
     private func configureConstraints() {
         
-        let horizontalEdge = 22
+        // 셀 높이(100) >= 95; 그림자+여백 높이(12*2) + cellView 높이(71)
+        let shadowEdge = 12
+        let horizontalEdge = 27
         let verticalEdge = 16
+        
+        cellView.snp.makeConstraints {
+            $0.edges.equalTo(contentView).inset(shadowEdge)
+        }
         
         statusDotImage.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(horizontalEdge)
-            $0.top.equalToSuperview().offset(verticalEdge)
+            $0.centerY.equalTo(statusTextLabel)
             $0.size.equalTo(7)
         }
         
         statusTextLabel.snp.makeConstraints {
             $0.leading.equalTo(statusDotImage.snp.trailing).offset(5)
-            $0.top.equalTo(statusDotImage)
+            $0.top.equalTo(cellView).offset(verticalEdge)
         }
         
         
         vocaBookLabel.snp.makeConstraints {
             $0.leading.equalTo(statusTextLabel.snp.trailing).offset(10)
-            $0.top.equalTo(statusTextLabel)
+            $0.centerY.equalTo(statusTextLabel)
             $0.trailing.equalToSuperview().inset(horizontalEdge)
         }
         
         
         englishLabel.snp.makeConstraints {
             $0.leading.equalTo(statusDotImage)
-            $0.top.equalTo(statusDotImage.snp.bottom).offset(5)
+            $0.top.equalTo(statusTextLabel.snp.bottom).offset(7)
             $0.bottom.equalToSuperview().inset(verticalEdge)
         }
         
@@ -111,14 +150,6 @@ final class VocaListTableViewCell: UITableViewCell {
             $0.bottom.equalToSuperview().inset(verticalEdge)
         }
         
-    }
-    
-    private func configureHierarchy() {
-        [statusDotImage,
-         statusTextLabel,
-         vocaBookLabel,
-         englishLabel,
-         koreanLabel].forEach { contentView.addSubview($0) }
     }
     
     
@@ -135,11 +166,11 @@ final class VocaListTableViewCell: UITableViewCell {
             statusTextLabel.text = "외웠어요"
         }
         
+        englishLabel.text = voca.english
+        koreanLabel.text = voca.korean
         vocaBookLabel.text = voca.vocaBook
         
-        englishLabel.text = voca.english
-        
-        koreanLabel.text = voca.korean
+        print("voca.korean: \(voca.korean)")
     }
     
     
