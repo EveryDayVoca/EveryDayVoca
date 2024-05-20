@@ -46,13 +46,12 @@ class VocaBookFilterPopoverViewController: BaseViewController {
     override func configureDelegate() {
         super.configureDelegate()
         
-//        let tableView = vocaBookPopoverView.tableView
-        
-        self.vocaBookPopoverView.tableView.register(VocaBookFilterPopoverTableViewCell.self, forCellReuseIdentifier: VocaBookFilterPopoverTableViewCell.identifier)
-        self.vocaBookPopoverView.tableView.dataSource = self
-        self.vocaBookPopoverView.tableView.delegate = self
-        
-        self.vocaBookPopoverView.tableView.allowsMultipleSelection = true
+        let tableView = vocaBookPopoverView.tableView
+        tableView.register(VocaBookFilterPopoverTableViewCell.self, 
+                           forCellReuseIdentifier: VocaBookFilterPopoverTableViewCell.identifier)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.allowsMultipleSelection = true
     }
 }
 
