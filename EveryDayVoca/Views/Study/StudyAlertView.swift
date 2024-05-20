@@ -70,8 +70,6 @@ final class StudyAlertView: BaseView {
     
     // MARK: - methods
     override func configureUI() {
-        super.configureUI()
-        
         messageTextField.addPadding()
     }
     
@@ -111,5 +109,17 @@ final class StudyAlertView: BaseView {
             $0.leading.trailing.bottom.equalToSuperview().inset(16)
             $0.height.equalTo(45)
         }
+    }
+}
+
+extension UITextField {
+    func addPadding() {
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: self.frame.height))
+        
+        self.leftView = paddingView
+        self.leftViewMode = ViewMode.always
+        
+        self.rightView = paddingView
+        self.rightViewMode = ViewMode.always
     }
 }
