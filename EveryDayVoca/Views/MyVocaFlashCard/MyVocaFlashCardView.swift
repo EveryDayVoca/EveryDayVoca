@@ -32,19 +32,19 @@ class MyVocaFlashCardView: VocaBookBaseView {
     lazy var hardButton = UIButton(
         configuration:
             returnButtonConfiguration(
-                title: "어려워요", fgColor: UIColor.evBackground, bgColor: UIColor.blue25)
+                title: "어려워요", fgColor: UIColor.evBackground, bgColor: UIColor.blue25, border: false)
     )
     
     lazy var ambiguousButton = UIButton(
         configuration:
             returnButtonConfiguration(
-                title: "애매해요", fgColor: UIColor.evBackground, bgColor: UIColor.blue25)
+                title: "애매해요", fgColor: UIColor.evBackground, bgColor: UIColor.blue25, border: false)
     )
     
     lazy var memorizedButton = UIButton(
         configuration:
             returnButtonConfiguration(
-                title: "외웠어요", fgColor: UIColor.evBackground, bgColor: UIColor.blue25)
+                title: "외웠어요", fgColor: UIColor.evBackground, bgColor: UIColor.blue25, border: false)
     )
     
     private let cardStackView = UIStackView().then {
@@ -55,6 +55,15 @@ class MyVocaFlashCardView: VocaBookBaseView {
     }
     
     private let englishCardView = UIView().then {
+        $0.layer.cornerRadius = 12
+        $0.layer.shadowColor = UIColor.evText.cgColor
+        $0.layer.shadowOpacity = 0.1
+        $0.layer.shadowRadius = 16
+        $0.backgroundColor = UIColor.evBackground
+    }
+    
+    private let koreanCardView = UIView().then {
+        $0.layer.cornerRadius = 12
         $0.layer.shadowColor = UIColor.evText.cgColor
         $0.layer.shadowOpacity = 0.1
         $0.layer.shadowRadius = 16
@@ -82,12 +91,6 @@ class MyVocaFlashCardView: VocaBookBaseView {
         $0.font = UIFont.pretendard(size: 18, weight: .regular)
     }
     
-    private let koreanCardView = UIView().then {
-        $0.layer.shadowColor = UIColor.evText.cgColor
-        $0.layer.shadowOpacity = 0.1
-        $0.layer.shadowRadius = 16
-        $0.backgroundColor = .clear
-    }
     
     private let koreanLabel = UILabel().then {
         $0.textAlignment = .center
@@ -106,13 +109,13 @@ class MyVocaFlashCardView: VocaBookBaseView {
     lazy var previousPageButton = UIButton(
         configuration:
             returnButtonConfiguration(
-                title: "이전 단어", fgColor: UIColor.evBackground, bgColor: UIColor.blue100)
+                title: "이전 단어", fgColor: UIColor.blue100, bgColor: UIColor.evBackground, border: true)
     )
     
     lazy var nextPageButton = UIButton(
         configuration:
             returnButtonConfiguration(
-                title: "다음 단어", fgColor: UIColor.blue100, bgColor: UIColor.evBackground)
+                title: "다음 단어", fgColor: UIColor.evBackground, bgColor: UIColor.blue100, border: false)
     )
     
     
@@ -198,7 +201,7 @@ class MyVocaFlashCardView: VocaBookBaseView {
     }
     
     
-    private func returnButtonConfiguration(title: String, fgColor: UIColor, bgColor: UIColor) -> UIButton.Configuration {
+    private func returnButtonConfiguration(title: String, fgColor: UIColor, bgColor: UIColor, border: Bool) -> UIButton.Configuration {
         var config = UIButton.Configuration.plain()
         // title
         config.attributedTitle = AttributedString(title)
@@ -208,6 +211,10 @@ class MyVocaFlashCardView: VocaBookBaseView {
         config.background.backgroundColor = bgColor
         // frame
         config.background.cornerRadius = 15
+        if border {
+            config.background.strokeWidth = 1
+            config.background.strokeColor = UIColor.blue100
+        }
         return config
     }
     
