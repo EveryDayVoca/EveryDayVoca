@@ -17,15 +17,13 @@ final class UserViewController: BaseViewController {
         $0.textAlignment = .center
     }
     
-    lazy var modifyButton = UIBarButtonItem(title: "수정", style: .plain, target: self, action: #selector(tappedModifyButton))
-    
-//    let modifyButton = UIBarButtonItem().then {
-//        $0.title = "수정"
-//        $0.style = .plain
-//        $0.target = self
-//        $0.action = #selector(tappedModifyButton)
-//        $0.tintColor = .gray50
-//    }
+    lazy var modifyButton = UIBarButtonItem().then {
+        $0.title = "수정"
+        $0.style = .plain
+        $0.target = self
+        $0.action = #selector(tappedModifyButton)
+        $0.tintColor = .gray50
+    }
     
 
     

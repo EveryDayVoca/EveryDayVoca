@@ -96,7 +96,12 @@ class UserModifyView: BaseView {
         $0.textAlignment = .left
     }
     
-    
+    let doneEditButton = UIButton().then {
+        $0.setTitle("변경 사항 저장", for: .normal)
+        $0.backgroundColor = .blue100
+        $0.tintColor = .white
+        $0.layer.cornerRadius = 15
+    }
     
     override func configureUI() {
         super.configureUI()
@@ -106,7 +111,8 @@ class UserModifyView: BaseView {
         [profileLabel,
          profileView,
          dayGoalLabel,
-         dayGoalView].forEach { self.addSubview($0) }
+         dayGoalView,
+         doneEditButton].forEach { self.addSubview($0) }
         
         [profileImage,
          imageModifyButton,
@@ -190,8 +196,15 @@ class UserModifyView: BaseView {
         }
         
         learningAmountLabel.snp.makeConstraints{
-            $0.top.equalTo(levelLabel.snp.bottom).offset(20)
+            $0.top.equalTo(levelLabel.snp.bottom).offset(24)
             $0.leading.equalToSuperview().offset(16)
+        }
+        
+        doneEditButton.snp.makeConstraints {
+            $0.bottom.equalTo(safeAreaLayoutGuide).offset(-20)
+            $0.leading.equalToSuperview().offset(20)
+            $0.trailing.equalToSuperview().offset(-20)
+            $0.height.equalTo(56)
         }
     }
 }

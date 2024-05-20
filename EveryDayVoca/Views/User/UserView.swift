@@ -25,19 +25,19 @@ final class UserView: BaseView {
         $0.layer.shadowPath = nil
     }
     
-    private let profileImage = UIImageView().then {
+    let profileImage = UIImageView().then {
         $0.backgroundColor = .gray50
         $0.layer.cornerRadius = 32
     }
     
-    private let userNameLabel = UILabel().then {
+    let userNameLabel = UILabel().then {
         $0.text = "사용자 이름"
         $0.font = UIFont.pretendard(size: 18, weight: .semibold)
         $0.textColor = UIColor.evText
         $0.textAlignment = .left
     }
     
-    private let nickNameLabel = UILabel().then {
+    let nickNameLabel = UILabel().then {
         $0.text = "사용자 닉네임"
         $0.font = UIFont.pretendard(size: 18, weight: .regular)
         $0.textColor = UIColor.evText
@@ -81,7 +81,7 @@ final class UserView: BaseView {
         $0.textAlignment = .left
     }
     
-    private let goalCountLabel = UILabel().then {
+    let goalCountLabel = UILabel().then {
         $0.text = "60개"
         $0.font = UIFont.pretendard(size: 18, weight: .semibold)
         $0.textColor = UIColor.evText
@@ -144,7 +144,7 @@ final class UserView: BaseView {
         $0.backgroundColor = .blue100
     }
     
-    private let oneProgressView = UIProgressView().then {
+    let oneProgressView = UIProgressView().then {
         $0.progress = 0.5
         $0.trackTintColor = .evBackground
         $0.progressTintColor = .blue10
@@ -158,7 +158,7 @@ final class UserView: BaseView {
         $0.layer.sublayers?[1].cornerRadius = 15
     }
     
-    private let twoProgressView = UIProgressView().then {
+    let twoProgressView = UIProgressView().then {
         $0.progress = 0.5
         $0.trackTintColor = .evBackground
         $0.progressTintColor = .blue25
@@ -172,7 +172,7 @@ final class UserView: BaseView {
         $0.layer.sublayers?[1].cornerRadius = 15
     }
     
-    private let threeProgressView = UIProgressView().then {
+    let threeProgressView = UIProgressView().then {
         $0.progress = 0.5
         $0.trackTintColor = .evBackground
         $0.progressTintColor = .blue50
@@ -186,7 +186,7 @@ final class UserView: BaseView {
         $0.layer.sublayers?[1].cornerRadius = 15
     }
     
-    private let fourProgressView = UIProgressView().then {
+    let fourProgressView = UIProgressView().then {
         $0.progress = 0.5
         $0.trackTintColor = .evBackground
         $0.progressTintColor = .blue75
@@ -200,7 +200,7 @@ final class UserView: BaseView {
         $0.layer.sublayers?[1].cornerRadius = 15
     }
     
-    private let fiveProgressView = UIProgressView().then {
+    let fiveProgressView = UIProgressView().then {
         $0.progress = 0.5
         $0.trackTintColor = .evBackground
         $0.progressTintColor = .blue100
@@ -214,35 +214,35 @@ final class UserView: BaseView {
         $0.layer.sublayers?[1].cornerRadius = 15
     }
     
-    private let oneProgressPercentLabel = UILabel().then {
+    let oneProgressPercentLabel = UILabel().then {
         $0.text = "50%"
         $0.font = UIFont.pretendard(size: 13, weight: .semibold)
         $0.textColor = .gray50
         $0.textAlignment = .right
     }
     
-    private let twoProgressPercentLabel = UILabel().then {
+    let twoProgressPercentLabel = UILabel().then {
         $0.text = "50%"
         $0.font = UIFont.pretendard(size: 13, weight: .semibold)
         $0.textColor = .white
         $0.textAlignment = .right
     }
     
-    private let threeProgressPercentLabel = UILabel().then {
+    let threeProgressPercentLabel = UILabel().then {
         $0.text = "50%"
         $0.font = UIFont.pretendard(size: 13, weight: .semibold)
         $0.textColor = .white
         $0.textAlignment = .right
     }
     
-    private let fourProgressPercentLabel = UILabel().then {
+    let fourProgressPercentLabel = UILabel().then {
         $0.text = "50%"
         $0.font = UIFont.pretendard(size: 13, weight: .semibold)
         $0.textColor = .white
         $0.textAlignment = .right
     }
     
-    private let fiveProgressPercentLabel = UILabel().then {
+    let fiveProgressPercentLabel = UILabel().then {
         $0.text = "50%"
         $0.font = UIFont.pretendard(size: 13, weight: .semibold)
         $0.textColor = .white
@@ -253,6 +253,7 @@ final class UserView: BaseView {
         $0.setTitle("수정", for: .normal)
         $0.tintColor = .gray50
     }
+   
     
     // MARK: - methods
     override func configureUI() {
