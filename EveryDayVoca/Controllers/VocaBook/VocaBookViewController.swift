@@ -29,6 +29,7 @@ final class VocaBookViewController: BaseViewController {
     
     var vocaBook = "전체"
     
+    
     // MARK: - Life Cycles
     
     override func loadView() {
@@ -96,4 +97,8 @@ extension VocaBookViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100    // 그림자 포함 높이
     }
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let myVocaFlashCardVC =
+//    }
 }
