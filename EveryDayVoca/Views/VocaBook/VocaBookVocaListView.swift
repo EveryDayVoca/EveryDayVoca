@@ -86,6 +86,11 @@ final class VocaBookVocaListView: VocaBookBaseView {
            }
        }
     
+    
+    func bind(vocaBook: String) {
+        currentVocaBookLabel.text = vocaBook
+    }
+    
        private func returnTableOptionButtonConfiguration(title: String, titleSize: CGFloat, image: UIImage) -> UIButton.Configuration {
            var config = UIButton.Configuration.plain()
            // title
