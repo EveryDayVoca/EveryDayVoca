@@ -19,7 +19,7 @@ class MyVocaFlashCardViewController: BaseViewController {
     
     override func loadView() {
         view = myVocaFlashCardView
-        
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     override func viewDidLoad() {
