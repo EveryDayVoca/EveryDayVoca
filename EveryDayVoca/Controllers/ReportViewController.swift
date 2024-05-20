@@ -7,23 +7,24 @@
 
 import UIKit
 
-class ReportViewController: UIViewController {
+class ReportViewController: BaseViewController {
+    
+    let reportView = ReportView()
+    
+    let titleLabel = UILabel().then {
+        $0.text = "통계"
+        $0.font = UIFont.pretendard(size: 17, weight: .semibold)
+        $0.textColor = .evText
+        $0.textAlignment = .center
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        view = self.reportView
+        
+        self.navigationItem.titleView = titleLabel
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
