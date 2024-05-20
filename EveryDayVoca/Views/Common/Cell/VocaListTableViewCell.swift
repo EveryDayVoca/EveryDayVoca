@@ -121,7 +121,7 @@ final class VocaListTableViewCell: UITableViewCell {
         statusDotImage.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(horizontalEdge)
             $0.centerY.equalTo(statusTextLabel)
-            $0.size.equalTo(7)
+            $0.size.equalTo(9)
         }
         
         statusTextLabel.snp.makeConstraints {
