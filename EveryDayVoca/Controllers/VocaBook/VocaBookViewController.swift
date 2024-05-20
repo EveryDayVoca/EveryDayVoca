@@ -68,13 +68,13 @@ final class VocaBookViewController: BaseViewController {
         vocaBookVocaListView.tableFilterButton.addTarget(self, action: #selector(tappedTableFilterButton), for: .touchUpInside)
         
         // 보기 옵션 버튼
+        vocaBookVocaListView.tableDisplayOptionButton.addTarget(self, action: #selector(tappedTableDisplayOptionButton), for: .touchUpInside)
     }
     
     @objc func tappedTableFilterButton() {
-        
         let filterPopoverVC = VocaBookFilterPopoverViewController()
         filterPopoverVC.modalPresentationStyle = .popover
-        filterPopoverVC.preferredContentSize = .init(width: 150, height: 200)
+        filterPopoverVC.preferredContentSize = .init(width: 150, height: 126)
         filterPopoverVC.popoverPresentationController?.sourceView = vocaBookVocaListView.tableFilterButton
         filterPopoverVC.popoverPresentationController?.sourceRect = CGRect(
             origin: CGPoint(
@@ -86,8 +86,23 @@ final class VocaBookViewController: BaseViewController {
         filterPopoverVC.popoverPresentationController?.permittedArrowDirections = .up
         filterPopoverVC.popoverPresentationController?.delegate = self
         present(filterPopoverVC, animated: true)
-        
-        
+    }
+    
+    @objc func tappedTableDisplayOptionButton() {
+        let displayOptionPopoverVC = VocaBookDisplayOptionPopoverViewController()
+        displayOptionPopoverVC.modalPresentationStyle = .popover
+        displayOptionPopoverVC.preferredContentSize = .init(width: 150, height: 96)
+        displayOptionPopoverVC.popoverPresentationController?.sourceView = vocaBookVocaListView.tableDisplayOptionButton
+        displayOptionPopoverVC.popoverPresentationController?.sourceRect = CGRect(
+            origin: CGPoint(
+                x: vocaBookVocaListView.tableDisplayOptionButton.bounds.midX,
+                y: vocaBookVocaListView.tableDisplayOptionButton.bounds.midY
+            ),
+            size: .zero
+        )
+        displayOptionPopoverVC.popoverPresentationController?.permittedArrowDirections = .up
+        displayOptionPopoverVC.popoverPresentationController?.delegate = self
+        present(displayOptionPopoverVC, animated: true)
     }
     
     

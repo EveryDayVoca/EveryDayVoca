@@ -110,7 +110,7 @@
 				1A39333C2BF60C5900F3B825 /* VocaBookVocaListView.swift */,
 				1A39333F2BF8B8AD00F3B825 /* VocaBookPopoverView.swift */,
 				1A3933562BFB32D300F3B825 /* VocaBookAddVocaView.swift */,
-				1A3933452BF9F30500F3B825 /* Cell */,
+				1A3933452BF9F30500F3B825 /* PopoverTableViewCell */,
 			);
 			path = VocaBook;
 			sourceTree = "<group>";
@@ -123,13 +123,13 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		1A3933452BF9F30500F3B825 /* Cell */ = {
+		1A3933452BF9F30500F3B825 /* PopoverTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				1A3933432BF9F03500F3B825 /* VocaBookFilterPopoverTableViewCell.swift */,
 				1A3933492BFA27BE00F3B825 /* VocaBookDisplayOptionPopoverTableViewCell.swift */,
 			);
-			path = Cell;
+			path = PopoverTableViewCell;
 			sourceTree = "<group>";
 		};
 		1A3933462BFA276500F3B825 /* VocaBookPopover */ = {
