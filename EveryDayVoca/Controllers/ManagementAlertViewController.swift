@@ -1,5 +1,5 @@
 //
-//  StudyAlertViewController.swift
+//  ManagementAlertViewController.swift
 //  EveryDayVoca
 //
 //  Created by 김정호 on 5/20/24.
@@ -7,14 +7,14 @@
 
 import UIKit
 
-final class StudyAlertViewController: BaseViewController {
+final class ManagementAlertViewController: BaseViewController {
     
     // MARK: - properties
-    private let studyAlertView = StudyAlertView()
+    private let managementAlertView = ManagementAlertView()
     
     // MARK: - life cycles
     override func loadView() {
-        view = studyAlertView
+        view = managementAlertView
     }
     
     override func viewDidLoad() {
@@ -25,8 +25,8 @@ final class StudyAlertViewController: BaseViewController {
     
     // MARK: - methods
     private func configureAddTarget() {
-        studyAlertView.addButton.addTarget(self, action: #selector(tappedAddButton), for: .touchUpInside)
-        studyAlertView.cancelButton.addTarget(self, action: #selector(tappedCancelButton), for: .touchUpInside)
+        managementAlertView.addButton.addTarget(self, action: #selector(tappedAddButton), for: .touchUpInside)
+        managementAlertView.cancelButton.addTarget(self, action: #selector(tappedCancelButton), for: .touchUpInside)
     }
     
     @objc private func tappedAddButton() {

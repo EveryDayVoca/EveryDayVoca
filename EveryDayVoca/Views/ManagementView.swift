@@ -1,5 +1,5 @@
 //
-//  StudyView.swift
+//  ManagementView.swift
 //  EveryDayVoca
 //
 //  Created by 김정호 on 5/19/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class StudyView: BaseView {
+final class ManagementView: BaseView {
     
     // MARK: - properties
     let titleLabel = UILabel().then {

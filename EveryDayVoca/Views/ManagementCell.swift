@@ -1,5 +1,5 @@
 //
-//  StudyCell.swift
+//  ManagementCell.swift
 //  EveryDayVoca
 //
 //  Created by 김정호 on 5/19/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class StudyCell: BaseCollectionViewCell {
+final class ManagementCell: BaseCollectionViewCell {
     
     // MARK: - properties
     private let containerView = UIView().then {
@@ -39,10 +39,6 @@ final class StudyCell: BaseCollectionViewCell {
     }
     
     // MARK: - methods
-    override func configureUI() {
-        super.configureUI()
-    }
-    
     override func configureHierarchy() {
         self.contentView.addSubview(containerView)
         self.containerView.addSubview(vocaBookLabel)

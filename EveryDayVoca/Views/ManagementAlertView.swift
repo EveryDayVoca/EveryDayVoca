@@ -1,5 +1,5 @@
 //
-//  StudyAlertView.swift
+//  ManagementAlertView.swift
 //  EveryDayVoca
 //
 //  Created by 김정호 on 5/20/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class StudyAlertView: BaseView {
+final class ManagementAlertView: BaseView {
     
     // MARK: - properties
     private let backgroundView = UIView().then {
