@@ -207,6 +207,7 @@ class MyVocaFlashCardView: VocaBookBaseView {
     private func returnStatusButtonConfiguration(title: String, buttonStatus: Status, currentStatus: Status) -> UIButton.Configuration {
         
         let isSelected = buttonStatus == currentStatus
+        print("isSelected: \(buttonStatus) == \(currentStatus)? -> \(isSelected)")
         
         var config = UIButton.Configuration.plain()
         // title
