@@ -57,7 +57,7 @@ final class VocaBookViewController: BaseViewController {
     override func bind() {
         super.bind()
         
-        vocaBookVocaListView.currentVocaBookLabel.text = self.vocaBook
+        vocaBookVocaListView.bind(vocaBook: vocaBook)
     }
     
     private func configureAddTarget() {
