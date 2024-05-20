@@ -49,9 +49,11 @@ final class VocaBookViewController: BaseViewController {
     
     override func configureDelegate() {
         super.configureDelegate()
-        vocaBookVocaListView.vocaListTableView.register(VocaListTableViewCell.self, forCellReuseIdentifier: VocaListTableViewCell.identifier)
-        vocaBookVocaListView.vocaListTableView.dataSource = self
-        vocaBookVocaListView.vocaListTableView.delegate = self
+        
+        let tableView = vocaBookVocaListView.vocaListTableView
+        tableView.register(VocaListTableViewCell.self, forCellReuseIdentifier: VocaListTableViewCell.identifier)
+        tableView.dataSource = self
+        tableView.delegate = self
     }
     
     override func bind() {
@@ -87,7 +89,7 @@ extension VocaBookViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: VocaListTableViewCell.identifier, for: indexPath) as? VocaListTableViewCell else { return UITableViewCell() }
         
         cell.bind(voca: vocas[indexPath.row])
-        
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -102,5 +104,6 @@ extension VocaBookViewController: UITableViewDelegate {
         let myVocaFlashCardVC = MyVocaFlashCardViewController()
         myVocaFlashCardVC.changeIndex(index: indexPath.row)
         self.navigationController?.pushViewController(myVocaFlashCardVC, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
