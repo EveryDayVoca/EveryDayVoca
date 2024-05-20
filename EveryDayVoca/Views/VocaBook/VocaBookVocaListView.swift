@@ -9,15 +9,15 @@ import UIKit
 
 final class VocaBookVocaListView: VocaBookBaseView {
     
-     //MARK: - Properties
-   
-       let filterImage = UIImage(systemName: "line.3.horizontal.decrease")!
-       let eyeImage = UIImage(systemName: "eye")!
-   
-       private let tableOptionView = UIView().then {
-           $0.backgroundColor = .none
-       }
-   
+    //MARK: - Properties
+    
+    let filterImage = UIImage(systemName: "line.3.horizontal.decrease")!
+    let eyeImage = UIImage(systemName: "eye")!
+    
+    private let tableOptionView = UIView().then {
+        $0.backgroundColor = .none
+    }
+    
     lazy var tableFilterButton = UIButton(
         configuration:
             returnTableOptionButtonConfiguration(
@@ -29,49 +29,49 @@ final class VocaBookVocaListView: VocaBookBaseView {
             returnTableOptionButtonConfiguration(
                 title: "보기 옵션", titleSize: 14, image: eyeImage)
     )
-   
-       private let tableItemCountLabel = UILabel().then {
-           $0.textAlignment = .right
-           $0.textColor = UIColor.gray100
-           $0.numberOfLines = 1
-           $0.font = UIFont.pretendard(size: 12, weight: .medium)
-       }
-   
-       let vocaListTableView = UITableView().then {
-           $0.backgroundColor = UIColor.evBackground
-           $0.separatorStyle = .none
-       }
-   
-   
-       // MARK: - Methods
+    
+    private let tableItemCountLabel = UILabel().then {
+        $0.textAlignment = .right
+        $0.textColor = UIColor.gray100
+        $0.numberOfLines = 1
+        $0.font = UIFont.pretendard(size: 12, weight: .medium)
+    }
+    
+    let vocaListTableView = UITableView().then {
+        $0.backgroundColor = UIColor.evBackground
+        $0.separatorStyle = .none
+    }
+    
+    
+    // MARK: - Methods
     
     override func configureHierarchy() {
         super.configureHierarchy()
         
         [tableOptionView,
          vocaListTableView].forEach { self.customView.addSubview($0) }
-
+        
         [tableFilterButton,
          tableDisplayOptionButton,
          tableItemCountLabel].forEach { tableOptionView.addSubview($0) }
     }
-   
-       override func configureConstraints() {
-           super.configureConstraints()
-   
-           tableOptionView.snp.makeConstraints {
-               $0.top.equalTo(customView).offset(16)
-               $0.horizontalEdges.equalToSuperview().inset(26)
-               $0.height.equalTo(25)
-           }
-   
-           tableFilterButton.snp.makeConstraints {
-               $0.leading.verticalEdges.equalToSuperview()
-           }
-   
-           tableDisplayOptionButton.snp.makeConstraints {
-               $0.leading.equalTo(tableFilterButton.snp.trailing).offset(10)
-               $0.verticalEdges.equalToSuperview()
+    
+    override func configureConstraints() {
+        super.configureConstraints()
+        
+        tableOptionView.snp.makeConstraints {
+            $0.top.equalTo(customView).offset(16)
+            $0.horizontalEdges.equalToSuperview().inset(26)
+            $0.height.equalTo(25)
+        }
+        
+        tableFilterButton.snp.makeConstraints {
+            $0.leading.verticalEdges.equalToSuperview()
+        }
+        
+        tableDisplayOptionButton.snp.makeConstraints {
+            $0.leading.equalTo(tableFilterButton.snp.trailing).offset(10)
+            $0.verticalEdges.equalToSuperview()
            }
    
            tableItemCountLabel.snp.makeConstraints {

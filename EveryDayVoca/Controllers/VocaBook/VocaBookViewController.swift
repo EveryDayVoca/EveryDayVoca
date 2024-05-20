@@ -27,6 +27,8 @@ final class VocaBookViewController: BaseViewController {
         Voca(english: "delicate", korean: "미묘한", pronunciation: "ˈdelɪkət", status: .difficult, vocaBook: "중고등")
     ]
     
+    var vocaBook = "전체"
+    
     // MARK: - Life Cycles
     
     override func loadView() {
@@ -53,6 +55,8 @@ final class VocaBookViewController: BaseViewController {
     
     override func bind() {
         super.bind()
+        
+        vocaBookVocaListView.currentVocaBookLabel.text = self.vocaBook
     }
     
     private func configureAddTarget() {
