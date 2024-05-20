@@ -10,16 +10,19 @@ import UIKit
 final class StudyCell: BaseCollectionViewCell {
     
     // MARK: - properties
-    private let vocaBookButton = UIButton().then {
-        let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.pretendard(size: 24, weight: .semibold), .foregroundColor: UIColor.evText]
-        let attributedTitle = NSAttributedString(string: "", attributes: attributes)
-        $0.setAttributedTitle(attributedTitle, for: .normal)
-        $0.backgroundColor = .evBackground
-        $0.layer.cornerRadius = 12
+    private let containerView = UIView().then {
+        $0.layer.shadowOffset = CGSize(width: 0, height: 0)
         $0.layer.shadowOpacity = 0.15
         $0.layer.shadowRadius = 12
-        $0.layer.shadowOffset = CGSize(width: 0, height: 0)
-        $0.layer.shadowPath = nil
+    }
+    
+    private let vocaBookLabel = UILabel().then {
+        $0.font = .pretendard(size: 24, weight: .semibold)
+        $0.textColor = .evText
+        $0.textAlignment = .center
+        $0.backgroundColor = .evBackground
+        $0.layer.cornerRadius = 12
+        $0.layer.masksToBounds = true
     }
     
     // MARK: - life cycles
@@ -41,16 +44,17 @@ final class StudyCell: BaseCollectionViewCell {
     }
     
     override func configureHierarchy() {
-        self.contentView.addSubview(vocaBookButton)
+        self.contentView.addSubview(containerView)
+        self.containerView.addSubview(vocaBookLabel)
     }
     
     override func configureConstraints() {
-        vocaBookButton.snp.makeConstraints {
+        containerView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-    }
-    
-    func bind() {
         
+        vocaBookLabel.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
 }
