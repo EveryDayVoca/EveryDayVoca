@@ -13,6 +13,7 @@ enum Status {
     case difficult
     case ambiguous
     case memorized
+    case none
 }
 struct Voca {
     let english: String
@@ -164,6 +165,9 @@ final class VocaListTableViewCell: UITableViewCell {
         case .memorized:
             statusDotImage.tintColor = UIColor.green100
             statusTextLabel.text = "외웠어요"
+        case .none:
+            statusDotImage.tintColor = UIColor.gray100
+            statusTextLabel.text = "미학습"
         }
         
         englishLabel.text = voca.english

@@ -19,7 +19,8 @@ class VocaBookFilterPopoverViewController: BaseViewController {
     private let vocaBookPopoverView = VocaBookPopoverView()
     var filters: [Filter] = [Filter(status: .difficult, isSelected: true),
                              Filter(status: .ambiguous, isSelected: true),
-                             Filter(status: .memorized, isSelected: true)]
+                             Filter(status: .memorized, isSelected: true),
+                             Filter(status: .none, isSelected: true)]
     
     
     // MARK: - Life Cycles

@@ -71,6 +71,9 @@ final class VocaBookFilterPopoverTableViewCell: UITableViewCell {
             
         case .memorized:
             label.text = "외웠어요"
+            
+        case .none:
+            label.text = "미학습"
         }
         
         switch filter.isSelected {
