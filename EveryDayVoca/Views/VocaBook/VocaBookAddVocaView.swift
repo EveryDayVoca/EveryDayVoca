@@ -11,16 +11,40 @@ class VocaBookAddVocaView: BaseView {
     
     // MARK: - Properties
     
+    let titleLabel = UILabel().then {
+        $0.textAlignment = .center
+        $0.textColor = UIColor.evText
+        $0.numberOfLines = 0
+        $0.font = UIFont.pretendard(size: 17, weight: .semibold)
+    }
+    
+    let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.pretendard(size: 17, weight: .regular),
+                                                             .foregroundColor: UIColor.gray50,
+                                                             .underlineStyle: 0]
+    
+    lazy var englishTextField = UITextField().then {
+        $0.backgroundColor = UIColor.evBackground
+        $0.textColor = UIColor.evText
+        $0.attributedPlaceholder = NSAttributedString(string: "영단어 입력하기.", attributes: attributes)
+        $0.autocapitalizationType = .none
+        $0.autocorrectionType = .no
+        $0.spellCheckingType = .yes
+    }
+    
+    lazy var koreanTextField = UITextField().then {
+        $0.backgroundColor = UIColor.evBackground
+        $0.textColor = UIColor.evText
+        $0.attributedPlaceholder = NSAttributedString(string: "뜻 입력하기.", attributes: attributes)
+        $0.autocapitalizationType = .none
+        $0.autocorrectionType = .no
+        $0.spellCheckingType = .yes
+    }
     
     
     // MARK: - Methods
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        configureUI()
-        configureHierarchy()
-        configureConstraints()
     }
     
     required init?(coder: NSCoder) {

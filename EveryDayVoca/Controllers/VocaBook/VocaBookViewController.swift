@@ -71,11 +71,23 @@ final class VocaBookViewController: BaseViewController {
     }
     
     @objc func tappedTableFilterButton() {
+        
         let filterPopoverVC = VocaBookFilterPopoverViewController()
         filterPopoverVC.modalPresentationStyle = .popover
-        filterPopoverVC.preferredContentSize = CGSizeMake(filterPopoverVC.view.frame.width, filterPopoverVC.view.frame.height)
-//        filterPopoverVC.preferredContentSize = CGSizeMake(100, 88)
-        self.present(filterPopoverVC, animated: true)
+        filterPopoverVC.preferredContentSize = .init(width: 150, height: 200)
+        filterPopoverVC.popoverPresentationController?.sourceView = vocaBookVocaListView.tableFilterButton
+        filterPopoverVC.popoverPresentationController?.sourceRect = CGRect(
+            origin: CGPoint(
+                x: vocaBookVocaListView.tableFilterButton.bounds.midX,
+                y: vocaBookVocaListView.tableFilterButton.bounds.midY
+            ),
+            size: .zero
+        )
+        filterPopoverVC.popoverPresentationController?.permittedArrowDirections = .up
+        filterPopoverVC.popoverPresentationController?.delegate = self
+        present(filterPopoverVC, animated: true)
+        
+        
     }
     
     
@@ -106,5 +118,16 @@ extension VocaBookViewController: UITableViewDelegate {
         myVocaFlashCardVC.changeIndex(index: indexPath.row)
         self.navigationController?.pushViewController(myVocaFlashCardVC, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+
+extension VocaBookViewController: UIPopoverPresentationControllerDelegate {
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.none
+    }
+    
+    func presentationControllerShouldDismiss(_ presentationController: UIPresentationController) -> Bool {
+        return true
     }
 }
