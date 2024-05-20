@@ -45,14 +45,17 @@ final class VocaBookFilterPopoverTableViewCell: UITableViewCell {
     }
     
     private func configureConstraints() {
+        
         label.snp.makeConstraints {
-            $0.leading.verticalEdges.equalToSuperview().inset(12)
+            $0.leading.equalToSuperview().inset(20)
+            $0.verticalEdges.equalToSuperview().inset(8)
         }
         
         checkMarkImage.snp.makeConstraints {
-            $0.leading.greaterThanOrEqualTo(label.snp.trailing).offset(12)
-            $0.verticalEdges.equalTo(label)
-            $0.trailing.equalToSuperview().inset(12)
+            $0.leading.greaterThanOrEqualTo(label.snp.trailing).offset(20)
+            $0.trailing.equalToSuperview().inset(20)
+            $0.centerY.equalTo(label)
+            $0.size.equalTo(16)
         }
     }
     
