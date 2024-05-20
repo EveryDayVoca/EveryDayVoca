@@ -39,6 +39,7 @@ final class VocaBookVocaListView: VocaBookBaseView {
    
        let vocaListTableView = UITableView().then {
            $0.backgroundColor = UIColor.evBackground
+           $0.separatorStyle = .none
        }
    
    
@@ -60,7 +61,7 @@ final class VocaBookVocaListView: VocaBookBaseView {
    
            tableOptionView.snp.makeConstraints {
                $0.top.equalTo(customView).offset(16)
-               $0.horizontalEdges.equalTo(vocaListTableView)
+               $0.horizontalEdges.equalToSuperview().inset(26)
                $0.height.equalTo(25)
            }
    
@@ -80,7 +81,7 @@ final class VocaBookVocaListView: VocaBookBaseView {
    
            vocaListTableView.snp.makeConstraints {
                $0.top.equalTo(tableOptionView.snp.bottom).offset(16)
-               $0.horizontalEdges.equalToSuperview().inset(26)
+               $0.horizontalEdges.equalToSuperview().inset(10)
                $0.bottom.equalTo(self.customView)
            }
        }
