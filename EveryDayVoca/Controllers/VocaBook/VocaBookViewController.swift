@@ -20,7 +20,11 @@ final class VocaBookViewController: BaseViewController {
         $0.textAlignment = .center
     }
     
-    var vocas: [Voca] = []
+    var vocas: [Voca] = [
+        Voca(english: "Apple", korean: "사과", pronunciation: "ˈæpl", status: .memorized, vocaBook: "중고"),
+        Voca(english: "absorb", korean: "흡수하다", pronunciation: "əb|sɔːrb", status: .ambiguous, vocaBook: "중고"),
+        Voca(english: "delicate", korean: "미묘한", pronunciation: "ˈdelɪkət", status: .difficult, vocaBook: "중고")
+    ]
     
     // MARK: - Life Cycles
     
@@ -41,6 +45,7 @@ final class VocaBookViewController: BaseViewController {
     
     override func configureDelegate() {
         super.configureDelegate()
+        vocaBookVocaListView.vocaListTableView.register(VocaListTableViewCell.self, forCellReuseIdentifier: VocaListTableViewCell.identifier)
         vocaBookVocaListView.vocaListTableView.dataSource = self
     }
     
