@@ -15,7 +15,8 @@ class MyVocaFlashCardView: VocaBookBaseView {
         Voca(english: "apple", korean: "사과", pronunciation: "ˈæpl", status: .memorized, vocaBook: "초등"),
         Voca(english: "acid", korean: "산", pronunciation: "ˈæsɪd", status: .memorized, vocaBook: "중고등"),
         Voca(english: "absorb", korean: "흡수하다", pronunciation: "əb|sɔːrb", status: .ambiguous, vocaBook: "중고등"),
-        Voca(english: "delicate", korean: "미묘한", pronunciation: "ˈdelɪkət", status: .difficult, vocaBook: "중고등")
+        Voca(english: "delicate", korean: "미묘한", pronunciation: "ˈdelɪkət", status: .difficult, vocaBook: "중고등"),
+        Voca(english: "mom", korean: "엄마", pronunciation: "mom", status: .none, vocaBook: "초드")
     ]
     // ----------------------------------
     
@@ -59,7 +60,7 @@ class MyVocaFlashCardView: VocaBookBaseView {
         $0.layer.cornerRadius = 12
         $0.layer.shadowColor = UIColor.evText.cgColor
         $0.layer.shadowOpacity = 0.1
-        $0.layer.shadowRadius = 16
+        $0.layer.shadowRadius = 8
         $0.backgroundColor = UIColor.evBackground
     }
     
@@ -67,7 +68,7 @@ class MyVocaFlashCardView: VocaBookBaseView {
         $0.layer.cornerRadius = 12
         $0.layer.shadowColor = UIColor.evText.cgColor
         $0.layer.shadowOpacity = 0.1
-        $0.layer.shadowRadius = 16
+        $0.layer.shadowRadius = 8
         $0.backgroundColor = UIColor.evBackground
     }
     
