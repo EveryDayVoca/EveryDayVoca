@@ -10,13 +10,13 @@ import UIKit
 class VocaBookAddVocaViewController: BaseViewController {
     
     // MARK: - Properties
-    
+    let vocaBookAddVocaView = VocaBookAddVocaView()
     
 
     // MARK: - Life Cycles
     
     override func loadView() {
-        
+        view = vocaBookAddVocaView
     }
 
     override func viewDidLoad() {

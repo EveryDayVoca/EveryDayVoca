@@ -20,7 +20,11 @@ class MyVocaFlashCardView: VocaBookBaseView {
     ]
     // ----------------------------------
     
-    var currentVoca: Voca = Voca(english: "-", korean: "-", pronunciation: "-", status: .none, vocaBook: "-")
+    var currentVoca: Voca = Voca(english: "-", korean: "-", pronunciation: "-", status: .none, vocaBook: "-") {
+        didSet {
+            print("currentVoca: \(currentVoca)")
+        }
+    }
     
     // MARK: - Properties
     
@@ -202,6 +206,8 @@ class MyVocaFlashCardView: VocaBookBaseView {
         englishLabel.text = currentVoca.english
         englishPronunciationLabel.text = currentVoca.pronunciation
         koreanLabel.text = currentVoca.korean
+        
+        
     }
     
     
