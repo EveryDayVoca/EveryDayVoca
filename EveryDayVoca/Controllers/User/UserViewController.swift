@@ -9,7 +9,9 @@ import UIKit
 
 final class UserViewController: BaseViewController {
     
+    // MARK: - property
     let userView = UserView()
+    
     private let titleLabel = UILabel().then {
         $0.text = "사용자 정보"
         $0.font = UIFont.pretendard(size: 17, weight: .bold)
@@ -25,6 +27,10 @@ final class UserViewController: BaseViewController {
         $0.tintColor = .gray100
     }
     
+    @objc func tappedModifyButton() {
+        let nextView = UserModifyViewController()
+        navigationController?.pushViewController(nextView, animated: true)
+    }
 
     
     // MARK: - life cycles
@@ -39,23 +45,14 @@ final class UserViewController: BaseViewController {
         
     }
     
-    @objc func tappedModifyButton() {
-        let nextView = UserModifyViewController()
-        navigationController?.pushViewController(nextView, animated: true)
-    }
-    
-   
-    
-    
+    // MARK: - method
     override func configureStyle() {
-       
     }
     
     override func configureDelegate() {
     }
     
     override func bind() {
-        
     }
     
     

@@ -33,6 +33,7 @@
 		6237154F2BF5D056004EFB9A /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6237154E2BF5D056004EFB9A /* UserView.swift */; };
 		623715522BF75C4E004EFB9A /* UserModifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623715512BF75C4E004EFB9A /* UserModifyView.swift */; };
 		623715542BF75E34004EFB9A /* UserModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623715532BF75E34004EFB9A /* UserModifyViewController.swift */; };
+		62F3A8A22BFC75310002508D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A8A12BFC75310002508D /* UserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		6237154E2BF5D056004EFB9A /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		623715512BF75C4E004EFB9A /* UserModifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModifyView.swift; sourceTree = "<group>"; };
 		623715532BF75E34004EFB9A /* UserModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModifyViewController.swift; sourceTree = "<group>"; };
+		62F3A8A12BFC75310002508D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				37D776FE2BF30DBD0078D6E8 /* AppDelegate.swift */,
 				37D777002BF30DBD0078D6E8 /* SceneDelegate.swift */,
+				62F3A89D2BFC61DE0002508D /* Model */,
 				37D777402BF34CFA0078D6E8 /* Extensions */,
 				37D7772D2BF34BF30078D6E8 /* Fonts */,
 				37D777432BF357400078D6E8 /* Views */,
@@ -179,6 +182,14 @@
 				623715532BF75E34004EFB9A /* UserModifyViewController.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		62F3A89D2BFC61DE0002508D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				62F3A8A12BFC75310002508D /* UserModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,6 +287,7 @@
 				37D777012BF30DBD0078D6E8 /* SceneDelegate.swift in Sources */,
 				37D777092BF30DBD0078D6E8 /* EveryDayVoca.xcdatamodeld in Sources */,
 				37D777262BF31E390078D6E8 /* StudyViewController.swift in Sources */,
+				62F3A8A22BFC75310002508D /* UserModel.swift in Sources */,
 				371D24342BF38AC1002B4DC5 /* BaseViewController.swift in Sources */,
 				37D777242BF31DED0078D6E8 /* VocaBookViewController.swift in Sources */,
 				371D24322BF37ED7002B4DC5 /* BaseView.swift in Sources */,

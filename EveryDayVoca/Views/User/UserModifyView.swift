@@ -142,6 +142,7 @@ final class UserModifyView: BaseView {
     }
     
     override func configureHierarchy() {
+        
         [profileLabel,
          profileView,
          dayGoalLabel,

@@ -20,12 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let attributes = [NSAttributedString.Key.font: UIFont.pretendard(size: 13, weight: .medium)]
         appearance.setTitleTextAttributes(attributes as [NSAttributedString.Key : Any], for: .normal)
         
-        let backButton = UIImage(named: "backButton")
-        UINavigationBar.appearance().backIndicatorImage = backButton
-        UINavigationBar.appearance().backIndicatorTransitionMaskImage = backButton
-        UINavigationBar.appearance().tintColor = UIColor.evText
-        UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: -200, vertical: 0), for: .default)
-        
         return true
     }
 

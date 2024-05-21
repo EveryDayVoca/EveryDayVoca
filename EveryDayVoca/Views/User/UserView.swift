@@ -33,7 +33,7 @@ final class UserView: BaseView {
     }
     
     var userNameLabel = UILabel().then {
-        $0.text = "사용자 이름"
+        $0.text = "사용자 정보"
         $0.font = UIFont.pretendard(size: 18, weight: .semibold)
         $0.textColor = UIColor.evText
         $0.textAlignment = .left
@@ -45,7 +45,6 @@ final class UserView: BaseView {
         $0.textColor = UIColor.evText
         $0.textAlignment = .left
     }
-    
     
     private let dayGoalLabel = UILabel().then {
         $0.text = "일일 학습량"
@@ -255,7 +254,7 @@ final class UserView: BaseView {
         $0.setTitle("수정", for: .normal)
         $0.tintColor = .gray50
     }
-   
+    
     
     // MARK: - methods
     override func configureUI() {
@@ -297,8 +296,6 @@ final class UserView: BaseView {
         threeProgressView.subviews[1].addSubview(threeProgressPercentLabel)
         fourProgressView.subviews[1].addSubview(fourProgressPercentLabel)
         fiveProgressView.subviews[1].addSubview(fiveProgressPercentLabel)
-        
-        
     }
     
     override func configureConstraints() {
@@ -313,7 +310,7 @@ final class UserView: BaseView {
             $0.top.equalTo(profileLabel.snp.bottom).offset(12)
             $0.leading.equalToSuperview().offset(20)
             $0.trailing.equalToSuperview().offset(-20)
-//            $0.height.equalTo(96)
+            //            $0.height.equalTo(96)
         }
         
         dayGoalLabel.snp.makeConstraints {
@@ -479,11 +476,6 @@ final class UserView: BaseView {
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().offset(-6)
         }
-      
-        
     }
-    
-
-    
 }
 
