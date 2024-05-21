@@ -53,7 +53,7 @@ final class VocaBookViewController: BaseViewController {
             $0.textAlignment = .center
         }
         
-        var navigationBarPlusButton = UIBarButtonItem().then {
+        let navigationBarPlusButton = UIBarButtonItem().then {
             $0.image = UIImage(named: "plus")
             $0.target = self
             $0.action = #selector(tappedNavigationBarPlusButton)
