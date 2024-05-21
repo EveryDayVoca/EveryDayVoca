@@ -49,9 +49,9 @@
 		62F3A8A92BFCE1380002508D /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A8A82BFCE1380002508D /* UserViewController.swift */; };
 		62F3A8AF2BFCE5D30002508D /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 62F3A8AE2BFCE5D30002508D /* DGCharts */; };
 		62F3A8B22BFCE6090002508D /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A8B02BFCE6090002508D /* ReportView.swift */; };
-		62F3A8BF2BFCE7260002508D /* PieChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A8BC2BFCE7260002508D /* PieChartViewController.swift */; };
-		62F3A8C02BFCE7260002508D /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A8BD2BFCE7260002508D /* ReportViewController.swift */; };
 		62F3A8C32BFCE8910002508D /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A8C22BFCE8910002508D /* UserDefaultsManager.swift */; };
+		62F3A8C62BFD2FB40002508D /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A8C52BFD2FB40002508D /* ReportViewController.swift */; };
+		62F3A8C82BFD2FEC0002508D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A8C72BFD2FEC0002508D /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,9 +95,9 @@
 		623715532BF75E34004EFB9A /* UserModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModifyViewController.swift; sourceTree = "<group>"; };
 		62F3A8A82BFCE1380002508D /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserViewController.swift; path = "../../../../../../Downloads/EveryDayVoca-feature-7-user/EveryDayVoca/Controllers/User/UserViewController.swift"; sourceTree = "<group>"; };
 		62F3A8B02BFCE6090002508D /* ReportView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
-		62F3A8BC2BFCE7260002508D /* PieChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartViewController.swift; sourceTree = "<group>"; };
-		62F3A8BD2BFCE7260002508D /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		62F3A8C22BFCE8910002508D /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		62F3A8C52BFD2FB40002508D /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		62F3A8C72BFD2FEC0002508D /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,9 +187,9 @@
 		37D777222BF31C800078D6E8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				62F3A8C42BFD2F520002508D /* Report */,
 				37D777232BF31DED0078D6E8 /* VocaBookViewController.swift */,
 				37D777252BF31E390078D6E8 /* StudyViewController.swift */,
-				62F3A8BE2BFCE7260002508D /* Report */,
 				623715552BF75E3B004EFB9A /* User */,
 				2E9DED9C2BF5D0EC00A85C42 /* FlashCardViewController.swift */,
 				2E10E7E12BFA97F70049E1AB /* FlashAlertViewController.swift */,
@@ -268,22 +268,21 @@
 			path = "../../../../../Downloads/EveryDayVoca-feature-12-statistic/EveryDayVoca/Views/Report";
 			sourceTree = "<group>";
 		};
-		62F3A8BE2BFCE7260002508D /* Report */ = {
-			isa = PBXGroup;
-			children = (
-				62F3A8BC2BFCE7260002508D /* PieChartViewController.swift */,
-				62F3A8BD2BFCE7260002508D /* ReportViewController.swift */,
-			);
-			name = Report;
-			path = "../../../../../Downloads/EveryDayVoca-feature-12-statistic 2/EveryDayVoca/Controllers/Report";
-			sourceTree = "<group>";
-		};
 		62F3A8C12BFCE7CB0002508D /* UserDefaults */ = {
 			isa = PBXGroup;
 			children = (
 				62F3A8C22BFCE8910002508D /* UserDefaultsManager.swift */,
 			);
 			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		62F3A8C42BFD2F520002508D /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				62F3A8C52BFD2FB40002508D /* ReportViewController.swift */,
+				62F3A8C72BFD2FEC0002508D /* SecondViewController.swift */,
+			);
+			path = Report;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,6 +379,7 @@
 			files = (
 				6237154F2BF5D056004EFB9A /* UserView.swift in Sources */,
 				62F3A8A92BFCE1380002508D /* UserViewController.swift in Sources */,
+				62F3A8C82BFD2FEC0002508D /* SecondViewController.swift in Sources */,
 				623715542BF75E34004EFB9A /* UserModifyViewController.swift in Sources */,
 				623715522BF75C4E004EFB9A /* UserModifyView.swift in Sources */,
 				2E9DEDD92BFA167700A85C42 /* CardView.swift in Sources */,
@@ -393,13 +393,12 @@
 				2E1C31022BFC315E00CB6DDE /* VocaDate+CoreDataProperties.swift in Sources */,
 				2E1C31032BFC315E00CB6DDE /* VocaDeck+CoreDataClass.swift in Sources */,
 				2E1C31042BFC315E00CB6DDE /* VocaDeck+CoreDataProperties.swift in Sources */,
-				62F3A8BF2BFCE7260002508D /* PieChartViewController.swift in Sources */,
 				37D777092BF30DBD0078D6E8 /* EveryDayVoca.xcdatamodeld in Sources */,
 				37D777262BF31E390078D6E8 /* StudyViewController.swift in Sources */,
 				371D24342BF38AC1002B4DC5 /* BaseViewController.swift in Sources */,
 				37D777242BF31DED0078D6E8 /* VocaBookViewController.swift in Sources */,
-				62F3A8C02BFCE7260002508D /* ReportViewController.swift in Sources */,
 				2E9DED9B2BF50C4500A85C42 /* FlashCardView.swift in Sources */,
+				62F3A8C62BFD2FB40002508D /* ReportViewController.swift in Sources */,
 				2E10E7E02BFA94000049E1AB /* FlashAlertView.swift in Sources */,
 				62F3A8C32BFCE8910002508D /* UserDefaultsManager.swift in Sources */,
 				2E45B8042BFB5C2000BDFFEC /* vocaCoreDataManager.swift in Sources */,
@@ -537,9 +536,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 79LSKHWYJ8;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EveryDayVoca/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -555,6 +555,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.e2e2.EveryDayVoca;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -570,9 +571,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 79LSKHWYJ8;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EveryDayVoca/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -588,6 +590,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.e2e2.EveryDayVoca;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

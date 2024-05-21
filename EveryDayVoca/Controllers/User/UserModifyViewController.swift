@@ -10,14 +10,14 @@ import UIKit
 final class UserModifyViewController: BaseViewController {
 
     // MARK: - property
-    let userModifyView = UserModifyView()
-    let userView = UserView()
+    private let userModifyView = UserModifyView()
+    private let userView = UserView()
     
-    let firstPickerView = UIPickerView()
-    let secondPickerView = UIPickerView()
+    private let firstPickerView = UIPickerView()
+    private let secondPickerView = UIPickerView()
     
-    let level = ["Lv. 1", "Lv. 2", "Lv. 3", "Lv. 4", "Lv. 5",]
-    let counts = ["10개", "20개", "30개", "40개", "50개", "60개", "70개", "80개", "90개", "100개"]
+    private let level = ["Lv. 1", "Lv. 2", "Lv. 3", "Lv. 4", "Lv. 5",]
+    private let counts = ["10개", "20개", "30개", "40개", "50개", "60개", "70개", "80개", "90개", "100개"]
     
     
     private let titleLabel = UILabel().then {
@@ -34,6 +34,7 @@ final class UserModifyViewController: BaseViewController {
         view = self.userModifyView
         self.navigationItem.titleView = titleLabel
         
+        
         userModifyView.doneEditButton.addTarget(self, action: #selector(tappedDoneEditButton), for: .touchUpInside)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(touchToPickPhoto))
@@ -45,7 +46,6 @@ final class UserModifyViewController: BaseViewController {
         
         self.userModifyView.levelTextField.inputView = firstPickerView
         self.userModifyView.learningAmountTextField.inputView = secondPickerView
-        
         
     }
     
@@ -63,7 +63,7 @@ final class UserModifyViewController: BaseViewController {
         
     }
     
-    
+    // alert 창 확인 누를 시 데이터 업데이트
     @objc func tappedDoneEditButton() {
         let alert = UIAlertController(title: "프로필 수정", message: "변경 사항을 저장하시겠습니까?", preferredStyle: .alert)
 
@@ -74,6 +74,7 @@ final class UserModifyViewController: BaseViewController {
             UserDefaultsManager.shared.set(value: self.userModifyView.levelTextField.text!, forKey: "studyLevel")
             UserDefaultsManager.shared.set(value: self.userModifyView.learningAmountTextField.text!, forKey: "studyAmount")
             UserDefaultsManager.shared.setImageConvert(value: self.userModifyView.profileImage.image!, key: "profileImage")
+            
             NotificationCenter.default.addObserver(self, selector: #selector(self.tappedDoneEditButton), name: .userDefaultsDidChange, object: nil)
             self.navigationController?.popViewController(animated: true)
         }
@@ -85,9 +86,8 @@ final class UserModifyViewController: BaseViewController {
     }
     
     
-    
+    // Observer 제거
     deinit {
-        // Observer 제거
         NotificationCenter.default.removeObserver(self, name: .userDefaultsDidChange, object: nil)
     }
     

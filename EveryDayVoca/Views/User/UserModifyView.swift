@@ -26,14 +26,14 @@ final class UserModifyView: BaseView {
     }
     
     var profileImage = UIImageView().then {
-        if let imageData = UserDefaults.standard.data(forKey: "profileImage"),
-           let image = UIImage(data: imageData) {
-            $0.image = image
-        }
         $0.backgroundColor = .gray50
         $0.layer.cornerRadius = 32
         $0.clipsToBounds = true
         $0.contentMode = .scaleAspectFill
+        if let imageData = UserDefaults.standard.data(forKey: "profileImage"),
+           let image = UIImage(data: imageData) {
+            $0.image = image
+        }
     }
     
     private let imageModifyButton = UIButton().then {
