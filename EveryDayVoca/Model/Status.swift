@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum status: String {
+enum Status: String {
     case memorized = "외웠어요"
     case ambiguous = "애매해요"
     case difficult = "어려워요"

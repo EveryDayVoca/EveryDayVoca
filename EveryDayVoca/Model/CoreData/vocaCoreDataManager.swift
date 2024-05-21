@@ -175,24 +175,29 @@ final class vocaCoreDataManager {
         }
     }
     
-    func updateVocaDatas(vocadatas: [(vocaData: Voca, status: String)]) {
+    func updateVocaDatas(vocadatas: [Voca]) {
         guard let context = context else {
             return
         }
         
-        for voca in vocadatas {
-            voca.vocaData.status = voca.status
+        for i in vocadatas {
+            i.status = i.status
         }
         
-        do {
-            try context.save()
-        } catch {
-            print("단어 저장 중 실패 : \(error)")
+        if context.hasChanges {
+            do {
+                try context.save()
+                print("단어 업데이트 성공")
+            } catch {
+                print("단어 업데이트 실패 : \(error)")
+            }
+        } else {
+            print("저장할 변경 사항이 없음")
         }
     }
     
-    func getStudyData(vocaData: [Voca]) -> [status: Int] {
-        var studyData: [status: Int] = [.memorized: 0, .ambiguous: 0, .difficult: 0, .none: 0]
+    func getStudyData(vocaData: [Voca]) -> [Status: Int] {
+        var studyData: [Status: Int] = [.memorized: 0, .ambiguous: 0, .difficult: 0, .none: 0]
         
         for data in vocaData {
             switch data.status {

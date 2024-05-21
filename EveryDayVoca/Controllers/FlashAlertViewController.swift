@@ -1,5 +1,5 @@
 //
-//  BasicCustomAlertViewController.swift
+//  FlashAlertViewController.swift
 //  EveryDayVoca
 //
 //  Created by 배지해 on 5/20/24.
@@ -11,7 +11,7 @@ protocol CustomAlertDelegate {
     func confirm()
 }
 
-class BasicCustomAlertViewController: BaseViewController {
+final class FlashAlertViewController: BaseViewController {
     
     // MARK: - properties
     
@@ -19,14 +19,14 @@ class BasicCustomAlertViewController: BaseViewController {
     var subtitleText: String = ""
     var buttonTitleText: String = ""
     
-    private var basicCustomAlert: BasicCustomAlertView!
+    private var basicCustomAlert: FlashAlertView!
     var delegate: CustomAlertDelegate?
     
     
     // MARK: - life cycles
     
     override func loadView() {
-        basicCustomAlert = BasicCustomAlertView()
+        basicCustomAlert = FlashAlertView()
     }
     
     override func viewDidLoad() {
@@ -58,7 +58,7 @@ class BasicCustomAlertViewController: BaseViewController {
         basicCustomAlert.button.addTarget(self, action: #selector(tappedConfirmButton), for: .touchUpInside)
     }
     
-    @objc func tappedConfirmButton() {
+    @objc private func tappedConfirmButton() {
         self.dismiss(animated: true) {
             self.delegate?.confirm()
         }

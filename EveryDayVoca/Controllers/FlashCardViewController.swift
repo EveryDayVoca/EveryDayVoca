@@ -12,19 +12,18 @@ final class FlashCardViewController: BaseViewController {
     
     // MARK: - properties
     private var flashCardView: FlashCardView!
-    private var customAlertVC: BasicCustomAlertViewController!
+    private var customAlertVC: FlashAlertViewController!
     private var currentIndex = 0
     let coreDataManager = vocaCoreDataManager.shared
     private var wordData = [Voca]()
-    
+    var toStudyVC: (([Voca]) -> Void)?
     
     // MARK: - life cycles
     override func loadView() {
         flashCardView = FlashCardView()
-        customAlertVC = BasicCustomAlertViewController()
+        customAlertVC = FlashAlertViewController()
         
         wordData = coreDataManager.getVocaDataWithIndex(index: 1, count: 10)
-        dump(wordData)
         
         view = flashCardView
     }
@@ -95,13 +94,13 @@ final class FlashCardViewController: BaseViewController {
         guard let buttonStatus = sender.titleLabel?.text else { return }
         switch buttonStatus {
         case "어려워요":
-            wordData[currentIndex].status = "어려워요"
+            wordData[currentIndex].status = Status.difficult.rawValue
         case "애매해요":
-            wordData[currentIndex].status = "애매해요"
+            wordData[currentIndex].status = Status.ambiguous.rawValue
         case "외웠어요":
-            wordData[currentIndex].status = "외웠어요"
+            wordData[currentIndex].status = Status.memorized.rawValue
         default:
-            wordData[currentIndex].status = .none
+            wordData[currentIndex].status = Status.none.rawValue
         }
         flashCardView.cardStack.swipe(.right, animated: true)
     }
@@ -150,7 +149,8 @@ extension FlashCardViewController: SwipeCardStackDelegate {
 
 extension FlashCardViewController: CustomAlertDelegate {
     func confirm() {
-        dump(wordData)
+        coreDataManager.updateVocaDatas(vocadatas: wordData)
+        toStudyVC?(wordData)
         self.navigationController?.popViewController(animated: true)
     }
 }

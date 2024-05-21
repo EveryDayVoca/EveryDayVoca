@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class BasicCustomAlertView: BaseView {
+class FlashAlertView: BaseView {
     
     // MARK: - properties
     
