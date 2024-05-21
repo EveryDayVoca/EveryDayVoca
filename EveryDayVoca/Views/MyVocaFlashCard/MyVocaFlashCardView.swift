@@ -20,9 +20,9 @@ class MyVocaFlashCardView: VocaBookBaseView {
     ]
     // ----------------------------------
     
-    var currentVoca: Voca = Voca(english: "-", korean: "-", pronunciation: "-", status: .none, vocaBook: "-") {
+    var currentVoca: Voca? {
         didSet {
-            print("currentVoca: \(currentVoca)")
+            updateButtonConfiguration()
         }
     }
     
@@ -35,23 +35,12 @@ class MyVocaFlashCardView: VocaBookBaseView {
         $0.distribution = .fillEqually
     }
     
-    lazy var hardButton = UIButton(
-        configuration:
-            returnStatusButtonConfiguration(
-                title: "어려워요", buttonStatus: .difficult, currentStatus: currentVoca.status)
-    )
     
-    lazy var ambiguousButton = UIButton(
-        configuration:
-            returnStatusButtonConfiguration(
-                title: "애매해요", buttonStatus: .ambiguous, currentStatus: currentVoca.status)
-    )
+    let difficultButton = UIButton()
     
-    lazy var memorizedButton = UIButton(
-        configuration:
-            returnStatusButtonConfiguration(
-                title: "외웠어요", buttonStatus: .memorized, currentStatus: currentVoca.status)
-    )
+    let ambiguousButton = UIButton()
+    
+    let memorizedButton = UIButton()
     
     private let cardStackView = UIStackView().then {
         $0.axis = .vertical
@@ -148,7 +137,7 @@ class MyVocaFlashCardView: VocaBookBaseView {
          cardStackView,
         pagingButtonStackView].forEach { self.customView.addSubview($0) }
         
-        [hardButton, 
+        [difficultButton, 
          ambiguousButton,
          memorizedButton].forEach { statusButtonStackView.addArrangedSubview($0) }
         
@@ -202,19 +191,28 @@ class MyVocaFlashCardView: VocaBookBaseView {
     
     func bind(index: Int) {
         currentVoca = vocas[index]
-        currentVocaBookLabel.text = currentVoca.vocaBook
-        englishLabel.text = currentVoca.english
-        englishPronunciationLabel.text = currentVoca.pronunciation
-        koreanLabel.text = currentVoca.korean
+        currentVocaBookLabel.text = currentVoca?.vocaBook
+        englishLabel.text = currentVoca?.english
+        englishPronunciationLabel.text = currentVoca?.pronunciation
+        koreanLabel.text = currentVoca?.korean
         
         
     }
     
-    
-    private func returnStatusButtonConfiguration(title: String, buttonStatus: Status, currentStatus: Status) -> UIButton.Configuration {
+    private func updateButtonConfiguration() {
+        difficultButton.configuration = returnStatusButtonConfiguration(title: "어려워요", buttonStatus: .difficult)
         
-        let isSelected = buttonStatus == currentStatus
-        print("isSelected: \(buttonStatus) == \(currentStatus)? -> \(isSelected)")
+        ambiguousButton.configuration = returnStatusButtonConfiguration(
+            title: "애매해요", buttonStatus: .ambiguous)
+
+        memorizedButton.configuration = returnStatusButtonConfiguration(
+            title: "외웠어요", buttonStatus: .memorized)
+    }
+    
+    private func returnStatusButtonConfiguration(title: String, buttonStatus: Status) -> UIButton.Configuration {
+        
+        let isSelected = buttonStatus == currentVoca?.status
+        print("isSelected: \(buttonStatus) == \(currentVoca?.status)? -> \(isSelected)")
         
         var config = UIButton.Configuration.plain()
         // title
@@ -251,5 +249,6 @@ class MyVocaFlashCardView: VocaBookBaseView {
         }
         return config
     }
+    
     
 }
