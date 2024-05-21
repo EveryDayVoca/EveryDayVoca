@@ -26,27 +26,11 @@ class VocaBookAddVocaView: BaseView {
                                                              .underlineStyle: 0]
     
     lazy var englishTextField = UITextField().then {
-        $0.backgroundColor = UIColor.evBackground
-        $0.layer.cornerRadius = 20
-        $0.layer.borderWidth = 1
-        $0.layer.borderColor = UIColor.gray50.cgColor
-        $0.textColor = UIColor.evText
         $0.attributedPlaceholder = NSAttributedString(string: "영단어 입력하기", attributes: attributes)
-        $0.autocapitalizationType = .none
-        $0.autocorrectionType = .no
-        $0.spellCheckingType = .yes
     }
     
     lazy var koreanTextField = UITextField().then {
-        $0.backgroundColor = UIColor.evBackground
-        $0.layer.cornerRadius = 20
-        $0.layer.borderWidth = 1
-        $0.layer.borderColor = UIColor.gray50.cgColor
-        $0.textColor = UIColor.evText
         $0.attributedPlaceholder = NSAttributedString(string: "뜻 입력하기", attributes: attributes)
-        $0.autocapitalizationType = .none
-        $0.autocorrectionType = .no
-        $0.spellCheckingType = .yes
     }
     
     lazy var vocaBookSelectPopupButton = UIButton().then {
@@ -95,6 +79,7 @@ class VocaBookAddVocaView: BaseView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        configureTextField()
     }
     
     required init?(coder: NSCoder) {
@@ -164,6 +149,29 @@ class VocaBookAddVocaView: BaseView {
             config.background.strokeColor = UIColor.blue100
         }
         return config
+    }
+    
+    func configureTextField() {
+        [englishTextField,
+         koreanTextField].forEach {
+            // 1. 디자인
+            $0.backgroundColor = UIColor.evBackground
+            $0.layer.cornerRadius = 20
+            $0.layer.borderWidth = 1
+            $0.layer.borderColor = UIColor.gray50.cgColor
+            $0.textColor = UIColor.evText
+            
+            // 2. 좌우 여백
+            $0.leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 20.0, height: 0))
+            $0.rightView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 20.0, height: 0))
+            $0.leftViewMode = .always
+            $0.rightViewMode = .always
+            
+            // 3. 입력 설정
+            $0.autocapitalizationType = .none
+            $0.autocorrectionType = .no
+            $0.spellCheckingType = .yes
+        }
     }
     
     
