@@ -21,9 +21,35 @@ class VocaBookAddVocaView: BaseView {
         $0.font = UIFont.pretendard(size: 17, weight: .semibold)
     }
     
-    let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.pretendard(size: 17, weight: .regular),
-                                                             .foregroundColor: UIColor.gray50,
-                                                             .underlineStyle: 0]
+    let koreanTextFieldTitleLabel = UILabel().then {
+        $0.text = "단어:"
+        $0.textAlignment = .right
+        $0.textColor = UIColor.evText
+        $0.numberOfLines = 0
+        $0.font = UIFont.pretendard(size: 17, weight: .medium)
+    }
+    
+    let englishTextFieldTitleLabel = UILabel().then {
+        $0.text = "의미:"
+        $0.textAlignment = .right
+        $0.textColor = UIColor.evText
+        $0.numberOfLines = 0
+        $0.font = UIFont.pretendard(size: 17, weight: .medium)
+    }
+    
+    let vocaBookSelectPopupButtonTitleLabel = UILabel().then {
+        $0.text = "단어장:"
+        $0.textAlignment = .right
+        $0.textColor = UIColor.evText
+        $0.numberOfLines = 0
+        $0.font = UIFont.pretendard(size: 17, weight: .regular)
+    }
+    
+    
+    let attributes: [NSAttributedString.Key: Any] = [
+        .font: UIFont.pretendard(size: 17, weight: .regular),
+        .foregroundColor: UIColor.gray50,
+        .underlineStyle: 0]
     
     lazy var englishTextField = UITextField().then {
         $0.attributedPlaceholder = NSAttributedString(string: "영단어 입력하기", attributes: attributes)
@@ -33,16 +59,27 @@ class VocaBookAddVocaView: BaseView {
         $0.attributedPlaceholder = NSAttributedString(string: "뜻 입력하기", attributes: attributes)
     }
     
-    lazy var vocaBookSelectPopupButton = UIButton().then {
-        $0.backgroundColor = UIColor.evBackground
+    let vocaBookSelectView = UIView().then {
         $0.layer.cornerRadius = 20
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.gray50.cgColor
-        $0.setTitle("단어장 선택하기", for: .normal)
-        $0.setTitleColor(UIColor.evText, for: .normal)
+    }
+    
+    lazy var vocaBookSelectPopupButton = UIButton().then {
+        
+        var config = UIButton.Configuration.plain()
+        config.attributedTitle?.font = UIFont.pretendard(size: 17, weight: .regular)
+        config.baseForegroundColor = UIColor.evText
+        config.baseBackgroundColor = UIColor.evBackground
+        config.background.strokeColor = UIColor.gray50
+        config.background.cornerRadius = 20
+        config.background.strokeWidth = 1
+        $0.configuration = config
+        
+        $0.menu = vocaBookButtonMenu
         $0.showsMenuAsPrimaryAction = true
         $0.changesSelectionAsPrimaryAction = true
-        $0.menu = vocaBookButtonMenu
+        $0.preferredBehavioralStyle = .automatic
     }
     
     lazy var vocaBookButtonMenu = { [self] in
@@ -79,20 +116,27 @@ class VocaBookAddVocaView: BaseView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureTextField()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func configureUI() {
+        super.configureUI()
+        configureTextField()
+    }
+    
     override func configureHierarchy() { 
         super.configureHierarchy()
         
         [titleLabel,
-        englishTextField,
-        koreanTextField,
-        vocaBookSelectPopupButton,
+         englishTextFieldTitleLabel,
+         koreanTextFieldTitleLabel,
+         vocaBookSelectPopupButtonTitleLabel,
+         englishTextField,
+         koreanTextField,
+         vocaBookSelectPopupButton,
          buttonStackView].forEach { self.addSubview($0) }
         
         [cancelButton,
@@ -107,21 +151,51 @@ class VocaBookAddVocaView: BaseView {
             $0.centerX.equalTo(self)
         }
         
-        englishTextField.snp.makeConstraints {
+        englishTextFieldTitleLabel.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(30)
-            $0.horizontalEdges.equalTo(self).inset(20)
+            $0.leading.equalTo(self).offset(20)
+            $0.height.equalTo(44)
+            $0.width.equalTo(52)
+        }
+        
+        koreanTextFieldTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(englishTextFieldTitleLabel.snp.bottom).offset(24)
+            $0.leading.equalTo(self).offset(20)
+            $0.height.equalTo(44)
+            $0.width.equalTo(52)
+        }
+        
+        vocaBookSelectPopupButtonTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(koreanTextFieldTitleLabel.snp.bottom).offset(24)
+            $0.leading.equalTo(self).offset(20)
+            $0.height.equalTo(44)
+            $0.width.equalTo(52)
+        }
+        
+        englishTextField.snp.makeConstraints {
+            $0.centerY.equalTo(englishTextFieldTitleLabel)
+            $0.leading.equalTo(englishTextFieldTitleLabel.snp.trailing).offset(8)
+            $0.trailing.equalTo(self).inset(20)
             $0.height.equalTo(44)
         }
         
         koreanTextField.snp.makeConstraints {
-            $0.top.equalTo(englishTextField.snp.bottom).offset(30)
-            $0.horizontalEdges.equalTo(englishTextField)
+            $0.centerY.equalTo(koreanTextFieldTitleLabel)
+            $0.leading.equalTo(koreanTextFieldTitleLabel.snp.trailing).offset(8)
+            $0.trailing.equalTo(self).inset(20)
             $0.height.equalTo(44)
         }
         
         vocaBookSelectPopupButton.snp.makeConstraints {
-            $0.top.equalTo(koreanTextField.snp.bottom).offset(30)
-            $0.horizontalEdges.equalTo(koreanTextField)
+            $0.centerY.equalTo(vocaBookSelectPopupButtonTitleLabel)
+            $0.leading.equalTo(vocaBookSelectPopupButtonTitleLabel.snp.trailing).offset(8)
+            $0.trailing.equalTo(self).inset(20)
+            $0.height.equalTo(44)
+        }
+        
+        buttonStackView.snp.makeConstraints {
+            $0.top.equalTo(vocaBookSelectPopupButtonTitleLabel.snp.bottom).offset(30)
+            $0.horizontalEdges.equalTo(self).inset(44)
             $0.height.equalTo(44)
         }
     }
