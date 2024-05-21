@@ -15,10 +15,11 @@
 		2E1C31022BFC315E00CB6DDE /* VocaDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30FC2BFC315E00CB6DDE /* VocaDate+CoreDataProperties.swift */; };
 		2E1C31032BFC315E00CB6DDE /* VocaDeck+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30FD2BFC315E00CB6DDE /* VocaDeck+CoreDataClass.swift */; };
 		2E1C31042BFC315E00CB6DDE /* VocaDeck+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30FE2BFC315E00CB6DDE /* VocaDeck+CoreDataProperties.swift */; };
+		2E1C31192BFCAB4800CB6DDE /* EveryDayVocaData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2E1C31182BFCAB4800CB6DDE /* EveryDayVocaData.csv */; };
 		2E45B8042BFB5C2000BDFFEC /* vocaCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E45B8032BFB5C2000BDFFEC /* vocaCoreDataManager.swift */; };
 		2E9DED9B2BF50C4500A85C42 /* FlashCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DED9A2BF50C4500A85C42 /* FlashCardView.swift */; };
 		2E9DED9D2BF5D0EC00A85C42 /* FlashCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DED9C2BF5D0EC00A85C42 /* FlashCardViewController.swift */; };
-		2E9DEDD72BF9FD6800A85C42 /* CardDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DEDD62BF9FD6800A85C42 /* CardDataModel.swift */; };
+		2E9DEDD72BF9FD6800A85C42 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DEDD62BF9FD6800A85C42 /* Status.swift */; };
 		2E9DEDD92BFA167700A85C42 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DEDD82BFA167700A85C42 /* CardView.swift */; };
 		2E9DEDE22BFA77C900A85C42 /* Shuffle in Frameworks */ = {isa = PBXBuildFile; productRef = 2E9DEDE12BFA77C900A85C42 /* Shuffle */; };
 		371D24322BF37ED7002B4DC5 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371D24312BF37ED7002B4DC5 /* BaseView.swift */; };
@@ -55,10 +56,11 @@
 		2E1C30FC2BFC315E00CB6DDE /* VocaDate+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VocaDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2E1C30FD2BFC315E00CB6DDE /* VocaDeck+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VocaDeck+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2E1C30FE2BFC315E00CB6DDE /* VocaDeck+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VocaDeck+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2E1C31182BFCAB4800CB6DDE /* EveryDayVocaData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EveryDayVocaData.csv; sourceTree = "<group>"; };
 		2E45B8032BFB5C2000BDFFEC /* vocaCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vocaCoreDataManager.swift; sourceTree = "<group>"; };
 		2E9DED9A2BF50C4500A85C42 /* FlashCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardView.swift; sourceTree = "<group>"; };
 		2E9DED9C2BF5D0EC00A85C42 /* FlashCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardViewController.swift; sourceTree = "<group>"; };
-		2E9DEDD62BF9FD6800A85C42 /* CardDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDataModel.swift; sourceTree = "<group>"; };
+		2E9DEDD62BF9FD6800A85C42 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		2E9DEDD82BFA167700A85C42 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		371D24312BF37ED7002B4DC5 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		371D24332BF38AC1002B4DC5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -102,13 +104,13 @@
 		2E1C31092BFC914700CB6DDE /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				2E45B8032BFB5C2000BDFFEC /* vocaCoreDataManager.swift */,
 				2E1C30F92BFC315E00CB6DDE /* Voca+CoreDataClass.swift */,
 				2E1C30FA2BFC315E00CB6DDE /* Voca+CoreDataProperties.swift */,
 				2E1C30FB2BFC315E00CB6DDE /* VocaDate+CoreDataClass.swift */,
 				2E1C30FC2BFC315E00CB6DDE /* VocaDate+CoreDataProperties.swift */,
 				2E1C30FD2BFC315E00CB6DDE /* VocaDeck+CoreDataClass.swift */,
 				2E1C30FE2BFC315E00CB6DDE /* VocaDeck+CoreDataProperties.swift */,
-				2E45B8032BFB5C2000BDFFEC /* vocaCoreDataManager.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -126,7 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				2E1C31092BFC914700CB6DDE /* CoreData */,
-				2E9DEDD62BF9FD6800A85C42 /* CardDataModel.swift */,
+				2E9DEDD62BF9FD6800A85C42 /* Status.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -151,6 +153,7 @@
 		37D776FD2BF30DBD0078D6E8 /* EveryDayVoca */ = {
 			isa = PBXGroup;
 			children = (
+				2E1C31182BFCAB4800CB6DDE /* EveryDayVocaData.csv */,
 				37D776FE2BF30DBD0078D6E8 /* AppDelegate.swift */,
 				37D777002BF30DBD0078D6E8 /* SceneDelegate.swift */,
 				37D7772D2BF34BF30078D6E8 /* Fonts */,
@@ -295,6 +298,7 @@
 				37D7773A2BF34C400078D6E8 /* Pretendard-ExtraBold.otf in Resources */,
 				37D777392BF34C400078D6E8 /* Pretendard-ExtraLight.otf in Resources */,
 				37D7773B2BF34C400078D6E8 /* Pretendard-Light.otf in Resources */,
+				2E1C31192BFCAB4800CB6DDE /* EveryDayVocaData.csv in Resources */,
 				37D7773C2BF34C400078D6E8 /* Pretendard-Regular.otf in Resources */,
 				37D7773D2BF34C400078D6E8 /* Pretendard-SemiBold.otf in Resources */,
 				37D777382BF34C400078D6E8 /* Pretendard-Black.otf in Resources */,
@@ -330,7 +334,7 @@
 				2E10E7E02BFA94000049E1AB /* BasicCustomAlertView.swift in Sources */,
 				2E45B8042BFB5C2000BDFFEC /* vocaCoreDataManager.swift in Sources */,
 				371D24322BF37ED7002B4DC5 /* BaseView.swift in Sources */,
-				2E9DEDD72BF9FD6800A85C42 /* CardDataModel.swift in Sources */,
+				2E9DEDD72BF9FD6800A85C42 /* Status.swift in Sources */,
 				37D777422BF34DED0078D6E8 /* UIFont+Extension.swift in Sources */,
 				37D777282BF31E640078D6E8 /* ReportViewController.swift in Sources */,
 			);

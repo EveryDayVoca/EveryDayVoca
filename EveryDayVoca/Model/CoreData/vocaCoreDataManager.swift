@@ -14,39 +14,74 @@ final class vocaCoreDataManager {
     static let shared = vocaCoreDataManager()
     private init() {}
     
-    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    private let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
-    lazy var context = appDelegate?.persistentContainer.viewContext
+    private lazy var context = appDelegate?.persistentContainer.viewContext
     
-    let vocaDeckModel: String = "VocaDeck"
-    let vocaModel: String = "Voca"
-    let dateModel: String = "VocaDate"
+    private let vocaDeckModel: String = "VocaDeck"
+    private let vocaModel: String = "Voca"
+    private let dateModel: String = "VocaDate"
     
+    private let cardDeckData: [String: Int] = [ "ALL": 5968, "기초": 800, "중등": 1800, "고등": 400, "토익": 1222, "1": 288, "2": 600, "3": 388, "4": 135, "5": 335]
     
-    // MARK: - Voca CoreData
+    // MARK: - .csv => CoreData
     
-    func createdVocaDatas(words: [(english: String, korean: String)], vocaDeck: VocaDeck) {
+    private func isFirstLaunch() -> Bool {
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if launchedBefore {
+            return false
+        } else {
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            return true
+        }
+    }
+    
+    func importCSVDataIfNeeded(fileName: String) {
+        guard isFirstLaunch() else { return }
+
+        guard let csvPath = Bundle.main.path(forResource: fileName, ofType: "csv"),
+              let data = try? String(contentsOfFile: csvPath, encoding: .utf8) else {
+            print("csv File 로딩 중 에러")
+            return
+        }
+        
         guard let context = context,
               let entity = NSEntityDescription.entity(forEntityName: vocaModel, in: context) else {
             return
         }
         
-        for word in words {
-            let newData = Voca(entity: entity, insertInto: context)
-            newData.english = word.english
-            newData.korean = word.korean
-            newData.status = "미학습"
-            newData.vocaDeck = vocaDeck.name
-        }
+        let rows = data.components(separatedBy: "\n").filter{ !$0.isEmpty }
         
+        for row in rows {
+            let columns = row.components(separatedBy: ",")
+            if columns.count >= 3 {
+                let newData = Voca(entity: entity, insertInto: context)
+                newData.english = columns[0]
+                newData.korean = columns[1]
+                newData.status = "미학습"
+                newData.vocaDeck = columns[2]
+                if let index = Int64(columns[3]){
+                    newData.index = index
+                }
+            } else {
+                print("넘어간 Row 값 : \(row)")
+            }
+        }
+
         do {
             try context.save()
+            print("코어데이터 저장 성공")
         } catch {
-            print("Failed to save words: \(error)")
+            print("코어데이터 저장 실패 \(error)")
         }
+        
+        createVocaDeckData(cardDeckData)
     }
     
-    func createVocaData(english: String, korean: String, vocaDeck: VocaDeck) {
+    
+    // MARK: - Voca CoreData
+    
+    func createVocaData(english: String, korean: String, vocaDeck: String) {
         guard let context = context,
               let entity = NSEntityDescription.entity(forEntityName: vocaModel, in: context) else {
             return
@@ -57,7 +92,7 @@ final class vocaCoreDataManager {
         newData.english = english
         newData.korean = korean
         newData.status = "미학습"
-        newData.vocaDeck = vocaDeck.name
+        newData.vocaDeck = vocaDeck
         
         do {
             try context.save()
@@ -67,7 +102,7 @@ final class vocaCoreDataManager {
         }
     }
     
-    func getVocaData(forvocaDeck vocaDeck: VocaDeck) -> [Voca] {
+    func getVocaData() -> [Voca] {
         var vocaList = [Voca]()
         
         guard let context = context else {
@@ -76,12 +111,26 @@ final class vocaCoreDataManager {
         
         let fetchRequest: NSFetchRequest<Voca> = Voca.fetchRequest()
         
-        guard let deckName = vocaDeck.name else { return vocaList }
-        
-        if deckName != "ALL" {
-            let predicate = NSPredicate(format: "vocaDeck == %@", vocaDeck.name!)
-            fetchRequest.predicate = predicate
+        do {
+            vocaList = try context.fetch(fetchRequest)
+        } catch {
+            print("코어데이터 가져오는 중 에러 \(error)")
         }
+        
+        return vocaList
+    }
+    
+    func getVocaData(forvocaDeck vocaDeck: String) -> [Voca] {
+        var vocaList = [Voca]()
+        
+        guard let context = context else {
+            return vocaList
+        }
+        
+        let fetchRequest: NSFetchRequest<Voca> = Voca.fetchRequest()
+        
+        let predicate = NSPredicate(format: "vocaDeck == %@", vocaDeck)
+        fetchRequest.predicate = predicate
         
         do {
             vocaList = try context.fetch(fetchRequest)
@@ -127,8 +176,7 @@ final class vocaCoreDataManager {
     }
     
     func updateVocaDatas(vocadatas: [(vocaData: Voca, status: String)]) {
-        guard let context = context,
-              let entity = NSEntityDescription.entity(forEntityName: vocaModel, in: context) else {
+        guard let context = context else {
             return
         }
         
@@ -139,7 +187,7 @@ final class vocaCoreDataManager {
         do {
             try context.save()
         } catch {
-            print("Failed to save words: \(error)")
+            print("단어 저장 중 실패 : \(error)")
         }
     }
     
@@ -167,7 +215,7 @@ final class vocaCoreDataManager {
     
     func createVocaDeckData(vocaDeckName: String) {
         guard let context = context,
-              let entity = NSEntityDescription.entity(forEntityName: vocaDeckName, in: context) else {
+              let entity = NSEntityDescription.entity(forEntityName: vocaDeckModel, in: context) else {
             return
         }
         
@@ -181,6 +229,27 @@ final class vocaCoreDataManager {
             print("코어데이터 저장 성공")
         } catch {
             print("코어데이터 저장 중 에러 \(error)")
+        }
+    }
+    
+    func createVocaDeckData(_ vocaDeckData: [String:Int]) {
+        guard let context = context,
+              let entity = NSEntityDescription.entity(forEntityName: vocaDeckModel, in: context) else {
+            return
+        }
+        
+        for data in vocaDeckData {
+            let newData = VocaDeck(entity: entity, insertInto: context)
+            
+            newData.name = data.key
+            newData.count = Int64(data.value)
+            
+            do {
+                try context.save()
+                print("코어데이터 저장 성공")
+            } catch {
+                print("코어데이터 저장 중 에러 \(error)")
+            }
         }
     }
     
@@ -263,8 +332,7 @@ final class vocaCoreDataManager {
         
         var vocaDateData = [VocaDate]()
         
-        guard let context = context,
-              let entity = NSEntityDescription.entity(forEntityName: dateModel, in: context) else {
+        guard let context = context else {
             return vocaDateData
         }
         
@@ -282,7 +350,7 @@ final class vocaCoreDataManager {
         do {
             vocaDateData = try context.fetch(fetchRequest)
         } catch {
-            print("Error fetching data: \(error)")
+            print("데이터 가져오는 중 에러 : \(error)")
         }
         
         return vocaDateData

@@ -11,7 +11,7 @@ import Shuffle
 final class CardView: SwipeCard {
     
     // MARK: - properties
-    var dataModel: CardDataModel?
+    var dataModel: Voca?
     private var isWordPage = true
     
     private let cardImageView = UIImageView().then {
@@ -43,9 +43,9 @@ final class CardView: SwipeCard {
         super.init(coder: aDecoder)
     }
     
-    func configure(with data: CardDataModel) {
+    func configure(with data: Voca) {
         dataModel = data
-        wordLabel.text = data.word
+        wordLabel.text = data.english
     }
     
     func configureHierarchy() {
@@ -71,7 +71,7 @@ final class CardView: SwipeCard {
     @objc private func tappedCard() {
         guard let data = dataModel else { return }
         isWordPage.toggle()
-        wordLabel.text = isWordPage ? data.word : data.meaning
+        wordLabel.text = isWordPage ? data.english : data.korean
         UIView.transition(with: self,
                             duration: 0.3,
                             options: .transitionFlipFromLeft,

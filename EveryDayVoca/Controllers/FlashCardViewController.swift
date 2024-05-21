@@ -14,32 +14,17 @@ final class FlashCardViewController: BaseViewController {
     private var flashCardView: FlashCardView!
     private var customAlertVC: BasicCustomAlertViewController!
     private var currentIndex = 0
-    
-    // 임시 데이터
-    private var wordData = [CardDataModel(word: "apple1", meaning: "사과1", status: .none),
-                            CardDataModel(word: "apple2", meaning: "사과2", status: .none),
-                            CardDataModel(word: "apple3", meaning: "사과3", status: .none),
-                            CardDataModel(word: "apple4", meaning: "사과4", status: .none),
-                            CardDataModel(word: "apple5", meaning: "사과5", status: .none),
-                            CardDataModel(word: "apple6", meaning: "사과6", status: .none),
-                            CardDataModel(word: "apple1", meaning: "사과1", status: .none),
-                            CardDataModel(word: "apple2", meaning: "사과2", status: .none),
-                            CardDataModel(word: "apple3", meaning: "사과3", status: .none),
-                            CardDataModel(word: "apple4", meaning: "사과4", status: .none),
-                            CardDataModel(word: "apple5", meaning: "사과5", status: .none),
-                            CardDataModel(word: "apple6", meaning: "사과6", status: .none),
-                            CardDataModel(word: "apple1", meaning: "사과1", status: .none),
-                            CardDataModel(word: "apple2", meaning: "사과2", status: .none),
-                            CardDataModel(word: "apple3", meaning: "사과3", status: .none),
-                            CardDataModel(word: "apple4", meaning: "사과4", status: .none),
-                            CardDataModel(word: "apple5", meaning: "사과5", status: .none),
-                            CardDataModel(word: "apple6", meaning: "사과6", status: .none)]
+    let coreDataManager = vocaCoreDataManager.shared
+    private var wordData = [Voca]()
     
     
     // MARK: - life cycles
     override func loadView() {
         flashCardView = FlashCardView()
         customAlertVC = BasicCustomAlertViewController()
+        
+        wordData = coreDataManager.getVocaDataWithIndex(index: 1, count: 10)
+        dump(wordData)
         
         view = flashCardView
     }
@@ -83,7 +68,7 @@ final class FlashCardViewController: BaseViewController {
         navigationItem.titleView = titleView
     }
     
-    private func card(data: CardDataModel) -> SwipeCard {
+    private func card(data: Voca) -> SwipeCard {
         let card = CardView()
         card.configure(with: data)
         card.swipeDirections = [.left, .right]
@@ -110,11 +95,11 @@ final class FlashCardViewController: BaseViewController {
         guard let buttonStatus = sender.titleLabel?.text else { return }
         switch buttonStatus {
         case "어려워요":
-            wordData[currentIndex].status = .difficult
+            wordData[currentIndex].status = "어려워요"
         case "애매해요":
-            wordData[currentIndex].status = .ambiguous
+            wordData[currentIndex].status = "애매해요"
         case "외웠어요":
-            wordData[currentIndex].status = .memorized
+            wordData[currentIndex].status = "외웠어요"
         default:
             wordData[currentIndex].status = .none
         }

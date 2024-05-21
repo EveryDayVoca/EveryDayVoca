@@ -50,7 +50,7 @@ class BasicCustomAlertViewController: BaseViewController {
         basicCustomAlert.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.centerY.equalToSuperview().inset(-30)
-            $0.width.equalToSuperview().multipliedBy(0.95)
+            $0.width.equalToSuperview().multipliedBy(0.85)
         }
     }
     
