@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E10E7E02BFA94000049E1AB /* FlashAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E10E7DF2BFA94000049E1AB /* FlashAlertView.swift */; };
+		2E10E7E22BFA97F70049E1AB /* FlashAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E10E7E12BFA97F70049E1AB /* FlashAlertViewController.swift */; };
+		2E1C30FF2BFC315E00CB6DDE /* Voca+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30F92BFC315E00CB6DDE /* Voca+CoreDataClass.swift */; };
+		2E1C31002BFC315E00CB6DDE /* Voca+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30FA2BFC315E00CB6DDE /* Voca+CoreDataProperties.swift */; };
+		2E1C31012BFC315E00CB6DDE /* VocaDate+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30FB2BFC315E00CB6DDE /* VocaDate+CoreDataClass.swift */; };
+		2E1C31022BFC315E00CB6DDE /* VocaDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30FC2BFC315E00CB6DDE /* VocaDate+CoreDataProperties.swift */; };
+		2E1C31032BFC315E00CB6DDE /* VocaDeck+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30FD2BFC315E00CB6DDE /* VocaDeck+CoreDataClass.swift */; };
+		2E1C31042BFC315E00CB6DDE /* VocaDeck+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30FE2BFC315E00CB6DDE /* VocaDeck+CoreDataProperties.swift */; };
+		2E1C31192BFCAB4800CB6DDE /* EveryDayVocaData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2E1C31182BFCAB4800CB6DDE /* EveryDayVocaData.csv */; };
+		2E45B8042BFB5C2000BDFFEC /* vocaCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E45B8032BFB5C2000BDFFEC /* vocaCoreDataManager.swift */; };
+		2E9DED9B2BF50C4500A85C42 /* FlashCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DED9A2BF50C4500A85C42 /* FlashCardView.swift */; };
+		2E9DED9D2BF5D0EC00A85C42 /* FlashCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DED9C2BF5D0EC00A85C42 /* FlashCardViewController.swift */; };
+		2E9DEDD72BF9FD6800A85C42 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DEDD62BF9FD6800A85C42 /* Status.swift */; };
+		2E9DEDD92BFA167700A85C42 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DEDD82BFA167700A85C42 /* CardView.swift */; };
+		2E9DEDE22BFA77C900A85C42 /* Shuffle in Frameworks */ = {isa = PBXBuildFile; productRef = 2E9DEDE12BFA77C900A85C42 /* Shuffle */; };
 		371D24322BF37ED7002B4DC5 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371D24312BF37ED7002B4DC5 /* BaseView.swift */; };
 		371D24342BF38AC1002B4DC5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371D24332BF38AC1002B4DC5 /* BaseViewController.swift */; };
 		37D776FF2BF30DBD0078D6E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D776FE2BF30DBD0078D6E8 /* AppDelegate.swift */; };
@@ -33,6 +48,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E10E7DF2BFA94000049E1AB /* FlashAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashAlertView.swift; sourceTree = "<group>"; };
+		2E10E7E12BFA97F70049E1AB /* FlashAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashAlertViewController.swift; sourceTree = "<group>"; };
+		2E1C30F92BFC315E00CB6DDE /* Voca+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Voca+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2E1C30FA2BFC315E00CB6DDE /* Voca+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Voca+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2E1C30FB2BFC315E00CB6DDE /* VocaDate+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VocaDate+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2E1C30FC2BFC315E00CB6DDE /* VocaDate+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VocaDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2E1C30FD2BFC315E00CB6DDE /* VocaDeck+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VocaDeck+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2E1C30FE2BFC315E00CB6DDE /* VocaDeck+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VocaDeck+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2E1C31182BFCAB4800CB6DDE /* EveryDayVocaData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EveryDayVocaData.csv; sourceTree = "<group>"; };
+		2E45B8032BFB5C2000BDFFEC /* vocaCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vocaCoreDataManager.swift; sourceTree = "<group>"; };
+		2E9DED9A2BF50C4500A85C42 /* FlashCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardView.swift; sourceTree = "<group>"; };
+		2E9DED9C2BF5D0EC00A85C42 /* FlashCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardViewController.swift; sourceTree = "<group>"; };
+		2E9DEDD62BF9FD6800A85C42 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		2E9DEDD82BFA167700A85C42 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		371D24312BF37ED7002B4DC5 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		371D24332BF38AC1002B4DC5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		37D776FB2BF30DBD0078D6E8 /* EveryDayVoca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EveryDayVoca.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E9DEDE22BFA77C900A85C42 /* Shuffle in Frameworks */,
 				37D7771B2BF30EAC0078D6E8 /* SnapKit in Frameworks */,
 				37D7771E2BF30ECD0078D6E8 /* Then in Frameworks */,
 			);
@@ -71,6 +101,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E1C31092BFC914700CB6DDE /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				2E45B8032BFB5C2000BDFFEC /* vocaCoreDataManager.swift */,
+				2E1C30F92BFC315E00CB6DDE /* Voca+CoreDataClass.swift */,
+				2E1C30FA2BFC315E00CB6DDE /* Voca+CoreDataProperties.swift */,
+				2E1C30FB2BFC315E00CB6DDE /* VocaDate+CoreDataClass.swift */,
+				2E1C30FC2BFC315E00CB6DDE /* VocaDate+CoreDataProperties.swift */,
+				2E1C30FD2BFC315E00CB6DDE /* VocaDeck+CoreDataClass.swift */,
+				2E1C30FE2BFC315E00CB6DDE /* VocaDeck+CoreDataProperties.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		2E9DED9E2BF62AAA00A85C42 /* Study */ = {
+			isa = PBXGroup;
+			children = (
+				2E9DEDD82BFA167700A85C42 /* CardView.swift */,
+				2E9DED9A2BF50C4500A85C42 /* FlashCardView.swift */,
+				2E10E7DF2BFA94000049E1AB /* FlashAlertView.swift */,
+			);
+			path = Study;
+			sourceTree = "<group>";
+		};
+		2ED013D42BFB381D0028EC1B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2E1C31092BFC914700CB6DDE /* CoreData */,
+				2E9DEDD62BF9FD6800A85C42 /* Status.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		37D776F22BF30DBD0078D6E8 = {
 			isa = PBXGroup;
 			children = (
@@ -91,10 +154,12 @@
 		37D776FD2BF30DBD0078D6E8 /* EveryDayVoca */ = {
 			isa = PBXGroup;
 			children = (
+				2E1C31182BFCAB4800CB6DDE /* EveryDayVocaData.csv */,
 				37D776FE2BF30DBD0078D6E8 /* AppDelegate.swift */,
 				37D777002BF30DBD0078D6E8 /* SceneDelegate.swift */,
-				37D777402BF34CFA0078D6E8 /* Extensions */,
 				37D7772D2BF34BF30078D6E8 /* Fonts */,
+				37D777402BF34CFA0078D6E8 /* Extensions */,
+				2ED013D42BFB381D0028EC1B /* Model */,
 				37D777432BF357400078D6E8 /* Views */,
 				37D777222BF31C800078D6E8 /* Controllers */,
 				37D7770A2BF30DBE0078D6E8 /* Assets.xcassets */,
@@ -111,6 +176,8 @@
 				37D777252BF31E390078D6E8 /* StudyViewController.swift */,
 				37D777272BF31E640078D6E8 /* ReportViewController.swift */,
 				37D777292BF31E700078D6E8 /* UserViewController.swift */,
+				2E9DED9C2BF5D0EC00A85C42 /* FlashCardViewController.swift */,
+				2E10E7E12BFA97F70049E1AB /* FlashAlertViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -143,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				37D777442BF37E9F0078D6E8 /* Bases */,
+				2E9DED9E2BF62AAA00A85C42 /* Study */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -175,6 +243,7 @@
 			packageProductDependencies = (
 				37D7771A2BF30EAC0078D6E8 /* SnapKit */,
 				37D7771D2BF30ECD0078D6E8 /* Then */,
+				2E9DEDE12BFA77C900A85C42 /* Shuffle */,
 			);
 			productName = EveryDayVoca;
 			productReference = 37D776FB2BF30DBD0078D6E8 /* EveryDayVoca.app */;
@@ -207,6 +276,7 @@
 			packageReferences = (
 				37D777192BF30EAB0078D6E8 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				37D7771C2BF30ECD0078D6E8 /* XCRemoteSwiftPackageReference "Then" */,
+				2E9DEDE02BFA77C900A85C42 /* XCRemoteSwiftPackageReference "Shuffle" */,
 			);
 			productRefGroup = 37D776FC2BF30DBD0078D6E8 /* Products */;
 			projectDirPath = "";
@@ -228,6 +298,7 @@
 				37D7773A2BF34C400078D6E8 /* Pretendard-ExtraBold.otf in Resources */,
 				37D777392BF34C400078D6E8 /* Pretendard-ExtraLight.otf in Resources */,
 				37D7773B2BF34C400078D6E8 /* Pretendard-Light.otf in Resources */,
+				2E1C31192BFCAB4800CB6DDE /* EveryDayVocaData.csv in Resources */,
 				37D7773C2BF34C400078D6E8 /* Pretendard-Regular.otf in Resources */,
 				37D7773D2BF34C400078D6E8 /* Pretendard-SemiBold.otf in Resources */,
 				37D777382BF34C400078D6E8 /* Pretendard-Black.otf in Resources */,
@@ -243,14 +314,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E9DEDD92BFA167700A85C42 /* CardView.swift in Sources */,
 				37D7772A2BF31E700078D6E8 /* UserViewController.swift in Sources */,
 				37D776FF2BF30DBD0078D6E8 /* AppDelegate.swift in Sources */,
+				2E10E7E22BFA97F70049E1AB /* FlashAlertViewController.swift in Sources */,
 				37D777012BF30DBD0078D6E8 /* SceneDelegate.swift in Sources */,
+				2E9DED9D2BF5D0EC00A85C42 /* FlashCardViewController.swift in Sources */,
+				2E1C30FF2BFC315E00CB6DDE /* Voca+CoreDataClass.swift in Sources */,
+				2E1C31002BFC315E00CB6DDE /* Voca+CoreDataProperties.swift in Sources */,
+				2E1C31012BFC315E00CB6DDE /* VocaDate+CoreDataClass.swift in Sources */,
+				2E1C31022BFC315E00CB6DDE /* VocaDate+CoreDataProperties.swift in Sources */,
+				2E1C31032BFC315E00CB6DDE /* VocaDeck+CoreDataClass.swift in Sources */,
+				2E1C31042BFC315E00CB6DDE /* VocaDeck+CoreDataProperties.swift in Sources */,
 				37D777092BF30DBD0078D6E8 /* EveryDayVoca.xcdatamodeld in Sources */,
 				37D777262BF31E390078D6E8 /* StudyViewController.swift in Sources */,
 				371D24342BF38AC1002B4DC5 /* BaseViewController.swift in Sources */,
 				37D777242BF31DED0078D6E8 /* VocaBookViewController.swift in Sources */,
+				2E9DED9B2BF50C4500A85C42 /* FlashCardView.swift in Sources */,
+				2E10E7E02BFA94000049E1AB /* FlashAlertView.swift in Sources */,
+				2E45B8042BFB5C2000BDFFEC /* vocaCoreDataManager.swift in Sources */,
 				371D24322BF37ED7002B4DC5 /* BaseView.swift in Sources */,
+				2E9DEDD72BF9FD6800A85C42 /* Status.swift in Sources */,
 				37D777422BF34DED0078D6E8 /* UIFont+Extension.swift in Sources */,
 				37D777282BF31E640078D6E8 /* ReportViewController.swift in Sources */,
 			);
@@ -385,6 +469,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 79LSKHWYJ8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EveryDayVoca/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -417,6 +502,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 79LSKHWYJ8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EveryDayVoca/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -466,6 +552,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2E9DEDE02BFA77C900A85C42 /* XCRemoteSwiftPackageReference "Shuffle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mac-gallagher/Shuffle.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		37D777192BF30EAB0078D6E8 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -485,6 +579,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2E9DEDE12BFA77C900A85C42 /* Shuffle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2E9DEDE02BFA77C900A85C42 /* XCRemoteSwiftPackageReference "Shuffle" */;
+			productName = Shuffle;
+		};
 		37D7771A2BF30EAC0078D6E8 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 37D777192BF30EAB0078D6E8 /* XCRemoteSwiftPackageReference "SnapKit" */;
