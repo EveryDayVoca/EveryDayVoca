@@ -13,11 +13,18 @@ final class VocaBookViewController: BaseViewController {
     // MARK: - Properties
 
     private let vocaBookVocaListView = VocaBookVocaListView()
-    private let titleLabel = UILabel().then {
+    
+    private let navigationBarTitleLabel = UILabel().then {
         $0.text = "나의 단어 사전"
         $0.font = UIFont.pretendard(size: 17, weight: .semibold)
         $0.textColor = UIColor.evText
         $0.textAlignment = .center
+    }
+    
+    let navigationBarAddVocaButton = UIBarButtonItem().then {
+        $0.image = UIImage(named: "plus")
+        $0.tintColor = UIColor.evText
+        $0.imageInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
     
     var vocas: [Voca] = [
@@ -35,7 +42,8 @@ final class VocaBookViewController: BaseViewController {
     
     override func loadView() {
         view = vocaBookVocaListView
-        self.navigationItem.titleView = titleLabel
+        self.navigationItem.titleView = navigationBarTitleLabel
+        self.navigationItem.rightBarButtonItem = navigationBarAddVocaButton
     }
 
     override func viewDidLoad() {
