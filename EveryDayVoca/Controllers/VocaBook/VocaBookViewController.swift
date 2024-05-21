@@ -43,6 +43,10 @@ final class VocaBookViewController: BaseViewController {
         configureAddTarget()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     // MARK: - Methods
     override func configureStyle() {
         super.configureStyle()
