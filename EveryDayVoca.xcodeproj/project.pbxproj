@@ -108,9 +108,8 @@
 			children = (
 				1A39334F2BFA834900F3B825 /* VocaBookBaseView.swift */,
 				1A39333C2BF60C5900F3B825 /* VocaBookVocaListView.swift */,
-				1A39333F2BF8B8AD00F3B825 /* VocaBookPopoverView.swift */,
 				1A3933562BFB32D300F3B825 /* VocaBookAddVocaView.swift */,
-				1A3933452BF9F30500F3B825 /* PopoverTableViewCell */,
+				1A3933452BF9F30500F3B825 /* Popover */,
 			);
 			path = VocaBook;
 			sourceTree = "<group>";
@@ -118,27 +117,29 @@
 		1A39333E2BF7483300F3B825 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				1A39334C2BFA80A600F3B825 /* MyVocaFlashCard */,
 				1A3933382BF5CD9800F3B825 /* Cell */,
 			);
 			path = Common;
 			sourceTree = "<group>";
 		};
-		1A3933452BF9F30500F3B825 /* PopoverTableViewCell */ = {
+		1A3933452BF9F30500F3B825 /* Popover */ = {
 			isa = PBXGroup;
 			children = (
+				1A39333F2BF8B8AD00F3B825 /* VocaBookPopoverView.swift */,
 				1A3933432BF9F03500F3B825 /* VocaBookFilterPopoverTableViewCell.swift */,
 				1A3933492BFA27BE00F3B825 /* VocaBookDisplayOptionPopoverTableViewCell.swift */,
 			);
-			path = PopoverTableViewCell;
+			path = Popover;
 			sourceTree = "<group>";
 		};
-		1A3933462BFA276500F3B825 /* VocaBookPopover */ = {
+		1A3933462BFA276500F3B825 /* Popover */ = {
 			isa = PBXGroup;
 			children = (
 				1A3933412BF9EB2800F3B825 /* VocaBookFilterPopoverViewController.swift */,
 				1A3933472BFA279700F3B825 /* VocaBookDisplayOptionPopoverViewController.swift */,
 			);
-			path = VocaBookPopover;
+			path = Popover;
 			sourceTree = "<group>";
 		};
 		1A39334B2BFA7E8200F3B825 /* VocaBook */ = {
@@ -146,7 +147,7 @@
 			children = (
 				37D777232BF31DED0078D6E8 /* VocaBookViewController.swift */,
 				1A3933542BFB325700F3B825 /* VocaBookAddVocaViewController.swift */,
-				1A3933462BFA276500F3B825 /* VocaBookPopover */,
+				1A3933462BFA276500F3B825 /* Popover */,
 			);
 			path = VocaBook;
 			sourceTree = "<group>";
@@ -165,6 +166,14 @@
 				1A3933522BFAE08B00F3B825 /* MyVocaFlashCardViewController.swift */,
 			);
 			path = MyVocaFlashCard;
+			sourceTree = "<group>";
+		};
+		1A7577052BFCBC6400D88D29 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				1A3933512BFAE07100F3B825 /* MyVocaFlashCard */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		37D776F22BF30DBD0078D6E8 = {
@@ -203,7 +212,7 @@
 		37D777222BF31C800078D6E8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1A3933512BFAE07100F3B825 /* MyVocaFlashCard */,
+				1A7577052BFCBC6400D88D29 /* Common */,
 				1A39334B2BFA7E8200F3B825 /* VocaBook */,
 				37D777252BF31E390078D6E8 /* StudyViewController.swift */,
 				37D777272BF31E640078D6E8 /* ReportViewController.swift */,
@@ -242,7 +251,6 @@
 				37D777442BF37E9F0078D6E8 /* Bases */,
 				1A39333E2BF7483300F3B825 /* Common */,
 				1A39333B2BF60B7300F3B825 /* VocaBook */,
-				1A39334C2BFA80A600F3B825 /* MyVocaFlashCard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
