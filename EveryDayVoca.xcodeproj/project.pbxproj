@@ -31,6 +31,8 @@
 		37D7773F2BF34C400078D6E8 /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37D777362BF34C400078D6E8 /* Pretendard-Thin.otf */; };
 		37D777422BF34DED0078D6E8 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D777412BF34DED0078D6E8 /* UIFont+Extension.swift */; };
 		62F3A8562BF9FCC60002508D /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A8552BF9FCC60002508D /* ReportView.swift */; };
+		62F3A8A52BFCB36E0002508D /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 62F3A8A42BFCB36E0002508D /* DGCharts */; };
+		62F3A8A72BFCB3B60002508D /* PieChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A8A62BFCB3B60002508D /* PieChartViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,7 @@
 		37D777362BF34C400078D6E8 /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		37D777412BF34DED0078D6E8 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		62F3A8552BF9FCC60002508D /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
+		62F3A8A62BFCB3B60002508D /* PieChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +69,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37D7771B2BF30EAC0078D6E8 /* SnapKit in Frameworks */,
+				62F3A8A52BFCB36E0002508D /* DGCharts in Frameworks */,
 				37D7771E2BF30ECD0078D6E8 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,9 +113,9 @@
 		37D777222BF31C800078D6E8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				62F3A8792BFB4F090002508D /* Report */,
 				37D777232BF31DED0078D6E8 /* VocaBookViewController.swift */,
 				37D777252BF31E390078D6E8 /* StudyViewController.swift */,
-				37D777272BF31E640078D6E8 /* ReportViewController.swift */,
 				37D777292BF31E700078D6E8 /* UserViewController.swift */,
 			);
 			path = Controllers;
@@ -167,6 +171,15 @@
 			path = Report;
 			sourceTree = "<group>";
 		};
+		62F3A8792BFB4F090002508D /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				37D777272BF31E640078D6E8 /* ReportViewController.swift */,
+				62F3A8A62BFCB3B60002508D /* PieChartViewController.swift */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -186,6 +199,7 @@
 			packageProductDependencies = (
 				37D7771A2BF30EAC0078D6E8 /* SnapKit */,
 				37D7771D2BF30ECD0078D6E8 /* Then */,
+				62F3A8A42BFCB36E0002508D /* DGCharts */,
 			);
 			productName = EveryDayVoca;
 			productReference = 37D776FB2BF30DBD0078D6E8 /* EveryDayVoca.app */;
@@ -218,6 +232,7 @@
 			packageReferences = (
 				37D777192BF30EAB0078D6E8 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				37D7771C2BF30ECD0078D6E8 /* XCRemoteSwiftPackageReference "Then" */,
+				62F3A8A32BFCB36E0002508D /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 37D776FC2BF30DBD0078D6E8 /* Products */;
 			projectDirPath = "";
@@ -260,6 +275,7 @@
 				37D777092BF30DBD0078D6E8 /* EveryDayVoca.xcdatamodeld in Sources */,
 				37D777262BF31E390078D6E8 /* StudyViewController.swift in Sources */,
 				62F3A8562BF9FCC60002508D /* ReportView.swift in Sources */,
+				62F3A8A72BFCB3B60002508D /* PieChartViewController.swift in Sources */,
 				371D24342BF38AC1002B4DC5 /* BaseViewController.swift in Sources */,
 				37D777242BF31DED0078D6E8 /* VocaBookViewController.swift in Sources */,
 				371D24322BF37ED7002B4DC5 /* BaseView.swift in Sources */,
@@ -494,6 +510,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		62F3A8A32BFCB36E0002508D /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ChartsOrg/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -506,6 +530,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 37D7771C2BF30ECD0078D6E8 /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		62F3A8A42BFCB36E0002508D /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62F3A8A32BFCB36E0002508D /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
 		};
 /* End XCSwiftPackageProductDependency section */
 
