@@ -17,7 +17,7 @@ final class UserModifyViewController: BaseViewController {
     let secondPickerView = UIPickerView()
     
     let level = ["Lv. 1", "Lv. 2", "Lv. 3", "Lv. 4", "Lv. 5",]
-    let counts = ["10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]
+    let counts = ["10개", "20개", "30개", "40개", "50개", "60개", "70개", "80개", "90개", "100개"]
     
     
     private let titleLabel = UILabel().then {
@@ -45,8 +45,9 @@ final class UserModifyViewController: BaseViewController {
         
         self.userModifyView.levelTextField.inputView = firstPickerView
         self.userModifyView.learningAmountTextField.inputView = secondPickerView
+        
+        
     }
-    
     
     // MARK: - method
     override func configureStyle() {
@@ -65,9 +66,15 @@ final class UserModifyViewController: BaseViewController {
     
     @objc func tappedDoneEditButton() {
         let alert = UIAlertController(title: "프로필 수정", message: "변경 사항을 저장하시겠습니까?", preferredStyle: .alert)
+
         let cancel = UIAlertAction(title: "취소", style: .cancel)
         let confirm = UIAlertAction(title: "확인", style: .default) { _ in
-            
+            UserDefaultsManager.shared.set(value: self.userModifyView.changeNameTextField.text!, forKey: "userName")
+            UserDefaultsManager.shared.set(value: self.userModifyView.changeNickNameTextField.text!, forKey: "userNickName")
+            UserDefaultsManager.shared.set(value: self.userModifyView.levelTextField.text!, forKey: "studyLevel")
+            UserDefaultsManager.shared.set(value: self.userModifyView.learningAmountTextField.text!, forKey: "studyAmount")
+            UserDefaultsManager.shared.setImageConvert(value: self.userModifyView.profileImage.image!, key: "profileImage")
+            NotificationCenter.default.addObserver(self, selector: #selector(self.tappedDoneEditButton), name: .userDefaultsDidChange, object: nil)
             self.navigationController?.popViewController(animated: true)
         }
         
@@ -75,6 +82,13 @@ final class UserModifyViewController: BaseViewController {
         alert.addAction(cancel)
         
         present(alert, animated: true)
+    }
+    
+    
+    
+    deinit {
+        // Observer 제거
+        NotificationCenter.default.removeObserver(self, name: .userDefaultsDidChange, object: nil)
     }
     
 }

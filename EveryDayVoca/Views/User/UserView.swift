@@ -26,6 +26,10 @@ final class UserView: BaseView {
     }
     
     var profileImage = UIImageView().then {
+        if let imageData = UserDefaults.standard.data(forKey: "profileImage"),
+           let image = UIImage(data: imageData) {
+            $0.image = image
+        }
         $0.backgroundColor = .gray50
         $0.layer.cornerRadius = 32
         $0.clipsToBounds = true
@@ -33,14 +37,14 @@ final class UserView: BaseView {
     }
     
     var userNameLabel = UILabel().then {
-        $0.text = "사용자 정보"
+        $0.text = UserDefaultsManager.shared.getValue(key: "userName")
         $0.font = UIFont.pretendard(size: 18, weight: .semibold)
         $0.textColor = UIColor.evText
         $0.textAlignment = .left
     }
     
-    var nickNameLabel = UILabel().then {
-        $0.text = "사용자 닉네임"
+    var userNickNameLabel = UILabel().then {
+        $0.text = UserDefaultsManager.shared.getValue(key: "userNickName")
         $0.font = UIFont.pretendard(size: 18, weight: .regular)
         $0.textColor = UIColor.evText
         $0.textAlignment = .left
@@ -69,8 +73,8 @@ final class UserView: BaseView {
         $0.layer.borderColor = UIColor.blue100.cgColor
     }
     
-    private let levelLabel = UILabel().then {
-        $0.text = "Lv. 1"
+    var studyLevelLabel = UILabel().then {
+        $0.text = UserDefaultsManager.shared.getValue(key: "studyLevel")
         $0.textColor = .blue100
         $0.font = UIFont.pretendard(size: 18, weight: .semibold)
     }
@@ -82,8 +86,8 @@ final class UserView: BaseView {
         $0.textAlignment = .left
     }
     
-    let goalCountLabel = UILabel().then {
-        $0.text = "60개"
+    var studyAmountLabel = UILabel().then {
+        $0.text = UserDefaultsManager.shared.getValue(key: "studyAmount")
         $0.font = UIFont.pretendard(size: 18, weight: .semibold)
         $0.textColor = UIColor.evText
         $0.textAlignment = .right
@@ -272,13 +276,13 @@ final class UserView: BaseView {
         
         [profileImage,
          userNameLabel,
-         nickNameLabel].forEach { profileView.addSubview($0) }
+         userNickNameLabel].forEach { profileView.addSubview($0) }
         
         [levelView,
          dayGoalCountLabel,
-         goalCountLabel].forEach { dayGoalView.addSubview($0) }
+         studyAmountLabel].forEach { dayGoalView.addSubview($0) }
         
-        levelView.addSubview(levelLabel)
+        levelView.addSubview(studyLevelLabel)
         
         [oneButton,
          twoButton,
@@ -350,7 +354,7 @@ final class UserView: BaseView {
             $0.leading.equalTo(profileImage.snp.trailing).offset(16)
         }
         
-        nickNameLabel.snp.makeConstraints {
+        userNickNameLabel.snp.makeConstraints {
             $0.bottom.equalTo(profileImage.snp.bottom).offset(-4)
             $0.leading.equalTo(profileImage.snp.trailing).offset(16)
         }
@@ -362,7 +366,7 @@ final class UserView: BaseView {
             $0.width.equalTo(87)
         }
         
-        levelLabel.snp.makeConstraints {
+        studyLevelLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(8)
             $0.centerX.equalToSuperview()
             $0.bottom.equalToSuperview().offset(-10)
@@ -374,9 +378,9 @@ final class UserView: BaseView {
             $0.bottom.equalToSuperview().offset(-12)
         }
         
-        goalCountLabel.snp.makeConstraints {
-            $0.leading.equalTo(dayGoalCountLabel.snp.trailing).offset(36)
-            $0.trailing.equalToSuperview().offset(-16)
+        studyAmountLabel.snp.makeConstraints {
+            $0.leading.equalTo(dayGoalCountLabel.snp.trailing).offset(24)
+            $0.trailing.equalToSuperview().offset(-20)
             $0.top.equalToSuperview().offset(12)
             $0.bottom.equalToSuperview().offset(-12)
         }

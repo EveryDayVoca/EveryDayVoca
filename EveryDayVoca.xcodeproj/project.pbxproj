@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E10E7E02BFA94000049E1AB /* FlashAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E10E7DF2BFA94000049E1AB /* FlashAlertView.swift */; };
+		2E10E7E22BFA97F70049E1AB /* FlashAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E10E7E12BFA97F70049E1AB /* FlashAlertViewController.swift */; };
+		2E1C30FF2BFC315E00CB6DDE /* Voca+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30F92BFC315E00CB6DDE /* Voca+CoreDataClass.swift */; };
+		2E1C31002BFC315E00CB6DDE /* Voca+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30FA2BFC315E00CB6DDE /* Voca+CoreDataProperties.swift */; };
+		2E1C31012BFC315E00CB6DDE /* VocaDate+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30FB2BFC315E00CB6DDE /* VocaDate+CoreDataClass.swift */; };
+		2E1C31022BFC315E00CB6DDE /* VocaDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30FC2BFC315E00CB6DDE /* VocaDate+CoreDataProperties.swift */; };
+		2E1C31032BFC315E00CB6DDE /* VocaDeck+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30FD2BFC315E00CB6DDE /* VocaDeck+CoreDataClass.swift */; };
+		2E1C31042BFC315E00CB6DDE /* VocaDeck+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30FE2BFC315E00CB6DDE /* VocaDeck+CoreDataProperties.swift */; };
+		2E1C31192BFCAB4800CB6DDE /* EveryDayVocaData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2E1C31182BFCAB4800CB6DDE /* EveryDayVocaData.csv */; };
+		2E45B8042BFB5C2000BDFFEC /* vocaCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E45B8032BFB5C2000BDFFEC /* vocaCoreDataManager.swift */; };
+		2E9DED9B2BF50C4500A85C42 /* FlashCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DED9A2BF50C4500A85C42 /* FlashCardView.swift */; };
+		2E9DED9D2BF5D0EC00A85C42 /* FlashCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DED9C2BF5D0EC00A85C42 /* FlashCardViewController.swift */; };
+		2E9DEDD72BF9FD6800A85C42 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DEDD62BF9FD6800A85C42 /* Status.swift */; };
+		2E9DEDD92BFA167700A85C42 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DEDD82BFA167700A85C42 /* CardView.swift */; };
+		2E9DEDE22BFA77C900A85C42 /* Shuffle in Frameworks */ = {isa = PBXBuildFile; productRef = 2E9DEDE12BFA77C900A85C42 /* Shuffle */; };
 		371D24322BF37ED7002B4DC5 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371D24312BF37ED7002B4DC5 /* BaseView.swift */; };
 		371D24342BF38AC1002B4DC5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371D24332BF38AC1002B4DC5 /* BaseViewController.swift */; };
 		37D776FF2BF30DBD0078D6E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D776FE2BF30DBD0078D6E8 /* AppDelegate.swift */; };
@@ -18,8 +33,6 @@
 		37D7771E2BF30ECD0078D6E8 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 37D7771D2BF30ECD0078D6E8 /* Then */; };
 		37D777242BF31DED0078D6E8 /* VocaBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D777232BF31DED0078D6E8 /* VocaBookViewController.swift */; };
 		37D777262BF31E390078D6E8 /* StudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D777252BF31E390078D6E8 /* StudyViewController.swift */; };
-		37D777282BF31E640078D6E8 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D777272BF31E640078D6E8 /* ReportViewController.swift */; };
-		37D7772A2BF31E700078D6E8 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D777292BF31E700078D6E8 /* UserViewController.swift */; };
 		37D777372BF34C400078D6E8 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37D7772E2BF34C400078D6E8 /* Pretendard-Bold.otf */; };
 		37D777382BF34C400078D6E8 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37D7772F2BF34C400078D6E8 /* Pretendard-Black.otf */; };
 		37D777392BF34C400078D6E8 /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37D777302BF34C400078D6E8 /* Pretendard-ExtraLight.otf */; };
@@ -33,10 +46,29 @@
 		6237154F2BF5D056004EFB9A /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6237154E2BF5D056004EFB9A /* UserView.swift */; };
 		623715522BF75C4E004EFB9A /* UserModifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623715512BF75C4E004EFB9A /* UserModifyView.swift */; };
 		623715542BF75E34004EFB9A /* UserModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623715532BF75E34004EFB9A /* UserModifyViewController.swift */; };
-		62F3A8A22BFC75310002508D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A8A12BFC75310002508D /* UserModel.swift */; };
+		62F3A8A92BFCE1380002508D /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A8A82BFCE1380002508D /* UserViewController.swift */; };
+		62F3A8AF2BFCE5D30002508D /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 62F3A8AE2BFCE5D30002508D /* DGCharts */; };
+		62F3A8B22BFCE6090002508D /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A8B02BFCE6090002508D /* ReportView.swift */; };
+		62F3A8BF2BFCE7260002508D /* PieChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A8BC2BFCE7260002508D /* PieChartViewController.swift */; };
+		62F3A8C02BFCE7260002508D /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A8BD2BFCE7260002508D /* ReportViewController.swift */; };
+		62F3A8C32BFCE8910002508D /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A8C22BFCE8910002508D /* UserDefaultsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E10E7DF2BFA94000049E1AB /* FlashAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashAlertView.swift; sourceTree = "<group>"; };
+		2E10E7E12BFA97F70049E1AB /* FlashAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashAlertViewController.swift; sourceTree = "<group>"; };
+		2E1C30F92BFC315E00CB6DDE /* Voca+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Voca+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2E1C30FA2BFC315E00CB6DDE /* Voca+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Voca+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2E1C30FB2BFC315E00CB6DDE /* VocaDate+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VocaDate+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2E1C30FC2BFC315E00CB6DDE /* VocaDate+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VocaDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2E1C30FD2BFC315E00CB6DDE /* VocaDeck+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VocaDeck+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2E1C30FE2BFC315E00CB6DDE /* VocaDeck+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VocaDeck+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2E1C31182BFCAB4800CB6DDE /* EveryDayVocaData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EveryDayVocaData.csv; sourceTree = "<group>"; };
+		2E45B8032BFB5C2000BDFFEC /* vocaCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vocaCoreDataManager.swift; sourceTree = "<group>"; };
+		2E9DED9A2BF50C4500A85C42 /* FlashCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardView.swift; sourceTree = "<group>"; };
+		2E9DED9C2BF5D0EC00A85C42 /* FlashCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardViewController.swift; sourceTree = "<group>"; };
+		2E9DEDD62BF9FD6800A85C42 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		2E9DEDD82BFA167700A85C42 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		371D24312BF37ED7002B4DC5 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		371D24332BF38AC1002B4DC5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		37D776FB2BF30DBD0078D6E8 /* EveryDayVoca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EveryDayVoca.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,8 +80,6 @@
 		37D777172BF30E460078D6E8 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		37D777232BF31DED0078D6E8 /* VocaBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookViewController.swift; sourceTree = "<group>"; };
 		37D777252BF31E390078D6E8 /* StudyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyViewController.swift; sourceTree = "<group>"; };
-		37D777272BF31E640078D6E8 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
-		37D777292BF31E700078D6E8 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		37D7772E2BF34C400078D6E8 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		37D7772F2BF34C400078D6E8 /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		37D777302BF34C400078D6E8 /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
@@ -63,7 +93,11 @@
 		6237154E2BF5D056004EFB9A /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		623715512BF75C4E004EFB9A /* UserModifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModifyView.swift; sourceTree = "<group>"; };
 		623715532BF75E34004EFB9A /* UserModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModifyViewController.swift; sourceTree = "<group>"; };
-		62F3A8A12BFC75310002508D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		62F3A8A82BFCE1380002508D /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserViewController.swift; path = "../../../../../../Downloads/EveryDayVoca-feature-7-user/EveryDayVoca/Controllers/User/UserViewController.swift"; sourceTree = "<group>"; };
+		62F3A8B02BFCE6090002508D /* ReportView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
+		62F3A8BC2BFCE7260002508D /* PieChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartViewController.swift; sourceTree = "<group>"; };
+		62F3A8BD2BFCE7260002508D /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		62F3A8C22BFCE8910002508D /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +105,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62F3A8AF2BFCE5D30002508D /* DGCharts in Frameworks */,
+				2E9DEDE22BFA77C900A85C42 /* Shuffle in Frameworks */,
 				37D7771B2BF30EAC0078D6E8 /* SnapKit in Frameworks */,
 				37D7771E2BF30ECD0078D6E8 /* Then in Frameworks */,
 			);
@@ -79,6 +115,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E1C31092BFC914700CB6DDE /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				2E45B8032BFB5C2000BDFFEC /* vocaCoreDataManager.swift */,
+				2E1C30F92BFC315E00CB6DDE /* Voca+CoreDataClass.swift */,
+				2E1C30FA2BFC315E00CB6DDE /* Voca+CoreDataProperties.swift */,
+				2E1C30FB2BFC315E00CB6DDE /* VocaDate+CoreDataClass.swift */,
+				2E1C30FC2BFC315E00CB6DDE /* VocaDate+CoreDataProperties.swift */,
+				2E1C30FD2BFC315E00CB6DDE /* VocaDeck+CoreDataClass.swift */,
+				2E1C30FE2BFC315E00CB6DDE /* VocaDeck+CoreDataProperties.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		2E9DED9E2BF62AAA00A85C42 /* Study */ = {
+			isa = PBXGroup;
+			children = (
+				2E9DEDD82BFA167700A85C42 /* CardView.swift */,
+				2E9DED9A2BF50C4500A85C42 /* FlashCardView.swift */,
+				2E10E7DF2BFA94000049E1AB /* FlashAlertView.swift */,
+			);
+			path = Study;
+			sourceTree = "<group>";
+		};
+		2ED013D42BFB381D0028EC1B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				62F3A8C12BFCE7CB0002508D /* UserDefaults */,
+				2E1C31092BFC914700CB6DDE /* CoreData */,
+				2E9DEDD62BF9FD6800A85C42 /* Status.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		37D776F22BF30DBD0078D6E8 = {
 			isa = PBXGroup;
 			children = (
@@ -99,11 +169,12 @@
 		37D776FD2BF30DBD0078D6E8 /* EveryDayVoca */ = {
 			isa = PBXGroup;
 			children = (
+				2E1C31182BFCAB4800CB6DDE /* EveryDayVocaData.csv */,
 				37D776FE2BF30DBD0078D6E8 /* AppDelegate.swift */,
 				37D777002BF30DBD0078D6E8 /* SceneDelegate.swift */,
-				62F3A89D2BFC61DE0002508D /* Model */,
-				37D777402BF34CFA0078D6E8 /* Extensions */,
 				37D7772D2BF34BF30078D6E8 /* Fonts */,
+				37D777402BF34CFA0078D6E8 /* Extensions */,
+				2ED013D42BFB381D0028EC1B /* Model */,
 				37D777432BF357400078D6E8 /* Views */,
 				37D777222BF31C800078D6E8 /* Controllers */,
 				37D7770A2BF30DBE0078D6E8 /* Assets.xcassets */,
@@ -118,8 +189,10 @@
 			children = (
 				37D777232BF31DED0078D6E8 /* VocaBookViewController.swift */,
 				37D777252BF31E390078D6E8 /* StudyViewController.swift */,
-				37D777272BF31E640078D6E8 /* ReportViewController.swift */,
+				62F3A8BE2BFCE7260002508D /* Report */,
 				623715552BF75E3B004EFB9A /* User */,
+				2E9DED9C2BF5D0EC00A85C42 /* FlashCardViewController.swift */,
+				2E10E7E12BFA97F70049E1AB /* FlashAlertViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -152,7 +225,9 @@
 			isa = PBXGroup;
 			children = (
 				37D777442BF37E9F0078D6E8 /* Bases */,
+				62F3A8B12BFCE6090002508D /* Report */,
 				623715502BF63A40004EFB9A /* User */,
+				2E9DED9E2BF62AAA00A85C42 /* Study */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -178,18 +253,37 @@
 		623715552BF75E3B004EFB9A /* User */ = {
 			isa = PBXGroup;
 			children = (
-				37D777292BF31E700078D6E8 /* UserViewController.swift */,
+				62F3A8A82BFCE1380002508D /* UserViewController.swift */,
 				623715532BF75E34004EFB9A /* UserModifyViewController.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
 		};
-		62F3A89D2BFC61DE0002508D /* Model */ = {
+		62F3A8B12BFCE6090002508D /* Report */ = {
 			isa = PBXGroup;
 			children = (
-				62F3A8A12BFC75310002508D /* UserModel.swift */,
+				62F3A8B02BFCE6090002508D /* ReportView.swift */,
 			);
-			path = Model;
+			name = Report;
+			path = "../../../../../Downloads/EveryDayVoca-feature-12-statistic/EveryDayVoca/Views/Report";
+			sourceTree = "<group>";
+		};
+		62F3A8BE2BFCE7260002508D /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				62F3A8BC2BFCE7260002508D /* PieChartViewController.swift */,
+				62F3A8BD2BFCE7260002508D /* ReportViewController.swift */,
+			);
+			name = Report;
+			path = "../../../../../Downloads/EveryDayVoca-feature-12-statistic 2/EveryDayVoca/Controllers/Report";
+			sourceTree = "<group>";
+		};
+		62F3A8C12BFCE7CB0002508D /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				62F3A8C22BFCE8910002508D /* UserDefaultsManager.swift */,
+			);
+			path = UserDefaults;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +305,8 @@
 			packageProductDependencies = (
 				37D7771A2BF30EAC0078D6E8 /* SnapKit */,
 				37D7771D2BF30ECD0078D6E8 /* Then */,
+				2E9DEDE12BFA77C900A85C42 /* Shuffle */,
+				62F3A8AE2BFCE5D30002508D /* DGCharts */,
 			);
 			productName = EveryDayVoca;
 			productReference = 37D776FB2BF30DBD0078D6E8 /* EveryDayVoca.app */;
@@ -243,6 +339,8 @@
 			packageReferences = (
 				37D777192BF30EAB0078D6E8 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				37D7771C2BF30ECD0078D6E8 /* XCRemoteSwiftPackageReference "Then" */,
+				2E9DEDE02BFA77C900A85C42 /* XCRemoteSwiftPackageReference "Shuffle" */,
+				62F3A8AD2BFCE5D30002508D /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 37D776FC2BF30DBD0078D6E8 /* Products */;
 			projectDirPath = "";
@@ -264,6 +362,7 @@
 				37D7773A2BF34C400078D6E8 /* Pretendard-ExtraBold.otf in Resources */,
 				37D777392BF34C400078D6E8 /* Pretendard-ExtraLight.otf in Resources */,
 				37D7773B2BF34C400078D6E8 /* Pretendard-Light.otf in Resources */,
+				2E1C31192BFCAB4800CB6DDE /* EveryDayVocaData.csv in Resources */,
 				37D7773C2BF34C400078D6E8 /* Pretendard-Regular.otf in Resources */,
 				37D7773D2BF34C400078D6E8 /* Pretendard-SemiBold.otf in Resources */,
 				37D777382BF34C400078D6E8 /* Pretendard-Black.otf in Resources */,
@@ -280,19 +379,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				6237154F2BF5D056004EFB9A /* UserView.swift in Sources */,
+				62F3A8A92BFCE1380002508D /* UserViewController.swift in Sources */,
 				623715542BF75E34004EFB9A /* UserModifyViewController.swift in Sources */,
 				623715522BF75C4E004EFB9A /* UserModifyView.swift in Sources */,
-				37D7772A2BF31E700078D6E8 /* UserViewController.swift in Sources */,
+				2E9DEDD92BFA167700A85C42 /* CardView.swift in Sources */,
 				37D776FF2BF30DBD0078D6E8 /* AppDelegate.swift in Sources */,
+				2E10E7E22BFA97F70049E1AB /* FlashAlertViewController.swift in Sources */,
 				37D777012BF30DBD0078D6E8 /* SceneDelegate.swift in Sources */,
+				2E9DED9D2BF5D0EC00A85C42 /* FlashCardViewController.swift in Sources */,
+				2E1C30FF2BFC315E00CB6DDE /* Voca+CoreDataClass.swift in Sources */,
+				2E1C31002BFC315E00CB6DDE /* Voca+CoreDataProperties.swift in Sources */,
+				2E1C31012BFC315E00CB6DDE /* VocaDate+CoreDataClass.swift in Sources */,
+				2E1C31022BFC315E00CB6DDE /* VocaDate+CoreDataProperties.swift in Sources */,
+				2E1C31032BFC315E00CB6DDE /* VocaDeck+CoreDataClass.swift in Sources */,
+				2E1C31042BFC315E00CB6DDE /* VocaDeck+CoreDataProperties.swift in Sources */,
+				62F3A8BF2BFCE7260002508D /* PieChartViewController.swift in Sources */,
 				37D777092BF30DBD0078D6E8 /* EveryDayVoca.xcdatamodeld in Sources */,
 				37D777262BF31E390078D6E8 /* StudyViewController.swift in Sources */,
-				62F3A8A22BFC75310002508D /* UserModel.swift in Sources */,
 				371D24342BF38AC1002B4DC5 /* BaseViewController.swift in Sources */,
 				37D777242BF31DED0078D6E8 /* VocaBookViewController.swift in Sources */,
+				62F3A8C02BFCE7260002508D /* ReportViewController.swift in Sources */,
+				2E9DED9B2BF50C4500A85C42 /* FlashCardView.swift in Sources */,
+				2E10E7E02BFA94000049E1AB /* FlashAlertView.swift in Sources */,
+				62F3A8C32BFCE8910002508D /* UserDefaultsManager.swift in Sources */,
+				2E45B8042BFB5C2000BDFFEC /* vocaCoreDataManager.swift in Sources */,
 				371D24322BF37ED7002B4DC5 /* BaseView.swift in Sources */,
+				62F3A8B22BFCE6090002508D /* ReportView.swift in Sources */,
+				2E9DEDD72BF9FD6800A85C42 /* Status.swift in Sources */,
 				37D777422BF34DED0078D6E8 /* UIFont+Extension.swift in Sources */,
-				37D777282BF31E640078D6E8 /* ReportViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +539,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 79LSKHWYJ8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EveryDayVoca/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -457,6 +572,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 79LSKHWYJ8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EveryDayVoca/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -506,6 +622,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2E9DEDE02BFA77C900A85C42 /* XCRemoteSwiftPackageReference "Shuffle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mac-gallagher/Shuffle.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		37D777192BF30EAB0078D6E8 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -522,9 +646,22 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		62F3A8AD2BFCE5D30002508D /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ChartsOrg/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2E9DEDE12BFA77C900A85C42 /* Shuffle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2E9DEDE02BFA77C900A85C42 /* XCRemoteSwiftPackageReference "Shuffle" */;
+			productName = Shuffle;
+		};
 		37D7771A2BF30EAC0078D6E8 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 37D777192BF30EAB0078D6E8 /* XCRemoteSwiftPackageReference "SnapKit" */;
@@ -534,6 +671,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 37D7771C2BF30ECD0078D6E8 /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		62F3A8AE2BFCE5D30002508D /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62F3A8AD2BFCE5D30002508D /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
 		};
 /* End XCSwiftPackageProductDependency section */
 
