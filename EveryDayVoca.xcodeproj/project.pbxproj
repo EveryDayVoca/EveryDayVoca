@@ -10,6 +10,7 @@
 		371D24322BF37ED7002B4DC5 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371D24312BF37ED7002B4DC5 /* BaseView.swift */; };
 		371D24342BF38AC1002B4DC5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371D24332BF38AC1002B4DC5 /* BaseViewController.swift */; };
 		3759452B2BFC6420001A7485 /* StudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3759452A2BFC6420001A7485 /* StudyView.swift */; };
+		3759452E2BFC6536001A7485 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 3759452D2BFC6536001A7485 /* DGCharts */; };
 		37D776FF2BF30DBD0078D6E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D776FE2BF30DBD0078D6E8 /* AppDelegate.swift */; };
 		37D777012BF30DBD0078D6E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D777002BF30DBD0078D6E8 /* SceneDelegate.swift */; };
 		37D777092BF30DBD0078D6E8 /* EveryDayVoca.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37D777072BF30DBD0078D6E8 /* EveryDayVoca.xcdatamodeld */; };
@@ -66,6 +67,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37D7771B2BF30EAC0078D6E8 /* SnapKit in Frameworks */,
+				3759452E2BFC6536001A7485 /* DGCharts in Frameworks */,
 				37D7771E2BF30ECD0078D6E8 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -178,6 +180,7 @@
 			packageProductDependencies = (
 				37D7771A2BF30EAC0078D6E8 /* SnapKit */,
 				37D7771D2BF30ECD0078D6E8 /* Then */,
+				3759452D2BFC6536001A7485 /* DGCharts */,
 			);
 			productName = EveryDayVoca;
 			productReference = 37D776FB2BF30DBD0078D6E8 /* EveryDayVoca.app */;
@@ -210,6 +213,7 @@
 			packageReferences = (
 				37D777192BF30EAB0078D6E8 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				37D7771C2BF30ECD0078D6E8 /* XCRemoteSwiftPackageReference "Then" */,
+				3759452C2BFC6536001A7485 /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 37D776FC2BF30DBD0078D6E8 /* Products */;
 			projectDirPath = "";
@@ -470,6 +474,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3759452C2BFC6536001A7485 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ChartsOrg/Charts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
 		37D777192BF30EAB0078D6E8 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -489,6 +501,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3759452D2BFC6536001A7485 /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3759452C2BFC6536001A7485 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
+		};
 		37D7771A2BF30EAC0078D6E8 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 37D777192BF30EAB0078D6E8 /* XCRemoteSwiftPackageReference "SnapKit" */;
