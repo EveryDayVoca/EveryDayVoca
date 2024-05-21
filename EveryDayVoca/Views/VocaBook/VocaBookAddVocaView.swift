@@ -14,6 +14,7 @@ class VocaBookAddVocaView: BaseView {
     var vocaBooks: [String] = ["나의 단어장", "고등 영단어"]
     
     let titleLabel = UILabel().then {
+        $0.text = "단어 추가하기"
         $0.textAlignment = .center
         $0.textColor = UIColor.evText
         $0.numberOfLines = 0
@@ -26,8 +27,11 @@ class VocaBookAddVocaView: BaseView {
     
     lazy var englishTextField = UITextField().then {
         $0.backgroundColor = UIColor.evBackground
+        $0.layer.cornerRadius = 20
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = UIColor.gray50.cgColor
         $0.textColor = UIColor.evText
-        $0.attributedPlaceholder = NSAttributedString(string: "영단어 입력하기.", attributes: attributes)
+        $0.attributedPlaceholder = NSAttributedString(string: "영단어 입력하기", attributes: attributes)
         $0.autocapitalizationType = .none
         $0.autocorrectionType = .no
         $0.spellCheckingType = .yes
@@ -35,8 +39,11 @@ class VocaBookAddVocaView: BaseView {
     
     lazy var koreanTextField = UITextField().then {
         $0.backgroundColor = UIColor.evBackground
+        $0.layer.cornerRadius = 20
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = UIColor.gray50.cgColor
         $0.textColor = UIColor.evText
-        $0.attributedPlaceholder = NSAttributedString(string: "뜻 입력하기.", attributes: attributes)
+        $0.attributedPlaceholder = NSAttributedString(string: "뜻 입력하기", attributes: attributes)
         $0.autocapitalizationType = .none
         $0.autocorrectionType = .no
         $0.spellCheckingType = .yes
@@ -44,6 +51,9 @@ class VocaBookAddVocaView: BaseView {
     
     lazy var vocaBookSelectPopupButton = UIButton().then {
         $0.backgroundColor = UIColor.evBackground
+        $0.layer.cornerRadius = 20
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = UIColor.gray50.cgColor
         $0.setTitle("단어장 선택하기", for: .normal)
         $0.setTitleColor(UIColor.evText, for: .normal)
         $0.showsMenuAsPrimaryAction = true
