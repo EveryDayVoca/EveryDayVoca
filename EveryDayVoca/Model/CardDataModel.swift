@@ -18,7 +18,6 @@ struct CardDataModel {
         self.meaning = meaning
         self.status = status
     }
-      
 }
 
 enum status: String {

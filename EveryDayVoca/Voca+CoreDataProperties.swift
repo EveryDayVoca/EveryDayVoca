@@ -2,7 +2,7 @@
 //  Voca+CoreDataProperties.swift
 //  EveryDayVoca
 //
-//  Created by 배지해 on 5/20/24.
+//  Created by 배지해 on 5/21/24.
 //
 //
 
@@ -18,9 +18,10 @@ extension Voca {
 
     @NSManaged public var english: String?
     @NSManaged public var korean: String?
-    @NSManaged public var pronunciation: String?
     @NSManaged public var status: String?
     @NSManaged public var vocaDeck: String?
+    @NSManaged public var index: Int64
+    @NSManaged public var name: VocaDeck?
 
 }
 
