@@ -11,22 +11,11 @@ import CoreData
 final class VocaBookViewController: BaseViewController {
     
     // MARK: - Properties
-
+    
     private let vocaBookVocaListView = VocaBookVocaListView()
     
-    private let navigationBarTitleLabel = UILabel().then {
-        $0.text = "나의 단어 사전"
-        $0.font = UIFont.pretendard(size: 17, weight: .semibold)
-        $0.textColor = UIColor.evText
-        $0.textAlignment = .center
-    }
-    
-    let navigationBarAddVocaButton = UIBarButtonItem().then {
-        $0.image = UIImage(named: "plus")
-        $0.tintColor = UIColor.evText
-        $0.imageInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-    }
-    
+    // -----------------------------------------
+    // 임시
     var vocas: [Voca] = [
         Voca(english: "apple", korean: "사과", pronunciation: "ˈæpl", status: .memorized, vocaBook: "초등"),
         Voca(english: "acid", korean: "산", pronunciation: "ˈæsɪd", status: .memorized, vocaBook: "중고등"),
@@ -34,6 +23,7 @@ final class VocaBookViewController: BaseViewController {
         Voca(english: "delicate", korean: "미묘한", pronunciation: "ˈdelɪkət", status: .difficult, vocaBook: "중고등"),
         Voca(english: "mom", korean: "엄마", pronunciation: "mom", status: .none, vocaBook: "초등")
     ]
+    // -----------------------------------------
     
     var vocaBook = "전체"
     
@@ -42,10 +32,9 @@ final class VocaBookViewController: BaseViewController {
     
     override func loadView() {
         view = vocaBookVocaListView
-        self.navigationItem.titleView = navigationBarTitleLabel
-        self.navigationItem.rightBarButtonItem = navigationBarAddVocaButton
+        setNavigationController()
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureAddTarget()
@@ -56,6 +45,25 @@ final class VocaBookViewController: BaseViewController {
     }
     
     // MARK: - Methods
+    
+    func setNavigationController() {
+        let navigationBarTitleLabel = UILabel().then {
+            $0.text = "나의 단어 사전"
+            $0.font = UIFont.pretendard(size: 17, weight: .semibold)
+            $0.textAlignment = .center
+        }
+        
+        var navigationBarPlusButton = UIBarButtonItem().then {
+            $0.image = UIImage(named: "plus")
+            $0.target = self
+            $0.action = #selector(tappedNavigationBarPlusButton)
+        }
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.evText
+        self.navigationItem.titleView = navigationBarTitleLabel
+        self.navigationItem.rightBarButtonItem = navigationBarPlusButton
+    }
+    
     override func configureStyle() {
         super.configureStyle()
     }
@@ -81,6 +89,11 @@ final class VocaBookViewController: BaseViewController {
         
         // 보기 옵션 버튼
         vocaBookVocaListView.tableDisplayOptionButton.addTarget(self, action: #selector(tappedTableDisplayOptionButton), for: .touchUpInside)
+    }
+    
+    @objc func tappedNavigationBarPlusButton() {
+        let addVocaVC = VocaBookAddVocaViewController()
+        present(addVocaVC, animated: true)
     }
     
     @objc func tappedTableFilterButton() {
@@ -116,9 +129,8 @@ final class VocaBookViewController: BaseViewController {
         displayOptionPopoverVC.popoverPresentationController?.delegate = self
         present(displayOptionPopoverVC, animated: true)
     }
-    
-    
 }
+
 
 extension VocaBookViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
