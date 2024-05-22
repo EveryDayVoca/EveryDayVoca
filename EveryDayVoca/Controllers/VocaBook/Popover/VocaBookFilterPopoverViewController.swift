@@ -17,10 +17,6 @@ class VocaBookFilterPopoverViewController: BaseViewController {
     // MARK: - Properties
     
     private let vocaBookPopoverView = VocaBookPopoverView()
-    var filters: [Filter] = [Filter(status: .difficult, isSelected: true),
-                             Filter(status: .ambiguous, isSelected: true),
-                             Filter(status: .memorized, isSelected: true),
-                             Filter(status: .none, isSelected: true)]
     
     
     // MARK: - Life Cycles
@@ -57,7 +53,8 @@ class VocaBookFilterPopoverViewController: BaseViewController {
 
 extension VocaBookFilterPopoverViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filters.count
+//        return filters.count
+        return VocaBookData.shared.filters.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -66,9 +63,7 @@ extension VocaBookFilterPopoverViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.bind(filter: filters[indexPath.row])
-//        cell.selectionStyle = .none
-        print("load cell???????")
+        cell.bind(filter: VocaBookData.shared.filters[indexPath.row])
         return cell
     }
     
@@ -77,9 +72,8 @@ extension VocaBookFilterPopoverViewController: UITableViewDataSource {
 
 extension VocaBookFilterPopoverViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        filters[indexPath.row].isSelected = !filters[indexPath.row].isSelected
+        VocaBookData.shared.filters[indexPath.row].isSelected = !VocaBookData.shared.filters[indexPath.row].isSelected
         tableView.reloadRows(at: [indexPath], with: .automatic)
-        print("filters: \(filters)")
     }
     
 }

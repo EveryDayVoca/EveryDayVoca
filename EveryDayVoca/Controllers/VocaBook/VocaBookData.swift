@@ -26,6 +26,15 @@ class VocaBookData {
         }
     }
     
+    var filters: [Filter] = [Filter(status: .difficult, isSelected: true),
+                             Filter(status: .ambiguous, isSelected: true),
+                             Filter(status: .memorized, isSelected: true),
+                             Filter(status: .none, isSelected: true)]  {
+        didSet {
+            print("데이터에서 필터 업데이트됨")
+        }
+    }
+    
     lazy var vocasCount = vocas.count
     
     // MARK: - vocas 업데이트 함수
