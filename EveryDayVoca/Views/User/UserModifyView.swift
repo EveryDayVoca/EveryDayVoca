@@ -30,7 +30,7 @@ final class UserModifyView: BaseView {
         $0.layer.cornerRadius = 32
         $0.clipsToBounds = true
         $0.contentMode = .scaleAspectFill
-        if let imageData = UserDefaults.standard.data(forKey: "profileImage"),
+        if let imageData = UserDefaults.standard.data(forKey: UserData.profileImage.rawValue),
            let image = UIImage(data: imageData) {
             $0.image = image
         }
@@ -65,7 +65,7 @@ final class UserModifyView: BaseView {
         $0.autocorrectionType = .no
         $0.spellCheckingType = .no
         $0.tintColor = .evText
-        $0.text = UserDefaults.standard.string(forKey: "userName")
+        $0.text = UserDefaults.standard.string(forKey: UserData.userName.rawValue)
     }
     
     let changeNickNameTextField = UITextField().then {
@@ -77,7 +77,7 @@ final class UserModifyView: BaseView {
         $0.autocorrectionType = .no
         $0.spellCheckingType = .no
         $0.tintColor = .evText
-        $0.text = UserDefaults.standard.string(forKey: "userNickName")
+        $0.text = UserDefaults.standard.string(forKey: UserData.userNickName.rawValue)
     }
     
     private let dayGoalLabel = UILabel().then {
@@ -119,7 +119,7 @@ final class UserModifyView: BaseView {
         $0.autocorrectionType = .no
         $0.spellCheckingType = .no
         $0.tintColor = .clear
-        $0.text = UserDefaults.standard.string(forKey: "studyLevel")
+        $0.text = UserDefaults.standard.string(forKey: UserData.studyLevel.rawValue)
     }
     
     let learningAmountTextField = UITextField().then {
@@ -131,7 +131,7 @@ final class UserModifyView: BaseView {
         $0.autocorrectionType = .no
         $0.spellCheckingType = .no
         $0.tintColor = .clear
-        $0.text = UserDefaults.standard.string(forKey: "studyAmount")
+        $0.text = UserDefaults.standard.string(forKey: UserData.studyAmount.rawValue)
     }
     
     let doneEditButton = UIButton().then {

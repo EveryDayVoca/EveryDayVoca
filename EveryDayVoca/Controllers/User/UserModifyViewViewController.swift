@@ -77,11 +77,11 @@ final class UserModifyViewController: BaseViewController {
         
         let cancel = UIAlertAction(title: "취소", style: .cancel)
         let confirm = UIAlertAction(title: "확인", style: .default) { _ in
-            UserDefaultsManager.shared.set(value: self.userModifyView.changeNameTextField.text!, key: "userName")
-            UserDefaultsManager.shared.set(value: self.userModifyView.changeNickNameTextField.text!, key: "userNickName")
-            UserDefaultsManager.shared.set(value: self.userModifyView.levelTextField.text!, key: "studyLevel")
-            UserDefaultsManager.shared.set(value: self.userModifyView.learningAmountTextField.text!, key: "studyAmount")
-            UserDefaultsManager.shared.setImageConvert(value: self.userModifyView.profileImage.image!, key: "profileImage")
+            UserDefaults.standard.set(self.userModifyView.changeNameTextField.text!, forKey: UserData.userName.rawValue)
+            UserDefaults.standard.set(self.userModifyView.changeNickNameTextField.text!, forKey: UserData.userNickName.rawValue)
+            UserDefaults.standard.set(self.userModifyView.levelTextField.text!, forKey: UserData.studyLevel.rawValue)
+            UserDefaults.standard.set(self.userModifyView.learningAmountTextField.text!, forKey: UserData.studyAmount.rawValue)
+            UserDefaults.standard.set(self.userModifyView.profileImage.image!, forKey: UserData.profileImage.rawValue)
             
             NotificationCenter.default.addObserver(self, selector: #selector(self.tappedDoneEditButton), name: .userDefaultsDidChange, object: nil)
             self.navigationController?.popViewController(animated: true)

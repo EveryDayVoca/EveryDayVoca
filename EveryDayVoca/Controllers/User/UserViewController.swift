@@ -49,12 +49,23 @@ final class UserViewController: BaseViewController {
     }
     
     func calculateProgress(level: Int) -> Float {
-        if UserDefaults.standard.integer(forKey: "1total") != 0 {
-            return Float(VocaCoreDataManager.shared.calculateMemorizedWordCountByLevel(level: level) / UserDefaults.standard.integer(forKey: "1total"))
+        var levels = UserData.total1
+        switch level {
+        case 1:
+            levels = UserData.total1
+        case 2:
+            levels = UserData.total2
+        case 3:
+            levels = UserData.total3
+        case 4:
+            levels = UserData.total4
+        case 5:
+            levels = UserData.total5
+        default:
+            levels = UserData.total1
         }
-        else {
-            return 0
-        }
+        
+        return Float(VocaCoreDataManager.shared.calculateMemorizedWordCountByLevel(level: level) / UserDefaults.standard.integer(forKey: levels.rawValue))
     }
     
     func setProgressBar() {
@@ -77,19 +88,19 @@ final class UserViewController: BaseViewController {
     }
 
     @objc func handleUserDefaultsChange(_ notification: Notification) {
-        if let value = UserDefaults.standard.string(forKey: "userName") {
+        if let value = UserDefaults.standard.string(forKey: UserData.userName.rawValue) {
             self.userView.userNameLabel.text = value
         }
-        if let value = UserDefaults.standard.string(forKey: "userNickName") {
+        if let value = UserDefaults.standard.string(forKey: UserData.userNickName.rawValue) {
             self.userView.userNickNameLabel.text = value
         }
-        if let value = UserDefaults.standard.string(forKey: "studyLevel") {
+        if let value = UserDefaults.standard.string(forKey: UserData.studyLevel.rawValue) {
             self.userView.studyLevelLabel.text = value
         }
-        if let value = UserDefaults.standard.string(forKey: "studyAmount") {
+        if let value = UserDefaults.standard.string(forKey: UserData.studyAmount.rawValue) {
             self.userView.studyAmountLabel.text = value
         }
-        if let imageData = UserDefaults.standard.data(forKey: "profileImage"),
+        if let imageData = UserDefaults.standard.data(forKey: UserData.profileImage.rawValue),
            let image = UIImage(data: imageData) {
             self.userView.profileImage.image = image
         }

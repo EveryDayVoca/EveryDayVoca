@@ -26,7 +26,7 @@ final class UserView: BaseView {
     }
     
     var profileImage = UIImageView().then {
-        if let imageData = UserDefaults.standard.data(forKey: "profileImage"),
+        if let imageData = UserDefaults.standard.data(forKey: UserData.profileImage.rawValue),
            let image = UIImage(data: imageData) {
             $0.image = image
         }
@@ -37,14 +37,14 @@ final class UserView: BaseView {
     }
     
     var userNameLabel = UILabel().then {
-        $0.text = UserDefaults.standard.string(forKey: "userName")
+        $0.text = UserDefaults.standard.string(forKey: UserData.userName.rawValue)
         $0.font = UIFont.pretendard(size: 18, weight: .semibold)
         $0.textColor = UIColor.evText
         $0.textAlignment = .left
     }
     
     var userNickNameLabel = UILabel().then {
-        $0.text = UserDefaults.standard.string(forKey: "userNickName")
+        $0.text = UserDefaults.standard.string(forKey: UserData.userNickName.rawValue)
         $0.font = UIFont.pretendard(size: 18, weight: .regular)
         $0.textColor = UIColor.evText
         $0.textAlignment = .left
@@ -74,7 +74,7 @@ final class UserView: BaseView {
     }
     
     var studyLevelLabel = UILabel().then {
-        $0.text = UserDefaults.standard.string(forKey: "studyLevel")
+        $0.text = UserDefaults.standard.string(forKey: UserData.studyLevel.rawValue)
         $0.textColor = .blue100
         $0.font = UIFont.pretendard(size: 18, weight: .semibold)
     }
@@ -87,7 +87,7 @@ final class UserView: BaseView {
     }
     
     var studyAmountLabel = UILabel().then {
-        $0.text = UserDefaults.standard.string(forKey: "studyAmount")
+        $0.text = UserDefaults.standard.string(forKey: UserData.studyAmount.rawValue)
         $0.font = UIFont.pretendard(size: 18, weight: .semibold)
         $0.textColor = UIColor.evText
         $0.textAlignment = .right
