@@ -6,24 +6,50 @@
 //
 
 import UIKit
+import DGCharts
 
-class StudyViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+final class StudyViewController: BaseViewController {
+    
+    // MARK: - properties
+    private let studyView = StudyView()
+    
+    // MARK: - life cycles
+    override func loadView() {
+        view = studyView
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
-    */
-
+    
+    // MARK: - methods
+    override func configureStyle() {
+        configureNavigation()
+    }
+    
+    override func bind() {
+        // To Do -> 데이터 반영
+        configureChart(values: [10, 20, 30].map{ Double($0) })
+    }
+    
+    private func configureNavigation() {
+        navigationItem.titleView = studyView.titleLabel
+    }
+    
+    private func configureChart(values: [Double]) {
+        var dataEntries: [ChartDataEntry] = []
+        
+        for i in 0..<values.count {
+            let dataEntry = PieChartDataEntry(value: values[i])
+            dataEntries.append(dataEntry)
+        }
+        
+        let pieChartDataSet = PieChartDataSet(entries: dataEntries)
+        pieChartDataSet.sliceSpace = 1
+        pieChartDataSet.valueTextColor = .clear
+        pieChartDataSet.colors = [.blue100, .blue50, .blue10]
+        
+        let pieChartData = PieChartData(dataSet: pieChartDataSet)
+        // To Do -> 뷰에 바인딩 PieChartData(dataSet: pieChartDataSet)
+    }
 }
