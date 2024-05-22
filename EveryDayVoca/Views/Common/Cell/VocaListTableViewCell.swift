@@ -38,18 +38,30 @@ final class VocaListTableViewCell: UITableViewCell {
         $0.font = UIFont.pretendard(size: 12, weight: .regular)
     }
     
+    private let engKorLabelStackView = UIStackView().then {
+        $0.axis = .horizontal
+        $0.spacing = 10
+        $0.alignment = .fill
+        $0.distribution = .fill
+    }
+    
     private let englishLabel = UILabel().then {
         $0.textAlignment = .left
         $0.textColor = UIColor.evText
-        $0.numberOfLines = 0
+        $0.numberOfLines = 1
         $0.font = UIFont.pretendard(size: 20, weight: .semibold)
+        $0.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        $0.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
     }
     
     private let koreanLabel = UILabel().then {
         $0.textAlignment = .right
         $0.textColor = UIColor.evText
         $0.numberOfLines = 0
+        $0.lineBreakMode = .byWordWrapping
         $0.font = UIFont.pretendard(size: 20, weight: .medium)
+        $0.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        $0.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
     }
     
     
@@ -85,8 +97,10 @@ final class VocaListTableViewCell: UITableViewCell {
         [statusDotImage,
          statusTextLabel,
          vocaBookLabel,
-         englishLabel,
-         koreanLabel].forEach { cellView.addSubview($0) }
+         engKorLabelStackView].forEach { cellView.addSubview($0) }
+        
+        [englishLabel,
+         koreanLabel].forEach { engKorLabelStackView.addArrangedSubview($0) }
     }
     
     private func configureConstraints() {
@@ -118,21 +132,18 @@ final class VocaListTableViewCell: UITableViewCell {
             $0.trailing.equalToSuperview().inset(horizontalEdge)
         }
         
-        
-        englishLabel.snp.makeConstraints {
-            $0.leading.equalTo(statusDotImage)
+        engKorLabelStackView.snp.makeConstraints {
+            $0.leading.equalToSuperview().offset(horizontalEdge)
             $0.top.equalTo(statusTextLabel.snp.bottom).offset(7)
             $0.bottom.equalToSuperview().inset(verticalEdge)
-        }
-        
-        
-        koreanLabel.snp.makeConstraints {
-            $0.leading.equalTo(englishLabel.snp.trailing).offset(10)
-            $0.top.equalTo(englishLabel)
             $0.trailing.equalToSuperview().inset(horizontalEdge)
-            $0.bottom.equalToSuperview().inset(verticalEdge)
         }
         
+//        englishLabel.snp.makeConstraints {
+//            let width = englishLabel.frame.width
+//            print(width)
+//            $0.width.equalTo(width)
+//        }
     }
     
     

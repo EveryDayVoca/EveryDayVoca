@@ -142,7 +142,8 @@ extension VocaBookViewController: UITableViewDataSource {
 
 extension VocaBookViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100    // 그림자 포함 높이
+//        return 100    // 그림자 포함 높이
+        return tableView.rowHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
