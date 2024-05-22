@@ -35,6 +35,8 @@ class VocaBookData {
         }
     }
     
+    var selectedDisplayOption: DisplayOption = .englishAndKorean
+    
     lazy var vocasCount = vocas.count
     
     // MARK: - vocas 업데이트 함수
