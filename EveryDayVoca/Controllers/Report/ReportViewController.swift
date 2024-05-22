@@ -12,18 +12,15 @@ final class ReportViewController: BaseViewController {
     
     // MARK: - property
     private let reportView = ReportView()
-    
     private var selectedDate: DateComponents? = nil
     
-    let monthDate = vocaCoreDataManager.shared.getVocaMonthDates(forYear: 2024, month: 5)
-//    let difficulty = vocaCoreDataManager.shared.calculateMonthlyStudyData(vocaDates: monthDate)
-    lazy var studyData = vocaCoreDataManager.shared.calculateStudyData(vocaDates: monthDate)
-    
     // 차트 데이터
-    var difficulty: [String] = ["어려워요", "애매해요", "외웠어요"]
-//    var counts: [Double] = [difficulty[.difficult], difficulty[.ambiguous], difficulty[.memorized]]
+    let monthDate = VocaCoreDataManager.shared.getVocaMonthDates(forYear: 2024, month: 5)
+    lazy var difficulty = VocaCoreDataManager.shared.calculateMonthlyStudyData(vocaDates: monthDate)
+    lazy var studyData = VocaCoreDataManager.shared.calculateStudyData(vocaDates: monthDate)
     
-
+    var difficultySet: [String] = []
+    var difficultCount: [Double] = []
     
     
     // MARK: - lifecycle
@@ -34,7 +31,7 @@ final class ReportViewController: BaseViewController {
         configureStyle()
         configureDelegate()
         bind()
-//        setChart(data: difficulty, values: counts)
+        setChart(data: difficultySet, values: difficultCount)
         
     }
     
@@ -58,14 +55,18 @@ final class ReportViewController: BaseViewController {
     }
     
     override func bind() {
+        self.difficultySet = ["어려워요", "애매해요", "외웠어요"]
+        self.difficultCount = [Double(difficulty[.difficult]!),
+                               Double(difficulty[.ambiguous]!),
+                               Double(difficulty[.memorized]!)]
         
         //외웟어요 어려워요 애매해요 카운팅
-//        reportView.blue100Label.text = "\(difficulty[.memorized])개"
-//        reportView.blue50Label.text = "\(difficulty[.ambiguous])개"
-//        reportView.blue10Label.text = "\(difficulty[.difficult])개"
+        reportView.blue100Label.text = "\(difficulty[.memorized] ?? 0)개"
+        reportView.blue50Label.text = "\(difficulty[.ambiguous] ?? 0)개"
+        reportView.blue10Label.text = "\(difficulty[.difficult] ?? 0)개"
         
         // 출석률
-//        reportView.rateP ercentLabel.text = "\(vocaCoreDataManager.shared.calculateAttendanceRate(year: 24, month: 5,    attendance: monthDate.count))%"
+        reportView.ratePercentLabel.text = "\(VocaCoreDataManager.shared.calculateAttendanceRate(year: 24, month: 5,    attendance: monthDate.count))%"
         
         //외운 단어 수
         reportView.countNumberLabel.text = "\(studyData.studiedWords)개"
@@ -93,9 +94,12 @@ final class ReportViewController: BaseViewController {
         self.reportView.pieChart.isUserInteractionEnabled = false
         self.reportView.pieChart.holeRadiusPercent = 0.618
         // 차트 가운데 입력값
-        // let memorizeRate = ( difficulty[.memorized] / studyData.studiedWord) * 100
-        // self.reportView.pieChart.centerText = "\(memorizeRate)%"
-        
+        if studyData.studiedWords != 0 {
+            let memorizeRate = ( difficulty[.memorized]! / studyData.studiedWords ) * 100
+            self.reportView.pieChart.centerText = "\(memorizeRate)%"
+        } else {
+            self.reportView.pieChart.centerText = "0%"
+        }
         
         pieChartDataSet.drawValuesEnabled = false
     }

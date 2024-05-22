@@ -47,6 +47,10 @@ final class FlashCardView: BaseView {
         $0.setImage(UIImage(named: "previous_button"), for: .normal)
     }
     
+    var speakButton = UIButton().then {
+        $0.setImage(UIImage(named: "speak"), for: .normal)
+    }
+    
     let cardStack = SwipeCardStack()
     
     let hardButton = UIButton().then {
@@ -102,6 +106,7 @@ final class FlashCardView: BaseView {
         containerView.addSubview(progressBar)
         progressBar.addSubview(percentLabel)
         self.addSubview(previousCardButton)
+        self.addSubview(speakButton)
         self.addSubview(cardStack)
         self.addSubview(buttonStack)
     }
@@ -131,6 +136,12 @@ final class FlashCardView: BaseView {
         previousCardButton.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(44)
             $0.bottom.equalTo(cardStack.snp.top).offset(8)
+            $0.width.height.equalTo(24)
+        }
+        
+        speakButton.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(44)
+            $0.bottom.equalTo(previousCardButton.snp.bottom)
             $0.width.height.equalTo(24)
         }
     

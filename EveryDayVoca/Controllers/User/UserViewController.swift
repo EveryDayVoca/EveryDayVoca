@@ -11,7 +11,7 @@ final class UserViewController: BaseViewController {
     
     // MARK: - property
     private let userView = UserView()
-    let coredataManager = vocaCoreDataManager.shared
+    let coredataManager = VocaCoreDataManager.shared
     
     // MARK: - life cycles
     override func viewDidLoad() {

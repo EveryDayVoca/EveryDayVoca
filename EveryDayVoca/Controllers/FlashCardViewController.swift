@@ -14,7 +14,7 @@ final class FlashCardViewController: BaseViewController {
     private var flashCardView: FlashCardView!
     private var customAlertVC: FlashAlertViewController!
     private var currentIndex = 0
-    let coreDataManager = vocaCoreDataManager.shared
+    let coreDataManager = VocaCoreDataManager.shared
     private var wordData = [Voca]()
     var toStudyVC: (([Voca]) -> Void)?
     
@@ -23,7 +23,7 @@ final class FlashCardViewController: BaseViewController {
         flashCardView = FlashCardView()
         customAlertVC = FlashAlertViewController()
         
-        wordData = coreDataManager.getVocaDataWithIndex(index: 1, count: 10)
+        wordData = coreDataManager.getVocaDataWithIndex(firstIndex: 1, count: 10)
         
         view = flashCardView
     }
@@ -149,8 +149,7 @@ extension FlashCardViewController: SwipeCardStackDelegate {
 
 extension FlashCardViewController: CustomAlertDelegate {
     func confirm() {
-        coreDataManager.updateVocaDatas(vocadatas: wordData)
-        toStudyVC?(wordData)
-        self.navigationController?.popViewController(animated: true)
-    }
+            toStudyVC?(wordData)
+            self.navigationController?.popViewController(animated: true)
+        }
 }

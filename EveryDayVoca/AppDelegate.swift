@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = UIColor.evText
         UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: -200, vertical: 0), for: .default)
         
-        let coreDataManager = vocaCoreDataManager.shared
+        let coreDataManager = VocaCoreDataManager.shared
         coreDataManager.importCSVDataIfNeeded(fileName: "EveryDayVocaData")
         
         return true
