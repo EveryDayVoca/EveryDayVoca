@@ -181,7 +181,6 @@ class MyVocaFlashCardView: VocaBookBaseView {
     }
     
     func bind(voca: Voca) {
-//        currentVoca = vocas[index]
         currentVoca = voca
         currentVocaBookLabel.text = currentVoca?.vocaDeck
         englishLabel.text = currentVoca?.english
