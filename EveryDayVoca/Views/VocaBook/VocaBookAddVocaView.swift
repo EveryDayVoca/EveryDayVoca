@@ -21,7 +21,7 @@ class VocaBookAddVocaView: BaseView {
         $0.font = UIFont.pretendard(size: 17, weight: .semibold)
     }
     
-    let koreanTextFieldTitleLabel = UILabel().then {
+    let englishTextFieldTitleLabel = UILabel().then {
         $0.text = "단어:"
         $0.textAlignment = .right
         $0.textColor = UIColor.evText
@@ -29,7 +29,7 @@ class VocaBookAddVocaView: BaseView {
         $0.font = UIFont.pretendard(size: 17, weight: .medium)
     }
     
-    let englishTextFieldTitleLabel = UILabel().then {
+    let koreanTextFieldTitleLabel = UILabel().then {
         $0.text = "의미:"
         $0.textAlignment = .right
         $0.textColor = UIColor.evText
@@ -37,7 +37,7 @@ class VocaBookAddVocaView: BaseView {
         $0.font = UIFont.pretendard(size: 17, weight: .medium)
     }
     
-    let vocaBookSelectPopupButtonTitleLabel = UILabel().then {
+    let vocaDeckSelectPopupButtonTitleLabel = UILabel().then {
         $0.text = "단어장:"
         $0.textAlignment = .right
         $0.textColor = UIColor.evText
@@ -138,7 +138,7 @@ class VocaBookAddVocaView: BaseView {
         [titleLabel,
          englishTextFieldTitleLabel,
          koreanTextFieldTitleLabel,
-         vocaBookSelectPopupButtonTitleLabel,
+         vocaDeckSelectPopupButtonTitleLabel,
          englishTextField,
          koreanTextField,
          vocaBookSelectPopupButton,
@@ -170,7 +170,7 @@ class VocaBookAddVocaView: BaseView {
             $0.width.equalTo(52)
         }
         
-        vocaBookSelectPopupButtonTitleLabel.snp.makeConstraints {
+        vocaDeckSelectPopupButtonTitleLabel.snp.makeConstraints {
             $0.top.equalTo(koreanTextFieldTitleLabel.snp.bottom).offset(24)
             $0.leading.equalTo(self).offset(20)
             $0.height.equalTo(44)
@@ -192,14 +192,14 @@ class VocaBookAddVocaView: BaseView {
         }
         
         vocaBookSelectPopupButton.snp.makeConstraints {
-            $0.centerY.equalTo(vocaBookSelectPopupButtonTitleLabel)
-            $0.leading.equalTo(vocaBookSelectPopupButtonTitleLabel.snp.trailing).offset(8)
+            $0.centerY.equalTo(vocaDeckSelectPopupButtonTitleLabel)
+            $0.leading.equalTo(vocaDeckSelectPopupButtonTitleLabel.snp.trailing).offset(8)
             $0.trailing.equalTo(self).inset(20)
             $0.height.equalTo(44)
         }
         
         buttonStackView.snp.makeConstraints {
-            $0.top.equalTo(vocaBookSelectPopupButtonTitleLabel.snp.bottom).offset(30)
+            $0.top.equalTo(vocaDeckSelectPopupButtonTitleLabel.snp.bottom).offset(30)
             $0.horizontalEdges.equalTo(self).inset(44)
             $0.height.equalTo(44)
         }

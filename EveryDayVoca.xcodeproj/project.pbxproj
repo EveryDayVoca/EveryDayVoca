@@ -20,6 +20,7 @@
 		1A3933552BFB325700F3B825 /* VocaBookAddVocaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3933542BFB325700F3B825 /* VocaBookAddVocaViewController.swift */; };
 		1A3933572BFB32D300F3B825 /* VocaBookAddVocaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3933562BFB32D300F3B825 /* VocaBookAddVocaView.swift */; };
 		1A8582822BFDBD08008E7445 /* VocaBookData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8582812BFDBD08008E7445 /* VocaBookData.swift */; };
+		1A8582842BFE15C5008E7445 /* EasyAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8582832BFE15C5008E7445 /* EasyAlert.swift */; };
 		2E10E7E02BFA94000049E1AB /* FlashAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E10E7DF2BFA94000049E1AB /* FlashAlertView.swift */; };
 		2E10E7E22BFA97F70049E1AB /* FlashAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E10E7E12BFA97F70049E1AB /* FlashAlertViewController.swift */; };
 		2E1C30FF2BFC315E00CB6DDE /* Voca+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30F92BFC315E00CB6DDE /* Voca+CoreDataClass.swift */; };
@@ -74,6 +75,7 @@
 		1A3933542BFB325700F3B825 /* VocaBookAddVocaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookAddVocaViewController.swift; sourceTree = "<group>"; };
 		1A3933562BFB32D300F3B825 /* VocaBookAddVocaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookAddVocaView.swift; sourceTree = "<group>"; };
 		1A8582812BFDBD08008E7445 /* VocaBookData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookData.swift; sourceTree = "<group>"; };
+		1A8582832BFE15C5008E7445 /* EasyAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyAlert.swift; sourceTree = "<group>"; };
 		2E10E7DF2BFA94000049E1AB /* FlashAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashAlertView.swift; sourceTree = "<group>"; };
 		2E10E7E12BFA97F70049E1AB /* FlashAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashAlertViewController.swift; sourceTree = "<group>"; };
 		2E1C30F92BFC315E00CB6DDE /* Voca+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Voca+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				1A8582812BFDBD08008E7445 /* VocaBookData.swift */,
 				37D777232BF31DED0078D6E8 /* VocaBookViewController.swift */,
 				1A3933542BFB325700F3B825 /* VocaBookAddVocaViewController.swift */,
+				1A8582832BFE15C5008E7445 /* EasyAlert.swift */,
 				1A3933462BFA276500F3B825 /* Popover */,
 			);
 			path = VocaBook;
@@ -460,6 +463,7 @@
 				37D777422BF34DED0078D6E8 /* UIFont+Extension.swift in Sources */,
 				1A39334A2BFA27BE00F3B825 /* VocaBookDisplayOptionPopoverTableViewCell.swift in Sources */,
 				1A39333A2BF5CDD700F3B825 /* VocaListTableViewCell.swift in Sources */,
+				1A8582842BFE15C5008E7445 /* EasyAlert.swift in Sources */,
 				37D777282BF31E640078D6E8 /* ReportViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
