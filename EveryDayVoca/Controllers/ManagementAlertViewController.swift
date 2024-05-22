@@ -11,6 +11,9 @@ final class ManagementAlertViewController: BaseViewController {
     
     // MARK: - properties
     private let managementAlertView = ManagementAlertView()
+    private let coreDataManager = vocaCoreDataManager.shared
+    
+    var completion: (() -> ())?
     
     // MARK: - life cycles
     override func loadView() {
@@ -30,7 +33,12 @@ final class ManagementAlertViewController: BaseViewController {
     }
     
     @objc private func tappedAddButton() {
-        
+        if let deckName = managementAlertView.messageTextField.text, !deckName.isEmpty {
+            coreDataManager.createVocaDeckData(vocaDeckName: deckName)
+            completion!()
+            
+            dismiss(animated: false)
+        }
     }
     
     @objc private func tappedCancelButton() {
