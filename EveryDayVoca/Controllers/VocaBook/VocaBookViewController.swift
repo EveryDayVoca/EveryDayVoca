@@ -34,6 +34,7 @@ final class VocaBookViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
+        vocaBookVocaListView.vocaListTableView.reloadData()
     }
     
     // MARK: - Methods
@@ -149,7 +150,7 @@ extension VocaBookViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let myVocaFlashCardVC = MyVocaFlashCardViewController()
         myVocaFlashCardVC.voca = vocas[indexPath.row]
-        myVocaFlashCardVC.index = indexPath.row
+        myVocaFlashCardVC.indexPath = indexPath
         self.navigationController?.pushViewController(myVocaFlashCardVC, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
