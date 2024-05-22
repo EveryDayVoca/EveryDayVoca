@@ -11,7 +11,7 @@ final class ManagementAlertViewController: BaseViewController {
     
     // MARK: - properties
     private let managementAlertView = ManagementAlertView()
-    private let coreDataManager = vocaCoreDataManager.shared
+    private let coreDataManager = VocaCoreDataManager.shared
     
     var completion: (() -> ())?
     

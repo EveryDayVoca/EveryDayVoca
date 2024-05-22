@@ -11,11 +11,13 @@ final class ManagementViewController: BaseViewController {
     
     // MARK: - properties
     private let managementView = ManagementView()
-    private let coreDataManager = vocaCoreDataManager.shared
+    private let coreDataManager = VocaCoreDataManager.shared
     
     private let minimumLineSpacing: CGFloat = 16
     
     private var vocaDecks: [VocaDeck] = []
+    
+    var completion: ((String) -> ())?
     
     // MARK: - life cycles
     override func loadView() {
@@ -82,6 +84,8 @@ final class ManagementViewController: BaseViewController {
 
 extension ManagementViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        completion!(vocaDecks[indexPath.row].name!)
+        VocaBookData.shared.currentVocaDeck = vocaDecks[indexPath.row].name!
         self.navigationController?.popViewController(animated: true)
     }
 }
