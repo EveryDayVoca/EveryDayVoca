@@ -11,8 +11,11 @@ final class ManagementViewController: BaseViewController {
     
     // MARK: - properties
     private let managementView = ManagementView()
+    private let coreDataManager = vocaCoreDataManager.shared
     
     private let minimumLineSpacing: CGFloat = 16
+    
+    private var vocaDecks: [VocaDeck] = []
     
     // MARK: - life cycles
     override func loadView() {
@@ -48,6 +51,10 @@ final class ManagementViewController: BaseViewController {
         managementView.collectionView.register(ManagementCell.self, forCellWithReuseIdentifier: "ManagementCell")
     }
     
+    override func bind() {
+        vocaDecks = coreDataManager.getVocaDeckData()
+    }
+    
     private func configureNavigation() {
         navigationItem.titleView = managementView.titleLabel
         navigationItem.rightBarButtonItem = managementView.plusBarButtonItem
@@ -59,28 +66,37 @@ final class ManagementViewController: BaseViewController {
     }
     
     @objc private func tappedPlusBarButtonItem() {
-        let managementAlertVC = ManagementAlertViewController()
-        managementAlertVC.modalPresentationStyle = .overFullScreen
+        let alertVC = ManagementAlertViewController()
         
-        present(managementAlertVC, animated: false)
+        alertVC.modalPresentationStyle = .overFullScreen
+        alertVC.completion = { [weak self] in
+            guard let self = self else { return }
+            
+            vocaDecks = coreDataManager.getVocaDeckData()
+            managementView.collectionView.reloadData()
+        }
+        
+        present(alertVC, animated: false)
     }
 }
 
 extension ManagementViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("didSelectItemAt")
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
 extension ManagementViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return vocaDecks.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ManagementCell", for: indexPath) as? ManagementCell else {
             return UICollectionViewCell()
         }
+        
+        cell.bind(vocaDeck: vocaDecks[indexPath.row])
         
         return cell
     }

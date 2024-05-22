@@ -18,11 +18,11 @@ final class ManagementCell: BaseCollectionViewCell {
     
     private let vocaContainerView = UIView().then {
         $0.backgroundColor = .evBackground
-        $0.layer.cornerRadius = 12
         $0.layer.masksToBounds = true
+        $0.layer.cornerRadius = 12
     }
     
-    private let vocaBookLabel = UILabel().then {
+    private let vocaDeckLabel = UILabel().then {
         $0.textColor = .evText
         $0.textAlignment = .center
         $0.font = .pretendard(size: 24, weight: .semibold)
@@ -46,7 +46,7 @@ final class ManagementCell: BaseCollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        vocaBookLabel.text = nil
+        vocaDeckLabel.text = nil
         vocaCountLabel.text = nil
     }
     
@@ -54,7 +54,7 @@ final class ManagementCell: BaseCollectionViewCell {
     override func configureHierarchy() {
         self.contentView.addSubview(vocaShadowView)
         self.vocaShadowView.addSubview(vocaContainerView)
-        self.vocaContainerView.addSubview(vocaBookLabel)
+        self.vocaContainerView.addSubview(vocaDeckLabel)
         self.vocaContainerView.addSubview(vocaCountLabel)
     }
     
@@ -67,15 +67,20 @@ final class ManagementCell: BaseCollectionViewCell {
             $0.edges.equalToSuperview()
         }
         
-        vocaBookLabel.snp.makeConstraints {
+        vocaDeckLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(50)
             $0.centerX.equalToSuperview()
         }
         
         vocaCountLabel.snp.makeConstraints {
-            $0.top.equalTo(self.vocaBookLabel.snp.bottom).offset(4)
+            $0.top.equalTo(self.vocaDeckLabel.snp.bottom).offset(4)
             $0.centerX.equalToSuperview()
             $0.bottom.equalToSuperview().inset(49)
         }
+    }
+    
+    func bind(vocaDeck: VocaDeck) {
+        vocaDeckLabel.text = vocaDeck.name
+        vocaCountLabel.text = String(vocaDeck.count)
     }
 }
