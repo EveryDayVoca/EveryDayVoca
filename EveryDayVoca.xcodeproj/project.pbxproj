@@ -19,6 +19,7 @@
 		1A3933532BFAE08C00F3B825 /* MyVocaFlashCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3933522BFAE08B00F3B825 /* MyVocaFlashCardViewController.swift */; };
 		1A3933552BFB325700F3B825 /* VocaBookAddVocaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3933542BFB325700F3B825 /* VocaBookAddVocaViewController.swift */; };
 		1A3933572BFB32D300F3B825 /* VocaBookAddVocaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3933562BFB32D300F3B825 /* VocaBookAddVocaView.swift */; };
+		1A8582822BFDBD08008E7445 /* VocaBookData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8582812BFDBD08008E7445 /* VocaBookData.swift */; };
 		2E10E7E02BFA94000049E1AB /* FlashAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E10E7DF2BFA94000049E1AB /* FlashAlertView.swift */; };
 		2E10E7E22BFA97F70049E1AB /* FlashAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E10E7E12BFA97F70049E1AB /* FlashAlertViewController.swift */; };
 		2E1C30FF2BFC315E00CB6DDE /* Voca+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30F92BFC315E00CB6DDE /* Voca+CoreDataClass.swift */; };
@@ -72,6 +73,7 @@
 		1A3933522BFAE08B00F3B825 /* MyVocaFlashCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyVocaFlashCardViewController.swift; sourceTree = "<group>"; };
 		1A3933542BFB325700F3B825 /* VocaBookAddVocaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookAddVocaViewController.swift; sourceTree = "<group>"; };
 		1A3933562BFB32D300F3B825 /* VocaBookAddVocaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookAddVocaView.swift; sourceTree = "<group>"; };
+		1A8582812BFDBD08008E7445 /* VocaBookData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookData.swift; sourceTree = "<group>"; };
 		2E10E7DF2BFA94000049E1AB /* FlashAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashAlertView.swift; sourceTree = "<group>"; };
 		2E10E7E12BFA97F70049E1AB /* FlashAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashAlertViewController.swift; sourceTree = "<group>"; };
 		2E1C30F92BFC315E00CB6DDE /* Voca+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Voca+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 		1A39334B2BFA7E8200F3B825 /* VocaBook */ = {
 			isa = PBXGroup;
 			children = (
+				1A8582812BFDBD08008E7445 /* VocaBookData.swift */,
 				37D777232BF31DED0078D6E8 /* VocaBookViewController.swift */,
 				1A3933542BFB325700F3B825 /* VocaBookAddVocaViewController.swift */,
 				1A3933462BFA276500F3B825 /* Popover */,
@@ -204,8 +207,8 @@
 				1A3933512BFAE07100F3B825 /* MyVocaFlashCard */,
 			);
 			path = Common;
-            sourceTree = "<group>";
-        };
+			sourceTree = "<group>";
+		};
 		2E1C31092BFC914700CB6DDE /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,9 +240,8 @@
 				2E9DEDD62BF9FD6800A85C42 /* Status.swift */,
 			);
 			path = Model;
-            sourceTree = "<group>";
-        };
-
+			sourceTree = "<group>";
+		};
 		37D776F22BF30DBD0078D6E8 = {
 			isa = PBXGroup;
 			children = (
@@ -434,6 +436,7 @@
 				2E9DED9D2BF5D0EC00A85C42 /* FlashCardViewController.swift in Sources */,
 				2E1C30FF2BFC315E00CB6DDE /* Voca+CoreDataClass.swift in Sources */,
 				2E1C31002BFC315E00CB6DDE /* Voca+CoreDataProperties.swift in Sources */,
+				1A8582822BFDBD08008E7445 /* VocaBookData.swift in Sources */,
 				2E1C31012BFC315E00CB6DDE /* VocaDate+CoreDataClass.swift in Sources */,
 				2E1C31022BFC315E00CB6DDE /* VocaDate+CoreDataProperties.swift in Sources */,
 				2E1C31032BFC315E00CB6DDE /* VocaDeck+CoreDataClass.swift in Sources */,

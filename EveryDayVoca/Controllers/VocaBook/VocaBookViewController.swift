@@ -14,13 +14,17 @@ final class VocaBookViewController: BaseViewController {
     
     private let vocaBookVocaListView = VocaBookVocaListView()
     
+    var vocas: [Voca] = []
     var vocaBook = "전체"
+    
     
     // MARK: - Life Cycles
     
     override func loadView() {
         view = vocaBookVocaListView
         setNavigationController()
+        VocaBookData.shared.getVocaData()
+        vocas = VocaBookData.shared.vocas
     }
     
     override func viewDidLoad() {
@@ -130,6 +134,7 @@ extension VocaBookViewController: UITableViewDataSource {
         
         cell.bind(voca: vocas[indexPath.row])
         cell.selectionStyle = .none
+        print("tableView cell: \(vocas[indexPath.row])")
         return cell
     }
     

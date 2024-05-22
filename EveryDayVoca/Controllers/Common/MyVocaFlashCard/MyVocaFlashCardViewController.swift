@@ -14,6 +14,7 @@ class MyVocaFlashCardViewController: BaseViewController {
     private let myVocaFlashCardView = MyVocaFlashCardView()
     
     var index: Int = 0
+    var voca: Voca?
     
     // MARK: - Life Cycles
     
@@ -40,7 +41,9 @@ class MyVocaFlashCardViewController: BaseViewController {
     
     override func bind() {
         super.bind()
-        myVocaFlashCardView.bind(index: index)
+        if let voca = self.voca {
+            myVocaFlashCardView.bind(voca: voca)
+        }
     }
     
     func changeIndex(index: Int) {

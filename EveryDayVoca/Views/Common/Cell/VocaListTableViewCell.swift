@@ -138,23 +138,26 @@ final class VocaListTableViewCell: UITableViewCell {
     
     func bind(voca: Voca) {
         switch voca.status {
-        case .difficult:
+        case Status.difficult.rawValue:
             statusDotImage.tintColor = UIColor.red100
             statusTextLabel.text = "어려워요"
-        case .ambiguous:
+        case Status.ambiguous.rawValue:
             statusDotImage.tintColor = UIColor.yellow100
             statusTextLabel.text = "애매해요"
-        case .memorized:
+        case Status.memorized.rawValue:
             statusDotImage.tintColor = UIColor.green100
             statusTextLabel.text = "외웠어요"
-        case .none:
+        case Status.none.rawValue:
+            statusDotImage.tintColor = UIColor.gray100
+            statusTextLabel.text = "미학습"
+        default:
             statusDotImage.tintColor = UIColor.gray100
             statusTextLabel.text = "미학습"
         }
         
         englishLabel.text = voca.english
         koreanLabel.text = voca.korean
-        vocaBookLabel.text = voca.vocaBook
+        vocaBookLabel.text = voca.vocaDeck
         
         print("voca.korean: \(voca.korean)")
     }

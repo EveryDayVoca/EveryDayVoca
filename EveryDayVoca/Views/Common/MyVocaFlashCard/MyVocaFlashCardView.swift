@@ -8,7 +8,9 @@
 import UIKit
 
 class MyVocaFlashCardView: VocaBookBaseView {
-    
+//    
+//    var vocas: [Voca] = []
+//    
     var currentVoca: Voca? {
         didSet {
             updateButtonConfiguration()
@@ -178,30 +180,28 @@ class MyVocaFlashCardView: VocaBookBaseView {
         
     }
     
-    func bind(index: Int) {
-        currentVoca = vocas[index]
-        currentVocaBookLabel.text = currentVoca?.vocaBook
+    func bind(voca: Voca) {
+//        currentVoca = vocas[index]
+        currentVoca = voca
+        currentVocaBookLabel.text = currentVoca?.vocaDeck
         englishLabel.text = currentVoca?.english
-        englishPronunciationLabel.text = currentVoca?.pronunciation
         koreanLabel.text = currentVoca?.korean
-        
-        
     }
     
     private func updateButtonConfiguration() {
-        difficultButton.configuration = returnStatusButtonConfiguration(title: "어려워요", buttonStatus: .difficult)
+        difficultButton.configuration = returnStatusButtonConfiguration(title: "어려워요")
         
         ambiguousButton.configuration = returnStatusButtonConfiguration(
-            title: "애매해요", buttonStatus: .ambiguous)
+            title: "애매해요")
 
         memorizedButton.configuration = returnStatusButtonConfiguration(
-            title: "외웠어요", buttonStatus: .memorized)
+            title: "외웠어요")
     }
     
-    private func returnStatusButtonConfiguration(title: String, buttonStatus: Status) -> UIButton.Configuration {
+    private func returnStatusButtonConfiguration(title: String) -> UIButton.Configuration {
         
-        let isSelected = buttonStatus == currentVoca?.status
-        print("isSelected: \(buttonStatus) == \(currentVoca?.status)? -> \(isSelected)")
+        let isSelected = title == currentVoca?.status
+        print("isSelected: \(title) == \(currentVoca?.status)? -> \(isSelected)")
         
         var config = UIButton.Configuration.plain()
         // title
