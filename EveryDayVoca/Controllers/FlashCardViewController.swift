@@ -14,17 +14,23 @@ final class FlashCardViewController: BaseViewController {
     private var flashCardView: FlashCardView!
     private var customAlertVC: FlashAlertViewController!
     private var currentIndex = 0
-    private let coreDataManager = vocaCoreDataManager.shared
+    private let coreDataManager = VocaCoreDataManager.shared
     private var wordData = [Voca]()
     private let tts = TTS()
     var toStudyVC: (([Voca]) -> Void)?
+    var completion: (() -> Void)?
     
     // MARK: - life cycles
     override func loadView() {
         flashCardView = FlashCardView()
         customAlertVC = FlashAlertViewController()
         
-        wordData = coreDataManager.getVocaDataWithIndex(index: 1, count: 10)
+        wordData = coreDataManager.getVocaDataWithIndex(firstIndex: 1, count: 10)
+        
+        if coreDataManager.getVocaDateData(date: Date()) == []{
+            coreDataManager.createVocaDateData(index: 1, count: 10)
+            // userDefaults에도 값 업데이트 해야 함.
+        }
         
         view = flashCardView
     }
@@ -93,12 +99,25 @@ final class FlashCardViewController: BaseViewController {
     @objc func tappedStatusButton(sender: UIButton) {
         sender.isSelected = true
         guard let buttonStatus = sender.titleLabel?.text else { return }
+        let todayData = coreDataManager.getVocaDateData(date: Date())
         switch buttonStatus {
         case "어려워요":
+            if wordData[currentIndex].status == Status.memorized.rawValue {
+                coreDataManager.updateVocaDateStudiedWordCount( todayData[0], isPlus: false)
+            }
+            coreDataManager.updateVocaStatus(wordData[currentIndex], status: .difficult)
             wordData[currentIndex].status = Status.difficult.rawValue
         case "애매해요":
+            if wordData[currentIndex].status == Status.memorized.rawValue {
+                coreDataManager.updateVocaDateStudiedWordCount( todayData[0], isPlus: false)
+            }
+            coreDataManager.updateVocaStatus(wordData[currentIndex], status: .ambiguous)
             wordData[currentIndex].status = Status.ambiguous.rawValue
         case "외웠어요":
+            if wordData[currentIndex].status != Status.memorized.rawValue {
+                coreDataManager.updateVocaDateStudiedWordCount( todayData[0], isPlus: true)
+            }
+            coreDataManager.updateVocaStatus(wordData[currentIndex], status: .memorized)
             wordData[currentIndex].status = Status.memorized.rawValue
         default:
             wordData[currentIndex].status = Status.none.rawValue
@@ -155,7 +174,6 @@ extension FlashCardViewController: SwipeCardStackDelegate {
 
 extension FlashCardViewController: CustomAlertDelegate {
     func confirm() {
-        coreDataManager.updateVocaDatas(vocadatas: wordData)
         toStudyVC?(wordData)
         self.navigationController?.popViewController(animated: true)
     }

@@ -1,5 +1,5 @@
 //
-//  vocaCoreDataManager.swift
+//  VocaCoreDataManager.swift
 //  EveryDayVoca
 //
 //  Created by 배지해 on 5/20/24.
@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 import CoreData
 
-final class vocaCoreDataManager {
+final class VocaCoreDataManager {
     
-    static let shared = vocaCoreDataManager()
+    static let shared = VocaCoreDataManager()
     private init() {}
     
     private let appDelegate = UIApplication.shared.delegate as? AppDelegate
@@ -54,15 +54,16 @@ final class vocaCoreDataManager {
         
         for row in rows {
             let columns = row.components(separatedBy: ",")
-            if columns.count >= 3 {
+            if columns.count >= 4 {
+                guard let num = Int64(columns[3].trimmingCharacters(in: .whitespacesAndNewlines)) else {
+                    continue
+                }
                 let newData = Voca(entity: entity, insertInto: context)
                 newData.english = columns[0]
                 newData.korean = columns[1]
                 newData.status = "미학습"
                 newData.vocaDeck = columns[2]
-                if let index = Int64(columns[3]){
-                    newData.index = index
-                }
+                newData.index = num
             } else {
                 print("넘어간 Row 값 : \(row)")
             }
@@ -80,7 +81,7 @@ final class vocaCoreDataManager {
     
     
     // MARK: - Voca CoreData
-    
+
     func createVocaData(english: String, korean: String, vocaDeck: String) {
         guard let context = context,
               let entity = NSEntityDescription.entity(forEntityName: vocaModel, in: context) else {
@@ -102,6 +103,7 @@ final class vocaCoreDataManager {
         }
     }
     
+    // 삭제할 가능성 있음
     func getVocaData() -> [Voca] {
         var vocaList = [Voca]()
         
@@ -120,6 +122,7 @@ final class vocaCoreDataManager {
         return vocaList
     }
     
+    // 삭제할 가능성 있음
     func getVocaData(forvocaDeck vocaDeck: String) -> [Voca] {
         var vocaList = [Voca]()
         
@@ -141,7 +144,7 @@ final class vocaCoreDataManager {
         return vocaList
     }
     
-    func getVocaDataWithIndex(index: Int, count: Int) -> [Voca] {
+    func getVocaData(forvocaDeck vocaDeck: String, status: Status) -> [Voca] {
         var vocaList = [Voca]()
         
         guard let context = context else {
@@ -150,8 +153,13 @@ final class vocaCoreDataManager {
         
         let fetchRequest: NSFetchRequest<Voca> = Voca.fetchRequest()
         
-        fetchRequest.fetchOffset = index
-        fetchRequest.fetchLimit = count
+        if vocaDeck != "ALL" {
+            let predicate = NSPredicate(format: "vocaDeck == %@ AND status == %@", vocaDeck, status.rawValue)
+            fetchRequest.predicate = predicate
+        }else {
+            let predicate = NSPredicate(format: "status == %@", vocaDeck)
+            fetchRequest.predicate = predicate
+        }
         
         do {
             vocaList = try context.fetch(fetchRequest)
@@ -162,12 +170,56 @@ final class vocaCoreDataManager {
         return vocaList
     }
     
-    func updateVocaStatus(_ vocaData: Voca, status: String) {
+    func getVocaDataWithIndex(firstIndex: Int, count: Int) -> [Voca] {
+        var vocaList = [Voca]()
+        
+        guard let context = context else {
+            return vocaList
+        }
+        
+        let fetchRequest: NSFetchRequest<Voca> = Voca.fetchRequest()
+        
+        let endIndex = firstIndex + count - 1
+        let predicate = NSPredicate(format: "index BETWEEN {%lld, %lld}", Int64(firstIndex), Int64(endIndex))
+        fetchRequest.predicate = predicate
+        
+        do {
+            vocaList = try context.fetch(fetchRequest)
+        } catch {
+            print("코어데이터 가져오는 중 에러 \(error)")
+        }
+        
+        return vocaList
+    }
+    
+    func calculateMemorizedWordCountByLevel(level: Int) -> Int {
+        var vocaList = [Voca]()
+        
+        guard let context = context else {
+            return 0
+        }
+        
+        let fetchRequest: NSFetchRequest<Voca> = Voca.fetchRequest()
+        
+        let predicate = NSPredicate(format: "vocaDeck == %@ AND status == %@", String(level), Status.memorized.rawValue)
+        fetchRequest.predicate = predicate
+        
+        do {
+            vocaList = try context.fetch(fetchRequest)
+        } catch {
+            print("코어데이터 가져오는 중 에러 \(error)")
+        }
+        
+        print(vocaList)
+        
+        return vocaList.count
+    }
+    
+    func updateVocaStatus(_ vocaData: Voca, status: Status) {
         guard let context = context else {
             return
         }
-        vocaData.status = status
-        
+        vocaData.status = status.rawValue
         do {
             try context.save()
         } catch {
@@ -175,28 +227,10 @@ final class vocaCoreDataManager {
         }
     }
     
-    func updateVocaDatas(vocadatas: [Voca]) {
-        guard let context = context else {
-            return
-        }
+    func getStudyData(index: Int, count: Int) -> [Status: Int] {
         
-        for i in vocadatas {
-            i.status = i.status
-        }
+        let vocaData = getVocaDataWithIndex(firstIndex: index, count: count)
         
-        if context.hasChanges {
-            do {
-                try context.save()
-                print("단어 업데이트 성공")
-            } catch {
-                print("단어 업데이트 실패 : \(error)")
-            }
-        } else {
-            print("저장할 변경 사항이 없음")
-        }
-    }
-    
-    func getStudyData(vocaData: [Voca]) -> [Status: Int] {
         var studyData: [Status: Int] = [.memorized: 0, .ambiguous: 0, .difficult: 0, .none: 0]
         
         for data in vocaData {
@@ -267,6 +301,9 @@ final class vocaCoreDataManager {
         
         let fetchRequest: NSFetchRequest<VocaDeck> = VocaDeck.fetchRequest()
         
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true, selector: #selector(NSString.localizedStandardCompare(_:)))
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
         do {
             vocaDeckList = try context.fetch(fetchRequest)
         } catch {
@@ -321,7 +358,7 @@ final class vocaCoreDataManager {
         
         let fetchRequest: NSFetchRequest<VocaDate> = VocaDate.fetchRequest()
         
-        let predicate = NSPredicate(format: "createAt == %@", date as CVarArg)
+        let predicate = NSPredicate(format: "createdAt == %@", date as CVarArg)
         fetchRequest.predicate = predicate
         
         do {
@@ -361,13 +398,15 @@ final class vocaCoreDataManager {
         return vocaDateData
     }
     
-    func updateVocaDateStudiedWordCount(_ data: VocaDate, count: Int) {
-        guard let context = context else {
-            return
+    func updateVocaDateStudiedWordCount(_ date: VocaDate, isPlus: Bool) {
+        guard let context = context else { return }
+        
+        if isPlus {
+            date.studiedWordCount += 1
+        }else {
+            date.studiedWordCount -= 1
         }
-        
-        data.studiedWordCount = Int64(count)
-        
+
         do {
             try context.save()
         } catch {
@@ -381,7 +420,7 @@ final class vocaCoreDataManager {
         if isLeapYear(year: year) && month == 2{
             dayCount = 28
         }
-        return round(( Double(dayCount) / Double(attendance) ) * 100)
+        return round(( Double(attendance) / Double(dayCount) ) * 100)
     }
     
     func isLeapYear(year: Int) -> Bool {
@@ -413,5 +452,28 @@ final class vocaCoreDataManager {
         }
         
         return (studiedWords: studiedWords, totalWords: totalWords, dailyRates: dailyStudyRates)
+    }
+    
+    func calculateMonthlyStudyData(vocaDates: [VocaDate]) -> [Status: Int] {
+        
+        var studyData: [Status: Int] = [.memorized: 0, .ambiguous: 0, .difficult: 0]
+        
+        for date in vocaDates {
+            let vocaData = getVocaDataWithIndex(firstIndex: Int(date.leadWordIndex), count: Int(date.totalWordCount))
+            for data in vocaData {
+                switch data.status {
+                case "외웠어요":
+                    studyData[.memorized]! += 1
+                case "애매해요":
+                    studyData[.ambiguous]! += 1
+                case "어려워요":
+                    studyData[.difficult]! += 1
+                default:
+                    continue
+                }
+            }
+        }
+        
+        return studyData
     }
 }
