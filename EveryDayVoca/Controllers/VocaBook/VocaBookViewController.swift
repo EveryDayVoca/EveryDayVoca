@@ -143,14 +143,13 @@ extension VocaBookViewController: UITableViewDataSource {
 
 extension VocaBookViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 100    // 그림자 포함 높이
         return tableView.rowHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let myVocaFlashCardVC = MyVocaFlashCardViewController()
         myVocaFlashCardVC.voca = vocas[indexPath.row]
-        myVocaFlashCardVC.indexPath = indexPath
+        myVocaFlashCardVC.index = indexPath.row
         self.navigationController?.pushViewController(myVocaFlashCardVC, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }

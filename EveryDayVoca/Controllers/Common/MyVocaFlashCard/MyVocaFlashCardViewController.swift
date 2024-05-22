@@ -14,7 +14,7 @@ class MyVocaFlashCardViewController: BaseViewController {
     private let myVocaFlashCardView = MyVocaFlashCardView()
     
     var voca: Voca?
-    var indexPath: IndexPath?
+    var index: Int?
     
     // MARK: - Life Cycles
     
@@ -83,8 +83,7 @@ class MyVocaFlashCardViewController: BaseViewController {
     
     @objc func tappedStatusButton(_ button: UIButton) {
         guard let voca = voca,
-              let indexPath = indexPath else { return }
-        let index = indexPath.row
+              let index = index else { return }
         
         switch button.titleLabel?.text {
         case Status.difficult.rawValue:
