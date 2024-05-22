@@ -56,27 +56,12 @@ class MyVocaFlashCardView: VocaBookBaseView {
         $0.backgroundColor = UIColor.evBackground
     }
     
-    private let englishLabelStackView = UIStackView().then {
-        $0.axis = .vertical
-        $0.spacing = 12
-        $0.alignment = .fill
-        $0.distribution = .fillEqually
-    }
-    
     private let englishLabel = UILabel().then {
         $0.textAlignment = .center
         $0.textColor = UIColor.evText
         $0.numberOfLines = 0
         $0.font = UIFont.pretendard(size: 24, weight: .semibold)
     }
-    
-    private let englishPronunciationLabel = UILabel().then {
-        $0.textAlignment = .center
-        $0.textColor = UIColor.gray50
-        $0.numberOfLines = 0
-        $0.font = UIFont.pretendard(size: 18, weight: .regular)
-    }
-    
     
     private let koreanLabel = UILabel().then {
         $0.textAlignment = .center
@@ -135,10 +120,7 @@ class MyVocaFlashCardView: VocaBookBaseView {
         [englishCardView,
          koreanCardView].forEach { cardStackView.addArrangedSubview($0) }
         
-        englishCardView.addSubview(englishLabelStackView)
-        
-        [englishLabel,
-         englishPronunciationLabel].forEach { englishLabelStackView.addArrangedSubview($0) }
+        englishCardView.addSubview(englishLabel)
         
         koreanCardView.addSubview(koreanLabel)
         
@@ -168,7 +150,7 @@ class MyVocaFlashCardView: VocaBookBaseView {
             $0.height.equalTo(56)
         }
         
-        englishLabelStackView.snp.makeConstraints {
+        englishLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.horizontalEdges.equalToSuperview().inset(50)
         }
