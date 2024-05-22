@@ -73,7 +73,7 @@ class ReportView: BaseView {
         $0.textAlignment = .center
     }
     
-    var ratePercentLabel = UILabel().then {
+    lazy var ratePercentLabel = UILabel().then {
         $0.text = "100%"
         $0.font = UIFont.pretendard(size: 16, weight: .regular)
         $0.textColor = .evText
@@ -138,6 +138,7 @@ class ReportView: BaseView {
         monthRateLabel.snp.makeConstraints {
             $0.top.equalTo(safeAreaLayoutGuide.snp.top).offset(16)
             $0.leading.equalToSuperview().offset(20)
+            $0.bottom.equalTo(monthRateView.snp.top).offset(-12)
         }
         
         monthRateView.snp.makeConstraints {
@@ -148,10 +149,10 @@ class ReportView: BaseView {
         }
         
         calendarView.snp.makeConstraints {
-            $0.top.equalTo(monthRateView.snp.bottom).offset(52)
+            $0.top.equalTo(monthRateView.snp.bottom).offset(40)
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-16)
-            $0.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-52)
+            $0.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-28)
         }
         
         chartView.snp.makeConstraints {
@@ -172,7 +173,7 @@ class ReportView: BaseView {
             $0.top.equalToSuperview()
             $0.leading.equalToSuperview().offset(8)
             $0.trailing.equalToSuperview().offset(-8)
-            $0.bottom.equalToSuperview().offset(-20)
+            $0.bottom.equalToSuperview().offset(-8)
         }
         
         rateLabel.snp.makeConstraints {

@@ -20,59 +20,67 @@ final class UserModifyViewController: BaseViewController {
     private let counts = ["10개", "20개", "30개", "40개", "50개", "60개", "70개", "80개", "90개", "100개"]
     
     
-    private let titleLabel = UILabel().then {
-        $0.text = "프로필 수정"
-        $0.font = UIFont.pretendard(size: 17, weight: .bold)
-        $0.textColor = UIColor.evText
-        $0.textAlignment = .center
-    }
+    
     
     
     // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view = self.userModifyView
-        self.navigationItem.titleView = titleLabel
         
-        
-        userModifyView.doneEditButton.addTarget(self, action: #selector(tappedDoneEditButton), for: .touchUpInside)
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(touchToPickPhoto))
-        self.userModifyView.profileImage.addGestureRecognizer(tapGesture)
-        self.userModifyView.profileImage.isUserInteractionEnabled = true
-        
-        dismissPickerView()
+        configureStyle()
         configureDelegate()
-        
-        self.userModifyView.levelTextField.inputView = firstPickerView
-        self.userModifyView.learningAmountTextField.inputView = secondPickerView
-        
+        bind()
+        tapGesture()
+        dismissPickerView()
         
     }
     
     // MARK: - method
     override func configureStyle() {
+        let titleLabel = UILabel().then {
+            $0.text = "프로필 수정"
+            $0.font = UIFont.pretendard(size: 17, weight: .bold)
+            $0.textColor = UIColor.evText
+            $0.textAlignment = .center
+        }
+        
+        navigationItem.titleView = titleLabel
+        
         
     }
+    
     
     override func configureDelegate() {
         firstPickerView.delegate = self
         secondPickerView.delegate = self
     }
     
+    
     override func bind() {
+        userModifyView.levelTextField.inputView = firstPickerView
+        userModifyView.learningAmountTextField.inputView = secondPickerView
     }
     
-    // alert 창 확인 누를 시 데이터 업데이트
+
+    private func tapGesture() {
+        userModifyView.doneEditButton.addTarget(self, action: #selector(tappedDoneEditButton), for: .touchUpInside)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(touchToPickPhoto))
+        userModifyView.profileImage.addGestureRecognizer(tapGesture)
+        userModifyView.profileImage.isUserInteractionEnabled = true
+    }
+    
+    
     @objc func tappedDoneEditButton() {
         let alert = UIAlertController(title: "프로필 수정", message: "변경 사항을 저장하시겠습니까?", preferredStyle: .alert)
         
         let cancel = UIAlertAction(title: "취소", style: .cancel)
         let confirm = UIAlertAction(title: "확인", style: .default) { _ in
-            UserDefaultsManager.shared.set(value: self.userModifyView.changeNameTextField.text!, forKey: "userName")
-            UserDefaultsManager.shared.set(value: self.userModifyView.changeNickNameTextField.text!, forKey: "userNickName")
-            UserDefaultsManager.shared.set(value: self.userModifyView.levelTextField.text!, forKey: "studyLevel")
-            UserDefaultsManager.shared.set(value: self.userModifyView.learningAmountTextField.text!, forKey: "studyAmount")
+            UserDefaultsManager.shared.set(value: self.userModifyView.changeNameTextField.text!, key: "userName")
+            UserDefaultsManager.shared.set(value: self.userModifyView.changeNickNameTextField.text!, key: "userNickName")
+            UserDefaultsManager.shared.set(value: self.userModifyView.levelTextField.text!, key: "studyLevel")
+            UserDefaultsManager.shared.set(value: self.userModifyView.learningAmountTextField.text!, key: "studyAmount")
             UserDefaultsManager.shared.setImageConvert(value: self.userModifyView.profileImage.image!, key: "profileImage")
             
             NotificationCenter.default.addObserver(self, selector: #selector(self.tappedDoneEditButton), name: .userDefaultsDidChange, object: nil)

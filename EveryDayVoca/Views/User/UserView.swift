@@ -37,14 +37,14 @@ final class UserView: BaseView {
     }
     
     var userNameLabel = UILabel().then {
-        $0.text = UserDefaultsManager.shared.getValue(key: "userName")
+        $0.text = UserDefaults.standard.string(forKey: "userName")
         $0.font = UIFont.pretendard(size: 18, weight: .semibold)
         $0.textColor = UIColor.evText
         $0.textAlignment = .left
     }
     
     var userNickNameLabel = UILabel().then {
-        $0.text = UserDefaultsManager.shared.getValue(key: "userNickName")
+        $0.text = UserDefaults.standard.string(forKey: "userNickName")
         $0.font = UIFont.pretendard(size: 18, weight: .regular)
         $0.textColor = UIColor.evText
         $0.textAlignment = .left
@@ -74,7 +74,7 @@ final class UserView: BaseView {
     }
     
     var studyLevelLabel = UILabel().then {
-        $0.text = UserDefaultsManager.shared.getValue(key: "studyLevel")
+        $0.text = UserDefaults.standard.string(forKey: "studyLevel")
         $0.textColor = .blue100
         $0.font = UIFont.pretendard(size: 18, weight: .semibold)
     }
@@ -87,7 +87,7 @@ final class UserView: BaseView {
     }
     
     var studyAmountLabel = UILabel().then {
-        $0.text = UserDefaultsManager.shared.getValue(key: "studyAmount")
+        $0.text = UserDefaults.standard.string(forKey: "studyAmount")
         $0.font = UIFont.pretendard(size: 18, weight: .semibold)
         $0.textColor = UIColor.evText
         $0.textAlignment = .right
@@ -373,14 +373,14 @@ final class UserView: BaseView {
         }
         
         dayGoalCountLabel.snp.makeConstraints {
-            $0.leading.equalTo(levelView.snp.trailing).offset(36)
+            $0.leading.equalTo(levelView.snp.trailing).offset(24)
             $0.top.equalToSuperview().offset(12)
             $0.bottom.equalToSuperview().offset(-12)
         }
         
         studyAmountLabel.snp.makeConstraints {
             $0.leading.equalTo(dayGoalCountLabel.snp.trailing).offset(24)
-            $0.trailing.equalToSuperview().offset(-20)
+            $0.trailing.equalToSuperview().offset(-28)
             $0.top.equalToSuperview().offset(12)
             $0.bottom.equalToSuperview().offset(-12)
         }

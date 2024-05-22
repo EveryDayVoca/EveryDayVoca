@@ -65,7 +65,7 @@ final class UserModifyView: BaseView {
         $0.autocorrectionType = .no
         $0.spellCheckingType = .no
         $0.tintColor = .evText
-        $0.text = UserDefaultsManager.shared.getValue(key: "userName")
+        $0.text = UserDefaults.standard.string(forKey: "userName")
     }
     
     let changeNickNameTextField = UITextField().then {
@@ -77,7 +77,7 @@ final class UserModifyView: BaseView {
         $0.autocorrectionType = .no
         $0.spellCheckingType = .no
         $0.tintColor = .evText
-        $0.text = UserDefaultsManager.shared.getValue(key: "userNickName")
+        $0.text = UserDefaults.standard.string(forKey: "userNickName")
     }
     
     private let dayGoalLabel = UILabel().then {
@@ -119,7 +119,7 @@ final class UserModifyView: BaseView {
         $0.autocorrectionType = .no
         $0.spellCheckingType = .no
         $0.tintColor = .clear
-        $0.text = UserDefaultsManager.shared.getValue(key: "studyLevel")
+        $0.text = UserDefaults.standard.string(forKey: "studyLevel")
     }
     
     let learningAmountTextField = UITextField().then {
@@ -131,7 +131,7 @@ final class UserModifyView: BaseView {
         $0.autocorrectionType = .no
         $0.spellCheckingType = .no
         $0.tintColor = .clear
-        $0.text = UserDefaultsManager.shared.getValue(key: "studyAmount")
+        $0.text = UserDefaults.standard.string(forKey: "studyAmount")
     }
     
     let doneEditButton = UIButton().then {

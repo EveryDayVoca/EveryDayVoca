@@ -10,28 +10,45 @@ import DGCharts
 
 final class ReportViewController: BaseViewController {
     
-    let reportView = ReportView()
+    // MARK: - property
+    private let reportView = ReportView()
     
-    let titleLabel = UILabel().then {
-        $0.text = "통계"
-        $0.font = UIFont.pretendard(size: 17, weight: .semibold)
-        $0.textColor = .evText
-        $0.textAlignment = .center
-    }
+    private var selectedDate: DateComponents? = nil
     
-    var selectedDate: DateComponents? = nil
+    let monthDate = vocaCoreDataManager.shared.getVocaMonthDates(forYear: 2024, month: 5)
+//    let difficulty = vocaCoreDataManager.shared.calculateMonthlyStudyData(vocaDates: monthDate)
+    lazy var studyData = vocaCoreDataManager.shared.calculateStudyData(vocaDates: monthDate)
     
-    // 차트 임시 데이터
+    // 차트 데이터
     var difficulty: [String] = ["어려워요", "애매해요", "외웠어요"]
-    var counts: [Double] = [20, 8, 12]
+//    var counts: [Double] = [difficulty[.difficult], difficulty[.ambiguous], difficulty[.memorized]]
     
+
+    
+    
+    // MARK: - lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view = self.reportView
-        self.navigationItem.titleView = titleLabel
         
+        configureStyle()
         configureDelegate()
-        setChart(data: difficulty, values: counts)
+        bind()
+//        setChart(data: difficulty, values: counts)
+        
+    }
+    
+    // MARK: - method
+    override func configureStyle() {
+        let titleLabel = UILabel().then {
+            $0.text = "통계"
+            $0.font = UIFont.pretendard(size: 17, weight: .semibold)
+            $0.textColor = .evText
+            $0.textAlignment = .center
+        }
+        navigationItem.titleView = titleLabel
+        
+        
         
     }
     
@@ -40,8 +57,22 @@ final class ReportViewController: BaseViewController {
         setCalendar()
     }
     
-    // MARK: - piechart method
-    func setChart(data: [String], values: [Double]) {
+    override func bind() {
+        
+        //외웟어요 어려워요 애매해요 카운팅
+//        reportView.blue100Label.text = "\(difficulty[.memorized])개"
+//        reportView.blue50Label.text = "\(difficulty[.ambiguous])개"
+//        reportView.blue10Label.text = "\(difficulty[.difficult])개"
+        
+        // 출석률
+//        reportView.rateP ercentLabel.text = "\(vocaCoreDataManager.shared.calculateAttendanceRate(year: 24, month: 5,    attendance: monthDate.count))%"
+        
+        //외운 단어 수
+        reportView.countNumberLabel.text = "\(studyData.studiedWords)개"
+
+    }
+    
+    private func setChart(data: [String], values: [Double]) {
         
         var dataEntries: [ChartDataEntry] = []
         
@@ -61,12 +92,15 @@ final class ReportViewController: BaseViewController {
         self.reportView.pieChart.chartDescription.enabled = false
         self.reportView.pieChart.isUserInteractionEnabled = false
         self.reportView.pieChart.holeRadiusPercent = 0.618
-        // 차트 가운데 입력값 - 임시
-        self.reportView.pieChart.centerText = "50%"
+        // 차트 가운데 입력값
+        // let memorizeRate = ( difficulty[.memorized] / studyData.studiedWord) * 100
+        // self.reportView.pieChart.centerText = "\(memorizeRate)%"
         
         
         pieChartDataSet.drawValuesEnabled = false
     }
+    
+    
 }
 
 // MARK: - extension
@@ -84,6 +118,39 @@ extension ReportViewController: UICalendarViewDelegate, UICalendarSelectionSingl
         // secondVC 값 바꿔야함
         let secondVC = SecondViewController()
         navigationController?.pushViewController(secondVC, animated: true)
+    }
+    
+    // 학습량 계산 후 달력에 업데이트
+    func calendarView(_ calendarView: UICalendarView, decorationFor dateComponents: DateComponents) -> UICalendarView.Decoration? {
+        
+        let date = dateComponents.date!
+        
+        if self.studyData.dailyRates.keys.contains(date) {
+            switch self.studyData.dailyRates[date]! {
+            case (1.0)...(10.0):
+                return .image(UIImage(named: "Property_25"))
+            case (21.0)...(40.0):
+                return .image(UIImage(named: "Property_30"))
+            case (41.0)...(60.0):
+                return .image(UIImage(named: "Property_50"))
+            case (61.0)...(80.0):
+                return .image(UIImage(named: "Property_75"))
+            case (81.0)...(100.0):
+                return .image(UIImage(named: "Property_100"))
+            default:
+                return nil
+            }
+        }
+        else {
+            return nil
+        }
+    }
+    
+    
+    func reloadDateView(date: Date?) {
+        if date == nil { return }
+        let calendar = Calendar.current
+        reportView.calendar.reloadDecorations(forDateComponents: [calendar.dateComponents([.day, .month, .year], from: date!)], animated: true)
     }
     
 }
