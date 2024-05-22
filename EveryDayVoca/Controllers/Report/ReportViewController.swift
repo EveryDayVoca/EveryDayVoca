@@ -93,6 +93,7 @@ final class ReportViewController: BaseViewController {
         self.reportView.pieChart.chartDescription.enabled = false
         self.reportView.pieChart.isUserInteractionEnabled = false
         self.reportView.pieChart.holeRadiusPercent = 0.618
+        
         // 차트 가운데 입력값
         if studyData.studiedWords != 0 {
             let memorizeRate = ( difficulty[.memorized]! / studyData.studiedWords ) * 100
