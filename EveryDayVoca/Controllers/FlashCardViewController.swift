@@ -108,8 +108,8 @@ final class FlashCardViewController: BaseViewController {
     }
     
     @objc func tappedSpeakButton(sender: UIButton) {
-        print("스피커 탭")
-        toSpeak?()
+        guard let english = self.wordData[currentIndex].english else { return }
+        self.tts.play(str: english, language: .english)
     }
     
     func configureProgressBar() {
@@ -133,12 +133,6 @@ final class FlashCardViewController: BaseViewController {
 
 extension FlashCardViewController: SwipeCardStackDataSource {
     func cardStack(_ cardStack: Shuffle.SwipeCardStack, cardForIndexAt index: Int) -> Shuffle.SwipeCard {
-        
-        toSpeak = {
-            guard let english = self.wordData[index-1].english else { return }
-            self.tts.play(str: english, language: .english)
-        }
-        
         return card(data: wordData[index])
     }
     
