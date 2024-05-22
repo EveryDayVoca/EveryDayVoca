@@ -14,6 +14,7 @@ class MyVocaFlashCardViewController: BaseViewController {
     private let myVocaFlashCardView = MyVocaFlashCardView()
     
     var voca: Voca?
+    var index: Int?
     
     // MARK: - Life Cycles
     
@@ -21,6 +22,7 @@ class MyVocaFlashCardViewController: BaseViewController {
         view = myVocaFlashCardView
         self.tabBarController?.tabBar.isHidden = true
         setNavigationController()
+        configureAddTarget()
     }
     
     override func viewDidLoad() {
@@ -40,9 +42,9 @@ class MyVocaFlashCardViewController: BaseViewController {
     
     override func bind() {
         super.bind()
-        if let voca = self.voca {
-            myVocaFlashCardView.bind(voca: voca)
-        }
+        
+        guard let voca = voca else { return }
+        myVocaFlashCardView.bind(voca: voca)
     }
     
     func setNavigationController() {
@@ -68,5 +70,40 @@ class MyVocaFlashCardViewController: BaseViewController {
         let addVocaVC = VocaBookAddVocaViewController()
         present(addVocaVC, animated: true)
     }
+    
+    
+    private func configureAddTarget() {
+        // status 버튼
+        myVocaFlashCardView.difficultButton.addTarget(self, action: #selector(tappedStatusButton), for: .touchUpInside)
+        
+        myVocaFlashCardView.ambiguousButton.addTarget(self, action: #selector(tappedStatusButton), for: .touchUpInside)
+        
+        myVocaFlashCardView.memorizedButton.addTarget(self, action: #selector(tappedStatusButton), for: .touchUpInside)
+    }
+    
+    @objc func tappedStatusButton(_ button: UIButton) {
+        guard let voca = voca,
+            let index = index else { return }
+        
+        switch button.titleLabel?.text {
+        case Status.difficult.rawValue:
+            VocaBookData.shared.updateVocaStatus(voca, status: Status.difficult.rawValue, index: index)
+            
+        case Status.ambiguous.rawValue:
+            VocaBookData.shared.updateVocaStatus(voca, status: Status.ambiguous.rawValue, index: index)
+            
+        case Status.memorized.rawValue:
+            VocaBookData.shared.updateVocaStatus(voca, status: Status.memorized.rawValue, index: index)
+            
+        case Status.none.rawValue:
+            VocaBookData.shared.updateVocaStatus(voca, status: Status.none.rawValue, index: index)
+            
+        default:
+            VocaBookData.shared.updateVocaStatus(voca, status: Status.none.rawValue, index: index)
+        }
+        myVocaFlashCardView.updateButtonConfiguration()
+        print(">>>>> \(voca)")
+    }
+    
     
 }

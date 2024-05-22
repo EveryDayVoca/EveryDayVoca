@@ -169,7 +169,7 @@ class MyVocaFlashCardView: VocaBookBaseView {
         koreanLabel.text = currentVoca?.korean
     }
     
-    private func updateButtonConfiguration() {
+    func updateButtonConfiguration() {
         difficultButton.configuration = returnStatusButtonConfiguration(title: "어려워요")
         
         ambiguousButton.configuration = returnStatusButtonConfiguration(

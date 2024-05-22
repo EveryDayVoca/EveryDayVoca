@@ -26,4 +26,12 @@ class VocaBookData {
         vocas = vocaDataManager.getVocaData(forvocaDeck: name)
     }
     
+    func updateVocaStatus(_ vocaData: Voca, status: String, index: Int) {
+        // 1. CoreData 업데이트
+        vocaDataManager.updateVocaStatus(vocaData, status: status)
+        
+        // 2. VocaBookData.vocas 업데이트
+        vocas[index].status = status
+    }
+    
 }

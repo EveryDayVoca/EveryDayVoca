@@ -149,6 +149,7 @@ extension VocaBookViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let myVocaFlashCardVC = MyVocaFlashCardViewController()
         myVocaFlashCardVC.voca = vocas[indexPath.row]
+        myVocaFlashCardVC.index = indexPath.row
         self.navigationController?.pushViewController(myVocaFlashCardVC, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
