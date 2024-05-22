@@ -15,6 +15,7 @@ final class VocaBookViewController: BaseViewController {
     private let vocaBookVocaListView = VocaBookVocaListView()
     
     var vocas: [Voca] = []
+    var vocaDecks: [VocaDeck] = []
     var vocaBook = "전체"
     
     
@@ -24,7 +25,7 @@ final class VocaBookViewController: BaseViewController {
         view = vocaBookVocaListView
         setNavigationController()
         VocaBookData.shared.getVocaData()
-        vocas = VocaBookData.shared.vocas
+        VocaBookData.shared.getVocaDeckData()
     }
     
     override func viewDidLoad() {
@@ -72,7 +73,8 @@ final class VocaBookViewController: BaseViewController {
     
     override func bind() {
         super.bind()
-        
+        vocas = VocaBookData.shared.vocas
+        vocaDecks = VocaBookData.shared.vocaDecks
         vocaBookVocaListView.bind(vocaBook: vocaBook)
     }
     

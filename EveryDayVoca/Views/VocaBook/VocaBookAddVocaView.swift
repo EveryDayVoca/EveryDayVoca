@@ -11,7 +11,7 @@ class VocaBookAddVocaView: BaseView {
     
     // MARK: - Properties
     
-    var vocaBooks: [String] = ["나의 단어장", "고등 영단어"]
+    var vocaDecks: [VocaDeck]
     
     let titleLabel = UILabel().then {
         $0.text = "단어 추가하기"
@@ -84,10 +84,14 @@ class VocaBookAddVocaView: BaseView {
     
     lazy var vocaBookButtonMenu = { [self] in
         var actionArray: [UIAction] = []
-        vocaBooks.forEach {
-            actionArray.append(makeUIAction(title: $0))
+        vocaDecks.forEach {
+            if let vocaDeckName = $0.name {
+                actionArray.append(makeUIAction(title: vocaDeckName))
+            }
         }
+        
         let buttonMenu = UIMenu(title: "단어장 선택", children: actionArray)
+        print("buttonMenu Return")
         return buttonMenu
     }()
     
@@ -115,6 +119,7 @@ class VocaBookAddVocaView: BaseView {
     // MARK: - Methods
 
     override init(frame: CGRect) {
+        self.vocaDecks = VocaBookData.shared.vocaDecks
         super.init(frame: frame)
     }
     
@@ -199,7 +204,6 @@ class VocaBookAddVocaView: BaseView {
             $0.height.equalTo(44)
         }
     }
-
     
     
     private func makeUIAction(title: String) -> UIAction {
