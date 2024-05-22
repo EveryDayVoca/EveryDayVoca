@@ -12,7 +12,7 @@ final class CardView: SwipeCard {
     
     // MARK: - properties
     var dataModel: Voca?
-    private var isWordPage = true
+    var isWordPage = true
     
     private let cardImageView = UIImageView().then {
         $0.image = UIImage(named: "flash_card")
