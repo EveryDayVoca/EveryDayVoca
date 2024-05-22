@@ -16,9 +16,8 @@ final class FlashCardViewController: BaseViewController {
     private var currentIndex = 0
     private let coreDataManager = vocaCoreDataManager.shared
     private var wordData = [Voca]()
-    var toStudyVC: (([Voca]) -> Void)?
-    var toSpeak: (() -> Void)?
     private let tts = TTS()
+    var toStudyVC: (([Voca]) -> Void)?
     
     // MARK: - life cycles
     override func loadView() {
