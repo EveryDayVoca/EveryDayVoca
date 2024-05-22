@@ -14,9 +14,11 @@ final class FlashCardViewController: BaseViewController {
     private var flashCardView: FlashCardView!
     private var customAlertVC: FlashAlertViewController!
     private var currentIndex = 0
-    let coreDataManager = vocaCoreDataManager.shared
+    private let coreDataManager = vocaCoreDataManager.shared
     private var wordData = [Voca]()
     var toStudyVC: (([Voca]) -> Void)?
+    var toSpeak: (() -> Void)?
+    private let tts = TTS()
     
     // MARK: - life cycles
     override func loadView() {
@@ -71,12 +73,12 @@ final class FlashCardViewController: BaseViewController {
         let card = CardView()
         card.configure(with: data)
         card.swipeDirections = [.left, .right]
-        
         return card
     }
     
     private func configureTarget() {
         flashCardView.previousCardButton.addTarget(self, action: #selector(tappedPreviousButton), for: .touchUpInside)
+        flashCardView.speakButton.addTarget(self, action: #selector(tappedSpeakButton), for: .touchUpInside)
         flashCardView.hardButton.addTarget(self, action: #selector(tappedStatusButton), for: .touchUpInside)
         flashCardView.normalButton.addTarget(self, action: #selector(tappedStatusButton), for: .touchUpInside)
         flashCardView.perfectButton.addTarget(self, action: #selector(tappedStatusButton), for: .touchUpInside)
@@ -105,6 +107,11 @@ final class FlashCardViewController: BaseViewController {
         flashCardView.cardStack.swipe(.right, animated: true)
     }
     
+    @objc func tappedSpeakButton(sender: UIButton) {
+        print("스피커 탭")
+        toSpeak?()
+    }
+    
     func configureProgressBar() {
         let percentage = Double(currentIndex) / Double(wordData.count)
         flashCardView.progressBar.progress = Float(percentage)
@@ -126,6 +133,12 @@ final class FlashCardViewController: BaseViewController {
 
 extension FlashCardViewController: SwipeCardStackDataSource {
     func cardStack(_ cardStack: Shuffle.SwipeCardStack, cardForIndexAt index: Int) -> Shuffle.SwipeCard {
+        
+        toSpeak = {
+            guard let english = self.wordData[index-1].english else { return }
+            self.tts.play(str: english, language: .english)
+        }
+        
         return card(data: wordData[index])
     }
     
