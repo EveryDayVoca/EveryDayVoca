@@ -17,12 +17,6 @@ final class ManagementView: BaseView {
         $0.font = UIFont.pretendard(size: 17, weight: .semibold)
     }
     
-    let backBarButtonItem = UIBarButtonItem().then {
-        $0.image = .chevronLeft.withRenderingMode(.alwaysTemplate)
-        $0.tintColor = .evText
-        $0.style = .done
-    }
-    
     let plusBarButtonItem = UIBarButtonItem().then {
         $0.image = .plus.withRenderingMode(.alwaysTemplate)
         $0.tintColor = .evText
@@ -50,8 +44,7 @@ final class ManagementView: BaseView {
     override func configureConstraints() {
         collectionView.snp.makeConstraints {
             $0.top.equalTo(self.safeAreaLayoutGuide.snp.top)
-            $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom)
+            $0.leading.trailing.bottom.equalToSuperview()
         }
     }
 }

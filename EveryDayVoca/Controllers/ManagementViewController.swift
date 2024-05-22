@@ -38,33 +38,8 @@ final class ManagementViewController: BaseViewController {
     }
     
     // MARK: - methods
-    private func configureAddTarget() {
-        managementView.backBarButtonItem.target = self
-        managementView.backBarButtonItem.action = #selector(tappedBackBarButtonItem)
-        
-        managementView.plusBarButtonItem.target = self
-        managementView.plusBarButtonItem.action = #selector(tappedPlusBarButtonItem)
-    }
-    
-    @objc private func tappedBackBarButtonItem() {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-    @objc private func tappedPlusBarButtonItem() {
-        let managementAlertVC = ManagementAlertViewController()
-        managementAlertVC.modalPresentationStyle = .overFullScreen
-        
-        present(managementAlertVC, animated: false)
-    }
-    
     override func configureStyle() {
         configureNavigation()
-    }
-    
-    private func configureNavigation() {
-        navigationItem.titleView = managementView.titleLabel
-        navigationItem.leftBarButtonItem = managementView.backBarButtonItem
-        navigationItem.rightBarButtonItem = managementView.plusBarButtonItem
     }
     
     override func configureDelegate() {
@@ -73,8 +48,21 @@ final class ManagementViewController: BaseViewController {
         managementView.collectionView.register(ManagementCell.self, forCellWithReuseIdentifier: "ManagementCell")
     }
     
-    override func bind() {
+    private func configureNavigation() {
+        navigationItem.titleView = managementView.titleLabel
+        navigationItem.rightBarButtonItem = managementView.plusBarButtonItem
+    }
+    
+    private func configureAddTarget() {
+        managementView.plusBarButtonItem.target = self
+        managementView.plusBarButtonItem.action = #selector(tappedPlusBarButtonItem)
+    }
+    
+    @objc private func tappedPlusBarButtonItem() {
+        let managementAlertVC = ManagementAlertViewController()
+        managementAlertVC.modalPresentationStyle = .overFullScreen
         
+        present(managementAlertVC, animated: false)
     }
 }
 
