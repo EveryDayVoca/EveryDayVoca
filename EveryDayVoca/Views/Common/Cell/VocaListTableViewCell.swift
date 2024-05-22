@@ -7,24 +7,6 @@
 
 import UIKit
 
-// -------------------------------------
-// 데이터 파일 생성 전까지 임시로 사용
-enum Status {
-    case difficult
-    case ambiguous
-    case memorized
-    case none
-}
-struct Voca {
-    let english: String
-    let korean: String
-    let pronunciation: String
-    let status: Status
-    let vocaBook: String
-}
-// -------------------------------------
-
-
 final class VocaListTableViewCell: UITableViewCell {
     
     static let identifier = String(describing: VocaListTableViewCell.self)
