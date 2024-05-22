@@ -17,6 +17,8 @@ final class ManagementViewController: BaseViewController {
     
     private var vocaDecks: [VocaDeck] = []
     
+    var completion: ((String) -> ())?
+    
     // MARK: - life cycles
     override func loadView() {
         view = managementView
@@ -82,6 +84,8 @@ final class ManagementViewController: BaseViewController {
 
 extension ManagementViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        completion!(vocaDecks[indexPath.row].name!)
+        VocaBookData.shared.currentVocaDeck = vocaDecks[indexPath.row].name!
         self.navigationController?.popViewController(animated: true)
     }
 }

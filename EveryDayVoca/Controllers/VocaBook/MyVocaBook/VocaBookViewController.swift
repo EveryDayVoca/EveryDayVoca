@@ -16,7 +16,6 @@ final class VocaBookViewController: BaseViewController {
     
     var vocas: [Voca] = []
     var vocaDecks: [VocaDeck] = []
-    var vocaBook = "전체"
     
     
     // MARK: - Life Cycles
@@ -31,11 +30,18 @@ final class VocaBookViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureAddTarget()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
         vocaBookVocaListView.vocaListTableView.reloadData()
+        VocaBookData.shared.dataUpdate = { [weak self] in
+            guard let self = self else { return }
+            vocas = VocaBookData.shared.vocas
+            vocaBookVocaListView.vocaListTableView.reloadData()
+            print("dataUpdate 클로저 실행됨")
+        }
     }
     
     // MARK: - Methods
@@ -75,7 +81,7 @@ final class VocaBookViewController: BaseViewController {
         super.bind()
         vocas = VocaBookData.shared.vocas
         vocaDecks = VocaBookData.shared.vocaDecks
-        vocaBookVocaListView.bind(vocaBook: vocaBook)
+        vocaBookVocaListView.bind(vocaBook: VocaBookData.shared.currentVocaDeck)
     }
     
     private func configureAddTarget() {
@@ -84,6 +90,9 @@ final class VocaBookViewController: BaseViewController {
         
         // 보기 옵션 버튼
         vocaBookVocaListView.tableDisplayOptionButton.addTarget(self, action: #selector(tappedTableDisplayOptionButton), for: .touchUpInside)
+        
+        // VocaDeck 뷰 클릭
+        vocaBookVocaListView.vocaBookSelectButton.addTarget(self, action: #selector(tappedVocaBookSelectButton), for: .touchUpInside)
     }
     
     @objc func tappedNavigationBarPlusButton() {
@@ -124,6 +133,22 @@ final class VocaBookViewController: BaseViewController {
         displayOptionPopoverVC.popoverPresentationController?.delegate = self
         present(displayOptionPopoverVC, animated: true)
     }
+    
+    @objc func tappedVocaBookSelectButton() {
+        print("vocaBookTitle 클릭")
+        let managementVC = ManagementViewController()
+        
+        managementVC.completion = { [weak self] vocaDeckTitle in
+            guard let self = self else { return }
+            VocaBookData.shared.getVocaData(forVocaDeck: vocaDeckTitle)
+            vocas = VocaBookData.shared.vocas
+            vocaBookVocaListView.currentVocaBookLabel.text = vocaDeckTitle
+            vocaBookVocaListView.vocaListTableView.reloadData()
+        }
+        
+        self.navigationController?.pushViewController(managementVC, animated: true)
+    }
+    
 }
 
 

@@ -36,7 +36,8 @@ class VocaBookAddVocaViewController: BaseViewController {
     }
     
     override func bind() {
-        super.bind()
+        let vocaDecks = VocaCoreDataManager.shared.getVocaDeckData()
+        vocaBookAddVocaView.bind(vocaDecks: vocaDecks)
     }
     
     private func configureAddTarget() {
@@ -64,20 +65,40 @@ class VocaBookAddVocaViewController: BaseViewController {
             return
         }
         
-        // 2-2. 데이터 다 채웠을 경우 userDefauts 업데이트
+        // 2-2. 데이터 다 채웠을 경우 coreData 업데이트
         VocaCoreDataManager.shared.createVocaData(english: english, korean: korean, vocaDeck: vocaDeck)
+        VocaCoreDataManager.shared.updateVocaDeckCount(vocaDeck)
         
         // 3. 저장 성공 Alert 띄우기
-        EasyAlert.dismissModalAlert(title: "단어가 저장되었습니다.", message: nil, vc: self)
+        dismissModalAlert(title: "단어가 저장되었습니다.", message: nil, vc: self)
     }
     
     
     func showAlertIfDataIncomplete(english: String?, korean: String?) {
         if english == nil || english == "" {
-            EasyAlert.showAlert(title: "단어를 입력하세요", message: nil, vc: self)
+            showAlert(title: "단어를 입력하세요", message: nil, vc: self)
             
         } else if korean == nil || korean == "" {
-            EasyAlert.showAlert(title: "의미를 입력하세요", message: nil, vc: self)
+            showAlert(title: "의미를 입력하세요", message: nil, vc: self)
         }
     }
+    
+    
+    func showAlert(title: String?, message: String?, vc: UIViewController) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .cancel)
+        alert.addAction(ok)
+        vc.present(alert, animated: true)
+    }
+    
+    func dismissModalAlert(title: String?, message: String?, vc: UIViewController) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .cancel) { [weak vc] _ in
+            vc?.dismiss(animated: true)
+        }
+        alert.addAction(ok)
+        vc.present(alert, animated: true)
+    }
+    
+    
 }

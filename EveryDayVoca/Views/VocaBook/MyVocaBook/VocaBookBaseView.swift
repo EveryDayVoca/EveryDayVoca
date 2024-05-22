@@ -28,6 +28,10 @@ class VocaBookBaseView: BaseView {
         $0.tintColor = UIColor.evText
     }
     
+    let vocaBookSelectButton = UIButton().then {
+        $0.backgroundColor = .clear
+    }
+    
     let customView = UIView()
     
     
@@ -35,7 +39,8 @@ class VocaBookBaseView: BaseView {
     
     override func configureHierarchy() {
         [vocaBookSelectActionView,
-         customView].forEach { self.addSubview($0) }
+         customView,
+        vocaBookSelectButton].forEach { self.addSubview($0) }
         
         [currentVocaBookLabel,
          vocaBookChevronImage].forEach { vocaBookSelectActionView.addSubview($0) }
@@ -56,6 +61,11 @@ class VocaBookBaseView: BaseView {
             $0.trailing.equalToSuperview().inset(20)
             $0.centerY.equalToSuperview()
             $0.size.equalTo(14)
+        }
+        
+        vocaBookSelectButton.snp.makeConstraints {
+            $0.top.horizontalEdges.equalTo(self.safeAreaLayoutGuide)
+            $0.height.equalTo(52)
         }
         
         customView.snp.makeConstraints {

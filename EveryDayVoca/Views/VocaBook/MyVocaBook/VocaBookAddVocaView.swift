@@ -11,8 +11,6 @@ class VocaBookAddVocaView: BaseView {
     
     // MARK: - Properties
     
-    var vocaDecks: [VocaDeck]
-    
     let titleLabel = UILabel().then {
         $0.text = "단어 추가하기"
         $0.textAlignment = .center
@@ -65,6 +63,8 @@ class VocaBookAddVocaView: BaseView {
         $0.layer.borderColor = UIColor.gray50.cgColor
     }
     
+    
+    
     lazy var vocaBookSelectPopupButton = UIButton().then {
         
         var config = UIButton.Configuration.plain()
@@ -76,24 +76,13 @@ class VocaBookAddVocaView: BaseView {
         config.background.strokeWidth = 1
         $0.configuration = config
         
-        $0.menu = vocaBookButtonMenu
+//        $0.menu = vocaBookButtonMenu
         $0.showsMenuAsPrimaryAction = true
         $0.changesSelectionAsPrimaryAction = true
         $0.preferredBehavioralStyle = .automatic
     }
     
-    lazy var vocaBookButtonMenu = { [self] in
-        var actionArray: [UIAction] = []
-        vocaDecks.forEach {
-            if let vocaDeckName = $0.name {
-                actionArray.append(makeUIAction(title: vocaDeckName))
-            }
-        }
-        
-        let buttonMenu = UIMenu(title: "단어장 선택", children: actionArray)
-        print("buttonMenu Return")
-        return buttonMenu
-    }()
+    
     
     let buttonStackView = UIStackView().then {
         $0.axis = .horizontal
@@ -119,7 +108,6 @@ class VocaBookAddVocaView: BaseView {
     // MARK: - Methods
 
     override init(frame: CGRect) {
-        self.vocaDecks = VocaBookData.shared.vocaDecks
         super.init(frame: frame)
     }
     
@@ -252,5 +240,19 @@ class VocaBookAddVocaView: BaseView {
         }
     }
     
+    
+    func bind(vocaDecks: [VocaDeck]) {
+        
+        var actionArray: [UIAction] = []
+        vocaDecks.forEach {
+            if let vocaDeckName = $0.name {
+                actionArray.append(makeUIAction(title: vocaDeckName))
+            }
+        }
+        let buttonMenu = UIMenu(title: "단어장 선택", children: actionArray)
+        
+        vocaBookSelectPopupButton.menu = buttonMenu
+        
+    }
     
 }

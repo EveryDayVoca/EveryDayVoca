@@ -13,12 +13,16 @@ class VocaBookData {
     
     var vocaDataManager = VocaCoreDataManager.shared
     
+    var dataUpdate: (() -> ())?
+    
     var vocas: [Voca] = [] {
         didSet {
             vocasCount = vocas.count
             print("vocas fetched: \(vocas.count)개")
         }
     }
+    
+    var currentVocaDeck: String = "ALL"
     
     var vocaDecks: [VocaDeck] = [] {
         didSet {
@@ -32,6 +36,15 @@ class VocaBookData {
                              Filter(status: .none, isSelected: true)]  {
         didSet {
             print("데이터에서 필터 업데이트됨")
+            
+            vocas = []
+            var selectedStatus = filters.filter { $0.isSelected }
+            for i in selectedStatus {
+                vocas.append(contentsOf: VocaCoreDataManager.shared.getVocaData(
+                    forvocaDeck: currentVocaDeck,
+                    status: i.status))
+            }
+            dataUpdate!()
         }
     }
     
