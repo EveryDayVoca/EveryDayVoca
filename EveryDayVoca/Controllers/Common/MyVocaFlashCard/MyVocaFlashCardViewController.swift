@@ -94,19 +94,19 @@ class MyVocaFlashCardViewController: BaseViewController {
         
         switch button.titleLabel?.text {
         case Status.difficult.rawValue:
-            VocaBookData.shared.updateVocaStatus(voca, status: Status.difficult.rawValue, index: index)
+            VocaBookData.shared.updateVocaStatus(voca, status: Status.difficult, index: index)
             
         case Status.ambiguous.rawValue:
-            VocaBookData.shared.updateVocaStatus(voca, status: Status.ambiguous.rawValue, index: index)
+            VocaBookData.shared.updateVocaStatus(voca, status: Status.ambiguous, index: index)
             
         case Status.memorized.rawValue:
-            VocaBookData.shared.updateVocaStatus(voca, status: Status.memorized.rawValue, index: index)
+            VocaBookData.shared.updateVocaStatus(voca, status: Status.memorized, index: index)
             
         case Status.none.rawValue:
-            VocaBookData.shared.updateVocaStatus(voca, status: Status.none.rawValue, index: index)
+            VocaBookData.shared.updateVocaStatus(voca, status: Status.none, index: index)
             
         default:
-            VocaBookData.shared.updateVocaStatus(voca, status: Status.none.rawValue, index: index)
+            VocaBookData.shared.updateVocaStatus(voca, status: Status.none, index: index)
         }
         myVocaFlashCardView.updateButtonConfiguration()
     }
@@ -119,13 +119,11 @@ class MyVocaFlashCardViewController: BaseViewController {
            currentIndex != 0 {
             self.index! -= 1
             self.voca = VocaBookData.shared.vocas[self.index!]
-            print("index Changed: \(currentIndex) -> \(index)")
             
         } else if buttonTitle == "다음 단어",
                   currentIndex != VocaBookData.shared.vocasCount {
             self.index! += 1
             self.voca = VocaBookData.shared.vocas[self.index!]
-            print("index Changed: \(currentIndex) -> \(index)")
         }
         self.viewDidLoad()
     }

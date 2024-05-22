@@ -11,7 +11,7 @@ class VocaBookData {
     
     static let shared = VocaBookData()
     
-    var vocaDataManager = vocaCoreDataManager.shared
+    var vocaDataManager = VocaCoreDataManager.shared
     
     var vocas: [Voca] = [] {
         didSet {
@@ -49,12 +49,12 @@ class VocaBookData {
         vocas = vocaDataManager.getVocaData(forvocaDeck: name)
     }
     
-    func updateVocaStatus(_ vocaData: Voca, status: String, index: Int) {
+    func updateVocaStatus(_ vocaData: Voca, status: Status, index: Int) {
         // 1. CoreData 업데이트
         vocaDataManager.updateVocaStatus(vocaData, status: status)
         
         // 2. VocaBookData.vocas 업데이트
-        vocas[index].status = status
+        vocas[index].status = status.rawValue
     }
     
     

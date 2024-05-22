@@ -65,7 +65,7 @@ class VocaBookAddVocaViewController: BaseViewController {
         }
         
         // 2-2. 데이터 다 채웠을 경우 userDefauts 업데이트
-        vocaCoreDataManager.shared.createVocaData(english: english, korean: korean, vocaDeck: vocaDeck)
+        VocaCoreDataManager.shared.createVocaData(english: english, korean: korean, vocaDeck: vocaDeck)
         
         // 3. 저장 성공 Alert 띄우기
         EasyAlert.dismissModalAlert(title: "단어가 저장되었습니다.", message: nil, vc: self)

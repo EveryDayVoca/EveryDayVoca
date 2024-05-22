@@ -21,6 +21,7 @@
 		1A3933572BFB32D300F3B825 /* VocaBookAddVocaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3933562BFB32D300F3B825 /* VocaBookAddVocaView.swift */; };
 		1A8582822BFDBD08008E7445 /* VocaBookData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8582812BFDBD08008E7445 /* VocaBookData.swift */; };
 		1A8582842BFE15C5008E7445 /* EasyAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8582832BFE15C5008E7445 /* EasyAlert.swift */; };
+		1A8582852BFE2231008E7445 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371D24332BF38AC1002B4DC5 /* BaseViewController.swift */; };
 		2E10E7E02BFA94000049E1AB /* FlashAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E10E7DF2BFA94000049E1AB /* FlashAlertView.swift */; };
 		2E10E7E22BFA97F70049E1AB /* FlashAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E10E7E12BFA97F70049E1AB /* FlashAlertViewController.swift */; };
 		2E1C30FF2BFC315E00CB6DDE /* Voca+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30F92BFC315E00CB6DDE /* Voca+CoreDataClass.swift */; };
@@ -30,14 +31,20 @@
 		2E1C31032BFC315E00CB6DDE /* VocaDeck+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30FD2BFC315E00CB6DDE /* VocaDeck+CoreDataClass.swift */; };
 		2E1C31042BFC315E00CB6DDE /* VocaDeck+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30FE2BFC315E00CB6DDE /* VocaDeck+CoreDataProperties.swift */; };
 		2E1C31192BFCAB4800CB6DDE /* EveryDayVocaData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2E1C31182BFCAB4800CB6DDE /* EveryDayVocaData.csv */; };
-		2E45B8042BFB5C2000BDFFEC /* vocaCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E45B8032BFB5C2000BDFFEC /* vocaCoreDataManager.swift */; };
+		2E3A246D2BFD9D3100EF2738 /* TTS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3A246C2BFD9D3100EF2738 /* TTS.swift */; };
+		2E45B8042BFB5C2000BDFFEC /* VocaCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E45B8032BFB5C2000BDFFEC /* VocaCoreDataManager.swift */; };
 		2E9DED9B2BF50C4500A85C42 /* FlashCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DED9A2BF50C4500A85C42 /* FlashCardView.swift */; };
 		2E9DED9D2BF5D0EC00A85C42 /* FlashCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DED9C2BF5D0EC00A85C42 /* FlashCardViewController.swift */; };
 		2E9DEDD72BF9FD6800A85C42 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DEDD62BF9FD6800A85C42 /* Status.swift */; };
 		2E9DEDD92BFA167700A85C42 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DEDD82BFA167700A85C42 /* CardView.swift */; };
 		2E9DEDE22BFA77C900A85C42 /* Shuffle in Frameworks */ = {isa = PBXBuildFile; productRef = 2E9DEDE12BFA77C900A85C42 /* Shuffle */; };
 		371D24322BF37ED7002B4DC5 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371D24312BF37ED7002B4DC5 /* BaseView.swift */; };
-		371D24342BF38AC1002B4DC5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371D24332BF38AC1002B4DC5 /* BaseViewController.swift */; };
+		372712002BFA16FA00573AC4 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372711FF2BFA16FA00573AC4 /* BaseCollectionViewCell.swift */; };
+		372712082BFBC1BF00573AC4 /* ManagementAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372712072BFBC1BF00573AC4 /* ManagementAlertViewController.swift */; };
+		3727120A2BFBC2DD00573AC4 /* ManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372712092BFBC2DD00573AC4 /* ManagementView.swift */; };
+		3727120C2BFBC31500573AC4 /* ManagementAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3727120B2BFBC31500573AC4 /* ManagementAlertView.swift */; };
+		372712122BFBCA5000573AC4 /* ManagementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372712112BFBCA5000573AC4 /* ManagementCell.swift */; };
+		372712142BFBCAB500573AC4 /* ManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372712132BFBCAB500573AC4 /* ManagementViewController.swift */; };
 		37D776FF2BF30DBD0078D6E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D776FE2BF30DBD0078D6E8 /* AppDelegate.swift */; };
 		37D777012BF30DBD0078D6E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D777002BF30DBD0078D6E8 /* SceneDelegate.swift */; };
 		37D777092BF30DBD0078D6E8 /* EveryDayVoca.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37D777072BF30DBD0078D6E8 /* EveryDayVoca.xcdatamodeld */; };
@@ -85,13 +92,20 @@
 		2E1C30FD2BFC315E00CB6DDE /* VocaDeck+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VocaDeck+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2E1C30FE2BFC315E00CB6DDE /* VocaDeck+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VocaDeck+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2E1C31182BFCAB4800CB6DDE /* EveryDayVocaData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EveryDayVocaData.csv; sourceTree = "<group>"; };
-		2E45B8032BFB5C2000BDFFEC /* vocaCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vocaCoreDataManager.swift; sourceTree = "<group>"; };
+		2E3A246C2BFD9D3100EF2738 /* TTS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTS.swift; sourceTree = "<group>"; };
+		2E45B8032BFB5C2000BDFFEC /* VocaCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaCoreDataManager.swift; sourceTree = "<group>"; };
 		2E9DED9A2BF50C4500A85C42 /* FlashCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardView.swift; sourceTree = "<group>"; };
 		2E9DED9C2BF5D0EC00A85C42 /* FlashCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardViewController.swift; sourceTree = "<group>"; };
 		2E9DEDD62BF9FD6800A85C42 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		2E9DEDD82BFA167700A85C42 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		371D24312BF37ED7002B4DC5 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		371D24332BF38AC1002B4DC5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		372711FF2BFA16FA00573AC4 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		372712072BFBC1BF00573AC4 /* ManagementAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementAlertViewController.swift; sourceTree = "<group>"; };
+		372712092BFBC2DD00573AC4 /* ManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementView.swift; sourceTree = "<group>"; };
+		3727120B2BFBC31500573AC4 /* ManagementAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementAlertView.swift; sourceTree = "<group>"; };
+		372712112BFBCA5000573AC4 /* ManagementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementCell.swift; sourceTree = "<group>"; };
+		372712132BFBCAB500573AC4 /* ManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementViewController.swift; sourceTree = "<group>"; };
 		37D776FB2BF30DBD0078D6E8 /* EveryDayVoca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EveryDayVoca.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37D776FE2BF30DBD0078D6E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37D777002BF30DBD0078D6E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -215,7 +229,7 @@
 		2E1C31092BFC914700CB6DDE /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				2E45B8032BFB5C2000BDFFEC /* vocaCoreDataManager.swift */,
+				2E45B8032BFB5C2000BDFFEC /* VocaCoreDataManager.swift */,
 				2E1C30F92BFC315E00CB6DDE /* Voca+CoreDataClass.swift */,
 				2E1C30FA2BFC315E00CB6DDE /* Voca+CoreDataProperties.swift */,
 				2E1C30FB2BFC315E00CB6DDE /* VocaDate+CoreDataClass.swift */,
@@ -241,6 +255,7 @@
 			children = (
 				2E1C31092BFC914700CB6DDE /* CoreData */,
 				2E9DEDD62BF9FD6800A85C42 /* Status.swift */,
+				2E3A246C2BFD9D3100EF2738 /* TTS.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -288,6 +303,8 @@
 				37D777252BF31E390078D6E8 /* StudyViewController.swift */,
 				37D777272BF31E640078D6E8 /* ReportViewController.swift */,
 				37D777292BF31E700078D6E8 /* UserViewController.swift */,
+				372712132BFBCAB500573AC4 /* ManagementViewController.swift */,
+				372712072BFBC1BF00573AC4 /* ManagementAlertViewController.swift */,
 				2E9DED9C2BF5D0EC00A85C42 /* FlashCardViewController.swift */,
 				2E10E7E12BFA97F70049E1AB /* FlashAlertViewController.swift */,
 			);
@@ -325,6 +342,9 @@
 				1A39333E2BF7483300F3B825 /* Common */,
 				1A39333B2BF60B7300F3B825 /* VocaBook */,
 				2E9DED9E2BF62AAA00A85C42 /* Study */,
+				372712112BFBCA5000573AC4 /* ManagementCell.swift */,
+				372712092BFBC2DD00573AC4 /* ManagementView.swift */,
+				3727120B2BFBC31500573AC4 /* ManagementAlertView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -334,6 +354,7 @@
 			children = (
 				371D24312BF37ED7002B4DC5 /* BaseView.swift */,
 				371D24332BF38AC1002B4DC5 /* BaseViewController.swift */,
+				372711FF2BFA16FA00573AC4 /* BaseCollectionViewCell.swift */,
 			);
 			path = Bases;
 			sourceTree = "<group>";
@@ -428,6 +449,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A8582852BFE2231008E7445 /* BaseViewController.swift in Sources */,
 				1A3933532BFAE08C00F3B825 /* MyVocaFlashCardViewController.swift in Sources */,
 				2E9DEDD92BFA167700A85C42 /* CardView.swift in Sources */,
 				37D7772A2BF31E700078D6E8 /* UserViewController.swift in Sources */,
@@ -444,27 +466,33 @@
 				2E1C31022BFC315E00CB6DDE /* VocaDate+CoreDataProperties.swift in Sources */,
 				2E1C31032BFC315E00CB6DDE /* VocaDeck+CoreDataClass.swift in Sources */,
 				2E1C31042BFC315E00CB6DDE /* VocaDeck+CoreDataProperties.swift in Sources */,
+				2E3A246D2BFD9D3100EF2738 /* TTS.swift in Sources */,
 				37D777092BF30DBD0078D6E8 /* EveryDayVoca.xcdatamodeld in Sources */,
 				1A3933502BFA834900F3B825 /* VocaBookBaseView.swift in Sources */,
 				37D777262BF31E390078D6E8 /* StudyViewController.swift in Sources */,
 				1A39333D2BF60C5900F3B825 /* VocaBookVocaListView.swift in Sources */,
-				371D24342BF38AC1002B4DC5 /* BaseViewController.swift in Sources */,
 				1A3933482BFA279700F3B825 /* VocaBookDisplayOptionPopoverViewController.swift in Sources */,
 				1A3933552BFB325700F3B825 /* VocaBookAddVocaViewController.swift in Sources */,
+				372712142BFBCAB500573AC4 /* ManagementViewController.swift in Sources */,
+				3727120C2BFBC31500573AC4 /* ManagementAlertView.swift in Sources */,
 				37D777242BF31DED0078D6E8 /* VocaBookViewController.swift in Sources */,
 				2E9DED9B2BF50C4500A85C42 /* FlashCardView.swift in Sources */,
 				2E10E7E02BFA94000049E1AB /* FlashAlertView.swift in Sources */,
-				2E45B8042BFB5C2000BDFFEC /* vocaCoreDataManager.swift in Sources */,
+				2E45B8042BFB5C2000BDFFEC /* VocaCoreDataManager.swift in Sources */,
 				371D24322BF37ED7002B4DC5 /* BaseView.swift in Sources */,
 				1A3933572BFB32D300F3B825 /* VocaBookAddVocaView.swift in Sources */,
 				1A3933422BF9EB2800F3B825 /* VocaBookFilterPopoverViewController.swift in Sources */,
 				1A3933442BF9F03500F3B825 /* VocaBookFilterPopoverTableViewCell.swift in Sources */,
-				2E9DEDD72BF9FD6800A85C42 /* Status.swift in Sources */,
-				37D777422BF34DED0078D6E8 /* UIFont+Extension.swift in Sources */,
 				1A39334A2BFA27BE00F3B825 /* VocaBookDisplayOptionPopoverTableViewCell.swift in Sources */,
 				1A39333A2BF5CDD700F3B825 /* VocaListTableViewCell.swift in Sources */,
 				1A8582842BFE15C5008E7445 /* EasyAlert.swift in Sources */,
+				3727120A2BFBC2DD00573AC4 /* ManagementView.swift in Sources */,
+				2E9DEDD72BF9FD6800A85C42 /* Status.swift in Sources */,
+				37D777422BF34DED0078D6E8 /* UIFont+Extension.swift in Sources */,
+				372712122BFBCA5000573AC4 /* ManagementCell.swift in Sources */,
 				37D777282BF31E640078D6E8 /* ReportViewController.swift in Sources */,
+				372712082BFBC1BF00573AC4 /* ManagementAlertViewController.swift in Sources */,
+				372712002BFA16FA00573AC4 /* BaseCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

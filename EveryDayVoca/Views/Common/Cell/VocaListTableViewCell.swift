@@ -169,8 +169,6 @@ final class VocaListTableViewCell: UITableViewCell {
         englishLabel.text = voca.english
         koreanLabel.text = voca.korean
         vocaBookLabel.text = voca.vocaDeck
-        
-        print("voca.korean: \(voca.korean)")
     }
     
     
