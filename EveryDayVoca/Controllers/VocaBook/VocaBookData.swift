@@ -14,9 +14,11 @@ class VocaBookData {
     var vocaDataManager = vocaCoreDataManager.shared
     var vocas: [Voca] = [] {
         didSet {
+            vocasCount = vocas.count
             print("vocas fetched: \(vocas.count)개")
         }
     }
+    lazy var vocasCount = vocas.count
     
     func getVocaData() {
         vocas = vocaDataManager.getVocaData()

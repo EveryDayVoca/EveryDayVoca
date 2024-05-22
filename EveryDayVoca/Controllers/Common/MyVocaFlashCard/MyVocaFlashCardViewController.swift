@@ -74,11 +74,18 @@ class MyVocaFlashCardViewController: BaseViewController {
     
     private func configureAddTarget() {
         // status 버튼
-        myVocaFlashCardView.difficultButton.addTarget(self, action: #selector(tappedStatusButton), for: .touchUpInside)
+        [myVocaFlashCardView.difficultButton,
+         myVocaFlashCardView.ambiguousButton,
+         myVocaFlashCardView.memorizedButton].forEach {
+            $0.addTarget(self, action: #selector(tappedStatusButton), for: .touchUpInside)
+        }
         
-        myVocaFlashCardView.ambiguousButton.addTarget(self, action: #selector(tappedStatusButton), for: .touchUpInside)
+        // paging 버튼
+        [myVocaFlashCardView.previousPageButton,
+         myVocaFlashCardView.nextPageButton].forEach {
+            $0.addTarget(self, action: #selector(tappedPagingButton), for: .touchUpInside)
+        }
         
-        myVocaFlashCardView.memorizedButton.addTarget(self, action: #selector(tappedStatusButton), for: .touchUpInside)
     }
     
     @objc func tappedStatusButton(_ button: UIButton) {
@@ -104,5 +111,23 @@ class MyVocaFlashCardViewController: BaseViewController {
         myVocaFlashCardView.updateButtonConfiguration()
     }
     
+    @objc func tappedPagingButton(_ button: UIButton) {
+        guard let currentIndex = index,
+              let buttonTitle = button.titleLabel?.text else { return }
+        
+        if buttonTitle == "이전 단어",
+           currentIndex != 0 {
+            self.index! -= 1
+            self.voca = VocaBookData.shared.vocas[self.index!]
+            print("index Changed: \(currentIndex) -> \(index)")
+            
+        } else if buttonTitle == "다음 단어",
+                  currentIndex != VocaBookData.shared.vocasCount {
+            self.index! += 1
+            self.voca = VocaBookData.shared.vocas[self.index!]
+            print("index Changed: \(currentIndex) -> \(index)")
+        }
+        self.viewDidLoad()
+    }
     
 }
