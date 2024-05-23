@@ -103,6 +103,12 @@ final class VocaBookViewController: BaseViewController {
     
     @objc func tappedNavigationBarPlusButton() {
         let addVocaVC = VocaBookAddVocaViewController()
+        addVocaVC.completion = { [weak self] in
+            guard let self = self else { return }
+            
+            vocas = VocaBookData.shared.getVocaDatas(forVocaDeck: vocaBookVocaListView.currentVocaBookLabel.text ?? "ALL")
+            vocaBookVocaListView.vocaListTableView.reloadData()
+        }
         present(addVocaVC, animated: true)
     }
     

@@ -7,11 +7,11 @@
 
 import UIKit
 
-final class SecondViewController: BaseViewController {
+final class ReportDailyViewController: BaseViewController {
     
     // MARK: - Properties
     
-    let secondView = SecondView()
+    let reportDailyView = ReportDailyView()
     var date: Date?
     var dailyStudyData = [Status:Int]()
     
@@ -19,7 +19,7 @@ final class SecondViewController: BaseViewController {
     // MARK: - Life Cycles
     
     override func loadView() {
-        view = secondView
+        view = reportDailyView
         setNavigationController()
         
     }
@@ -34,7 +34,7 @@ final class SecondViewController: BaseViewController {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
         bind(date: self.date)
-        secondView.vocaListTableView.reloadData()
+        reportDailyView.vocaListTableView.reloadData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -56,9 +56,9 @@ final class SecondViewController: BaseViewController {
     
     override func configureDelegate() {
         
-        secondView.vocaListTableView.register(VocaListTableViewCell.self, forCellReuseIdentifier: VocaListTableViewCell.identifier)
-        secondView.vocaListTableView.dataSource = self
-        secondView.vocaListTableView.delegate = self
+        reportDailyView.vocaListTableView.register(VocaListTableViewCell.self, forCellReuseIdentifier: VocaListTableViewCell.identifier)
+        reportDailyView.vocaListTableView.dataSource = self
+        reportDailyView.vocaListTableView.delegate = self
     }
     
     func bind(dateComponents: DateComponents?) {
@@ -76,12 +76,12 @@ final class SecondViewController: BaseViewController {
             // vocas 초기화
             VocaBookData.shared.vocas = []
             
-            secondView
+            reportDailyView
                 .bindLevelAndDateLabel(level: "",
                                        date: "\(components.year ?? 0)년 \(components.month ?? 0)월 \(components.day ?? 0)일")
-            secondView
+            reportDailyView
                 .reconfigureBarWidth(difficult: statusBarWidth, ambiguous: 0, memorized: 0)
-            secondView
+            reportDailyView
                 .bindstatusPercentLabel(difficult: 0, ambiguous: 0, memorized: 0)
             
         } else {
@@ -112,18 +112,18 @@ final class SecondViewController: BaseViewController {
             print("\(VocaBookData.shared.vocas[0].vocaDeck ?? "")단계")
             
             // levelLabel, dateLabel 바인딩
-            secondView.bindLevelAndDateLabel(level: "\(VocaBookData.shared.vocas[0].vocaDeck ?? "")단계",
+            reportDailyView.bindLevelAndDateLabel(level: "\(VocaBookData.shared.vocas[0].vocaDeck ?? "")단계",
                                              date: "\(components.year ?? 0)년 \(components.month ?? 0)월 \(components.day ?? 0)일")
             
             // statusBar 바인딩
-            secondView.reconfigureBarWidth(
+            reportDailyView.reconfigureBarWidth(
                 difficult: difficultBarWidth,
                 ambiguous: ambiguousBarWidth,
                 memorized: memorizedBarWidth
             )
             
             // statusPercentLabel 바인딩
-            secondView.bindstatusPercentLabel(
+            reportDailyView.bindstatusPercentLabel(
                 difficult: Int(difficultPercent * 100),
                 ambiguous: Int(ambiguousPercent * 100),
                 memorized: Int(memorizedPercent * 100)
@@ -134,10 +134,10 @@ final class SecondViewController: BaseViewController {
     
     private func configureAddTarget() {
         // yesterday 버튼
-        secondView.yesterDayButton.addTarget(self, action: #selector(tappedYesterdayButton), for: .touchUpInside)
+        reportDailyView.yesterDayButton.addTarget(self, action: #selector(tappedYesterdayButton), for: .touchUpInside)
         
         // tomorrow 버튼
-        secondView.tomorrowButton.addTarget(self, action: #selector(tappedTomorrowButton), for: .touchUpInside)
+        reportDailyView.tomorrowButton.addTarget(self, action: #selector(tappedTomorrowButton), for: .touchUpInside)
     }
     
     @objc func tappedYesterdayButton() {
@@ -145,7 +145,7 @@ final class SecondViewController: BaseViewController {
         let yesterdayDate = shiftDate(offset: -1, from: self.date)
         self.date = yesterdayDate
         self.bind(date: yesterdayDate)
-        secondView.vocaListTableView.reloadData()
+        reportDailyView.vocaListTableView.reloadData()
     }
     
     @objc func tappedTomorrowButton() {
@@ -153,7 +153,7 @@ final class SecondViewController: BaseViewController {
         let tomorrowDate = shiftDate(offset: 1, from: self.date)
         self.date = tomorrowDate
         self.bind(date: tomorrowDate)
-        secondView.vocaListTableView.reloadData()
+        reportDailyView.vocaListTableView.reloadData()
     }
     
     func shiftDate(offset: Int, from date: Date?) -> Date? {
@@ -166,7 +166,7 @@ final class SecondViewController: BaseViewController {
 }
 
 
-extension SecondViewController: UITableViewDataSource {
+extension ReportDailyViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return VocaBookData.shared.vocas.count
     }
@@ -181,7 +181,7 @@ extension SecondViewController: UITableViewDataSource {
 }
 
 
-extension SecondViewController: UITableViewDelegate {
+extension ReportDailyViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.rowHeight
     }
