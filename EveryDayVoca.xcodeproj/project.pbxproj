@@ -7,10 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A39333A2BF5CDD700F3B825 /* VocaListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3933392BF5CDD700F3B825 /* VocaListTableViewCell.swift */; };
+		1A39333D2BF60C5900F3B825 /* VocaBookVocaListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A39333C2BF60C5900F3B825 /* VocaBookVocaListView.swift */; };
+		1A3933402BF8B8AD00F3B825 /* VocaBookPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A39333F2BF8B8AD00F3B825 /* VocaBookPopoverView.swift */; };
+		1A3933422BF9EB2800F3B825 /* VocaBookFilterPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3933412BF9EB2800F3B825 /* VocaBookFilterPopoverViewController.swift */; };
+		1A3933442BF9F03500F3B825 /* VocaBookFilterPopoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3933432BF9F03500F3B825 /* VocaBookFilterPopoverTableViewCell.swift */; };
+		1A3933482BFA279700F3B825 /* VocaBookDisplayOptionPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3933472BFA279700F3B825 /* VocaBookDisplayOptionPopoverViewController.swift */; };
+		1A39334A2BFA27BE00F3B825 /* VocaBookDisplayOptionPopoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3933492BFA27BE00F3B825 /* VocaBookDisplayOptionPopoverTableViewCell.swift */; };
+		1A39334E2BFA80CD00F3B825 /* MyVocaFlashCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A39334D2BFA80CD00F3B825 /* MyVocaFlashCardView.swift */; };
+		1A3933502BFA834900F3B825 /* VocaBookBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A39334F2BFA834900F3B825 /* VocaBookBaseView.swift */; };
+		1A3933532BFAE08C00F3B825 /* MyVocaFlashCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3933522BFAE08B00F3B825 /* MyVocaFlashCardViewController.swift */; };
+		1A3933552BFB325700F3B825 /* VocaBookAddVocaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3933542BFB325700F3B825 /* VocaBookAddVocaViewController.swift */; };
+		1A3933572BFB32D300F3B825 /* VocaBookAddVocaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3933562BFB32D300F3B825 /* VocaBookAddVocaView.swift */; };
+		1A8582822BFDBD08008E7445 /* VocaBookData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8582812BFDBD08008E7445 /* VocaBookData.swift */; };
+		1A8582852BFE2231008E7445 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371D24332BF38AC1002B4DC5 /* BaseViewController.swift */; };
+		2E10E7E02BFA94000049E1AB /* FlashAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E10E7DF2BFA94000049E1AB /* FlashAlertView.swift */; };
+		2E1C30FF2BFC315E00CB6DDE /* Voca+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30F92BFC315E00CB6DDE /* Voca+CoreDataClass.swift */; };
+		2E1C31002BFC315E00CB6DDE /* Voca+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30FA2BFC315E00CB6DDE /* Voca+CoreDataProperties.swift */; };
+		2E1C31012BFC315E00CB6DDE /* VocaDate+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30FB2BFC315E00CB6DDE /* VocaDate+CoreDataClass.swift */; };
+		2E1C31022BFC315E00CB6DDE /* VocaDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30FC2BFC315E00CB6DDE /* VocaDate+CoreDataProperties.swift */; };
+		2E1C31032BFC315E00CB6DDE /* VocaDeck+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30FD2BFC315E00CB6DDE /* VocaDeck+CoreDataClass.swift */; };
+		2E1C31042BFC315E00CB6DDE /* VocaDeck+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30FE2BFC315E00CB6DDE /* VocaDeck+CoreDataProperties.swift */; };
+		2E1C31192BFCAB4800CB6DDE /* EveryDayVocaData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2E1C31182BFCAB4800CB6DDE /* EveryDayVocaData.csv */; };
+		2E3A246D2BFD9D3100EF2738 /* TTS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3A246C2BFD9D3100EF2738 /* TTS.swift */; };
+		2E571B362BFED09E006ED80E /* StudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E571B332BFED09E006ED80E /* StudyViewController.swift */; };
+		2E571B372BFED09E006ED80E /* FlashAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E571B342BFED09E006ED80E /* FlashAlertViewController.swift */; };
+		2E571B382BFED09E006ED80E /* FlashCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E571B352BFED09E006ED80E /* FlashCardViewController.swift */; };
+		2E571B3C2BFED102006ED80E /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E571B3B2BFED102006ED80E /* ReportViewController.swift */; };
+		2E571B3E2BFED131006ED80E /* VocaBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E571B3D2BFED131006ED80E /* VocaBookViewController.swift */; };
+		2E571B412BFED164006ED80E /* ManagementAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E571B3F2BFED164006ED80E /* ManagementAlertViewController.swift */; };
+		2E571B422BFED164006ED80E /* ManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E571B402BFED164006ED80E /* ManagementViewController.swift */; };
+		2E571B432BFED211006ED80E /* VocaCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E45B8032BFB5C2000BDFFEC /* VocaCoreDataManager.swift */; };
+		2E571B482BFEFD0B006ED80E /* StudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E571B472BFEFD0B006ED80E /* StudyView.swift */; };
+		2E9DED9B2BF50C4500A85C42 /* FlashCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DED9A2BF50C4500A85C42 /* FlashCardView.swift */; };
+		2E9DEDD72BF9FD6800A85C42 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DEDD62BF9FD6800A85C42 /* Status.swift */; };
+		2E9DEDD92BFA167700A85C42 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DEDD82BFA167700A85C42 /* CardView.swift */; };
+		2E9DEDE22BFA77C900A85C42 /* Shuffle in Frameworks */ = {isa = PBXBuildFile; productRef = 2E9DEDE12BFA77C900A85C42 /* Shuffle */; };
 		371D24322BF37ED7002B4DC5 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371D24312BF37ED7002B4DC5 /* BaseView.swift */; };
-		371D24342BF38AC1002B4DC5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371D24332BF38AC1002B4DC5 /* BaseViewController.swift */; };
-		3759452B2BFC6420001A7485 /* StudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3759452A2BFC6420001A7485 /* StudyView.swift */; };
-		3759452E2BFC6536001A7485 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 3759452D2BFC6536001A7485 /* DGCharts */; };
+		372712002BFA16FA00573AC4 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372711FF2BFA16FA00573AC4 /* BaseCollectionViewCell.swift */; };
+		3727120A2BFBC2DD00573AC4 /* ManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372712092BFBC2DD00573AC4 /* ManagementView.swift */; };
+		3727120C2BFBC31500573AC4 /* ManagementAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3727120B2BFBC31500573AC4 /* ManagementAlertView.swift */; };
+		372712122BFBCA5000573AC4 /* ManagementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372712112BFBCA5000573AC4 /* ManagementCell.swift */; };
 		375945302BFD27AE001A7485 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3759452F2BFD27AE001A7485 /* UIView+Extension.swift */; };
 		375945322BFD2896001A7485 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375945312BFD2896001A7485 /* UILabel+Extension.swift */; };
 		375945342BFD29E6001A7485 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375945332BFD29E6001A7485 /* UIButton+Extension.swift */; };
@@ -21,10 +58,6 @@
 		37D777182BF30E460078D6E8 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 37D777172BF30E460078D6E8 /* .gitignore */; };
 		37D7771B2BF30EAC0078D6E8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 37D7771A2BF30EAC0078D6E8 /* SnapKit */; };
 		37D7771E2BF30ECD0078D6E8 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 37D7771D2BF30ECD0078D6E8 /* Then */; };
-		37D777242BF31DED0078D6E8 /* VocaBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D777232BF31DED0078D6E8 /* VocaBookViewController.swift */; };
-		37D777262BF31E390078D6E8 /* StudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D777252BF31E390078D6E8 /* StudyViewController.swift */; };
-		37D777282BF31E640078D6E8 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D777272BF31E640078D6E8 /* ReportViewController.swift */; };
-		37D7772A2BF31E700078D6E8 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D777292BF31E700078D6E8 /* UserViewController.swift */; };
 		37D777372BF34C400078D6E8 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37D7772E2BF34C400078D6E8 /* Pretendard-Bold.otf */; };
 		37D777382BF34C400078D6E8 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37D7772F2BF34C400078D6E8 /* Pretendard-Black.otf */; };
 		37D777392BF34C400078D6E8 /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37D777302BF34C400078D6E8 /* Pretendard-ExtraLight.otf */; };
@@ -35,12 +68,57 @@
 		37D7773E2BF34C400078D6E8 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37D777352BF34C400078D6E8 /* Pretendard-Medium.otf */; };
 		37D7773F2BF34C400078D6E8 /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37D777362BF34C400078D6E8 /* Pretendard-Thin.otf */; };
 		37D777422BF34DED0078D6E8 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D777412BF34DED0078D6E8 /* UIFont+Extension.swift */; };
+		62F3A8D42BFD37C90002508D /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A8D32BFD37C90002508D /* UserView.swift */; };
+		62F3A8D62BFD37DA0002508D /* UserModifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A8D52BFD37DA0002508D /* UserModifyView.swift */; };
+		62F3A8D82BFD38350002508D /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A8D72BFD38350002508D /* ReportView.swift */; };
+		62F3A8DF2BFD39260002508D /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A8DE2BFD39260002508D /* UserDefaultsManager.swift */; };
+		62F3A8E22BFD396B0002508D /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 62F3A8E12BFD396B0002508D /* DGCharts */; };
+		62F3A91F2BFE2C920002508D /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A91D2BFE2C920002508D /* UserViewController.swift */; };
+		62F3A9202BFE2C920002508D /* UserModifyViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A91E2BFE2C920002508D /* UserModifyViewViewController.swift */; };
+		62F3A9232BFE2CA30002508D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A9212BFE2CA30002508D /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A3933392BF5CDD700F3B825 /* VocaListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaListTableViewCell.swift; sourceTree = "<group>"; };
+		1A39333C2BF60C5900F3B825 /* VocaBookVocaListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookVocaListView.swift; sourceTree = "<group>"; };
+		1A39333F2BF8B8AD00F3B825 /* VocaBookPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookPopoverView.swift; sourceTree = "<group>"; };
+		1A3933412BF9EB2800F3B825 /* VocaBookFilterPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookFilterPopoverViewController.swift; sourceTree = "<group>"; };
+		1A3933432BF9F03500F3B825 /* VocaBookFilterPopoverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookFilterPopoverTableViewCell.swift; sourceTree = "<group>"; };
+		1A3933472BFA279700F3B825 /* VocaBookDisplayOptionPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookDisplayOptionPopoverViewController.swift; sourceTree = "<group>"; };
+		1A3933492BFA27BE00F3B825 /* VocaBookDisplayOptionPopoverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookDisplayOptionPopoverTableViewCell.swift; sourceTree = "<group>"; };
+		1A39334D2BFA80CD00F3B825 /* MyVocaFlashCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyVocaFlashCardView.swift; sourceTree = "<group>"; };
+		1A39334F2BFA834900F3B825 /* VocaBookBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookBaseView.swift; sourceTree = "<group>"; };
+		1A3933522BFAE08B00F3B825 /* MyVocaFlashCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyVocaFlashCardViewController.swift; sourceTree = "<group>"; };
+		1A3933542BFB325700F3B825 /* VocaBookAddVocaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookAddVocaViewController.swift; sourceTree = "<group>"; };
+		1A3933562BFB32D300F3B825 /* VocaBookAddVocaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookAddVocaView.swift; sourceTree = "<group>"; };
+		1A8582812BFDBD08008E7445 /* VocaBookData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookData.swift; sourceTree = "<group>"; };
+		2E10E7DF2BFA94000049E1AB /* FlashAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashAlertView.swift; sourceTree = "<group>"; };
+		2E1C30F92BFC315E00CB6DDE /* Voca+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Voca+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2E1C30FA2BFC315E00CB6DDE /* Voca+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Voca+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2E1C30FB2BFC315E00CB6DDE /* VocaDate+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VocaDate+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2E1C30FC2BFC315E00CB6DDE /* VocaDate+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VocaDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2E1C30FD2BFC315E00CB6DDE /* VocaDeck+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VocaDeck+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2E1C30FE2BFC315E00CB6DDE /* VocaDeck+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VocaDeck+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2E1C31182BFCAB4800CB6DDE /* EveryDayVocaData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EveryDayVocaData.csv; sourceTree = "<group>"; };
+		2E3A246C2BFD9D3100EF2738 /* TTS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTS.swift; sourceTree = "<group>"; };
+		2E45B8032BFB5C2000BDFFEC /* VocaCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaCoreDataManager.swift; sourceTree = "<group>"; };
+		2E571B332BFED09E006ED80E /* StudyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyViewController.swift; sourceTree = "<group>"; };
+		2E571B342BFED09E006ED80E /* FlashAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlashAlertViewController.swift; sourceTree = "<group>"; };
+		2E571B352BFED09E006ED80E /* FlashCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlashCardViewController.swift; sourceTree = "<group>"; };
+		2E571B3B2BFED102006ED80E /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		2E571B3D2BFED131006ED80E /* VocaBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocaBookViewController.swift; sourceTree = "<group>"; };
+		2E571B3F2BFED164006ED80E /* ManagementAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagementAlertViewController.swift; sourceTree = "<group>"; };
+		2E571B402BFED164006ED80E /* ManagementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagementViewController.swift; sourceTree = "<group>"; };
+		2E571B472BFEFD0B006ED80E /* StudyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyView.swift; sourceTree = "<group>"; };
+		2E9DED9A2BF50C4500A85C42 /* FlashCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardView.swift; sourceTree = "<group>"; };
+		2E9DEDD62BF9FD6800A85C42 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		2E9DEDD82BFA167700A85C42 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		371D24312BF37ED7002B4DC5 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		371D24332BF38AC1002B4DC5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		3759452A2BFC6420001A7485 /* StudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyView.swift; sourceTree = "<group>"; };
+		372711FF2BFA16FA00573AC4 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		372712092BFBC2DD00573AC4 /* ManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementView.swift; sourceTree = "<group>"; };
+		3727120B2BFBC31500573AC4 /* ManagementAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementAlertView.swift; sourceTree = "<group>"; };
+		372712112BFBCA5000573AC4 /* ManagementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementCell.swift; sourceTree = "<group>"; };
 		3759452F2BFD27AE001A7485 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		375945312BFD2896001A7485 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		375945332BFD29E6001A7485 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
@@ -51,10 +129,6 @@
 		37D7770A2BF30DBE0078D6E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37D7770F2BF30DBE0078D6E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37D777172BF30E460078D6E8 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		37D777232BF31DED0078D6E8 /* VocaBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookViewController.swift; sourceTree = "<group>"; };
-		37D777252BF31E390078D6E8 /* StudyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyViewController.swift; sourceTree = "<group>"; };
-		37D777272BF31E640078D6E8 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
-		37D777292BF31E700078D6E8 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		37D7772E2BF34C400078D6E8 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		37D7772F2BF34C400078D6E8 /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		37D777302BF34C400078D6E8 /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
@@ -65,6 +139,13 @@
 		37D777352BF34C400078D6E8 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		37D777362BF34C400078D6E8 /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		37D777412BF34DED0078D6E8 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		62F3A8D32BFD37C90002508D /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		62F3A8D52BFD37DA0002508D /* UserModifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModifyView.swift; sourceTree = "<group>"; };
+		62F3A8D72BFD38350002508D /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
+		62F3A8DE2BFD39260002508D /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		62F3A91D2BFE2C920002508D /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		62F3A91E2BFE2C920002508D /* UserModifyViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModifyViewViewController.swift; sourceTree = "<group>"; };
+		62F3A9212BFE2CA30002508D /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,8 +153,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62F3A8E22BFD396B0002508D /* DGCharts in Frameworks */,
+				2E9DEDE22BFA77C900A85C42 /* Shuffle in Frameworks */,
 				37D7771B2BF30EAC0078D6E8 /* SnapKit in Frameworks */,
-				3759452E2BFC6536001A7485 /* DGCharts in Frameworks */,
 				37D7771E2BF30ECD0078D6E8 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -81,12 +163,185 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A39333B2BF60B7300F3B825 /* VocaBook */ = {
+			isa = PBXGroup;
+			children = (
+				1A8582872BFE23A9008E7445 /* MyVocaBook */,
+				1A8582862BFE2367008E7445 /* Management */,
+			);
+			path = VocaBook;
+			sourceTree = "<group>";
+		};
+		1A39333E2BF7483300F3B825 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				1A3933392BF5CDD700F3B825 /* VocaListTableViewCell.swift */,
+				1A39334D2BFA80CD00F3B825 /* MyVocaFlashCardView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		1A3933452BF9F30500F3B825 /* Popover */ = {
+			isa = PBXGroup;
+			children = (
+				1A39333F2BF8B8AD00F3B825 /* VocaBookPopoverView.swift */,
+				1A3933432BF9F03500F3B825 /* VocaBookFilterPopoverTableViewCell.swift */,
+				1A3933492BFA27BE00F3B825 /* VocaBookDisplayOptionPopoverTableViewCell.swift */,
+			);
+			path = Popover;
+			sourceTree = "<group>";
+		};
+		1A3933462BFA276500F3B825 /* Popover */ = {
+			isa = PBXGroup;
+			children = (
+				1A3933412BF9EB2800F3B825 /* VocaBookFilterPopoverViewController.swift */,
+				1A3933472BFA279700F3B825 /* VocaBookDisplayOptionPopoverViewController.swift */,
+			);
+			path = Popover;
+			sourceTree = "<group>";
+		};
+		1A39334B2BFA7E8200F3B825 /* VocaBook */ = {
+			isa = PBXGroup;
+			children = (
+				1A8582892BFE2899008E7445 /* MyVocaBook */,
+				1A85828A2BFE28AA008E7445 /* Management */,
+			);
+			path = VocaBook;
+			sourceTree = "<group>";
+		};
+		1A3933512BFAE07100F3B825 /* MyVocaFlashCard */ = {
+			isa = PBXGroup;
+			children = (
+				1A3933522BFAE08B00F3B825 /* MyVocaFlashCardViewController.swift */,
+			);
+			path = MyVocaFlashCard;
+			sourceTree = "<group>";
+		};
+		1A7577052BFCBC6400D88D29 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				1A3933512BFAE07100F3B825 /* MyVocaFlashCard */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		1A8582862BFE2367008E7445 /* Management */ = {
+			isa = PBXGroup;
+			children = (
+				372712112BFBCA5000573AC4 /* ManagementCell.swift */,
+				372712092BFBC2DD00573AC4 /* ManagementView.swift */,
+				3727120B2BFBC31500573AC4 /* ManagementAlertView.swift */,
+			);
+			path = Management;
+			sourceTree = "<group>";
+		};
+		1A8582872BFE23A9008E7445 /* MyVocaBook */ = {
+			isa = PBXGroup;
+			children = (
+				1A39334F2BFA834900F3B825 /* VocaBookBaseView.swift */,
+				1A39333C2BF60C5900F3B825 /* VocaBookVocaListView.swift */,
+				1A3933562BFB32D300F3B825 /* VocaBookAddVocaView.swift */,
+				1A3933452BF9F30500F3B825 /* Popover */,
+			);
+			path = MyVocaBook;
+			sourceTree = "<group>";
+		};
+		1A8582882BFE24FF008E7445 /* FlashCard */ = {
+			isa = PBXGroup;
+			children = (
+				2E9DEDD82BFA167700A85C42 /* CardView.swift */,
+				2E9DED9A2BF50C4500A85C42 /* FlashCardView.swift */,
+				2E10E7DF2BFA94000049E1AB /* FlashAlertView.swift */,
+			);
+			path = FlashCard;
+			sourceTree = "<group>";
+		};
+		1A8582892BFE2899008E7445 /* MyVocaBook */ = {
+			isa = PBXGroup;
+			children = (
+				2E571B3D2BFED131006ED80E /* VocaBookViewController.swift */,
+				1A8582812BFDBD08008E7445 /* VocaBookData.swift */,
+				1A3933542BFB325700F3B825 /* VocaBookAddVocaViewController.swift */,
+				1A3933462BFA276500F3B825 /* Popover */,
+			);
+			path = MyVocaBook;
+			sourceTree = "<group>";
+		};
+		1A85828A2BFE28AA008E7445 /* Management */ = {
+			isa = PBXGroup;
+			children = (
+				2E571B3F2BFED164006ED80E /* ManagementAlertViewController.swift */,
+				2E571B402BFED164006ED80E /* ManagementViewController.swift */,
+			);
+			path = Management;
+			sourceTree = "<group>";
+		};
+		2E1C31092BFC914700CB6DDE /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				2E45B8032BFB5C2000BDFFEC /* VocaCoreDataManager.swift */,
+				2E1C30F92BFC315E00CB6DDE /* Voca+CoreDataClass.swift */,
+				2E1C30FA2BFC315E00CB6DDE /* Voca+CoreDataProperties.swift */,
+				2E1C30FB2BFC315E00CB6DDE /* VocaDate+CoreDataClass.swift */,
+				2E1C30FC2BFC315E00CB6DDE /* VocaDate+CoreDataProperties.swift */,
+				2E1C30FD2BFC315E00CB6DDE /* VocaDeck+CoreDataClass.swift */,
+				2E1C30FE2BFC315E00CB6DDE /* VocaDeck+CoreDataProperties.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		2E571B442BFED6FF006ED80E /* FlashCard */ = {
+			isa = PBXGroup;
+			children = (
+				2E571B342BFED09E006ED80E /* FlashAlertViewController.swift */,
+				2E571B352BFED09E006ED80E /* FlashCardViewController.swift */,
+			);
+			path = FlashCard;
+			sourceTree = "<group>";
+		};
+		2E571B452BFED778006ED80E /* Study */ = {
+			isa = PBXGroup;
+			children = (
+				2E571B332BFED09E006ED80E /* StudyViewController.swift */,
+				2E571B442BFED6FF006ED80E /* FlashCard */,
+			);
+			path = Study;
+			sourceTree = "<group>";
+		};
+		2E571B462BFEFC44006ED80E /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		2E9DED9E2BF62AAA00A85C42 /* Study */ = {
+			isa = PBXGroup;
+			children = (
+				2E571B472BFEFD0B006ED80E /* StudyView.swift */,
+				1A8582882BFE24FF008E7445 /* FlashCard */,
+			);
+			path = Study;
+			sourceTree = "<group>";
+		};
+		2ED013D42BFB381D0028EC1B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				62F3A8DD2BFD390B0002508D /* UserDefaults */,
+				2E1C31092BFC914700CB6DDE /* CoreData */,
+				2E9DEDD62BF9FD6800A85C42 /* Status.swift */,
+				2E3A246C2BFD9D3100EF2738 /* TTS.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		37D776F22BF30DBD0078D6E8 = {
 			isa = PBXGroup;
 			children = (
 				37D777172BF30E460078D6E8 /* .gitignore */,
 				37D776FD2BF30DBD0078D6E8 /* EveryDayVoca */,
 				37D776FC2BF30DBD0078D6E8 /* Products */,
+				2E571B462BFEFC44006ED80E /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,10 +356,12 @@
 		37D776FD2BF30DBD0078D6E8 /* EveryDayVoca */ = {
 			isa = PBXGroup;
 			children = (
+				2E1C31182BFCAB4800CB6DDE /* EveryDayVocaData.csv */,
 				37D776FE2BF30DBD0078D6E8 /* AppDelegate.swift */,
 				37D777002BF30DBD0078D6E8 /* SceneDelegate.swift */,
-				37D777402BF34CFA0078D6E8 /* Extensions */,
 				37D7772D2BF34BF30078D6E8 /* Fonts */,
+				37D777402BF34CFA0078D6E8 /* Extensions */,
+				2ED013D42BFB381D0028EC1B /* Model */,
 				37D777432BF357400078D6E8 /* Views */,
 				37D777222BF31C800078D6E8 /* Controllers */,
 				37D7770A2BF30DBE0078D6E8 /* Assets.xcassets */,
@@ -117,10 +374,11 @@
 		37D777222BF31C800078D6E8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				37D777232BF31DED0078D6E8 /* VocaBookViewController.swift */,
-				37D777252BF31E390078D6E8 /* StudyViewController.swift */,
-				37D777272BF31E640078D6E8 /* ReportViewController.swift */,
-				37D777292BF31E700078D6E8 /* UserViewController.swift */,
+				1A7577052BFCBC6400D88D29 /* Common */,
+				1A39334B2BFA7E8200F3B825 /* VocaBook */,
+				2E571B452BFED778006ED80E /* Study */,
+				62F3A9252BFE2D8F0002508D /* Report */,
+				62F3A9262BFE2DA00002508D /* User */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -156,7 +414,11 @@
 			isa = PBXGroup;
 			children = (
 				37D777442BF37E9F0078D6E8 /* Bases */,
-				3759452A2BFC6420001A7485 /* StudyView.swift */,
+				62F3A8D22BFD378A0002508D /* User */,
+				62F3A8D12BFD377E0002508D /* Report */,
+				2E9DED9E2BF62AAA00A85C42 /* Study */,
+				1A39333B2BF60B7300F3B825 /* VocaBook */,
+				1A39333E2BF7483300F3B825 /* Common */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -166,8 +428,52 @@
 			children = (
 				371D24312BF37ED7002B4DC5 /* BaseView.swift */,
 				371D24332BF38AC1002B4DC5 /* BaseViewController.swift */,
+				372711FF2BFA16FA00573AC4 /* BaseCollectionViewCell.swift */,
 			);
 			path = Bases;
+			sourceTree = "<group>";
+		};
+		62F3A8D12BFD377E0002508D /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				62F3A8D72BFD38350002508D /* ReportView.swift */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
+		62F3A8D22BFD378A0002508D /* User */ = {
+			isa = PBXGroup;
+			children = (
+				62F3A8D32BFD37C90002508D /* UserView.swift */,
+				62F3A8D52BFD37DA0002508D /* UserModifyView.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		62F3A8DD2BFD390B0002508D /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				62F3A8DE2BFD39260002508D /* UserDefaultsManager.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		62F3A9252BFE2D8F0002508D /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				2E571B3B2BFED102006ED80E /* ReportViewController.swift */,
+				62F3A9212BFE2CA30002508D /* SecondViewController.swift */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
+		62F3A9262BFE2DA00002508D /* User */ = {
+			isa = PBXGroup;
+			children = (
+				62F3A91D2BFE2C920002508D /* UserViewController.swift */,
+				62F3A91E2BFE2C920002508D /* UserModifyViewViewController.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,7 +495,8 @@
 			packageProductDependencies = (
 				37D7771A2BF30EAC0078D6E8 /* SnapKit */,
 				37D7771D2BF30ECD0078D6E8 /* Then */,
-				3759452D2BFC6536001A7485 /* DGCharts */,
+				62F3A8E12BFD396B0002508D /* DGCharts */,
+				2E9DEDE12BFA77C900A85C42 /* Shuffle */,
 			);
 			productName = EveryDayVoca;
 			productReference = 37D776FB2BF30DBD0078D6E8 /* EveryDayVoca.app */;
@@ -222,7 +529,8 @@
 			packageReferences = (
 				37D777192BF30EAB0078D6E8 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				37D7771C2BF30ECD0078D6E8 /* XCRemoteSwiftPackageReference "Then" */,
-				3759452C2BFC6536001A7485 /* XCRemoteSwiftPackageReference "Charts" */,
+				2E9DEDE02BFA77C900A85C42 /* XCRemoteSwiftPackageReference "Shuffle" */,
+				62F3A8E02BFD396B0002508D /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 37D776FC2BF30DBD0078D6E8 /* Products */;
 			projectDirPath = "";
@@ -244,6 +552,7 @@
 				37D7773A2BF34C400078D6E8 /* Pretendard-ExtraBold.otf in Resources */,
 				37D777392BF34C400078D6E8 /* Pretendard-ExtraLight.otf in Resources */,
 				37D7773B2BF34C400078D6E8 /* Pretendard-Light.otf in Resources */,
+				2E1C31192BFCAB4800CB6DDE /* EveryDayVocaData.csv in Resources */,
 				37D7773C2BF34C400078D6E8 /* Pretendard-Regular.otf in Resources */,
 				37D7773D2BF34C400078D6E8 /* Pretendard-SemiBold.otf in Resources */,
 				37D777382BF34C400078D6E8 /* Pretendard-Black.otf in Resources */,
@@ -259,19 +568,58 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37D7772A2BF31E700078D6E8 /* UserViewController.swift in Sources */,
+				2E571B432BFED211006ED80E /* VocaCoreDataManager.swift in Sources */,
+				1A8582852BFE2231008E7445 /* BaseViewController.swift in Sources */,
+				1A3933532BFAE08C00F3B825 /* MyVocaFlashCardViewController.swift in Sources */,
+				2E571B372BFED09E006ED80E /* FlashAlertViewController.swift in Sources */,
+				2E9DEDD92BFA167700A85C42 /* CardView.swift in Sources */,
+				62F3A8D62BFD37DA0002508D /* UserModifyView.swift in Sources */,
+				2E571B382BFED09E006ED80E /* FlashCardViewController.swift in Sources */,
+				1A3933402BF8B8AD00F3B825 /* VocaBookPopoverView.swift in Sources */,
+				1A39334E2BFA80CD00F3B825 /* MyVocaFlashCardView.swift in Sources */,
 				37D776FF2BF30DBD0078D6E8 /* AppDelegate.swift in Sources */,
 				37D777012BF30DBD0078D6E8 /* SceneDelegate.swift in Sources */,
+				2E571B362BFED09E006ED80E /* StudyViewController.swift in Sources */,
+				2E1C30FF2BFC315E00CB6DDE /* Voca+CoreDataClass.swift in Sources */,
+				2E1C31002BFC315E00CB6DDE /* Voca+CoreDataProperties.swift in Sources */,
+				1A8582822BFDBD08008E7445 /* VocaBookData.swift in Sources */,
+				2E1C31012BFC315E00CB6DDE /* VocaDate+CoreDataClass.swift in Sources */,
+				2E1C31022BFC315E00CB6DDE /* VocaDate+CoreDataProperties.swift in Sources */,
+				2E1C31032BFC315E00CB6DDE /* VocaDeck+CoreDataClass.swift in Sources */,
+				2E1C31042BFC315E00CB6DDE /* VocaDeck+CoreDataProperties.swift in Sources */,
+				2E3A246D2BFD9D3100EF2738 /* TTS.swift in Sources */,
+				2E571B422BFED164006ED80E /* ManagementViewController.swift in Sources */,
 				37D777092BF30DBD0078D6E8 /* EveryDayVoca.xcdatamodeld in Sources */,
-				37D777262BF31E390078D6E8 /* StudyViewController.swift in Sources */,
-				371D24342BF38AC1002B4DC5 /* BaseViewController.swift in Sources */,
+				62F3A9202BFE2C920002508D /* UserModifyViewViewController.swift in Sources */,
+				1A3933502BFA834900F3B825 /* VocaBookBaseView.swift in Sources */,
+				1A39333D2BF60C5900F3B825 /* VocaBookVocaListView.swift in Sources */,
+				1A3933482BFA279700F3B825 /* VocaBookDisplayOptionPopoverViewController.swift in Sources */,
+				1A3933552BFB325700F3B825 /* VocaBookAddVocaViewController.swift in Sources */,
+				3727120C2BFBC31500573AC4 /* ManagementAlertView.swift in Sources */,
+				2E571B412BFED164006ED80E /* ManagementAlertViewController.swift in Sources */,
+				2E9DED9B2BF50C4500A85C42 /* FlashCardView.swift in Sources */,
+				2E10E7E02BFA94000049E1AB /* FlashAlertView.swift in Sources */,
+				62F3A9232BFE2CA30002508D /* SecondViewController.swift in Sources */,
+				62F3A91F2BFE2C920002508D /* UserViewController.swift in Sources */,
+				62F3A8D82BFD38350002508D /* ReportView.swift in Sources */,
+				2E571B3C2BFED102006ED80E /* ReportViewController.swift in Sources */,
+				62F3A8DF2BFD39260002508D /* UserDefaultsManager.swift in Sources */,
+				62F3A8D42BFD37C90002508D /* UserView.swift in Sources */,
+				2E571B3E2BFED131006ED80E /* VocaBookViewController.swift in Sources */,
 				375945302BFD27AE001A7485 /* UIView+Extension.swift in Sources */,
-				37D777242BF31DED0078D6E8 /* VocaBookViewController.swift in Sources */,
-				3759452B2BFC6420001A7485 /* StudyView.swift in Sources */,
+				2E571B482BFEFD0B006ED80E /* StudyView.swift in Sources */,
 				371D24322BF37ED7002B4DC5 /* BaseView.swift in Sources */,
+				1A3933572BFB32D300F3B825 /* VocaBookAddVocaView.swift in Sources */,
+				1A3933422BF9EB2800F3B825 /* VocaBookFilterPopoverViewController.swift in Sources */,
+				1A3933442BF9F03500F3B825 /* VocaBookFilterPopoverTableViewCell.swift in Sources */,
+				1A39334A2BFA27BE00F3B825 /* VocaBookDisplayOptionPopoverTableViewCell.swift in Sources */,
+				1A39333A2BF5CDD700F3B825 /* VocaListTableViewCell.swift in Sources */,
+				3727120A2BFBC2DD00573AC4 /* ManagementView.swift in Sources */,
+				2E9DEDD72BF9FD6800A85C42 /* Status.swift in Sources */,
 				37D777422BF34DED0078D6E8 /* UIFont+Extension.swift in Sources */,
+				372712122BFBCA5000573AC4 /* ManagementCell.swift in Sources */,
+				372712002BFA16FA00573AC4 /* BaseCollectionViewCell.swift in Sources */,
 				375945322BFD2896001A7485 /* UILabel+Extension.swift in Sources */,
-				37D777282BF31E640078D6E8 /* ReportViewController.swift in Sources */,
 				375945342BFD29E6001A7485 /* UIButton+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,6 +753,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 79LSKHWYJ8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EveryDayVoca/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -437,6 +786,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 79LSKHWYJ8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EveryDayVoca/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -486,12 +836,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		3759452C2BFC6536001A7485 /* XCRemoteSwiftPackageReference "Charts" */ = {
+		2E9DEDE02BFA77C900A85C42 /* XCRemoteSwiftPackageReference "Shuffle" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ChartsOrg/Charts";
+			repositoryURL = "https://github.com/mac-gallagher/Shuffle.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.1.0;
+				branch = master;
+				kind = branch;
 			};
 		};
 		37D777192BF30EAB0078D6E8 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
@@ -510,13 +860,21 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		62F3A8E02BFD396B0002508D /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ChartsOrg/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3759452D2BFC6536001A7485 /* DGCharts */ = {
+		2E9DEDE12BFA77C900A85C42 /* Shuffle */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3759452C2BFC6536001A7485 /* XCRemoteSwiftPackageReference "Charts" */;
-			productName = DGCharts;
+			package = 2E9DEDE02BFA77C900A85C42 /* XCRemoteSwiftPackageReference "Shuffle" */;
+			productName = Shuffle;
 		};
 		37D7771A2BF30EAC0078D6E8 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -527,6 +885,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 37D7771C2BF30ECD0078D6E8 /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		62F3A8E12BFD396B0002508D /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62F3A8E02BFD396B0002508D /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
 		};
 /* End XCSwiftPackageProductDependency section */
 

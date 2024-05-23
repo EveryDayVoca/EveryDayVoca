@@ -1,13 +1,22 @@
 {
-  "originHash" : "28e11abf0f095bc99cf04ec96cf65d3f5222d3b627d6a65d365e564899363267",
+  "originHash" : "8fcec1c32029f317dec38f6d98b52c4df1a9f6ed933f13e95e31afa1a9c8454b",
   "pins" : [
     {
       "identity" : "charts",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/ChartsOrg/Charts",
+      "location" : "https://github.com/ChartsOrg/Charts.git",
       "state" : {
         "revision" : "dd9c72e3d7e751e769971092a6bd72d39198ae63",
         "version" : "5.1.0"
+      }
+    },
+    {
+      "identity" : "shuffle",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mac-gallagher/Shuffle.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "df246b9cd6b8b5e021b23c80706b4a4571785c1b"
       }
     },
     {
