@@ -178,7 +178,8 @@ class SecondView: BaseView {
         }
     }
     
-    func bindDateLabel(date: String) {
+    func bindLevelAndDateLabel(level: String, date: String) {
+        levelLabel.text = level
         dateLabel.text = date
     }
     

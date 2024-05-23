@@ -32,6 +32,7 @@ final class SecondViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
+        secondView.vocaListTableView.reloadData()
         print("viewWillAppear")
     }
     
@@ -96,8 +97,9 @@ final class SecondViewController: BaseViewController {
         let ambiguousBarWidth = (ambiguousPercent + memorizedPercent) * statusBarWidth
         let memorizedBarWidth = memorizedPercent * statusBarWidth
         
-        // dateLabel
-        secondView.bindDateLabel(date: "\(dateComponents?.year ?? 0)년 \(dateComponents?.month ?? 0)월 \(dateComponents?.day ?? 0)일")
+        // levelLabel, dateLabel
+        secondView.bindLevelAndDateLabel(level: "\(vocas[0].vocaDeck ?? "")단계",
+                                         date: "\(dateComponents?.year ?? 0)년 \(dateComponents?.month ?? 0)월 \(dateComponents?.day ?? 0)일")
         
         // statusBar
         secondView.reconfigureBarWidth(
