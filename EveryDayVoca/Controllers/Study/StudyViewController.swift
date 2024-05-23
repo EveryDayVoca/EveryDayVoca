@@ -34,6 +34,7 @@ final class StudyViewController: BaseViewController {
     
     private func configureNavigation() {
         navigationItem.titleView = studyView.titleLabel
+        studyView.vocaStudyButton.addTarget(self, action: #selector(tappedPracticeButton), for: .touchUpInside)
     }
     
     private func configureChart(values: [Double]) {
@@ -52,4 +53,15 @@ final class StudyViewController: BaseViewController {
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
         // To Do -> 뷰에 바인딩 PieChartData(dataSet: pieChartDataSet)
     }
+    
+    @objc func tappedPracticeButton() {
+        let nextVC = FlashCardViewController()
+        self.navigationController?.pushViewController(nextVC, animated: false)
+      }
+
+
+
+
+
+
 }
