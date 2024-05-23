@@ -21,6 +21,7 @@
 		1A3933572BFB32D300F3B825 /* VocaBookAddVocaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3933562BFB32D300F3B825 /* VocaBookAddVocaView.swift */; };
 		1A8582822BFDBD08008E7445 /* VocaBookData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8582812BFDBD08008E7445 /* VocaBookData.swift */; };
 		1A8582852BFE2231008E7445 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371D24332BF38AC1002B4DC5 /* BaseViewController.swift */; };
+		1A85828E2BFF097C008E7445 /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A85828D2BFF097C008E7445 /* SecondView.swift */; };
 		2E10E7E02BFA94000049E1AB /* FlashAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E10E7DF2BFA94000049E1AB /* FlashAlertView.swift */; };
 		2E1C30FF2BFC315E00CB6DDE /* Voca+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30F92BFC315E00CB6DDE /* Voca+CoreDataClass.swift */; };
 		2E1C31002BFC315E00CB6DDE /* Voca+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30FA2BFC315E00CB6DDE /* Voca+CoreDataProperties.swift */; };
@@ -94,6 +95,7 @@
 		1A3933542BFB325700F3B825 /* VocaBookAddVocaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookAddVocaViewController.swift; sourceTree = "<group>"; };
 		1A3933562BFB32D300F3B825 /* VocaBookAddVocaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookAddVocaView.swift; sourceTree = "<group>"; };
 		1A8582812BFDBD08008E7445 /* VocaBookData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookData.swift; sourceTree = "<group>"; };
+		1A85828D2BFF097C008E7445 /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
 		2E10E7DF2BFA94000049E1AB /* FlashAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashAlertView.swift; sourceTree = "<group>"; };
 		2E1C30F92BFC315E00CB6DDE /* Voca+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Voca+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2E1C30FA2BFC315E00CB6DDE /* Voca+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Voca+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -443,6 +445,7 @@
 			isa = PBXGroup;
 			children = (
 				62F3A8D72BFD38350002508D /* ReportView.swift */,
+				1A85828D2BFF097C008E7445 /* SecondView.swift */,
 			);
 			path = Report;
 			sourceTree = "<group>";
@@ -605,6 +608,7 @@
 				3727120C2BFBC31500573AC4 /* ManagementAlertView.swift in Sources */,
 				2E571B412BFED164006ED80E /* ManagementAlertViewController.swift in Sources */,
 				2E9DED9B2BF50C4500A85C42 /* FlashCardView.swift in Sources */,
+				1A85828E2BFF097C008E7445 /* SecondView.swift in Sources */,
 				2E10E7E02BFA94000049E1AB /* FlashAlertView.swift in Sources */,
 				62F3A9232BFE2CA30002508D /* SecondViewController.swift in Sources */,
 				37F7A71D2BFF674600F96923 /* User.swift in Sources */,

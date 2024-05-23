@@ -20,6 +20,7 @@ class VocaBookDisplayOptionPopoverViewController: BaseViewController {
     private let vocaBookPopoverView = VocaBookPopoverView()
     let dataManager = VocaBookData.shared
     var displayOptions:[DisplayOption] = [.englishOnly, .koreanOnly, .englishAndKorean]
+    var selectedDisplayOption: ((Int) -> ())?
     
     
     // MARK: - Life Cycles
@@ -78,6 +79,11 @@ extension VocaBookDisplayOptionPopoverViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         dataManager.selectedDisplayOption = displayOptions[indexPath.row]
         tableView.reloadData()
+        
+        selectedDisplayOption!(indexPath.row)
+        
+        
+        
     }
     
 }
