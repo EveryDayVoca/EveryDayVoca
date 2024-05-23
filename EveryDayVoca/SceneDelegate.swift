@@ -53,8 +53,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UITabBarControllerDeleg
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         if let navController = viewController as? UINavigationController,
-           let reportVC = navController.viewControllers.first as? ReportViewController {
+            let reportVC = navController.viewControllers.first as? ReportViewController {
             reportVC.reloadData()
+            print(#function)
+        }
+        
+        if let navController = viewController as? UINavigationController,
+            let studyVC = navController.viewControllers.first as? StudyViewController {
+            studyVC.bind()
             print(#function)
         }
     }

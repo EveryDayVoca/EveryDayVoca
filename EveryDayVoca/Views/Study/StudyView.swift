@@ -307,4 +307,26 @@ final class StudyView: BaseView {
             $0.bottom.equalTo(self.infoLabelStackView.snp.bottom)
         }
     }
+    
+    func bind(pieChartData: PieChartData, allStatus: [Int], user: User) {
+        let target = allStatus[0] / allStatus.reduce(0) { $0 + $1 }
+        
+        if target == 0 {
+            contentLabel.text = "\(user.name)님, 학습을 시작해볼까요?!"
+        } else if target == 1 {
+            contentLabel.text = "\(user.name)님, 오늘 학습을 완료하였습니다!\n축하드립니다"
+        } else {
+            contentLabel.text = "\(user.name)님, 오늘 학습 목표까지 \(target)% 남았습니다!\n학습을 마무리 해볼까요?"
+        }
+        
+        vocaLevelLabel.text = "Lv. \(user.level)"
+        vocaCountLabel.text = "\(user.amount)개"
+        
+        infoPieChart.data = pieChartData
+        
+        infoMemorizedCountLabel.text = String("\(allStatus[0])개")
+        infoAmbiguousCountLabel.text = String("\(allStatus[1])개")
+        infoDifficultCountLabel.text = String("\(allStatus[2])개")
+        infoNoneCountLabel.text = String("\(allStatus[3])개")
+    }
 }

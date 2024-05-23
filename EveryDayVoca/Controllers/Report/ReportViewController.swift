@@ -46,6 +46,12 @@ final class ReportViewController: BaseViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     // MARK: - method
     override func configureStyle() {
         let titleLabel = UILabel().then {
@@ -129,9 +135,10 @@ extension ReportViewController: UICalendarViewDelegate, UICalendarSelectionSingl
     func dateSelection(_ selection: UICalendarSelectionSingleDate, didSelectDate dateComponents: DateComponents?) {
         selection.setSelected(dateComponents, animated: true)
         selectedDate = dateComponents
-        // secondVC 값 바꿔야함
-        let secondVC = SecondViewController()
-        navigationController?.pushViewController(secondVC, animated: true)
+        
+        let reportDailyVC = ReportDailyViewController()
+        reportDailyVC.bind(dateComponents: dateComponents)
+        navigationController?.pushViewController(reportDailyVC, animated: true)
     }
     
     func calendarView(_ calendarView: UICalendarView, decorationFor dateComponents: DateComponents) -> UICalendarView.Decoration? {

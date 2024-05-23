@@ -18,7 +18,6 @@ final class FlashCardViewController: BaseViewController {
     private var wordData = [Voca]()
     private let tts = TTS()
     
-    var toStudyVC: (([Voca]) -> Void)?
     var completion: (() -> Void)?
     
     // MARK: - life cycles
@@ -179,7 +178,7 @@ extension FlashCardViewController: SwipeCardStackDelegate {
 
 extension FlashCardViewController: CustomAlertDelegate {
     func confirm() {
-            toStudyVC?(wordData)
-            self.navigationController?.popViewController(animated: true)
-        }
+        completion!()
+        self.navigationController?.popViewController(animated: true)
+    }
 }
