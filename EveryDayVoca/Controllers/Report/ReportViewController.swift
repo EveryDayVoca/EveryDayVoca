@@ -15,7 +15,7 @@ final class ReportViewController: BaseViewController {
     private var selectedDate: DateComponents? = nil
     
     // 차트 데이터
-    let monthDate = [VocaDate]()
+    var monthDate = [VocaDate]()
     var difficulty = [Status: Int]()
     var studyData: (Int, Int, [Date: Double]) = (0, 0, [:])
     var difficultySet: [String] = []
