@@ -53,7 +53,7 @@ final class FlashCardView: BaseView {
     
     let cardStack = SwipeCardStack()
     
-    let hardButton = UIButton().then {
+    let difficultButton = UIButton().then {
         let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.pretendard(size: 20, weight: .light),
                                                          .foregroundColor: UIColor.evBackground,
                                                          .underlineStyle: 0]
@@ -64,7 +64,7 @@ final class FlashCardView: BaseView {
         $0.backgroundColor = UIColor.blue25
     }
     
-    let normalButton = UIButton().then {
+    let ambiguousButton = UIButton().then {
         let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.pretendard(size: 20, weight: .light),
                                                          .foregroundColor: UIColor.evBackground,
                                                          .underlineStyle: 0]
@@ -75,7 +75,7 @@ final class FlashCardView: BaseView {
         $0.backgroundColor = UIColor.blue25
     }
     
-    let perfectButton = UIButton().then {
+    let memorizedButton = UIButton().then {
         let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.pretendard(size: 20, weight: .semibold),
                                                          .foregroundColor: UIColor.evBackground,
                                                          .underlineStyle: 0]
@@ -83,10 +83,10 @@ final class FlashCardView: BaseView {
         $0.setAttributedTitle(attributedTitle, for: .normal)
         $0.clipsToBounds = true
         $0.layer.cornerRadius = 15
-        $0.backgroundColor = UIColor.blue100
+        $0.backgroundColor = UIColor.blue25
     }
     
-    private lazy var buttonStack = UIStackView(arrangedSubviews: [hardButton, normalButton, perfectButton]).then {
+    private lazy var buttonStack = UIStackView(arrangedSubviews: [difficultButton, ambiguousButton, memorizedButton]).then {
         $0.axis = .horizontal
         $0.spacing = 8
         $0.alignment = .fill
@@ -157,5 +157,50 @@ final class FlashCardView: BaseView {
             $0.bottom.equalToSuperview().inset(100)
             $0.height.equalToSuperview().multipliedBy(0.067)
         }
+    }
+    
+    func updateButtonStyle(button: UIButton) {
+        if button == difficultButton {
+            setButtonStyle(selectedStatus: "어려워요")
+        } else if button == ambiguousButton {
+            setButtonStyle(selectedStatus: "애매해요")
+        } else if button == memorizedButton {
+            setButtonStyle(selectedStatus: "외웠어요")
+        }
+    }
+    
+    func setButtonStyle(selectedStatus: String) {
+        
+        let buttons = [
+            (button: difficultButton, status: "어려워요"),
+            (button: ambiguousButton, status: "애매해요"),
+            (button: memorizedButton, status: "외웠어요")
+        ]
+        
+        buttons.forEach { (button, status) in
+            if status == selectedStatus {
+                applySelectedStyle(to: button, with: status)
+            } else {
+                applyUnselectedStyle(to: button, with: status)
+            }
+        }
+    }
+    
+    func applySelectedStyle(to button: UIButton, with status: String) {
+        button.backgroundColor = UIColor.blue100
+        let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.pretendard(size: 20, weight: .semibold),
+                                                         .foregroundColor: UIColor.evBackground,
+                                                         .underlineStyle: 0]
+        let attributedTitle = NSAttributedString(string: status, attributes: attributes)
+        button.setAttributedTitle(attributedTitle, for: .normal)
+    }
+    
+    func applyUnselectedStyle(to button: UIButton, with status: String) {
+        button.backgroundColor = UIColor.blue25
+        let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.pretendard(size: 20, weight: .light),
+                                                         .foregroundColor: UIColor.evBackground,
+                                                         .underlineStyle: 0]
+        let attributedTitle = NSAttributedString(string: status, attributes: attributes)
+        button.setAttributedTitle(attributedTitle, for: .normal)
     }
 }

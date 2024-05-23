@@ -20,6 +20,9 @@ final class StudyViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 다음 VC으로 넘기는 동작 수행 ( 삭제 X )
+        studyView.vocaStudyButton.addTarget(self, action: #selector(tappedPracticeButton), for: .touchUpInside)
     }
     
     // MARK: - methods
@@ -51,5 +54,9 @@ final class StudyViewController: BaseViewController {
         
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
         // To Do -> 뷰에 바인딩 PieChartData(dataSet: pieChartDataSet)
+    }
+    @objc func tappedPracticeButton() {
+        let nextVC = FlashCardViewController()
+        self.navigationController?.pushViewController(nextVC, animated: false)
     }
 }
