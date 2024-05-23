@@ -72,7 +72,7 @@
 		62F3A8D62BFD37DA0002508D /* UserModifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A8D52BFD37DA0002508D /* UserModifyView.swift */; };
 		62F3A8D82BFD38350002508D /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A8D72BFD38350002508D /* ReportView.swift */; };
 		62F3A8DF2BFD39260002508D /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A8DE2BFD39260002508D /* UserDefaultsManager.swift */; };
-		62F3A8E22BFD396B0002508D /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 62F3A8E12BFD396B0002508D /* DGCharts */; };
+		62F3A8E22BFD396B0002508D /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 62F3A8E12BFD396B0002508D /* DGCharts */; settings = {ATTRIBUTES = (Required, ); }; };
 		62F3A91F2BFE2C920002508D /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A91D2BFE2C920002508D /* UserViewController.swift */; };
 		62F3A9202BFE2C920002508D /* UserModifyViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A91E2BFE2C920002508D /* UserModifyViewViewController.swift */; };
 		62F3A9232BFE2CA30002508D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A9212BFE2CA30002508D /* SecondViewController.swift */; };
