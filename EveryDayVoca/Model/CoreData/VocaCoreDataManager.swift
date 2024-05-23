@@ -459,25 +459,6 @@ final class VocaCoreDataManager {
         }
     }
     
-    //    func calculateStudyData(vocaDates: [VocaDate]) -> (studiedWords: Int, totalWords: Int, dailyRates: [Date: Double]) {
-    //
-    //        var studiedWords = 0
-    //        var totalWords = 0
-    //        var dailyStudyRates: [Date: Double] = [:]
-    //
-    //        for vocaDate in vocaDates {
-    //            studiedWords += Int(vocaDate.studiedWordCount)
-    //            totalWords += Int(vocaDate.totalWordCount)
-    //            let rate = Double(vocaDate.studiedWordCount) / Double(vocaDate.totalWordCount)
-    //
-    //            if let createdAt = vocaDate.createdAt {
-    //                dailyStudyRates[createdAt] = rate
-    //            }
-    //        }
-    //
-    //        return (studiedWords: studiedWords, totalWords: totalWords, dailyRates: dailyStudyRates)
-    //    }
-    
     func calculateStudyData(vocaDates: [VocaDate]) -> (studiedWords: Int, totalWords: Int, dailyRates: [String: Double]) {
         var studiedWords = 0
         var totalWords = 0

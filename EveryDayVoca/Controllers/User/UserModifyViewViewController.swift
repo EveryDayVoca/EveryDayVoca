@@ -29,7 +29,6 @@ final class UserModifyViewController: BaseViewController {
         dismissPickerView()
     }
     
-    
     // MARK: - method
     override func configureStyle() {
         let titleLabel = UILabel().then {
@@ -55,7 +54,7 @@ final class UserModifyViewController: BaseViewController {
         userModifyView.levelTextField.inputView = firstPickerView
         userModifyView.learningAmountTextField.inputView = secondPickerView
     }
-
+    
     private func tapGesture() {
         userModifyView.doneEditButton.addTarget(self, action: #selector(tappedDoneEditButton), for: .touchUpInside)
         

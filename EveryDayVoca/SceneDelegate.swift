@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate, UITabBarControllerDelegate {
+class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     
@@ -24,7 +24,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UITabBarControllerDeleg
         let userViewController = UINavigationController(rootViewController: UserViewController())
         
         let tabBarController = UITabBarController()
-        tabBarController.delegate = self
         tabBarController.setViewControllers([vocaBookViewController,
                                              studyViewController,
                                              reportViewController,
@@ -49,14 +48,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UITabBarControllerDeleg
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
-    }
-    
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        if let navController = viewController as? UINavigationController,
-           let reportVC = navController.viewControllers.first as? ReportViewController {
-            reportVC.reloadData()
-            print(#function)
-        }
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -95,7 +95,7 @@ final class UserViewController: BaseViewController {
         let nextView = UserModifyViewController()
         navigationController?.pushViewController(nextView, animated: true)
     }
-
+    
     @objc func handleUserDefaultsChange(_ notification: Notification) {
         if let value = UserDefaults.standard.string(forKey: UserData.userName.rawValue) {
             self.userView.userNameLabel.text = value
@@ -118,5 +118,5 @@ final class UserViewController: BaseViewController {
     deinit {
         NotificationCenter.default.removeObserver(self, name: .userDefaultsDidChange, object: nil)
     }
-
+    
 }
