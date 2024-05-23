@@ -15,6 +15,7 @@ class MyVocaFlashCardViewController: BaseViewController {
     
     var voca: Voca?
     var index: Int?
+    let tts = TTS()
     
     // MARK: - Life Cycles
     
@@ -86,6 +87,8 @@ class MyVocaFlashCardViewController: BaseViewController {
             $0.addTarget(self, action: #selector(tappedPagingButton), for: .touchUpInside)
         }
         
+        myVocaFlashCardView.speakButton.addTarget(self, action: #selector(tappedSpeakButton), for: .touchUpInside)
+        
     }
     
     @objc func tappedStatusButton(_ button: UIButton) {
@@ -128,4 +131,8 @@ class MyVocaFlashCardViewController: BaseViewController {
         self.viewDidLoad()
     }
     
+    @objc func tappedSpeakButton(sender: UIButton) {
+        guard let english = voca?.english else { return }
+        self.tts.play(str: english, language: .english)
+    }
 }
