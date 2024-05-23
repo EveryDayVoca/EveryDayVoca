@@ -70,6 +70,10 @@ class MyVocaFlashCardView: VocaBookBaseView {
         $0.font = UIFont.pretendard(size: 24, weight: .semibold)
     }
     
+    let speakButton = UIButton().then {
+        $0.setImage(UIImage(named: "speak"), for: .normal)
+    }
+    
     let pagingButtonStackView = UIStackView().then {
         $0.axis = .horizontal
         $0.spacing = 16
@@ -124,6 +128,8 @@ class MyVocaFlashCardView: VocaBookBaseView {
         
         koreanCardView.addSubview(koreanLabel)
         
+        englishCardView.addSubview(speakButton)
+        
         [previousPageButton,
          nextPageButton].forEach { pagingButtonStackView.addArrangedSubview($0) }
         
@@ -158,6 +164,12 @@ class MyVocaFlashCardView: VocaBookBaseView {
         koreanLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.horizontalEdges.equalToSuperview().inset(50)
+        }
+        
+        speakButton.snp.makeConstraints {
+            $0.leading.equalTo(cardStackView.snp.leading).offset(12)
+            $0.top.equalTo(cardStackView.snp.top).offset(12)
+            $0.height.width.equalTo(24)
         }
         
     }

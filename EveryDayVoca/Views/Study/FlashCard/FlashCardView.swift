@@ -47,7 +47,7 @@ final class FlashCardView: BaseView {
         $0.setImage(UIImage(named: "previous_button"), for: .normal)
     }
     
-    var speakButton = UIButton().then {
+    let speakButton = UIButton().then {
         $0.setImage(UIImage(named: "speak"), for: .normal)
     }
     
