@@ -19,7 +19,7 @@ class SecondView: BaseView {
     }
     
     let difficultBar = UIView().then {
-        $0.backgroundColor = UIColor.blue10
+        $0.backgroundColor = UIColor.blue25
         $0.layer.cornerRadius = 10
         $0.layer.shadowOpacity = 0.2
         $0.layer.shadowOffset = CGSize(width: 0, height: 0)
@@ -27,7 +27,7 @@ class SecondView: BaseView {
     }
     
     let ambiguousBar = UIView().then {
-        $0.backgroundColor = UIColor.blue10
+        $0.backgroundColor = UIColor.blue50
         $0.layer.cornerRadius = 10
         $0.layer.shadowOpacity = 0.2
         $0.layer.shadowOffset = CGSize(width: 0, height: 0)
@@ -36,11 +36,32 @@ class SecondView: BaseView {
     
     let memorizedBar = UIView().then {
         print("객체 생성")
-        $0.backgroundColor = UIColor.blue10
+        $0.backgroundColor = UIColor.blue100
         $0.layer.cornerRadius = 10
         $0.layer.shadowOpacity = 0.2
         $0.layer.shadowOffset = CGSize(width: 0, height: 0)
         $0.layer.shadowPath = nil
+    }
+    
+    let difficultPercentLabel = UILabel().then {
+        $0.textAlignment = .right
+        $0.textColor = UIColor.white
+        $0.numberOfLines = 1
+        $0.font = UIFont.pretendard(size: 13, weight: .semibold)
+    }
+    
+    let ambiguousPercentLabel = UILabel().then {
+        $0.textAlignment = .right
+        $0.textColor = UIColor.white
+        $0.numberOfLines = 1
+        $0.font = UIFont.pretendard(size: 13, weight: .semibold)
+    }
+    
+    let memorizedPercentLabel = UILabel().then {
+        $0.textAlignment = .right
+        $0.textColor = UIColor.white
+        $0.numberOfLines = 1
+        $0.font = UIFont.pretendard(size: 13, weight: .semibold)
     }
     
     let dateLabel = UILabel().then {
@@ -79,6 +100,11 @@ class SecondView: BaseView {
          yesterDayButton,
          tomorrowButton,
          vocaListTableView].forEach{ self.addSubview($0) }
+        
+        difficultBar.addSubview(difficultPercentLabel)
+        ambiguousBar.addSubview(ambiguousPercentLabel)
+        memorizedBar.addSubview(memorizedPercentLabel)
+        
     }
     
     
@@ -87,12 +113,12 @@ class SecondView: BaseView {
         let statusBarWidth = UIScreen.main.bounds.width - 52
         
         levelLabel.snp.makeConstraints {
-            $0.top.equalTo(safeAreaLayoutGuide).offset(16)
+            $0.top.equalTo(safeAreaLayoutGuide).offset(17)
             $0.centerX.equalTo(safeAreaLayoutGuide)
         }
         
         difficultBar.snp.makeConstraints {
-            $0.top.equalTo(levelLabel.snp.bottom).offset(16)
+            $0.top.equalTo(levelLabel.snp.bottom).offset(17)
             $0.leading.equalTo(safeAreaLayoutGuide).offset(26)
             $0.height.equalTo(25)
             $0.width.equalTo(statusBarWidth)
@@ -110,6 +136,21 @@ class SecondView: BaseView {
             $0.leading.equalTo(safeAreaLayoutGuide).offset(26)
             $0.height.equalTo(25)
             $0.width.equalTo(statusBarWidth)
+        }
+        
+        difficultPercentLabel.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(6)
+        }
+        
+        ambiguousPercentLabel.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(6)
+        }
+        
+        memorizedPercentLabel.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(6)
         }
         
         dateLabel.snp.makeConstraints {
@@ -137,44 +178,35 @@ class SecondView: BaseView {
         }
     }
     
+    func statusPercentLabel(difficult: Int, ambiguous: Int, memorized: Int) {
+        difficultPercentLabel.text = "\(difficult)%"
+        ambiguousPercentLabel.text = "\(ambiguous)%"
+        memorizedPercentLabel.text = "\(memorized)%"
+    }
     
-    func remakeConstraints(difficult: Int, ambiguous: Int, memorized: Int) {
-        print("reConfigure")
-        let statusBarWidth = UIScreen.main.bounds.width - 52
-        
-        let total = CGFloat(difficult + ambiguous + memorized)
-        
-        let difficultSpace = CGFloat(difficult) / total * statusBarWidth
-        let ambiguousSpace = CGFloat(ambiguous) / total * statusBarWidth
-        let memorizedSpace = CGFloat(memorized) / total * statusBarWidth
-        
-        let difficultBarWidth = statusBarWidth
-        let ambiguousBarWidth = memorizedSpace + ambiguousSpace
-        let memorizedBarWidth = memorizedSpace
-        
+    func reconfigureBarWidth(difficult: CGFloat, ambiguous: CGFloat, memorized: CGFloat) {
+        print("remakeConstraints")
         
         difficultBar.snp.remakeConstraints {
             $0.top.equalTo(levelLabel.snp.bottom).offset(16)
             $0.leading.equalTo(safeAreaLayoutGuide).offset(26)
             $0.height.equalTo(25)
-            $0.width.equalTo(difficultBarWidth)
+            $0.width.equalTo(difficult)
         }
         
         ambiguousBar.snp.remakeConstraints {
             $0.top.equalTo(levelLabel.snp.bottom).offset(16)
             $0.leading.equalTo(safeAreaLayoutGuide).offset(26)
             $0.height.equalTo(25)
-            $0.width.equalTo(ambiguousBarWidth)
+            $0.width.equalTo(ambiguous)
         }
         
         memorizedBar.snp.remakeConstraints {
             $0.top.equalTo(levelLabel.snp.bottom).offset(16)
             $0.leading.equalTo(safeAreaLayoutGuide).offset(26)
             $0.height.equalTo(25)
-            $0.width.equalTo(memorizedBarWidth)
+            $0.width.equalTo(memorized)
         }
-        
-        
     }
     
     

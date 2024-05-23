@@ -59,25 +59,46 @@ final class SecondViewController: BaseViewController {
         
         guard let date = dateComponents?.date else { return }
         let vocaDate = VocaCoreDataManager.shared.getVocaDateData(date: date)
+        print("bind 통과")
+//
+//        guard vocaDate != [] else { return }
+//        let leadWordIndex = Int(vocaDate[0].leadWordIndex)
+//        let studiedWordCount = Int(vocaDate[0].studiedWordCount)
+//        
+//        self.dailyStudyData = VocaCoreDataManager.shared
+//            .getStudyData(index: leadWordIndex, count: studiedWordCount)
         
-        guard vocaDate != [] else { return }
-        let leadWordIndex = Int(vocaDate[0].leadWordIndex)
-        let studiedWordCount = Int(vocaDate[0].studiedWordCount)
-        
-        self.dailyStudyData = VocaCoreDataManager.shared
-            .getStudyData(index: leadWordIndex, count: studiedWordCount)
-        
-//        self.dailyStudyData = [.difficult:5, .ambiguous:7, .memorized:10, .none:5]
+        self.dailyStudyData = [.difficult:5, .ambiguous:7, .memorized:10, .none:5]
         let difficult = dailyStudyData[.difficult] ?? 0
         let ambiguous = dailyStudyData[.ambiguous] ?? 0
         let memorized = dailyStudyData[.memorized] ?? 0
         
+        // statusBar
+        let statusBarWidth = UIScreen.main.bounds.width - 52
         
-        // levelLabel
-        secondView.levelLabel.text = "1단계"
+        let total = CGFloat(difficult + ambiguous + memorized)
+        
+        let difficultPercent = CGFloat(difficult) / total
+        let ambiguousPercent = CGFloat(ambiguous) / total
+        let memorizedPercent = CGFloat(memorized) / total
+        
+        let difficultBarWidth = statusBarWidth
+        let ambiguousBarWidth = (ambiguousPercent + memorizedPercent) * statusBarWidth
+        let memorizedBarWidth = memorizedPercent * statusBarWidth
         
         // statusBar
-        secondView.remakeConstraints(difficult: difficult, ambiguous: ambiguous, memorized: memorized)
+        secondView.reconfigureBarWidth(
+            difficult: difficultBarWidth,
+            ambiguous: ambiguousBarWidth,
+            memorized: memorizedBarWidth
+        )
+        
+        // statusPercentLabel
+        secondView.statusPercentLabel(
+            difficult: Int(difficultPercent),
+            ambiguous: Int(ambiguousPercent),
+            memorized: Int(memorizedPercent)
+        )
     }
     
     
