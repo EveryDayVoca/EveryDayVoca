@@ -10,6 +10,7 @@ import UIKit
 final class VocaListTableViewCell: UITableViewCell {
     
     static let identifier = String(describing: VocaListTableViewCell.self)
+    static let shared = VocaListTableViewCell()
     
     // MARK: - Properties
     
@@ -45,7 +46,7 @@ final class VocaListTableViewCell: UITableViewCell {
         $0.distribution = .fill
     }
     
-    private let englishLabel = UILabel().then {
+    var englishLabel = UILabel().then {
         $0.textAlignment = .left
         $0.textColor = UIColor.evText
         $0.numberOfLines = 1
@@ -54,7 +55,7 @@ final class VocaListTableViewCell: UITableViewCell {
         $0.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
     }
     
-    private let koreanLabel = UILabel().then {
+    var koreanLabel = UILabel().then {
         $0.textAlignment = .right
         $0.textColor = UIColor.evText
         $0.numberOfLines = 0

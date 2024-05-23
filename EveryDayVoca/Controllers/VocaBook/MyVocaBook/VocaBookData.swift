@@ -59,7 +59,19 @@ class VocaBookData {
     }
     
     func getVocaData(forVocaDeck name: String) {
-        vocas = vocaDataManager.getVocaData(forvocaDeck: name)
+        if name == "ALL" {
+            vocas = vocaDataManager.getVocaData()
+        } else {
+            vocas = vocaDataManager.getVocaData(forvocaDeck: name)
+        }
+    }
+    
+    func getVocaDatas(forVocaDeck name: String) -> [Voca] {
+        if name == "ALL" {
+            return vocaDataManager.getVocaData()
+        } else {
+            return vocaDataManager.getVocaData(forvocaDeck: name)
+        }
     }
     
     func updateVocaStatus(_ vocaData: Voca, status: Status, index: Int) {
@@ -67,6 +79,11 @@ class VocaBookData {
         vocaDataManager.updateVocaStatus(vocaData, status: status)
         
         // 2. VocaBookData.vocas 업데이트
+        if currentVocaDeck == "ALL" {
+            vocas = vocaDataManager.getVocaData()
+        } else {
+            vocas = vocaDataManager.getVocaData(forvocaDeck: currentVocaDeck)
+        }
         vocas[index].status = status.rawValue
     }
     

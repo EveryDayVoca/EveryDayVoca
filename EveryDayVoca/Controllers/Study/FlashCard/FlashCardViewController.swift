@@ -13,12 +13,18 @@ final class FlashCardViewController: BaseViewController {
     // MARK: - properties
     private var flashCardView: FlashCardView!
     private var customAlertVC: FlashAlertViewController!
+    
     private var currentIndex = 0
+    private var user: User?
+    private var firstIndex = 1
+    private var amount = 10
+    
     private let coreDataManager = VocaCoreDataManager.shared
+    private let userDefaultsManager = UserDefaultsManager.shared
+    
     private var wordData = [Voca]()
     private let tts = TTS()
     
-    var toStudyVC: (([Voca]) -> Void)?
     var completion: (() -> Void)?
     
     // MARK: - life cycles
@@ -26,17 +32,11 @@ final class FlashCardViewController: BaseViewController {
         flashCardView = FlashCardView()
         customAlertVC = FlashAlertViewController()
         
-        wordData = coreDataManager.getVocaDataWithIndex(firstIndex: 1, count: 10)
-        
-        if coreDataManager.getVocaDateData(date: Date()) == []{
-            coreDataManager.createVocaDateData(index: 1, count: 10)
-            // userDefaults에도 값 업데이트 해야 함.
-        }
-        
         view = flashCardView
     }
     
     override func viewDidLoad() {
+        loadData()
         super.viewDidLoad()
     }
     
@@ -63,6 +63,31 @@ final class FlashCardViewController: BaseViewController {
         flashCardView.cardStack.dataSource = self
         flashCardView.cardStack.delegate = self
         customAlertVC.delegate = self
+    }
+    
+    func loadData() {
+        
+        firstIndex = userDefaultsManager.fetchStartIndex()
+        user = userDefaultsManager.fetchUser()
+        
+        guard let user = user else { return }
+        amount = user.amount
+        
+        wordData = coreDataManager.getVocaDataWithIndex(firstIndex: firstIndex, count: amount)
+        
+        if coreDataManager.getVocaDateData(date: Date()) == []{
+            if let lastDate = coreDataManager.getVocaDate().last {
+                let last = coreDataManager.formatDateToString(lastDate.createdAt!)
+                let today = coreDataManager.formatDateToString(Date())
+                
+                if last != today {
+                    if userDefaultsManager.updateStartIndex() {
+                        print("index 값 업데이트")
+                    }
+                }
+            }
+            coreDataManager.createVocaDateData(index: firstIndex, count: amount)
+        }
     }
     
     private func configureNavigation() {
@@ -191,7 +216,7 @@ extension FlashCardViewController: SwipeCardStackDelegate {
 
 extension FlashCardViewController: CustomAlertDelegate {
     func confirm() {
-        toStudyVC?(wordData)
+        completion!()
         self.navigationController?.popViewController(animated: true)
     }
 }

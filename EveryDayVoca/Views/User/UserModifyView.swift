@@ -30,10 +30,6 @@ final class UserModifyView: BaseView {
         $0.layer.cornerRadius = 32
         $0.clipsToBounds = true
         $0.contentMode = .scaleAspectFill
-        if let imageData = UserDefaults.standard.data(forKey: UserData.profileImage.rawValue),
-           let image = UIImage(data: imageData) {
-            $0.image = image
-        }
     }
     
     private let imageModifyButton = UIButton().then {
@@ -65,7 +61,6 @@ final class UserModifyView: BaseView {
         $0.autocorrectionType = .no
         $0.spellCheckingType = .no
         $0.tintColor = .evText
-        $0.text = UserDefaults.standard.string(forKey: UserData.userName.rawValue)
     }
     
     let changeNickNameTextField = UITextField().then {
@@ -77,7 +72,6 @@ final class UserModifyView: BaseView {
         $0.autocorrectionType = .no
         $0.spellCheckingType = .no
         $0.tintColor = .evText
-        $0.text = UserDefaults.standard.string(forKey: UserData.userNickName.rawValue)
     }
     
     private let dayGoalLabel = UILabel().then {
@@ -119,7 +113,6 @@ final class UserModifyView: BaseView {
         $0.autocorrectionType = .no
         $0.spellCheckingType = .no
         $0.tintColor = .clear
-        $0.text = UserDefaults.standard.string(forKey: UserData.studyLevel.rawValue)
     }
     
     let learningAmountTextField = UITextField().then {
@@ -131,7 +124,6 @@ final class UserModifyView: BaseView {
         $0.autocorrectionType = .no
         $0.spellCheckingType = .no
         $0.tintColor = .clear
-        $0.text = UserDefaults.standard.string(forKey: UserData.studyAmount.rawValue)
     }
     
     let doneEditButton = UIButton().then {
@@ -261,5 +253,24 @@ final class UserModifyView: BaseView {
             $0.trailing.equalToSuperview().offset(-20)
             $0.height.equalTo(56)
         }
+    }
+    
+    func bind(user: User) {
+        levelTextField.text = String("Lv. \(user.level)")
+        changeNameTextField.text = user.name
+        learningAmountTextField.text = String("\(user.amount)개")
+        changeNickNameTextField.text = user.nickname
+        profileImage.image = UIImage(data: user.profile)
+    }
+    
+    func fetchUser() -> User {
+        let levelString = levelTextField.text?.replacingOccurrences(of: "Lv. ", with: "") ?? "1"
+        let amountString = learningAmountTextField.text?.replacingOccurrences(of: "개", with: "") ?? "10"
+        
+        return User(name: changeNameTextField.text ?? "사용자 이름",
+                    nickname: changeNickNameTextField.text ?? "닉네임",
+                    level: Int(levelString) ?? 1,
+                    amount: Int(amountString) ?? 1,
+                    profile: profileImage.image?.jpegData(compressionQuality: 1.0) ?? Data())
     }
 }

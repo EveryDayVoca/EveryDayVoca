@@ -13,6 +13,9 @@ final class StudyViewController: BaseViewController {
     // MARK: - properties
     private let studyView = StudyView()
     
+    private let coreDataManager = VocaCoreDataManager.shared
+    private let userDefaultsManager = UserDefaultsManager.shared
+    
     // MARK: - life cycles
     override func loadView() {
         view = studyView
@@ -21,8 +24,7 @@ final class StudyViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 다음 VC으로 넘기는 동작 수행 ( 삭제 X )
-        studyView.vocaStudyButton.addTarget(self, action: #selector(tappedPracticeButton), for: .touchUpInside)
+        configureAddTarget()
     }
     
     // MARK: - methods
@@ -31,15 +33,28 @@ final class StudyViewController: BaseViewController {
     }
     
     override func bind() {
-        // To Do -> 데이터 반영
-        configureChart(values: [10, 20, 30].map{ Double($0) })
+        let user = userDefaultsManager.fetchUser()
+        let startIndex = userDefaultsManager.fetchStartIndex()
+        
+        let status = coreDataManager.getStudyData(index: startIndex, count: user.amount)
+        
+        let memorized = status[.memorized] ?? 0
+        let ambiguous = status[.ambiguous] ?? 0
+        let difficult = status[.difficult] ?? 0
+        let none = status[.none] ?? user.amount
+        
+        let allStatus = [memorized, ambiguous, difficult, none]
+        
+        print(allStatus)
+        
+        configureChart(values: allStatus.map{ Double($0) }, allStatus: allStatus, user: user)
     }
     
     private func configureNavigation() {
         navigationItem.titleView = studyView.titleLabel
     }
     
-    private func configureChart(values: [Double]) {
+    private func configureChart(values: [Double], allStatus: [Int], user: User) {
         var dataEntries: [ChartDataEntry] = []
         
         for i in 0..<values.count {
@@ -50,13 +65,26 @@ final class StudyViewController: BaseViewController {
         let pieChartDataSet = PieChartDataSet(entries: dataEntries)
         pieChartDataSet.sliceSpace = 1
         pieChartDataSet.valueTextColor = .clear
-        pieChartDataSet.colors = [.blue100, .blue50, .blue10]
+        pieChartDataSet.colors = [.blue100, .blue50, .blue10, .gray50]
         
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
-        // To Do -> 뷰에 바인딩 PieChartData(dataSet: pieChartDataSet)
+        
+        studyView.bind(pieChartData: pieChartData, allStatus: allStatus, user: user)
     }
-    @objc func tappedPracticeButton() {
-        let nextVC = FlashCardViewController()
-        self.navigationController?.pushViewController(nextVC, animated: false)
+    
+    private func configureAddTarget() {
+        studyView.vocaStudyButton.addTarget(self, action: #selector(tappedVocaStudyButton), for: .touchUpInside)
+        studyView.vocaListButton.addTarget(self, action: #selector(tappedVocaListButton), for: .touchUpInside)
+    }
+    
+    @objc private func tappedVocaStudyButton() {
+        let flashCardVC = FlashCardViewController()
+        flashCardVC.completion = { self.bind() }
+        
+        navigationController?.pushViewController(flashCardVC, animated: true)
+    }
+    
+    @objc private func tappedVocaListButton() {
+        
     }
 }
