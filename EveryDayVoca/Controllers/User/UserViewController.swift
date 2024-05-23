@@ -54,27 +54,28 @@ final class UserViewController: BaseViewController {
     }
     
     func calculateProgress(level: Int) -> Float {
-        let cardDeckData = coreDataManager.cardDeckData
+//        let cardDeckData = coreDataManager.cardDeckData
         
-        var levels = 0
+        let totalLevel = [0, 288, 600, 388, 315, 335]
+        let startIndex = [0, 1, 289, 889, 1277, 1412]
+        let startIndexesFromLevel = userDefaultsManager.fetchStartIndexes()
+        print(userDefaultsManager)
+        print(startIndex[level])
+        print(startIndexesFromLevel[level-1])
+        let numerator = Double(startIndexesFromLevel[level-1] - startIndex[level])
+        let denominator = Double(totalLevel[level])
         
-        switch level {
-        case 1:
-            levels = 288
-        case 2:
-            levels = 600
-        case 3:
-            levels = 388
-        case 4:
-            levels = 315
-        default:
-            levels = 135
-        }
+        return Float(numerator/denominator)
         
-        return Float(coreDataManager.calculateMemorizedWordCountByLevel(level: level) / levels)
     }
     
     func setProgressBar() {
+        
+        print(calculateProgress(level: 1))
+        print(calculateProgress(level: 2))
+        print(calculateProgress(level: 3))
+        print(calculateProgress(level: 4))
+        print(calculateProgress(level: 5))
         
         // 바 progress
         userView.oneProgressView.progress = self.calculateProgress(level: 1)
@@ -84,11 +85,11 @@ final class UserViewController: BaseViewController {
         userView.fiveProgressView.progress = self.calculateProgress(level: 5)
         
         // 진도율 text
-        userView.oneProgressPercentLabel.text = "\(calculateProgress(level: 1)*100)%"
-        userView.twoProgressPercentLabel.text = "\(calculateProgress(level: 2)*100)%"
-        userView.threeProgressPercentLabel.text = "\(calculateProgress(level: 3)*100)%"
-        userView.fourProgressPercentLabel.text = "\(calculateProgress(level: 4)*100)%"
-        userView.fiveProgressPercentLabel.text = "\(calculateProgress(level: 5)*100)%"
+        userView.oneProgressPercentLabel.text = "\(Int(calculateProgress(level: 1)*100))%"
+        userView.twoProgressPercentLabel.text = "\(Int(calculateProgress(level: 2)*100))%"
+        userView.threeProgressPercentLabel.text = "\(Int(calculateProgress(level: 3)*100))%"
+        userView.fourProgressPercentLabel.text = "\(Int(calculateProgress(level: 4)*100))%"
+        userView.fiveProgressPercentLabel.text = "\(Int(calculateProgress(level: 5)*100))%"
     }
     
     @objc func tappedModifyButton() {

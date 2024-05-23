@@ -63,6 +63,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UITabBarControllerDeleg
             studyVC.bind()
             print(#function)
         }
+        
+        if let navController = viewController as? UINavigationController,
+            let userVC = navController.viewControllers.first as? UserViewController {
+            userVC.setProgressBar()
+            print(#function)
+        }
+
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

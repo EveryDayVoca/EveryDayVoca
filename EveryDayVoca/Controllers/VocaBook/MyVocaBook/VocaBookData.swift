@@ -79,6 +79,11 @@ class VocaBookData {
         vocaDataManager.updateVocaStatus(vocaData, status: status)
         
         // 2. VocaBookData.vocas 업데이트
+        if currentVocaDeck == "ALL" {
+            vocas = vocaDataManager.getVocaData()
+        } else {
+            vocas = vocaDataManager.getVocaData(forvocaDeck: currentVocaDeck)
+        }
         vocas[index].status = status.rawValue
     }
     

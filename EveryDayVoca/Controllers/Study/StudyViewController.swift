@@ -45,6 +45,8 @@ final class StudyViewController: BaseViewController {
         
         let allStatus = [memorized, ambiguous, difficult, none]
         
+        print(allStatus)
+        
         configureChart(values: allStatus.map{ Double($0) }, allStatus: allStatus, user: user)
     }
     

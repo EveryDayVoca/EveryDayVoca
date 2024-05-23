@@ -12,13 +12,18 @@ class FlashAlertView: BaseView {
     
     // MARK: - properties
     
+    private let containerView = UIView().then {
+        $0.layer.shadowRadius = 15
+        $0.layer.shadowColor = UIColor.evText.cgColor
+        $0.layer.shadowOpacity = 0.1
+        $0.layer.masksToBounds = false
+        $0.backgroundColor = .clear
+    }
+    
     private let backgroundView = UIView().then {
         $0.backgroundColor = UIColor.evBackground
         $0.layer.cornerRadius = 15
         $0.clipsToBounds = true
-        $0.layer.masksToBounds = false
-        $0.layer.borderColor = UIColor.gray50.cgColor
-        $0.layer.borderWidth = 1
     }
     
     var title = UILabel().then {
@@ -50,15 +55,20 @@ class FlashAlertView: BaseView {
     // MARK: - methods
     
     override func configureHierarchy() {
-        self.addSubview(backgroundView)
-        self.addSubview(title)
-        self.addSubview(subtitle)
-        self.addSubview(button)
+        self.addSubview(containerView)
+        containerView.addSubview(backgroundView)
+        containerView.addSubview(title)
+        containerView.addSubview(subtitle)
+        containerView.addSubview(button)
     }
     
     override func configureConstraints() {
+        containerView.snp.makeConstraints {
+            $0.edges.equalToSuperview().inset(16)
+        }
+        
         backgroundView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.edges.equalTo(containerView.snp.edges)
         }
         
         title.snp.makeConstraints {

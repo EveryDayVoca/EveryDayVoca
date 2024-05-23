@@ -418,6 +418,25 @@ final class VocaCoreDataManager {
         return vocaDateData
     }
     
+    func getVocaDate() -> [VocaDate] {
+        
+        var vocaDateData = [VocaDate]()
+        
+        guard let context = context else {
+            return vocaDateData
+        }
+        
+        let fetchRequest: NSFetchRequest<VocaDate> = VocaDate.fetchRequest()
+        
+        do {
+            vocaDateData = try context.fetch(fetchRequest)
+        } catch {
+            print("데이터 가져오는 중 에러 : \(error)")
+        }
+        
+        return vocaDateData
+    }
+    
     func updateVocaDateStudiedWordCount(_ date: VocaDate, isPlus: Bool) {
         guard let context = context else { return }
         

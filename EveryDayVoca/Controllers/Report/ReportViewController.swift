@@ -28,12 +28,6 @@ final class ReportViewController: BaseViewController {
     }
     
     // MARK: - lifecycle
-    override func loadView() {
-        monthDate = VocaCoreDataManager.shared.getVocaMonthDates(forYear: Int(yearFormat.string(from: Date()))!, month: Int(monthFormat.string(from: Date()))!)
-        difficulty = VocaCoreDataManager.shared.calculateMonthlyStudyData(vocaDates: monthDate)
-        studyData = VocaCoreDataManager.shared.calculateStudyData(vocaDates: monthDate)
-        
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +63,12 @@ final class ReportViewController: BaseViewController {
     }
     
     override func bind() {
+        let year = Int(yearFormat.string(from: Date()))!
+        let month = Int(monthFormat.string(from: Date()))!
+        monthDate = VocaCoreDataManager.shared.getVocaMonthDates(forYear: year, month: month)
+        difficulty = VocaCoreDataManager.shared.calculateMonthlyStudyData(vocaDates: monthDate)
+        studyData = VocaCoreDataManager.shared.calculateStudyData(vocaDates: monthDate)
+        
         self.difficultySet = ["어려워요", "애매해요", "외웠어요"]
         self.difficultCount = [Double(difficulty[.memorized]!),
                                Double(difficulty[.ambiguous]!),

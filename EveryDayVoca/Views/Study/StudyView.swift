@@ -309,20 +309,24 @@ final class StudyView: BaseView {
     }
     
     func bind(pieChartData: PieChartData, allStatus: [Int], user: User) {
-        let target = allStatus[0] / allStatus.reduce(0) { $0 + $1 }
+        let target = Int(Double(allStatus[0]) / Double(allStatus.reduce(0) { $0 + $1 }) * 100)
         
         if target == 0 {
             contentLabel.text = "\(user.name)님, 학습을 시작해볼까요?!"
-        } else if target == 1 {
+        } else if target == 100 {
             contentLabel.text = "\(user.name)님, 오늘 학습을 완료하였습니다!\n축하드립니다"
         } else {
-            contentLabel.text = "\(user.name)님, 오늘 학습 목표까지 \(target)% 남았습니다!\n학습을 마무리 해볼까요?"
+            contentLabel.text = "\(user.name)님, 오늘 학습 목표까지 \(100-target)% 남았습니다!\n학습을 마무리 해볼까요?"
         }
         
         vocaLevelLabel.text = "Lv. \(user.level)"
         vocaCountLabel.text = "\(user.amount)개"
         
         infoPieChart.data = pieChartData
+        print(target)
+        let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.pretendard(size: 25, weight: .heavy),
+                                                         .foregroundColor: UIColor.evText]
+        infoPieChart.centerAttributedText = NSAttributedString(string: "\(target)%", attributes: attributes)
         
         infoMemorizedCountLabel.text = String("\(allStatus[0])개")
         infoAmbiguousCountLabel.text = String("\(allStatus[1])개")

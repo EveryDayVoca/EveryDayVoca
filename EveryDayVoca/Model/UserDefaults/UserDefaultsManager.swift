@@ -44,7 +44,7 @@ final class UserDefaultsManager {
                 return decodedProgress
             }
         } else {
-            let initProgress = Progress(lv1: 1, lv2: 5, lv3: 10, lv4: 15, lv5: 20)
+            let initProgress = Progress(lv1: 1, lv2: 289, lv3: 889, lv4: 1277, lv5: 1412)
             
             if let encodedInitProgress = try? encoder.encode(initProgress) {
                 UserDefaults.standard.set(encodedInitProgress, forKey: progressKey)
@@ -52,7 +52,7 @@ final class UserDefaultsManager {
             }
         }
         
-        return Progress(lv1: 1, lv2: 5, lv3: 10, lv4: 15, lv5: 20)
+        return Progress(lv1: 1, lv2: 289, lv3: 889, lv4: 1277, lv5: 1412)
     }
     
     func fetchStartIndex() -> Int {
@@ -71,6 +71,12 @@ final class UserDefaultsManager {
         default:
             return progress.lv5
         }
+    }
+    
+    func fetchStartIndexes() -> [Int] {
+        let progress = fetchProgress()
+        
+        return [progress.lv1, progress.lv2, progress.lv3, progress.lv4, progress.lv5]
     }
     
     func updateUser(user: User) -> Bool {
