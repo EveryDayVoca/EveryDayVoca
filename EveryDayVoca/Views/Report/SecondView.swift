@@ -178,7 +178,11 @@ class SecondView: BaseView {
         }
     }
     
-    func statusPercentLabel(difficult: Int, ambiguous: Int, memorized: Int) {
+    func bindDateLabel(date: String) {
+        dateLabel.text = date
+    }
+    
+    func bindstatusPercentLabel(difficult: Int, ambiguous: Int, memorized: Int) {
         difficultPercentLabel.text = "\(difficult)%"
         ambiguousPercentLabel.text = "\(ambiguous)%"
         memorizedPercentLabel.text = "\(memorized)%"
