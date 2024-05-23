@@ -11,14 +11,14 @@ class SecondView: BaseView {
     
     // MARK: - Properties
     
-    let levelLabel = UILabel().then {
+    private let levelLabel = UILabel().then {
         $0.textAlignment = .center
         $0.textColor = UIColor.evText
         $0.numberOfLines = 1
         $0.font = UIFont.pretendard(size: 14, weight: .medium)
     }
     
-    let difficultBar = UIView().then {
+    private let difficultBar = UIView().then {
         $0.backgroundColor = UIColor.blue25
         $0.layer.cornerRadius = 10
         $0.layer.shadowOpacity = 0.2
@@ -26,7 +26,7 @@ class SecondView: BaseView {
         $0.layer.shadowPath = nil
     }
     
-    let ambiguousBar = UIView().then {
+    private let ambiguousBar = UIView().then {
         $0.backgroundColor = UIColor.blue50
         $0.layer.cornerRadius = 10
         $0.layer.shadowOpacity = 0.2
@@ -34,7 +34,7 @@ class SecondView: BaseView {
         $0.layer.shadowPath = nil
     }
     
-    let memorizedBar = UIView().then {
+    private let memorizedBar = UIView().then {
         print("객체 생성")
         $0.backgroundColor = UIColor.blue100
         $0.layer.cornerRadius = 10
@@ -43,28 +43,28 @@ class SecondView: BaseView {
         $0.layer.shadowPath = nil
     }
     
-    let difficultPercentLabel = UILabel().then {
+    private let difficultPercentLabel = UILabel().then {
         $0.textAlignment = .right
         $0.textColor = UIColor.white
         $0.numberOfLines = 1
         $0.font = UIFont.pretendard(size: 13, weight: .semibold)
     }
     
-    let ambiguousPercentLabel = UILabel().then {
+    private let ambiguousPercentLabel = UILabel().then {
         $0.textAlignment = .right
         $0.textColor = UIColor.white
         $0.numberOfLines = 1
         $0.font = UIFont.pretendard(size: 13, weight: .semibold)
     }
     
-    let memorizedPercentLabel = UILabel().then {
+    private let memorizedPercentLabel = UILabel().then {
         $0.textAlignment = .right
         $0.textColor = UIColor.white
         $0.numberOfLines = 1
         $0.font = UIFont.pretendard(size: 13, weight: .semibold)
     }
     
-    let dateLabel = UILabel().then {
+    private let dateLabel = UILabel().then {
         $0.textAlignment = .center
         $0.textColor = UIColor.evText
         $0.numberOfLines = 1
@@ -173,7 +173,7 @@ class SecondView: BaseView {
         
         vocaListTableView.snp.makeConstraints {
             $0.top.equalTo(dateLabel.snp.bottom).offset(12)
-            $0.horizontalEdges.equalTo(difficultBar)
+            $0.horizontalEdges.equalToSuperview().inset(10)
             $0.bottom.equalTo(safeAreaLayoutGuide)
         }
     }
