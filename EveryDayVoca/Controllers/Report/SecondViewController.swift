@@ -21,6 +21,7 @@ final class SecondViewController: BaseViewController {
     override func loadView() {
         view = secondView
         setNavigationController()
+        
     }
     
     override func viewDidLoad() {
@@ -73,6 +74,9 @@ final class SecondViewController: BaseViewController {
         let statusBarWidth = UIScreen.main.bounds.width - 52
         
         if vocaDate.isEmpty {
+            // vocas 초기화
+            VocaBookData.shared.vocas = []
+            
             secondView
                 .bindLevelAndDateLabel(level: "",
                                        date: "\(components.year ?? 0)년 \(components.month ?? 0)월 \(components.day ?? 0)일")
@@ -156,7 +160,8 @@ final class SecondViewController: BaseViewController {
     func shiftDate(offset: Int, from date: Date?) -> Date? {
         var dateComponents = DateComponents()
         dateComponents.day = offset
-        return Calendar.current.date(byAdding: dateComponents, to: date!)
+        guard let date = date else { return date }
+        return Calendar.current.date(byAdding: dateComponents, to: date)
     }
     
 }
