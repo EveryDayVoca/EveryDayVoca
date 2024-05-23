@@ -2,76 +2,108 @@
 //  UserDefaultsManager.swift
 //  EveryDayVoca
 //
-//  Created by 문기웅 on 5/22/24.
+//  Created by 김정호 on 5/23/24.
 //
 
 import Foundation
-import UIKit
-
-enum UserData: String {
-    case level1 = "level1"
-    case level2 = "level2"
-    case level3 = "level3"
-    case level4 = "level4"
-    case level5 = "level5"
-    
-    case total1 = "total1"
-    case total2 = "total2"
-    case total3 = "total3"
-    case total4 = "total4"
-    case total5 = "total5"
-    
-    case userName = "userName"
-    case userNickName = "userNickName"
-    case studyLevel = "studyLevel"
-    case studyAmount = "studyAmount"
-    case profileImage = "profileImage"
-    
-    case launchedBefore = "launchedBefore"
-}
 
 final class UserDefaultsManager {
+    
+    // MARK: - properties
     static let shared = UserDefaultsManager()
+    private init() { }
     
-    private let userDefaults = UserDefaults.standard
+    private let encoder: JSONEncoder = JSONEncoder()
+    private let decoder: JSONDecoder = JSONDecoder()
     
-    private init() {
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(userDefaultsDidChange(_:)),
-                                               name: UserDefaults.didChangeNotification, object: nil)
+    private let userKey = "user"
+    private let progressKey = "progress"
+    
+    func fetchUser() -> User {
+        if let user = UserDefaults.standard.object(forKey: userKey) as? Data {
+            if let decodedUser = try? decoder.decode(User.self, from: user) {
+                return decodedUser
+            }
+        } else {
+            let initUser = User(name: "사용자 이름", nickname: "닉네임", level: 1, amount: 10, profile: Data())
+            
+            if let encodedInitUser = try? encoder.encode(initUser) {
+                UserDefaults.standard.set(encodedInitUser, forKey: userKey)
+                return initUser
+            }
+            
+            return initUser
+        }
+        
+        return User(name: "사용자 이름", nickname: "닉네임", level: 1, amount: 10, profile: Data())
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self,
-                                                  name: UserDefaults.didChangeNotification,
-                                                  object: nil)
+    func fetchProgress() -> Progress {
+        if let progress = UserDefaults.standard.object(forKey: progressKey) as? Data {
+            if let decodedProgress = try? decoder.decode(Progress.self, from: progress) {
+                return decodedProgress
+            }
+        } else {
+            let initProgress = Progress(lv1: 1, lv2: 5, lv3: 10, lv4: 15, lv5: 20)
+            
+            if let encodedInitProgress = try? encoder.encode(initProgress) {
+                UserDefaults.standard.set(encodedInitProgress, forKey: progressKey)
+                return initProgress
+            }
+        }
+        
+        return Progress(lv1: 1, lv2: 5, lv3: 10, lv4: 15, lv5: 20)
     }
     
-    func defaultsSet() {
-        let defaults:[String : Any] = [
-            UserData.userName.rawValue : "사용자 이름",
-            UserData.userNickName.rawValue : "닉네임",
-            UserData.studyLevel.rawValue : "Lv. 1",
-            UserData.studyAmount.rawValue : "10개",
-            UserData.level1.rawValue : 1,
-            UserData.level2.rawValue : 289,
-            UserData.level3.rawValue : 889,
-            UserData.level4.rawValue : 1277,
-            UserData.level5.rawValue : 1412,
-            UserData.total1.rawValue : 288,
-            UserData.total2.rawValue : 600,
-            UserData.total3.rawValue : 388,
-            UserData.total4.rawValue : 135,
-            UserData.total5.rawValue : 335
-        ]
-        userDefaults.register(defaults: defaults)
+    func fetchStartIndex() -> Int {
+        let level = fetchUser().level
+        let progress = fetchProgress()
+        
+        switch level {
+        case 1:
+            return progress.lv1
+        case 2:
+            return progress.lv2
+        case 3:
+            return progress.lv3
+        case 4:
+            return progress.lv4
+        default:
+            return progress.lv5
+        }
     }
     
-    @objc private func userDefaultsDidChange(_ notification: Notification) {
-        NotificationCenter.default.post(name: .userDefaultsDidChange, object: nil)
+    func updateUser(user: User) -> Bool {
+        if let encodedUser = try? encoder.encode(user) {
+            UserDefaults.standard.set(encodedUser, forKey: userKey)
+            return true
+        }
+        
+        return false
     }
-}
-
-extension Notification.Name {
-    static let userDefaultsDidChange = Notification.Name("userDefaultsDidChange")
+    
+    func updateStartIndex() -> Bool {
+        let user = fetchUser()
+        var progress = fetchProgress()
+        
+        switch user.level {
+        case 1:
+            progress.lv1 += user.amount
+        case 2:
+            progress.lv2 += user.amount
+        case 3:
+            progress.lv3 += user.amount
+        case 4:
+            progress.lv4 += user.amount
+        default:
+            progress.lv5 += user.amount
+        }
+        
+        if let encodedProgress = try? encoder.encode(progress) {
+            UserDefaults.standard.set(encodedProgress, forKey: progressKey)
+            return true
+        }
+        
+        return false
+    }
 }
