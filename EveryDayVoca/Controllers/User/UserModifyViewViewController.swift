@@ -19,6 +19,10 @@ final class UserModifyViewController: BaseViewController {
     private let level = ["Lv. 1", "Lv. 2", "Lv. 3", "Lv. 4", "Lv. 5"]
     private let counts = ["10개", "20개", "30개", "40개", "50개", "60개", "70개", "80개", "90개", "100개"]
     
+    private let userDefaultsManager = UserDefaultsManager.shared
+    
+    var completion: (() -> ())?
+    
     
     // MARK: - life cycle
     override func viewDidLoad() {
@@ -38,11 +42,6 @@ final class UserModifyViewController: BaseViewController {
             $0.textAlignment = .center
         }
         navigationItem.titleView = titleLabel
-        
-        userModifyView.changeNameTextField.text = UserDefaults.standard.string(forKey: UserData.userName.rawValue)
-        userModifyView.changeNickNameTextField.text = UserDefaults.standard.string(forKey: UserData.userNickName.rawValue)
-        userModifyView.levelTextField.text = UserDefaults.standard.string(forKey: UserData.studyLevel.rawValue)
-        userModifyView.learningAmountTextField.text = UserDefaults.standard.string(forKey: UserData.studyAmount.rawValue)
     }
     
     override func configureDelegate() {
@@ -53,6 +52,9 @@ final class UserModifyViewController: BaseViewController {
     override func bind() {
         userModifyView.levelTextField.inputView = firstPickerView
         userModifyView.learningAmountTextField.inputView = secondPickerView
+        
+        let user = userDefaultsManager.fetchUser()
+        userModifyView.bind(user: user)
     }
     
     private func tapGesture() {
@@ -67,13 +69,16 @@ final class UserModifyViewController: BaseViewController {
         let alert = UIAlertController(title: "프로필 수정", message: "변경 사항을 저장하시겠습니까?", preferredStyle: .alert)
         
         let cancel = UIAlertAction(title: "취소", style: .cancel)
-        let confirm = UIAlertAction(title: "확인", style: .default) { _ in
-            UserDefaults.standard.set(self.userModifyView.changeNameTextField.text!, forKey: UserData.userName.rawValue)
-            UserDefaults.standard.set(self.userModifyView.changeNickNameTextField.text!, forKey: UserData.userNickName.rawValue)
-            UserDefaults.standard.set(self.userModifyView.levelTextField.text!, forKey: UserData.studyLevel.rawValue)
-            UserDefaults.standard.set(self.userModifyView.learningAmountTextField.text!, forKey: UserData.studyAmount.rawValue)
-            UserDefaultsManager.shared.setImageConvert(value: self.userModifyView.profileImage.image!, key: "profileImage")
-            NotificationCenter.default.addObserver(self, selector: #selector(self.tappedDoneEditButton), name: .userDefaultsDidChange, object: nil)
+        let confirm = UIAlertAction(title: "확인", style: .default) { [weak self] _ in
+            guard let self = self else { return }
+            
+            if userDefaultsManager.updateUser(user: userModifyView.fetchUser()) {
+                completion!()
+                self.navigationController?.popViewController(animated: true)
+            } else {
+                print("큰일인걸?")
+            }
+            
             self.navigationController?.popViewController(animated: true)
         }
         
@@ -82,13 +87,6 @@ final class UserModifyViewController: BaseViewController {
         
         present(alert, animated: true)
     }
-    
-    
-    // Observer 제거
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: .userDefaultsDidChange, object: nil)
-    }
-    
 }
 
 
