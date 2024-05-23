@@ -38,6 +38,7 @@
 		2E571B412BFED164006ED80E /* ManagementAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E571B3F2BFED164006ED80E /* ManagementAlertViewController.swift */; };
 		2E571B422BFED164006ED80E /* ManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E571B402BFED164006ED80E /* ManagementViewController.swift */; };
 		2E571B432BFED211006ED80E /* VocaCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E45B8032BFB5C2000BDFFEC /* VocaCoreDataManager.swift */; };
+		2E571B482BFEFD0B006ED80E /* StudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E571B472BFEFD0B006ED80E /* StudyView.swift */; };
 		2E9DED9B2BF50C4500A85C42 /* FlashCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DED9A2BF50C4500A85C42 /* FlashCardView.swift */; };
 		2E9DEDD72BF9FD6800A85C42 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DEDD62BF9FD6800A85C42 /* Status.swift */; };
 		2E9DEDD92BFA167700A85C42 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DEDD82BFA167700A85C42 /* CardView.swift */; };
@@ -47,6 +48,9 @@
 		3727120A2BFBC2DD00573AC4 /* ManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372712092BFBC2DD00573AC4 /* ManagementView.swift */; };
 		3727120C2BFBC31500573AC4 /* ManagementAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3727120B2BFBC31500573AC4 /* ManagementAlertView.swift */; };
 		372712122BFBCA5000573AC4 /* ManagementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372712112BFBCA5000573AC4 /* ManagementCell.swift */; };
+		375945302BFD27AE001A7485 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3759452F2BFD27AE001A7485 /* UIView+Extension.swift */; };
+		375945322BFD2896001A7485 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375945312BFD2896001A7485 /* UILabel+Extension.swift */; };
+		375945342BFD29E6001A7485 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375945332BFD29E6001A7485 /* UIButton+Extension.swift */; };
 		37D776FF2BF30DBD0078D6E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D776FE2BF30DBD0078D6E8 /* AppDelegate.swift */; };
 		37D777012BF30DBD0078D6E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D777002BF30DBD0078D6E8 /* SceneDelegate.swift */; };
 		37D777092BF30DBD0078D6E8 /* EveryDayVoca.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37D777072BF30DBD0078D6E8 /* EveryDayVoca.xcdatamodeld */; };
@@ -105,6 +109,7 @@
 		2E571B3D2BFED131006ED80E /* VocaBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocaBookViewController.swift; sourceTree = "<group>"; };
 		2E571B3F2BFED164006ED80E /* ManagementAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagementAlertViewController.swift; sourceTree = "<group>"; };
 		2E571B402BFED164006ED80E /* ManagementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagementViewController.swift; sourceTree = "<group>"; };
+		2E571B472BFEFD0B006ED80E /* StudyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyView.swift; sourceTree = "<group>"; };
 		2E9DED9A2BF50C4500A85C42 /* FlashCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardView.swift; sourceTree = "<group>"; };
 		2E9DEDD62BF9FD6800A85C42 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		2E9DEDD82BFA167700A85C42 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -114,6 +119,9 @@
 		372712092BFBC2DD00573AC4 /* ManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementView.swift; sourceTree = "<group>"; };
 		3727120B2BFBC31500573AC4 /* ManagementAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementAlertView.swift; sourceTree = "<group>"; };
 		372712112BFBCA5000573AC4 /* ManagementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementCell.swift; sourceTree = "<group>"; };
+		3759452F2BFD27AE001A7485 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		375945312BFD2896001A7485 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		375945332BFD29E6001A7485 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		37D776FB2BF30DBD0078D6E8 /* EveryDayVoca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EveryDayVoca.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37D776FE2BF30DBD0078D6E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37D777002BF30DBD0078D6E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -300,9 +308,17 @@
 			path = Study;
 			sourceTree = "<group>";
 		};
+		2E571B462BFEFC44006ED80E /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		2E9DED9E2BF62AAA00A85C42 /* Study */ = {
 			isa = PBXGroup;
 			children = (
+				2E571B472BFEFD0B006ED80E /* StudyView.swift */,
 				1A8582882BFE24FF008E7445 /* FlashCard */,
 			);
 			path = Study;
@@ -325,6 +341,7 @@
 				37D777172BF30E460078D6E8 /* .gitignore */,
 				37D776FD2BF30DBD0078D6E8 /* EveryDayVoca */,
 				37D776FC2BF30DBD0078D6E8 /* Products */,
+				2E571B462BFEFC44006ED80E /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -386,6 +403,9 @@
 			isa = PBXGroup;
 			children = (
 				37D777412BF34DED0078D6E8 /* UIFont+Extension.swift */,
+				3759452F2BFD27AE001A7485 /* UIView+Extension.swift */,
+				375945312BFD2896001A7485 /* UILabel+Extension.swift */,
+				375945332BFD29E6001A7485 /* UIButton+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -394,11 +414,11 @@
 			isa = PBXGroup;
 			children = (
 				37D777442BF37E9F0078D6E8 /* Bases */,
-				1A39333E2BF7483300F3B825 /* Common */,
-				1A39333B2BF60B7300F3B825 /* VocaBook */,
-				2E9DED9E2BF62AAA00A85C42 /* Study */,
-				62F3A8D12BFD377E0002508D /* Report */,
 				62F3A8D22BFD378A0002508D /* User */,
+				62F3A8D12BFD377E0002508D /* Report */,
+				2E9DED9E2BF62AAA00A85C42 /* Study */,
+				1A39333B2BF60B7300F3B825 /* VocaBook */,
+				1A39333E2BF7483300F3B825 /* Common */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -475,8 +495,8 @@
 			packageProductDependencies = (
 				37D7771A2BF30EAC0078D6E8 /* SnapKit */,
 				37D7771D2BF30ECD0078D6E8 /* Then */,
-				2E9DEDE12BFA77C900A85C42 /* Shuffle */,
 				62F3A8E12BFD396B0002508D /* DGCharts */,
+				2E9DEDE12BFA77C900A85C42 /* Shuffle */,
 			);
 			productName = EveryDayVoca;
 			productReference = 37D776FB2BF30DBD0078D6E8 /* EveryDayVoca.app */;
@@ -586,6 +606,8 @@
 				62F3A8DF2BFD39260002508D /* UserDefaultsManager.swift in Sources */,
 				62F3A8D42BFD37C90002508D /* UserView.swift in Sources */,
 				2E571B3E2BFED131006ED80E /* VocaBookViewController.swift in Sources */,
+				375945302BFD27AE001A7485 /* UIView+Extension.swift in Sources */,
+				2E571B482BFEFD0B006ED80E /* StudyView.swift in Sources */,
 				371D24322BF37ED7002B4DC5 /* BaseView.swift in Sources */,
 				1A3933572BFB32D300F3B825 /* VocaBookAddVocaView.swift in Sources */,
 				1A3933422BF9EB2800F3B825 /* VocaBookFilterPopoverViewController.swift in Sources */,
@@ -597,6 +619,8 @@
 				37D777422BF34DED0078D6E8 /* UIFont+Extension.swift in Sources */,
 				372712122BFBCA5000573AC4 /* ManagementCell.swift in Sources */,
 				372712002BFA16FA00573AC4 /* BaseCollectionViewCell.swift in Sources */,
+				375945322BFD2896001A7485 /* UILabel+Extension.swift in Sources */,
+				375945342BFD29E6001A7485 /* UIButton+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
