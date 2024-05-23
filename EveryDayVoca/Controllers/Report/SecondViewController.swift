@@ -69,15 +69,16 @@ final class SecondViewController: BaseViewController {
         let vocaDate = VocaCoreDataManager.shared.getVocaDateData(date: date)
         print("bind 통과")
         
-        self.dailyStudyData = [.difficult:5, .ambiguous:7, .memorized:10, .none:5]
-//        guard vocaDate != [] else { return }
-//        let leadWordIndex = Int(vocaDate[0].leadWordIndex)
-//        let studiedWordCount = Int(vocaDate[0].studiedWordCount)
-//        
-//        self.dailyStudyData = VocaCoreDataManager.shared
-//            .getStudyData(index: leadWordIndex, count: studiedWordCount)
-//        
-//        self.vocas = VocaCoreDataManager.shared.getVocaDataWithIndex(firstIndex: leadWordIndex, count: studiedWordCount)
+//        self.dailyStudyData = [.difficult:5, .ambiguous:7, .memorized:10, .none:5]
+        guard vocaDate != [] else { return }
+        let leadWordIndex = Int(vocaDate[0].leadWordIndex)
+        let studiedWordCount = Int(vocaDate[0].studiedWordCount)
+        
+        self.dailyStudyData = VocaCoreDataManager.shared
+            .getStudyData(index: leadWordIndex, count: studiedWordCount)
+        
+        self.vocas = VocaCoreDataManager.shared.getVocaDataWithIndex(firstIndex: leadWordIndex, count: studiedWordCount)
+        VocaBookData.shared.vocas = vocas
         
         let difficult = dailyStudyData[.difficult] ?? 0
         let ambiguous = dailyStudyData[.ambiguous] ?? 0
@@ -126,6 +127,7 @@ extension SecondViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: VocaListTableViewCell.identifier, for: indexPath) as? VocaListTableViewCell else { return UITableViewCell() }
         cell.selectionStyle = .none
+        cell.bind(voca: vocas[indexPath.row])
         return cell
     }
     
