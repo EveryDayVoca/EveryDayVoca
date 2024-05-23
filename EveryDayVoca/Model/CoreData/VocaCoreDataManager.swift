@@ -27,13 +27,17 @@ final class VocaCoreDataManager {
     // MARK: - .csv => CoreData
     
     private func isFirstLaunch() -> Bool {
-        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        let launchedBefore = UserDefaults.standard.bool(forKey: UserData.launchedBefore.rawValue)
         if launchedBefore {
             return false
         } else {
-            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            UserDefaults.standard.set(true, forKey: UserData.launchedBefore.rawValue)
             return true
         }
+    }
+    
+    private func setUserDefaults() {
+        UserDefaultsManager.shared.defaultsSet()
     }
     
     func importCSVDataIfNeeded(fileName: String) {
@@ -371,7 +375,14 @@ final class VocaCoreDataManager {
         
         let fetchRequest: NSFetchRequest<VocaDate> = VocaDate.fetchRequest()
         
-        let predicate = NSPredicate(format: "createdAt == %@", date as CVarArg)
+        let calender = Calendar.current
+        let starOfDay = calender.startOfDay(for: date)
+        
+        var dateComponents = DateComponents()
+        dateComponents.day = 1
+        let endOfDay = calender.date(byAdding: dateComponents, to: starOfDay)!
+        
+        let predicate = NSPredicate(format: "(createdAt >= %@) AND (createdAt < %@)", starOfDay as NSDate, endOfDay as NSDate)
         fetchRequest.predicate = predicate
         
         do {

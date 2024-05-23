@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "chevron_left.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Property_10.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },

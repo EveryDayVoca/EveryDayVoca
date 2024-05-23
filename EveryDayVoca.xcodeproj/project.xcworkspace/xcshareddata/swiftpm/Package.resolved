@@ -1,6 +1,15 @@
 {
-  "originHash" : "32346d3f39aa51f6f49faa594da78660d74a5bbe8b3757e84df1acf7b80a6f03",
+  "originHash" : "8fcec1c32029f317dec38f6d98b52c4df1a9f6ed933f13e95e31afa1a9c8454b",
   "pins" : [
+    {
+      "identity" : "charts",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ChartsOrg/Charts.git",
+      "state" : {
+        "revision" : "dd9c72e3d7e751e769971092a6bd72d39198ae63",
+        "version" : "5.1.0"
+      }
+    },
     {
       "identity" : "shuffle",
       "kind" : "remoteSourceControl",

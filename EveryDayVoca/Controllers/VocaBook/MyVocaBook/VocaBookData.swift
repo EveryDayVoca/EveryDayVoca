@@ -38,7 +38,7 @@ class VocaBookData {
             print("데이터에서 필터 업데이트됨")
             
             vocas = []
-            var selectedStatus = filters.filter { $0.isSelected }
+            let selectedStatus = filters.filter { $0.isSelected }
             for i in selectedStatus {
                 vocas.append(contentsOf: VocaCoreDataManager.shared.getVocaData(
                     forvocaDeck: currentVocaDeck,

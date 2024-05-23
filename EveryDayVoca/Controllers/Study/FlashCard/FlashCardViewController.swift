@@ -17,6 +17,7 @@ final class FlashCardViewController: BaseViewController {
     private let coreDataManager = VocaCoreDataManager.shared
     private var wordData = [Voca]()
     private let tts = TTS()
+    
     var toStudyVC: (([Voca]) -> Void)?
     var completion: (() -> Void)?
     
@@ -28,6 +29,8 @@ final class FlashCardViewController: BaseViewController {
         wordData = coreDataManager.getVocaDataWithIndex(firstIndex: 1, count: 10)
         
         if coreDataManager.getVocaDateData(date: Date()) == []{
+            print("\(Date())")
+            print("")
             coreDataManager.createVocaDateData(index: 1, count: 10)
             // userDefaults에도 값 업데이트 해야 함.
         }
@@ -65,12 +68,13 @@ final class FlashCardViewController: BaseViewController {
     
     private func configureNavigation() {
         let titleView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+        
         let titleLabel = UILabel(frame: titleView.bounds)
         titleLabel.text = "학습하기"
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont.pretendard(size: 17, weight: .semibold)
-        titleView.addSubview(titleLabel)
         
+        titleView.addSubview(titleLabel)
         navigationItem.titleView = titleView
     }
     
@@ -100,6 +104,7 @@ final class FlashCardViewController: BaseViewController {
         sender.isSelected = true
         guard let buttonStatus = sender.titleLabel?.text else { return }
         let todayData = coreDataManager.getVocaDateData(date: Date())
+        print(todayData)
         switch buttonStatus {
         case "어려워요":
             if wordData[currentIndex].status == Status.memorized.rawValue {
@@ -135,7 +140,7 @@ final class FlashCardViewController: BaseViewController {
         flashCardView.progressBar.progress = Float(percentage)
         flashCardView.percentLabel.text = "\(round(percentage*100))%"
     }
-
+    
     func configureCustomAlert() {
         customAlertVC.titleText = "Notice"
         customAlertVC.subtitleText = "목표 단어를 모두 확인하였습니다."
@@ -174,7 +179,7 @@ extension FlashCardViewController: SwipeCardStackDelegate {
 
 extension FlashCardViewController: CustomAlertDelegate {
     func confirm() {
-        toStudyVC?(wordData)
-        self.navigationController?.popViewController(animated: true)
-    }
+            toStudyVC?(wordData)
+            self.navigationController?.popViewController(animated: true)
+        }
 }

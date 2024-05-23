@@ -22,7 +22,6 @@
 		1A8582822BFDBD08008E7445 /* VocaBookData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8582812BFDBD08008E7445 /* VocaBookData.swift */; };
 		1A8582852BFE2231008E7445 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371D24332BF38AC1002B4DC5 /* BaseViewController.swift */; };
 		2E10E7E02BFA94000049E1AB /* FlashAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E10E7DF2BFA94000049E1AB /* FlashAlertView.swift */; };
-		2E10E7E22BFA97F70049E1AB /* FlashAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E10E7E12BFA97F70049E1AB /* FlashAlertViewController.swift */; };
 		2E1C30FF2BFC315E00CB6DDE /* Voca+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30F92BFC315E00CB6DDE /* Voca+CoreDataClass.swift */; };
 		2E1C31002BFC315E00CB6DDE /* Voca+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30FA2BFC315E00CB6DDE /* Voca+CoreDataProperties.swift */; };
 		2E1C31012BFC315E00CB6DDE /* VocaDate+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30FB2BFC315E00CB6DDE /* VocaDate+CoreDataClass.swift */; };
@@ -31,19 +30,23 @@
 		2E1C31042BFC315E00CB6DDE /* VocaDeck+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C30FE2BFC315E00CB6DDE /* VocaDeck+CoreDataProperties.swift */; };
 		2E1C31192BFCAB4800CB6DDE /* EveryDayVocaData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2E1C31182BFCAB4800CB6DDE /* EveryDayVocaData.csv */; };
 		2E3A246D2BFD9D3100EF2738 /* TTS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3A246C2BFD9D3100EF2738 /* TTS.swift */; };
-		2E45B8042BFB5C2000BDFFEC /* VocaCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E45B8032BFB5C2000BDFFEC /* VocaCoreDataManager.swift */; };
+		2E571B362BFED09E006ED80E /* StudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E571B332BFED09E006ED80E /* StudyViewController.swift */; };
+		2E571B372BFED09E006ED80E /* FlashAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E571B342BFED09E006ED80E /* FlashAlertViewController.swift */; };
+		2E571B382BFED09E006ED80E /* FlashCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E571B352BFED09E006ED80E /* FlashCardViewController.swift */; };
+		2E571B3C2BFED102006ED80E /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E571B3B2BFED102006ED80E /* ReportViewController.swift */; };
+		2E571B3E2BFED131006ED80E /* VocaBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E571B3D2BFED131006ED80E /* VocaBookViewController.swift */; };
+		2E571B412BFED164006ED80E /* ManagementAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E571B3F2BFED164006ED80E /* ManagementAlertViewController.swift */; };
+		2E571B422BFED164006ED80E /* ManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E571B402BFED164006ED80E /* ManagementViewController.swift */; };
+		2E571B432BFED211006ED80E /* VocaCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E45B8032BFB5C2000BDFFEC /* VocaCoreDataManager.swift */; };
 		2E9DED9B2BF50C4500A85C42 /* FlashCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DED9A2BF50C4500A85C42 /* FlashCardView.swift */; };
-		2E9DED9D2BF5D0EC00A85C42 /* FlashCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DED9C2BF5D0EC00A85C42 /* FlashCardViewController.swift */; };
 		2E9DEDD72BF9FD6800A85C42 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DEDD62BF9FD6800A85C42 /* Status.swift */; };
 		2E9DEDD92BFA167700A85C42 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DEDD82BFA167700A85C42 /* CardView.swift */; };
 		2E9DEDE22BFA77C900A85C42 /* Shuffle in Frameworks */ = {isa = PBXBuildFile; productRef = 2E9DEDE12BFA77C900A85C42 /* Shuffle */; };
 		371D24322BF37ED7002B4DC5 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371D24312BF37ED7002B4DC5 /* BaseView.swift */; };
 		372712002BFA16FA00573AC4 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372711FF2BFA16FA00573AC4 /* BaseCollectionViewCell.swift */; };
-		372712082BFBC1BF00573AC4 /* ManagementAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372712072BFBC1BF00573AC4 /* ManagementAlertViewController.swift */; };
 		3727120A2BFBC2DD00573AC4 /* ManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372712092BFBC2DD00573AC4 /* ManagementView.swift */; };
 		3727120C2BFBC31500573AC4 /* ManagementAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3727120B2BFBC31500573AC4 /* ManagementAlertView.swift */; };
 		372712122BFBCA5000573AC4 /* ManagementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372712112BFBCA5000573AC4 /* ManagementCell.swift */; };
-		372712142BFBCAB500573AC4 /* ManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372712132BFBCAB500573AC4 /* ManagementViewController.swift */; };
 		37D776FF2BF30DBD0078D6E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D776FE2BF30DBD0078D6E8 /* AppDelegate.swift */; };
 		37D777012BF30DBD0078D6E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D777002BF30DBD0078D6E8 /* SceneDelegate.swift */; };
 		37D777092BF30DBD0078D6E8 /* EveryDayVoca.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37D777072BF30DBD0078D6E8 /* EveryDayVoca.xcdatamodeld */; };
@@ -51,10 +54,6 @@
 		37D777182BF30E460078D6E8 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 37D777172BF30E460078D6E8 /* .gitignore */; };
 		37D7771B2BF30EAC0078D6E8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 37D7771A2BF30EAC0078D6E8 /* SnapKit */; };
 		37D7771E2BF30ECD0078D6E8 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 37D7771D2BF30ECD0078D6E8 /* Then */; };
-		37D777242BF31DED0078D6E8 /* VocaBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D777232BF31DED0078D6E8 /* VocaBookViewController.swift */; };
-		37D777262BF31E390078D6E8 /* StudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D777252BF31E390078D6E8 /* StudyViewController.swift */; };
-		37D777282BF31E640078D6E8 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D777272BF31E640078D6E8 /* ReportViewController.swift */; };
-		37D7772A2BF31E700078D6E8 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D777292BF31E700078D6E8 /* UserViewController.swift */; };
 		37D777372BF34C400078D6E8 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37D7772E2BF34C400078D6E8 /* Pretendard-Bold.otf */; };
 		37D777382BF34C400078D6E8 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37D7772F2BF34C400078D6E8 /* Pretendard-Black.otf */; };
 		37D777392BF34C400078D6E8 /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37D777302BF34C400078D6E8 /* Pretendard-ExtraLight.otf */; };
@@ -65,6 +64,14 @@
 		37D7773E2BF34C400078D6E8 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37D777352BF34C400078D6E8 /* Pretendard-Medium.otf */; };
 		37D7773F2BF34C400078D6E8 /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37D777362BF34C400078D6E8 /* Pretendard-Thin.otf */; };
 		37D777422BF34DED0078D6E8 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D777412BF34DED0078D6E8 /* UIFont+Extension.swift */; };
+		62F3A8D42BFD37C90002508D /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A8D32BFD37C90002508D /* UserView.swift */; };
+		62F3A8D62BFD37DA0002508D /* UserModifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A8D52BFD37DA0002508D /* UserModifyView.swift */; };
+		62F3A8D82BFD38350002508D /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A8D72BFD38350002508D /* ReportView.swift */; };
+		62F3A8DF2BFD39260002508D /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A8DE2BFD39260002508D /* UserDefaultsManager.swift */; };
+		62F3A8E22BFD396B0002508D /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 62F3A8E12BFD396B0002508D /* DGCharts */; };
+		62F3A91F2BFE2C920002508D /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A91D2BFE2C920002508D /* UserViewController.swift */; };
+		62F3A9202BFE2C920002508D /* UserModifyViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A91E2BFE2C920002508D /* UserModifyViewViewController.swift */; };
+		62F3A9232BFE2CA30002508D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A9212BFE2CA30002508D /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,7 +89,6 @@
 		1A3933562BFB32D300F3B825 /* VocaBookAddVocaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookAddVocaView.swift; sourceTree = "<group>"; };
 		1A8582812BFDBD08008E7445 /* VocaBookData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookData.swift; sourceTree = "<group>"; };
 		2E10E7DF2BFA94000049E1AB /* FlashAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashAlertView.swift; sourceTree = "<group>"; };
-		2E10E7E12BFA97F70049E1AB /* FlashAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashAlertViewController.swift; sourceTree = "<group>"; };
 		2E1C30F92BFC315E00CB6DDE /* Voca+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Voca+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2E1C30FA2BFC315E00CB6DDE /* Voca+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Voca+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2E1C30FB2BFC315E00CB6DDE /* VocaDate+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VocaDate+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -92,18 +98,22 @@
 		2E1C31182BFCAB4800CB6DDE /* EveryDayVocaData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EveryDayVocaData.csv; sourceTree = "<group>"; };
 		2E3A246C2BFD9D3100EF2738 /* TTS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTS.swift; sourceTree = "<group>"; };
 		2E45B8032BFB5C2000BDFFEC /* VocaCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaCoreDataManager.swift; sourceTree = "<group>"; };
+		2E571B332BFED09E006ED80E /* StudyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyViewController.swift; sourceTree = "<group>"; };
+		2E571B342BFED09E006ED80E /* FlashAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlashAlertViewController.swift; sourceTree = "<group>"; };
+		2E571B352BFED09E006ED80E /* FlashCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlashCardViewController.swift; sourceTree = "<group>"; };
+		2E571B3B2BFED102006ED80E /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		2E571B3D2BFED131006ED80E /* VocaBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocaBookViewController.swift; sourceTree = "<group>"; };
+		2E571B3F2BFED164006ED80E /* ManagementAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagementAlertViewController.swift; sourceTree = "<group>"; };
+		2E571B402BFED164006ED80E /* ManagementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagementViewController.swift; sourceTree = "<group>"; };
 		2E9DED9A2BF50C4500A85C42 /* FlashCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardView.swift; sourceTree = "<group>"; };
-		2E9DED9C2BF5D0EC00A85C42 /* FlashCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardViewController.swift; sourceTree = "<group>"; };
 		2E9DEDD62BF9FD6800A85C42 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		2E9DEDD82BFA167700A85C42 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		371D24312BF37ED7002B4DC5 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		371D24332BF38AC1002B4DC5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		372711FF2BFA16FA00573AC4 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
-		372712072BFBC1BF00573AC4 /* ManagementAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementAlertViewController.swift; sourceTree = "<group>"; };
 		372712092BFBC2DD00573AC4 /* ManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementView.swift; sourceTree = "<group>"; };
 		3727120B2BFBC31500573AC4 /* ManagementAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementAlertView.swift; sourceTree = "<group>"; };
 		372712112BFBCA5000573AC4 /* ManagementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementCell.swift; sourceTree = "<group>"; };
-		372712132BFBCAB500573AC4 /* ManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementViewController.swift; sourceTree = "<group>"; };
 		37D776FB2BF30DBD0078D6E8 /* EveryDayVoca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EveryDayVoca.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37D776FE2BF30DBD0078D6E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37D777002BF30DBD0078D6E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,10 +121,6 @@
 		37D7770A2BF30DBE0078D6E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37D7770F2BF30DBE0078D6E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37D777172BF30E460078D6E8 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		37D777232BF31DED0078D6E8 /* VocaBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaBookViewController.swift; sourceTree = "<group>"; };
-		37D777252BF31E390078D6E8 /* StudyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyViewController.swift; sourceTree = "<group>"; };
-		37D777272BF31E640078D6E8 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
-		37D777292BF31E700078D6E8 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		37D7772E2BF34C400078D6E8 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		37D7772F2BF34C400078D6E8 /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		37D777302BF34C400078D6E8 /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
@@ -125,6 +131,13 @@
 		37D777352BF34C400078D6E8 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		37D777362BF34C400078D6E8 /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		37D777412BF34DED0078D6E8 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		62F3A8D32BFD37C90002508D /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		62F3A8D52BFD37DA0002508D /* UserModifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModifyView.swift; sourceTree = "<group>"; };
+		62F3A8D72BFD38350002508D /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
+		62F3A8DE2BFD39260002508D /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		62F3A91D2BFE2C920002508D /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		62F3A91E2BFE2C920002508D /* UserModifyViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModifyViewViewController.swift; sourceTree = "<group>"; };
+		62F3A9212BFE2CA30002508D /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62F3A8E22BFD396B0002508D /* DGCharts in Frameworks */,
 				2E9DEDE22BFA77C900A85C42 /* Shuffle in Frameworks */,
 				37D7771B2BF30EAC0078D6E8 /* SnapKit in Frameworks */,
 				37D7771E2BF30ECD0078D6E8 /* Then in Frameworks */,
@@ -237,8 +251,8 @@
 		1A8582892BFE2899008E7445 /* MyVocaBook */ = {
 			isa = PBXGroup;
 			children = (
+				2E571B3D2BFED131006ED80E /* VocaBookViewController.swift */,
 				1A8582812BFDBD08008E7445 /* VocaBookData.swift */,
-				37D777232BF31DED0078D6E8 /* VocaBookViewController.swift */,
 				1A3933542BFB325700F3B825 /* VocaBookAddVocaViewController.swift */,
 				1A3933462BFA276500F3B825 /* Popover */,
 			);
@@ -248,8 +262,8 @@
 		1A85828A2BFE28AA008E7445 /* Management */ = {
 			isa = PBXGroup;
 			children = (
-				372712132BFBCAB500573AC4 /* ManagementViewController.swift */,
-				372712072BFBC1BF00573AC4 /* ManagementAlertViewController.swift */,
+				2E571B3F2BFED164006ED80E /* ManagementAlertViewController.swift */,
+				2E571B402BFED164006ED80E /* ManagementViewController.swift */,
 			);
 			path = Management;
 			sourceTree = "<group>";
@@ -268,6 +282,24 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		2E571B442BFED6FF006ED80E /* FlashCard */ = {
+			isa = PBXGroup;
+			children = (
+				2E571B342BFED09E006ED80E /* FlashAlertViewController.swift */,
+				2E571B352BFED09E006ED80E /* FlashCardViewController.swift */,
+			);
+			path = FlashCard;
+			sourceTree = "<group>";
+		};
+		2E571B452BFED778006ED80E /* Study */ = {
+			isa = PBXGroup;
+			children = (
+				2E571B332BFED09E006ED80E /* StudyViewController.swift */,
+				2E571B442BFED6FF006ED80E /* FlashCard */,
+			);
+			path = Study;
+			sourceTree = "<group>";
+		};
 		2E9DED9E2BF62AAA00A85C42 /* Study */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,6 +311,7 @@
 		2ED013D42BFB381D0028EC1B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				62F3A8DD2BFD390B0002508D /* UserDefaults */,
 				2E1C31092BFC914700CB6DDE /* CoreData */,
 				2E9DEDD62BF9FD6800A85C42 /* Status.swift */,
 				2E3A246C2BFD9D3100EF2738 /* TTS.swift */,
@@ -326,11 +359,9 @@
 			children = (
 				1A7577052BFCBC6400D88D29 /* Common */,
 				1A39334B2BFA7E8200F3B825 /* VocaBook */,
-				37D777252BF31E390078D6E8 /* StudyViewController.swift */,
-				37D777272BF31E640078D6E8 /* ReportViewController.swift */,
-				37D777292BF31E700078D6E8 /* UserViewController.swift */,
-				2E9DED9C2BF5D0EC00A85C42 /* FlashCardViewController.swift */,
-				2E10E7E12BFA97F70049E1AB /* FlashAlertViewController.swift */,
+				2E571B452BFED778006ED80E /* Study */,
+				62F3A9252BFE2D8F0002508D /* Report */,
+				62F3A9262BFE2DA00002508D /* User */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -366,6 +397,8 @@
 				1A39333E2BF7483300F3B825 /* Common */,
 				1A39333B2BF60B7300F3B825 /* VocaBook */,
 				2E9DED9E2BF62AAA00A85C42 /* Study */,
+				62F3A8D12BFD377E0002508D /* Report */,
+				62F3A8D22BFD378A0002508D /* User */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -378,6 +411,49 @@
 				372711FF2BFA16FA00573AC4 /* BaseCollectionViewCell.swift */,
 			);
 			path = Bases;
+			sourceTree = "<group>";
+		};
+		62F3A8D12BFD377E0002508D /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				62F3A8D72BFD38350002508D /* ReportView.swift */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
+		62F3A8D22BFD378A0002508D /* User */ = {
+			isa = PBXGroup;
+			children = (
+				62F3A8D32BFD37C90002508D /* UserView.swift */,
+				62F3A8D52BFD37DA0002508D /* UserModifyView.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		62F3A8DD2BFD390B0002508D /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				62F3A8DE2BFD39260002508D /* UserDefaultsManager.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		62F3A9252BFE2D8F0002508D /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				2E571B3B2BFED102006ED80E /* ReportViewController.swift */,
+				62F3A9212BFE2CA30002508D /* SecondViewController.swift */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
+		62F3A9262BFE2DA00002508D /* User */ = {
+			isa = PBXGroup;
+			children = (
+				62F3A91D2BFE2C920002508D /* UserViewController.swift */,
+				62F3A91E2BFE2C920002508D /* UserModifyViewViewController.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,6 +476,7 @@
 				37D7771A2BF30EAC0078D6E8 /* SnapKit */,
 				37D7771D2BF30ECD0078D6E8 /* Then */,
 				2E9DEDE12BFA77C900A85C42 /* Shuffle */,
+				62F3A8E12BFD396B0002508D /* DGCharts */,
 			);
 			productName = EveryDayVoca;
 			productReference = 37D776FB2BF30DBD0078D6E8 /* EveryDayVoca.app */;
@@ -433,6 +510,7 @@
 				37D777192BF30EAB0078D6E8 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				37D7771C2BF30ECD0078D6E8 /* XCRemoteSwiftPackageReference "Then" */,
 				2E9DEDE02BFA77C900A85C42 /* XCRemoteSwiftPackageReference "Shuffle" */,
+				62F3A8E02BFD396B0002508D /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 37D776FC2BF30DBD0078D6E8 /* Products */;
 			projectDirPath = "";
@@ -470,16 +548,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E571B432BFED211006ED80E /* VocaCoreDataManager.swift in Sources */,
 				1A8582852BFE2231008E7445 /* BaseViewController.swift in Sources */,
 				1A3933532BFAE08C00F3B825 /* MyVocaFlashCardViewController.swift in Sources */,
+				2E571B372BFED09E006ED80E /* FlashAlertViewController.swift in Sources */,
 				2E9DEDD92BFA167700A85C42 /* CardView.swift in Sources */,
-				37D7772A2BF31E700078D6E8 /* UserViewController.swift in Sources */,
+				62F3A8D62BFD37DA0002508D /* UserModifyView.swift in Sources */,
+				2E571B382BFED09E006ED80E /* FlashCardViewController.swift in Sources */,
 				1A3933402BF8B8AD00F3B825 /* VocaBookPopoverView.swift in Sources */,
 				1A39334E2BFA80CD00F3B825 /* MyVocaFlashCardView.swift in Sources */,
 				37D776FF2BF30DBD0078D6E8 /* AppDelegate.swift in Sources */,
-				2E10E7E22BFA97F70049E1AB /* FlashAlertViewController.swift in Sources */,
 				37D777012BF30DBD0078D6E8 /* SceneDelegate.swift in Sources */,
-				2E9DED9D2BF5D0EC00A85C42 /* FlashCardViewController.swift in Sources */,
+				2E571B362BFED09E006ED80E /* StudyViewController.swift in Sources */,
 				2E1C30FF2BFC315E00CB6DDE /* Voca+CoreDataClass.swift in Sources */,
 				2E1C31002BFC315E00CB6DDE /* Voca+CoreDataProperties.swift in Sources */,
 				1A8582822BFDBD08008E7445 /* VocaBookData.swift in Sources */,
@@ -488,18 +568,24 @@
 				2E1C31032BFC315E00CB6DDE /* VocaDeck+CoreDataClass.swift in Sources */,
 				2E1C31042BFC315E00CB6DDE /* VocaDeck+CoreDataProperties.swift in Sources */,
 				2E3A246D2BFD9D3100EF2738 /* TTS.swift in Sources */,
+				2E571B422BFED164006ED80E /* ManagementViewController.swift in Sources */,
 				37D777092BF30DBD0078D6E8 /* EveryDayVoca.xcdatamodeld in Sources */,
+				62F3A9202BFE2C920002508D /* UserModifyViewViewController.swift in Sources */,
 				1A3933502BFA834900F3B825 /* VocaBookBaseView.swift in Sources */,
-				37D777262BF31E390078D6E8 /* StudyViewController.swift in Sources */,
 				1A39333D2BF60C5900F3B825 /* VocaBookVocaListView.swift in Sources */,
 				1A3933482BFA279700F3B825 /* VocaBookDisplayOptionPopoverViewController.swift in Sources */,
 				1A3933552BFB325700F3B825 /* VocaBookAddVocaViewController.swift in Sources */,
-				372712142BFBCAB500573AC4 /* ManagementViewController.swift in Sources */,
 				3727120C2BFBC31500573AC4 /* ManagementAlertView.swift in Sources */,
-				37D777242BF31DED0078D6E8 /* VocaBookViewController.swift in Sources */,
+				2E571B412BFED164006ED80E /* ManagementAlertViewController.swift in Sources */,
 				2E9DED9B2BF50C4500A85C42 /* FlashCardView.swift in Sources */,
 				2E10E7E02BFA94000049E1AB /* FlashAlertView.swift in Sources */,
-				2E45B8042BFB5C2000BDFFEC /* VocaCoreDataManager.swift in Sources */,
+				62F3A9232BFE2CA30002508D /* SecondViewController.swift in Sources */,
+				62F3A91F2BFE2C920002508D /* UserViewController.swift in Sources */,
+				62F3A8D82BFD38350002508D /* ReportView.swift in Sources */,
+				2E571B3C2BFED102006ED80E /* ReportViewController.swift in Sources */,
+				62F3A8DF2BFD39260002508D /* UserDefaultsManager.swift in Sources */,
+				62F3A8D42BFD37C90002508D /* UserView.swift in Sources */,
+				2E571B3E2BFED131006ED80E /* VocaBookViewController.swift in Sources */,
 				371D24322BF37ED7002B4DC5 /* BaseView.swift in Sources */,
 				1A3933572BFB32D300F3B825 /* VocaBookAddVocaView.swift in Sources */,
 				1A3933422BF9EB2800F3B825 /* VocaBookFilterPopoverViewController.swift in Sources */,
@@ -510,8 +596,6 @@
 				2E9DEDD72BF9FD6800A85C42 /* Status.swift in Sources */,
 				37D777422BF34DED0078D6E8 /* UIFont+Extension.swift in Sources */,
 				372712122BFBCA5000573AC4 /* ManagementCell.swift in Sources */,
-				37D777282BF31E640078D6E8 /* ReportViewController.swift in Sources */,
-				372712082BFBC1BF00573AC4 /* ManagementAlertViewController.swift in Sources */,
 				372712002BFA16FA00573AC4 /* BaseCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -752,6 +836,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		62F3A8E02BFD396B0002508D /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ChartsOrg/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -769,6 +861,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 37D7771C2BF30ECD0078D6E8 /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		62F3A8E12BFD396B0002508D /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62F3A8E02BFD396B0002508D /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
 		};
 /* End XCSwiftPackageProductDependency section */
 
