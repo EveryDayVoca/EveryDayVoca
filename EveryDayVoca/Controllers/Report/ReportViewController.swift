@@ -124,7 +124,6 @@ extension ReportViewController: UICalendarViewDelegate, UICalendarSelectionSingl
         selectedDate = dateComponents
         // secondVC 값 바꿔야함
         let secondVC = SecondViewController()
-        secondVC.bind(dateComponents: dateComponents)
         navigationController?.pushViewController(secondVC, animated: true)
     }
     
