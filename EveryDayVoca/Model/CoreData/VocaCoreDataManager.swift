@@ -22,22 +22,18 @@ final class VocaCoreDataManager {
     private let vocaModel: String = "Voca"
     private let dateModel: String = "VocaDate"
     
-    private let cardDeckData: [String: Int] = [ "ALL": 5968, "기초": 800, "중등": 1800, "고등": 400, "토익": 1222, "1": 288, "2": 600, "3": 388, "4": 135, "5": 335]
+    let cardDeckData: [String: Int] = [ "ALL": 5968, "기초": 800, "중등": 1800, "고등": 400, "토익": 1222, "1": 288, "2": 600, "3": 388, "4": 135, "5": 335]
     
     // MARK: - .csv => CoreData
     
     private func isFirstLaunch() -> Bool {
-        let launchedBefore = UserDefaults.standard.bool(forKey: UserData.launchedBefore.rawValue)
+        let launchedBefore = UserDefaults.standard.bool(forKey: "지해지해님")
         if launchedBefore {
             return false
         } else {
-            UserDefaults.standard.set(true, forKey: UserData.launchedBefore.rawValue)
+            UserDefaults.standard.set(true, forKey: "지해지해님")
             return true
         }
-    }
-    
-    private func setUserDefaults() {
-        UserDefaultsManager.shared.defaultsSet()
     }
     
     func importCSVDataIfNeeded(fileName: String) {

@@ -5,7 +5,7 @@
 //  Created by 김정호 on 5/23/24.
 //
 
-import Foundation
+import UIKit
 
 final class UserDefaultsManager {
     
@@ -25,7 +25,7 @@ final class UserDefaultsManager {
                 return decodedUser
             }
         } else {
-            let initUser = User(name: "사용자 이름", nickname: "닉네임", level: 1, amount: 10, profile: Data())
+            let initUser = User(name: "사용자 이름", nickname: "닉네임", level: 1, amount: 10, profile: UIImage.userProfile.jpegData(compressionQuality: 1.0) ?? Data())
             
             if let encodedInitUser = try? encoder.encode(initUser) {
                 UserDefaults.standard.set(encodedInitUser, forKey: userKey)
@@ -106,8 +106,4 @@ final class UserDefaultsManager {
         
         return false
     }
-    func setImageConvert(value: UIImage, key: String) {
-            let imageData = value.jpegData(compressionQuality: 1.0)
-            userDefaults.set(imageData, forKey: key)
-        }
 }

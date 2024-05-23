@@ -26,10 +26,6 @@ final class UserView: BaseView {
     }
     
     var profileImage = UIImageView().then {
-        if let imageData = UserDefaults.standard.data(forKey: UserData.profileImage.rawValue),
-           let image = UIImage(data: imageData) {
-            $0.image = image
-        }
         $0.backgroundColor = .gray50
         $0.layer.cornerRadius = 32
         $0.clipsToBounds = true
@@ -475,5 +471,13 @@ final class UserView: BaseView {
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().offset(-6)
         }
+    }
+    
+    func bind(user: User) {
+        userNameLabel.text = user.name
+        userNickNameLabel.text = user.nickname
+        studyLevelLabel.text = String("Lv. \(user.level)")
+        studyAmountLabel.text = String("\(user.amount)개")
+        profileImage.image = UIImage(data: user.profile)
     }
 }

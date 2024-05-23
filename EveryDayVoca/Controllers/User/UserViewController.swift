@@ -12,13 +12,17 @@ final class UserViewController: BaseViewController {
     // MARK: - property
     private let userView = UserView()
     
+    private let coreDataManager = VocaCoreDataManager.shared
+    private let userDefaultsManager = UserDefaultsManager.shared
+    
     // MARK: - life cycles
+    override func loadView() {
+        view = self.userView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view = self.userView
         
-        configureStyle()
-        bind()
         setProgressBar()
     }
     
@@ -40,50 +44,46 @@ final class UserViewController: BaseViewController {
             $0.tintColor = .gray100
         }
         
-        userView.userNameLabel.text = UserDefaults.standard.string(forKey: UserData.userName.rawValue)
-        userView.userNickNameLabel.text = UserDefaults.standard.string(forKey: UserData.userNickName.rawValue)
-        userView.studyLevelLabel.text = UserDefaults.standard.string(forKey: UserData.studyLevel.rawValue)
-        userView.studyAmountLabel.text = UserDefaults.standard.string(forKey: UserData.studyAmount.rawValue)
-        
         navigationItem.titleView = titleLabel
         navigationItem.rightBarButtonItem = modifyButton
     }
     
     override func bind() {
-        NotificationCenter.default.addObserver(self, selector: #selector(handleUserDefaultsChange(_:)), name: .userDefaultsDidChange, object: nil)
+        let user = userDefaultsManager.fetchUser()
+        userView.bind(user: user)
     }
     
     func calculateProgress(level: Int) -> Float {
-        var levels = UserData.total1
+        let cardDeckData = coreDataManager.cardDeckData
+        
+        var levels = 0
+        
         switch level {
         case 1:
-            levels = UserData.total1
+            levels = 288
         case 2:
-            levels = UserData.total2
+            levels = 600
         case 3:
-            levels = UserData.total3
+            levels = 388
         case 4:
-            levels = UserData.total4
-        case 5:
-            levels = UserData.total5
+            levels = 315
         default:
-            levels = UserData.total1
+            levels = 135
         }
         
-        if UserDefaults.standard.integer(forKey: levels.rawValue) == 0 {
-            return 0
-        }else {
-            return Float(VocaCoreDataManager.shared.calculateMemorizedWordCountByLevel(level: level) / UserDefaults.standard.integer(forKey: levels.rawValue))
-        }
+        return Float(coreDataManager.calculateMemorizedWordCountByLevel(level: level) / levels)
     }
     
     func setProgressBar() {
+        
+        // 바 progress
         userView.oneProgressView.progress = self.calculateProgress(level: 1)
         userView.twoProgressView.progress = self.calculateProgress(level: 2)
         userView.threeProgressView.progress = self.calculateProgress(level: 3)
         userView.fourProgressView.progress = self.calculateProgress(level: 4)
         userView.fiveProgressView.progress = self.calculateProgress(level: 5)
         
+        // 진도율 text
         userView.oneProgressPercentLabel.text = "\(calculateProgress(level: 1)*100)%"
         userView.twoProgressPercentLabel.text = "\(calculateProgress(level: 2)*100)%"
         userView.threeProgressPercentLabel.text = "\(calculateProgress(level: 3)*100)%"
@@ -93,30 +93,11 @@ final class UserViewController: BaseViewController {
     
     @objc func tappedModifyButton() {
         let nextView = UserModifyViewController()
+        nextView.completion = { [weak self] in
+            guard let self = self else { return }
+            
+            bind()
+        }
         navigationController?.pushViewController(nextView, animated: true)
     }
-    
-    @objc func handleUserDefaultsChange(_ notification: Notification) {
-        if let value = UserDefaults.standard.string(forKey: UserData.userName.rawValue) {
-            self.userView.userNameLabel.text = value
-        }
-        if let value = UserDefaults.standard.string(forKey: UserData.userNickName.rawValue) {
-            self.userView.userNickNameLabel.text = value
-        }
-        if let value = UserDefaults.standard.string(forKey: UserData.studyLevel.rawValue) {
-            self.userView.studyLevelLabel.text = value
-        }
-        if let value = UserDefaults.standard.string(forKey: UserData.studyAmount.rawValue) {
-            self.userView.studyAmountLabel.text = value
-        }
-        if let imageData = UserDefaults.standard.data(forKey: UserData.profileImage.rawValue),
-           let image = UIImage(data: imageData) {
-            self.userView.profileImage.image = image
-        }
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: .userDefaultsDidChange, object: nil)
-    }
-    
 }
