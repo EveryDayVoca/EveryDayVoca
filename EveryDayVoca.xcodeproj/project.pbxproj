@@ -68,6 +68,8 @@
 		37D7773E2BF34C400078D6E8 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37D777352BF34C400078D6E8 /* Pretendard-Medium.otf */; };
 		37D7773F2BF34C400078D6E8 /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37D777362BF34C400078D6E8 /* Pretendard-Thin.otf */; };
 		37D777422BF34DED0078D6E8 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D777412BF34DED0078D6E8 /* UIFont+Extension.swift */; };
+		37F7A71D2BFF674600F96923 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F7A71C2BFF674600F96923 /* User.swift */; };
+		37F7A71F2BFF67C200F96923 /* Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F7A71E2BFF67C200F96923 /* Progress.swift */; };
 		62F3A8D42BFD37C90002508D /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A8D32BFD37C90002508D /* UserView.swift */; };
 		62F3A8D62BFD37DA0002508D /* UserModifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A8D52BFD37DA0002508D /* UserModifyView.swift */; };
 		62F3A8D82BFD38350002508D /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F3A8D72BFD38350002508D /* ReportView.swift */; };
@@ -139,6 +141,8 @@
 		37D777352BF34C400078D6E8 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		37D777362BF34C400078D6E8 /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		37D777412BF34DED0078D6E8 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		37F7A71C2BFF674600F96923 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		37F7A71E2BFF67C200F96923 /* Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.swift; sourceTree = "<group>"; };
 		62F3A8D32BFD37C90002508D /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		62F3A8D52BFD37DA0002508D /* UserModifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModifyView.swift; sourceTree = "<group>"; };
 		62F3A8D72BFD38350002508D /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
@@ -331,6 +335,8 @@
 				2E1C31092BFC914700CB6DDE /* CoreData */,
 				2E9DEDD62BF9FD6800A85C42 /* Status.swift */,
 				2E3A246C2BFD9D3100EF2738 /* TTS.swift */,
+				37F7A71C2BFF674600F96923 /* User.swift */,
+				37F7A71E2BFF67C200F96923 /* Progress.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -574,6 +580,7 @@
 				2E571B372BFED09E006ED80E /* FlashAlertViewController.swift in Sources */,
 				2E9DEDD92BFA167700A85C42 /* CardView.swift in Sources */,
 				62F3A8D62BFD37DA0002508D /* UserModifyView.swift in Sources */,
+				37F7A71F2BFF67C200F96923 /* Progress.swift in Sources */,
 				2E571B382BFED09E006ED80E /* FlashCardViewController.swift in Sources */,
 				1A3933402BF8B8AD00F3B825 /* VocaBookPopoverView.swift in Sources */,
 				1A39334E2BFA80CD00F3B825 /* MyVocaFlashCardView.swift in Sources */,
@@ -600,6 +607,7 @@
 				2E9DED9B2BF50C4500A85C42 /* FlashCardView.swift in Sources */,
 				2E10E7E02BFA94000049E1AB /* FlashAlertView.swift in Sources */,
 				62F3A9232BFE2CA30002508D /* SecondViewController.swift in Sources */,
+				37F7A71D2BFF674600F96923 /* User.swift in Sources */,
 				62F3A91F2BFE2C920002508D /* UserViewController.swift in Sources */,
 				62F3A8D82BFD38350002508D /* ReportView.swift in Sources */,
 				2E571B3C2BFED102006ED80E /* ReportViewController.swift in Sources */,
@@ -753,7 +761,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 79LSKHWYJ8;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EveryDayVoca/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -786,7 +794,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 79LSKHWYJ8;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EveryDayVoca/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
