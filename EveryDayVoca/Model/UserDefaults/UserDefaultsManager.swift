@@ -70,6 +70,10 @@ final class UserDefaultsManager {
     @objc private func userDefaultsDidChange(_ notification: Notification) {
         NotificationCenter.default.post(name: .userDefaultsDidChange, object: nil)
     }
+    func setImageConvert(value: UIImage, key: String) {
+            let imageData = value.jpegData(compressionQuality: 1.0)
+            userDefaults.set(imageData, forKey: key)
+        }
 }
 
 extension Notification.Name {
