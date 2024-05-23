@@ -13,6 +13,8 @@ final class VocaBookViewController: BaseViewController {
     // MARK: - Properties
     
     private let vocaBookVocaListView = VocaBookVocaListView()
+    let displayOptionPopoverVC = VocaBookDisplayOptionPopoverViewController()
+    var index: Int = 0
     
     var vocas: [Voca] = []
     var vocaDecks: [VocaDeck] = []
@@ -31,6 +33,10 @@ final class VocaBookViewController: BaseViewController {
         super.viewDidLoad()
         configureAddTarget()
         
+        displayOptionPopoverVC.selectedDisplayOption = { index in
+            self.index = index
+            self.vocaBookVocaListView.vocaListTableView.reloadData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -118,7 +124,6 @@ final class VocaBookViewController: BaseViewController {
     }
     
     @objc func tappedTableDisplayOptionButton() {
-        let displayOptionPopoverVC = VocaBookDisplayOptionPopoverViewController()
         displayOptionPopoverVC.modalPresentationStyle = .popover
         displayOptionPopoverVC.preferredContentSize = .init(width: 150, height: 96)
         displayOptionPopoverVC.popoverPresentationController?.sourceView = vocaBookVocaListView.tableDisplayOptionButton
@@ -162,7 +167,26 @@ extension VocaBookViewController: UITableViewDataSource {
         
         cell.bind(voca: vocas[indexPath.row])
         cell.selectionStyle = .none
-        print("tableView cell: \(vocas[indexPath.row])")
+        
+        switch index {
+            
+        case 0:
+            cell.koreanLabel.isHidden = true
+            cell.englishLabel.isHidden = false
+            
+        case 1:
+            cell.koreanLabel.isHidden = false
+            cell.englishLabel.isHidden = true
+            
+        case 2:
+            cell.koreanLabel.isHidden = false
+            cell.englishLabel.isHidden = false
+            
+        default:
+            cell.koreanLabel.isHidden = false
+            cell.englishLabel.isHidden = false
+        }
+        
         return cell
     }
     
