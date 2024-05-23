@@ -12,6 +12,7 @@ final class SecondViewController: BaseViewController {
     // MARK: - Properties
     
     let secondView = SecondView()
+    var dateComponents: DateComponents?
     var dailyStudyData = [Status:Int]()
     var vocas = [Voca]()
     
@@ -21,25 +22,22 @@ final class SecondViewController: BaseViewController {
     override func loadView() {
         view = secondView
         setNavigationController()
-        print("loadView")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewDidLoad")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
         secondView.vocaListTableView.reloadData()
-        print("viewWillAppear")
+        bind()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.isHidden = false
-        print("viewWillDisappear")
     }
     
     
@@ -64,13 +62,13 @@ final class SecondViewController: BaseViewController {
     
     
     func bind(dateComponents: DateComponents?) {
-        print("bind")
-        
+        self.dateComponents = dateComponents
+    }
+    
+    override func bind() {
         guard let date = dateComponents?.date else { return }
         let vocaDate = VocaCoreDataManager.shared.getVocaDateData(date: date)
-        print("bind 통과")
         
-//        self.dailyStudyData = [.difficult:5, .ambiguous:7, .memorized:10, .none:5]
         guard vocaDate != [] else { return }
         let leadWordIndex = Int(vocaDate[0].leadWordIndex)
         let studiedWordCount = Int(vocaDate[0].studiedWordCount)
@@ -110,15 +108,13 @@ final class SecondViewController: BaseViewController {
         
         // statusPercentLabel
         secondView.bindstatusPercentLabel(
-            difficult: Int(difficultPercent),
-            ambiguous: Int(ambiguousPercent),
-            memorized: Int(memorizedPercent)
+            difficult: Int(difficultPercent * 100),
+            ambiguous: Int(ambiguousPercent * 100),
+            memorized: Int(memorizedPercent * 100)
         )
     }
     
-}
-
-
+    }
 
 
 extension SecondViewController: UITableViewDataSource {

@@ -190,8 +190,6 @@ class SecondView: BaseView {
     }
     
     func reconfigureBarWidth(difficult: CGFloat, ambiguous: CGFloat, memorized: CGFloat) {
-        print("remakeConstraints")
-        
         difficultBar.snp.remakeConstraints {
             $0.top.equalTo(levelLabel.snp.bottom).offset(16)
             $0.leading.equalTo(safeAreaLayoutGuide).offset(26)
