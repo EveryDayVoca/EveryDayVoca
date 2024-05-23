@@ -14,9 +14,12 @@ final class FlashCardViewController: BaseViewController {
     private var flashCardView: FlashCardView!
     private var customAlertVC: FlashAlertViewController!
     private var currentIndex = 0
-    let coreDataManager = VocaCoreDataManager.shared
+    private let coreDataManager = VocaCoreDataManager.shared
     private var wordData = [Voca]()
+    private let tts = TTS()
+    
     var toStudyVC: (([Voca]) -> Void)?
+    var completion: (() -> Void)?
     
     // MARK: - life cycles
     override func loadView() {
@@ -24,6 +27,13 @@ final class FlashCardViewController: BaseViewController {
         customAlertVC = FlashAlertViewController()
         
         wordData = coreDataManager.getVocaDataWithIndex(firstIndex: 1, count: 10)
+        
+        if coreDataManager.getVocaDateData(date: Date()) == []{
+            print("\(Date())")
+            print("")
+            coreDataManager.createVocaDateData(index: 1, count: 10)
+            // userDefaults에도 값 업데이트 해야 함.
+        }
         
         view = flashCardView
     }
@@ -58,12 +68,13 @@ final class FlashCardViewController: BaseViewController {
     
     private func configureNavigation() {
         let titleView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+        
         let titleLabel = UILabel(frame: titleView.bounds)
         titleLabel.text = "학습하기"
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont.pretendard(size: 17, weight: .semibold)
-        titleView.addSubview(titleLabel)
         
+        titleView.addSubview(titleLabel)
         navigationItem.titleView = titleView
     }
     
@@ -71,12 +82,12 @@ final class FlashCardViewController: BaseViewController {
         let card = CardView()
         card.configure(with: data)
         card.swipeDirections = [.left, .right]
-        
         return card
     }
     
     private func configureTarget() {
         flashCardView.previousCardButton.addTarget(self, action: #selector(tappedPreviousButton), for: .touchUpInside)
+        flashCardView.speakButton.addTarget(self, action: #selector(tappedSpeakButton), for: .touchUpInside)
         flashCardView.hardButton.addTarget(self, action: #selector(tappedStatusButton), for: .touchUpInside)
         flashCardView.normalButton.addTarget(self, action: #selector(tappedStatusButton), for: .touchUpInside)
         flashCardView.perfectButton.addTarget(self, action: #selector(tappedStatusButton), for: .touchUpInside)
@@ -92,12 +103,26 @@ final class FlashCardViewController: BaseViewController {
     @objc func tappedStatusButton(sender: UIButton) {
         sender.isSelected = true
         guard let buttonStatus = sender.titleLabel?.text else { return }
+        let todayData = coreDataManager.getVocaDateData(date: Date())
+        print(todayData)
         switch buttonStatus {
         case "어려워요":
+            if wordData[currentIndex].status == Status.memorized.rawValue {
+                coreDataManager.updateVocaDateStudiedWordCount( todayData[0], isPlus: false)
+            }
+            coreDataManager.updateVocaStatus(wordData[currentIndex], status: .difficult)
             wordData[currentIndex].status = Status.difficult.rawValue
         case "애매해요":
+            if wordData[currentIndex].status == Status.memorized.rawValue {
+                coreDataManager.updateVocaDateStudiedWordCount( todayData[0], isPlus: false)
+            }
+            coreDataManager.updateVocaStatus(wordData[currentIndex], status: .ambiguous)
             wordData[currentIndex].status = Status.ambiguous.rawValue
         case "외웠어요":
+            if wordData[currentIndex].status != Status.memorized.rawValue {
+                coreDataManager.updateVocaDateStudiedWordCount( todayData[0], isPlus: true)
+            }
+            coreDataManager.updateVocaStatus(wordData[currentIndex], status: .memorized)
             wordData[currentIndex].status = Status.memorized.rawValue
         default:
             wordData[currentIndex].status = Status.none.rawValue
@@ -105,12 +130,17 @@ final class FlashCardViewController: BaseViewController {
         flashCardView.cardStack.swipe(.right, animated: true)
     }
     
+    @objc func tappedSpeakButton(sender: UIButton) {
+        guard let english = self.wordData[currentIndex].english else { return }
+        self.tts.play(str: english, language: .english)
+    }
+    
     func configureProgressBar() {
         let percentage = Double(currentIndex) / Double(wordData.count)
         flashCardView.progressBar.progress = Float(percentage)
         flashCardView.percentLabel.text = "\(round(percentage*100))%"
     }
-
+    
     func configureCustomAlert() {
         customAlertVC.titleText = "Notice"
         customAlertVC.subtitleText = "목표 단어를 모두 확인하였습니다."

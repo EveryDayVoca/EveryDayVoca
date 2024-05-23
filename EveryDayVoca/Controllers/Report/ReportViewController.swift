@@ -15,15 +15,20 @@ final class ReportViewController: BaseViewController {
     private var selectedDate: DateComponents? = nil
     
     // 차트 데이터
-    let monthDate = VocaCoreDataManager.shared.getVocaMonthDates(forYear: 2024, month: 5)
-    lazy var difficulty = VocaCoreDataManager.shared.calculateMonthlyStudyData(vocaDates: monthDate)
-    lazy var studyData = VocaCoreDataManager.shared.calculateStudyData(vocaDates: monthDate)
-    
+    let monthDate = [VocaDate]()
+    var difficulty = [Status: Int]()
+    var studyData: (Int, Int, [Date: Double]) = (0, 0, [:])
     var difficultySet: [String] = []
     var difficultCount: [Double] = []
     
     
     // MARK: - lifecycle
+    override func loadView() {
+        monthDate = VocaCoreDataManager.shared.getVocaMonthDates(forYear: 2024, month: 5)
+        difficulty = VocaCoreDataManager.shared.calculateMonthlyStudyData(vocaDates: monthDate)
+        studyData = VocaCoreDataManager.shared.calculateStudyData(vocaDates: monthDate)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view = self.reportView
@@ -32,8 +37,8 @@ final class ReportViewController: BaseViewController {
         configureDelegate()
         bind()
         setChart(data: difficultySet, values: difficultCount)
-        
     }
+    
     
     // MARK: - method
     override func configureStyle() {
@@ -44,9 +49,6 @@ final class ReportViewController: BaseViewController {
             $0.textAlignment = .center
         }
         navigationItem.titleView = titleLabel
-        
-        
-        
     }
     
     override func configureDelegate() {
@@ -96,7 +98,7 @@ final class ReportViewController: BaseViewController {
         
         // 차트 가운데 입력값
         if studyData.studiedWords != 0 {
-            let memorizeRate = ( difficulty[.memorized]! / studyData.studiedWords ) * 100
+            let memorizeRate = Int(round(( Double(studyData.studiedWords) / Double(studyData.totalWords)) * 100 ))
             self.reportView.pieChart.centerText = "\(memorizeRate)%"
         } else {
             self.reportView.pieChart.centerText = "0%"
@@ -129,8 +131,9 @@ extension ReportViewController: UICalendarViewDelegate, UICalendarSelectionSingl
     func calendarView(_ calendarView: UICalendarView, decorationFor dateComponents: DateComponents) -> UICalendarView.Decoration? {
         
         let date = dateComponents.date!
-        
+        //print(date)
         if self.studyData.dailyRates.keys.contains(date) {
+            //print(self.studyData.dailyRates[date]!)
             switch self.studyData.dailyRates[date]! {
             case (1.0)...(10.0):
                 return .image(UIImage(named: "Property_25"))

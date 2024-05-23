@@ -81,7 +81,6 @@ final class VocaCoreDataManager {
         }
         
         createVocaDeckData(cardDeckData)
-        setUserDefaults()
     }
     
     
@@ -162,7 +161,7 @@ final class VocaCoreDataManager {
             let predicate = NSPredicate(format: "vocaDeck == %@ AND status == %@", vocaDeck, status.rawValue)
             fetchRequest.predicate = predicate
         }else {
-            let predicate = NSPredicate(format: "status == %@", vocaDeck)
+            let predicate = NSPredicate(format: "status == %@", status.rawValue)
             fetchRequest.predicate = predicate
         }
         
@@ -306,7 +305,7 @@ final class VocaCoreDataManager {
         
         let fetchRequest: NSFetchRequest<VocaDeck> = VocaDeck.fetchRequest()
         
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true, selector: #selector(NSString.localizedStandardCompare(_:)))
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: false, selector: #selector(NSString.localizedStandardCompare(_:)))
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         do {
@@ -318,11 +317,24 @@ final class VocaCoreDataManager {
         return vocaDeckList
     }
     
-    func updateVocaDeckCount(_ vocaDeck: VocaDeck) {
+    func updateVocaDeckCount(_ vocaDeck: String) {
+        var vocaDecks = [VocaDeck]()
+        
         guard let context = context else {
             return
         }
-        vocaDeck.count += 1
+        
+        let fetchRequest: NSFetchRequest<VocaDeck> = VocaDeck.fetchRequest()
+        let predicate = NSPredicate(format: "name == %@", vocaDeck)
+        fetchRequest.predicate = predicate
+        
+        do {
+            vocaDecks = try context.fetch(fetchRequest)
+        } catch {
+            print("코어데이터 가져오는 중 에러 \(error)")
+        }
+        
+        vocaDecks[0].count += 1
         
         do {
             try context.save()
@@ -363,7 +375,14 @@ final class VocaCoreDataManager {
         
         let fetchRequest: NSFetchRequest<VocaDate> = VocaDate.fetchRequest()
         
-        let predicate = NSPredicate(format: "createdAt == %@", date as CVarArg)
+        let calender = Calendar.current
+        let starOfDay = calender.startOfDay(for: date)
+        
+        var dateComponents = DateComponents()
+        dateComponents.day = 1
+        let endOfDay = calender.date(byAdding: dateComponents, to: starOfDay)!
+        
+        let predicate = NSPredicate(format: "(createdAt >= %@) AND (createdAt < %@)", starOfDay as NSDate, endOfDay as NSDate)
         fetchRequest.predicate = predicate
         
         do {

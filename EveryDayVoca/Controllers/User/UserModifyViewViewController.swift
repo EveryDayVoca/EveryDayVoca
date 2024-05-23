@@ -20,21 +20,15 @@ final class UserModifyViewController: BaseViewController {
     private let counts = ["10개", "20개", "30개", "40개", "50개", "60개", "70개", "80개", "90개", "100개"]
     
     
-    
-    
-    
     // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view = self.userModifyView
         
-        configureStyle()
-        configureDelegate()
-        bind()
         tapGesture()
         dismissPickerView()
-        
     }
+    
     
     // MARK: - method
     override func configureStyle() {
@@ -46,22 +40,17 @@ final class UserModifyViewController: BaseViewController {
         }
         
         navigationItem.titleView = titleLabel
-        
-        
     }
-    
     
     override func configureDelegate() {
         firstPickerView.delegate = self
         secondPickerView.delegate = self
     }
     
-    
     override func bind() {
         userModifyView.levelTextField.inputView = firstPickerView
         userModifyView.learningAmountTextField.inputView = secondPickerView
     }
-    
 
     private func tapGesture() {
         userModifyView.doneEditButton.addTarget(self, action: #selector(tappedDoneEditButton), for: .touchUpInside)
@@ -70,7 +59,6 @@ final class UserModifyViewController: BaseViewController {
         userModifyView.profileImage.addGestureRecognizer(tapGesture)
         userModifyView.profileImage.isUserInteractionEnabled = true
     }
-    
     
     @objc func tappedDoneEditButton() {
         let alert = UIAlertController(title: "프로필 수정", message: "변경 사항을 저장하시겠습니까?", preferredStyle: .alert)
@@ -81,8 +69,9 @@ final class UserModifyViewController: BaseViewController {
             UserDefaults.standard.set(self.userModifyView.changeNickNameTextField.text!, forKey: UserData.userNickName.rawValue)
             UserDefaults.standard.set(self.userModifyView.levelTextField.text!, forKey: UserData.studyLevel.rawValue)
             UserDefaults.standard.set(self.userModifyView.learningAmountTextField.text!, forKey: UserData.studyAmount.rawValue)
-            UserDefaults.standard.set(self.userModifyView.profileImage.image!, forKey: UserData.profileImage.rawValue)
-            
+            if let profileImage = self.userModifyView.profileImage.image {
+                UserDefaults.standard.set(profileImage, forKey: UserData.profileImage.rawValue)
+            }
             NotificationCenter.default.addObserver(self, selector: #selector(self.tappedDoneEditButton), name: .userDefaultsDidChange, object: nil)
             self.navigationController?.popViewController(animated: true)
         }
@@ -124,7 +113,6 @@ extension UserModifyViewController: UIImagePickerControllerDelegate, UINavigatio
         self.present(picker, animated: true)
     }
 }
-
 
 
 extension UserModifyViewController: UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {

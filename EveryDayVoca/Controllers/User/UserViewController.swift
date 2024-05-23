@@ -65,7 +65,11 @@ final class UserViewController: BaseViewController {
             levels = UserData.total1
         }
         
-        return Float(VocaCoreDataManager.shared.calculateMemorizedWordCountByLevel(level: level) / UserDefaults.standard.integer(forKey: levels.rawValue))
+        if UserDefaults.standard.integer(forKey: levels.rawValue) == 0 {
+            return 0
+        }else {
+            return Float(VocaCoreDataManager.shared.calculateMemorizedWordCountByLevel(level: level) / UserDefaults.standard.integer(forKey: levels.rawValue))
+        }
     }
     
     func setProgressBar() {

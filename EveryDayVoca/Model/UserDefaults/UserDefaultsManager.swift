@@ -35,7 +35,6 @@ final class UserDefaultsManager {
     
     private let userDefaults = UserDefaults.standard
     
-    
     private init() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(userDefaultsDidChange(_:)),
@@ -47,7 +46,6 @@ final class UserDefaultsManager {
                                                   name: UserDefaults.didChangeNotification,
                                                   object: nil)
     }
-    
     
     func defaultsSet() {
         let defaults:[String : Any] = [
