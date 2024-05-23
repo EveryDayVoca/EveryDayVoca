@@ -42,7 +42,7 @@ final class VocaCoreDataManager {
     
     func importCSVDataIfNeeded(fileName: String) {
         guard isFirstLaunch() else { return }
-
+        
         guard let csvPath = Bundle.main.path(forResource: fileName, ofType: "csv"),
               let data = try? String(contentsOfFile: csvPath, encoding: .utf8) else {
             print("csv File 로딩 중 에러")
@@ -72,7 +72,7 @@ final class VocaCoreDataManager {
                 print("넘어간 Row 값 : \(row)")
             }
         }
-
+        
         do {
             try context.save()
             print("코어데이터 저장 성공")
@@ -85,7 +85,7 @@ final class VocaCoreDataManager {
     
     
     // MARK: - Voca CoreData
-
+    
     func createVocaData(english: String, korean: String, vocaDeck: String) {
         guard let context = context,
               let entity = NSEntityDescription.entity(forEntityName: vocaModel, in: context) else {
@@ -430,7 +430,7 @@ final class VocaCoreDataManager {
         }else {
             date.studiedWordCount -= 1
         }
-
+        
         do {
             try context.save()
         } catch {
@@ -459,23 +459,37 @@ final class VocaCoreDataManager {
         }
     }
     
-    func calculateStudyData(vocaDates: [VocaDate]) -> (studiedWords: Int, totalWords: Int, dailyRates: [Date: Double]) {
-        
+    func calculateStudyData(vocaDates: [VocaDate]) -> (studiedWords: Int, totalWords: Int, dailyRates: [String: Double]) {
         var studiedWords = 0
         var totalWords = 0
-        var dailyStudyRates: [Date: Double] = [:]
-        
+        var dailyStudyRates: [String: Double] = [:]
         for vocaDate in vocaDates {
             studiedWords += Int(vocaDate.studiedWordCount)
             totalWords += Int(vocaDate.totalWordCount)
             let rate = Double(vocaDate.studiedWordCount) / Double(vocaDate.totalWordCount)
-            
             if let createdAt = vocaDate.createdAt {
-                dailyStudyRates[createdAt] = rate
+                let dateStr = formatDateToString(createdAt)
+                dailyStudyRates[dateStr] = rate
             }
         }
-        
         return (studiedWords: studiedWords, totalWords: totalWords, dailyRates: dailyStudyRates)
+    }
+    
+    func formatDateToString(_ date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateString = dateFormatter.string(from: date)
+        return dateString
+    }
+    
+    func dateComponentsToString(_ components: DateComponents) -> String? {
+        if let date = Calendar.current.date(from: components) {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            let dateString = dateFormatter.string(from: date)
+            return dateString
+        }
+        return nil
     }
     
     func calculateMonthlyStudyData(vocaDates: [VocaDate]) -> [Status: Int] {

@@ -421,7 +421,6 @@
 			children = (
 				37D777442BF37E9F0078D6E8 /* Bases */,
 				62F3A8D22BFD378A0002508D /* User */,
-				62F3A8D12BFD377E0002508D /* Report */,
 				2E9DED9E2BF62AAA00A85C42 /* Study */,
 				1A39333B2BF60B7300F3B825 /* VocaBook */,
 				1A39333E2BF7483300F3B825 /* Common */,
@@ -432,6 +431,7 @@
 		37D777442BF37E9F0078D6E8 /* Bases */ = {
 			isa = PBXGroup;
 			children = (
+				62F3A8D12BFD377E0002508D /* Report */,
 				371D24312BF37ED7002B4DC5 /* BaseView.swift */,
 				371D24332BF38AC1002B4DC5 /* BaseViewController.swift */,
 				372711FF2BFA16FA00573AC4 /* BaseCollectionViewCell.swift */,

@@ -16,7 +16,7 @@ final class UserModifyViewController: BaseViewController {
     private let firstPickerView = UIPickerView()
     private let secondPickerView = UIPickerView()
     
-    private let level = ["Lv. 1", "Lv. 2", "Lv. 3", "Lv. 4", "Lv. 5",]
+    private let level = ["Lv. 1", "Lv. 2", "Lv. 3", "Lv. 4", "Lv. 5"]
     private let counts = ["10개", "20개", "30개", "40개", "50개", "60개", "70개", "80개", "90개", "100개"]
     
     
@@ -29,7 +29,6 @@ final class UserModifyViewController: BaseViewController {
         dismissPickerView()
     }
     
-    
     // MARK: - method
     override func configureStyle() {
         let titleLabel = UILabel().then {
@@ -38,8 +37,12 @@ final class UserModifyViewController: BaseViewController {
             $0.textColor = UIColor.evText
             $0.textAlignment = .center
         }
-        
         navigationItem.titleView = titleLabel
+        
+        userModifyView.changeNameTextField.text = UserDefaults.standard.string(forKey: UserData.userName.rawValue)
+        userModifyView.changeNickNameTextField.text = UserDefaults.standard.string(forKey: UserData.userNickName.rawValue)
+        userModifyView.levelTextField.text = UserDefaults.standard.string(forKey: UserData.studyLevel.rawValue)
+        userModifyView.learningAmountTextField.text = UserDefaults.standard.string(forKey: UserData.studyAmount.rawValue)
     }
     
     override func configureDelegate() {
@@ -51,7 +54,7 @@ final class UserModifyViewController: BaseViewController {
         userModifyView.levelTextField.inputView = firstPickerView
         userModifyView.learningAmountTextField.inputView = secondPickerView
     }
-
+    
     private func tapGesture() {
         userModifyView.doneEditButton.addTarget(self, action: #selector(tappedDoneEditButton), for: .touchUpInside)
         
@@ -69,9 +72,7 @@ final class UserModifyViewController: BaseViewController {
             UserDefaults.standard.set(self.userModifyView.changeNickNameTextField.text!, forKey: UserData.userNickName.rawValue)
             UserDefaults.standard.set(self.userModifyView.levelTextField.text!, forKey: UserData.studyLevel.rawValue)
             UserDefaults.standard.set(self.userModifyView.learningAmountTextField.text!, forKey: UserData.studyAmount.rawValue)
-            if let profileImage = self.userModifyView.profileImage.image {
-                UserDefaults.standard.set(profileImage, forKey: UserData.profileImage.rawValue)
-            }
+            UserDefaultsManager.shared.setImageConvert(value: self.userModifyView.profileImage.image!, key: "profileImage")
             NotificationCenter.default.addObserver(self, selector: #selector(self.tappedDoneEditButton), name: .userDefaultsDidChange, object: nil)
             self.navigationController?.popViewController(animated: true)
         }

@@ -37,14 +37,12 @@ final class UserView: BaseView {
     }
     
     var userNameLabel = UILabel().then {
-        $0.text = UserDefaults.standard.string(forKey: UserData.userName.rawValue)
         $0.font = UIFont.pretendard(size: 18, weight: .semibold)
         $0.textColor = UIColor.evText
         $0.textAlignment = .left
     }
     
     var userNickNameLabel = UILabel().then {
-        $0.text = UserDefaults.standard.string(forKey: UserData.userNickName.rawValue)
         $0.font = UIFont.pretendard(size: 18, weight: .regular)
         $0.textColor = UIColor.evText
         $0.textAlignment = .left
@@ -74,7 +72,6 @@ final class UserView: BaseView {
     }
     
     var studyLevelLabel = UILabel().then {
-        $0.text = UserDefaults.standard.string(forKey: UserData.studyLevel.rawValue)
         $0.textColor = .blue100
         $0.font = UIFont.pretendard(size: 18, weight: .semibold)
     }
@@ -87,7 +84,6 @@ final class UserView: BaseView {
     }
     
     var studyAmountLabel = UILabel().then {
-        $0.text = UserDefaults.standard.string(forKey: UserData.studyAmount.rawValue)
         $0.font = UIFont.pretendard(size: 18, weight: .semibold)
         $0.textColor = UIColor.evText
         $0.textAlignment = .right
@@ -314,7 +310,6 @@ final class UserView: BaseView {
             $0.top.equalTo(profileLabel.snp.bottom).offset(12)
             $0.leading.equalToSuperview().offset(20)
             $0.trailing.equalToSuperview().offset(-20)
-            //            $0.height.equalTo(96)
         }
         
         dayGoalLabel.snp.makeConstraints {

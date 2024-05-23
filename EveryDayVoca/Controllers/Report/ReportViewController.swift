@@ -17,16 +17,22 @@ final class ReportViewController: BaseViewController {
     // 차트 데이터
     var monthDate = [VocaDate]()
     var difficulty = [Status: Int]()
-    var studyData: (studiedWords: Int, totalWords: Int, dailyRates: [Date: Double]) = (0, 0, [:])
+    var studyData: (studiedWords: Int, totalWords: Int, dailyRates: [String: Double]) = (0, 0, [:])
     var difficultySet: [String] = []
     var difficultCount: [Double] = []
-    
+    let yearFormat = DateFormatter().then {
+        $0.dateFormat = "yyyy"
+    }
+    let monthFormat = DateFormatter().then {
+        $0.dateFormat = "MM"
+    }
     
     // MARK: - lifecycle
     override func loadView() {
-        monthDate = VocaCoreDataManager.shared.getVocaMonthDates(forYear: 2024, month: 5)
+        monthDate = VocaCoreDataManager.shared.getVocaMonthDates(forYear: Int(yearFormat.string(from: Date()))!, month: Int(monthFormat.string(from: Date()))!)
         difficulty = VocaCoreDataManager.shared.calculateMonthlyStudyData(vocaDates: monthDate)
         studyData = VocaCoreDataManager.shared.calculateStudyData(vocaDates: monthDate)
+        
     }
     
     override func viewDidLoad() {
@@ -37,8 +43,8 @@ final class ReportViewController: BaseViewController {
         configureDelegate()
         bind()
         setChart(data: difficultySet, values: difficultCount)
+        
     }
-    
     
     // MARK: - method
     override func configureStyle() {
@@ -58,21 +64,25 @@ final class ReportViewController: BaseViewController {
     
     override func bind() {
         self.difficultySet = ["어려워요", "애매해요", "외웠어요"]
-        self.difficultCount = [Double(difficulty[.difficult]!),
+        self.difficultCount = [Double(difficulty[.memorized]!),
                                Double(difficulty[.ambiguous]!),
-                               Double(difficulty[.memorized]!)]
+                               Double(difficulty[.difficult]!)]
         
-        //외웟어요 어려워요 애매해요 카운팅
         reportView.blue100Label.text = "\(difficulty[.memorized] ?? 0)개"
         reportView.blue50Label.text = "\(difficulty[.ambiguous] ?? 0)개"
         reportView.blue10Label.text = "\(difficulty[.difficult] ?? 0)개"
         
-        // 출석률
-        reportView.ratePercentLabel.text = "\(VocaCoreDataManager.shared.calculateAttendanceRate(year: 24, month: 5,    attendance: monthDate.count))%"
+        reportView.ratePercentLabel.text = "\(VocaCoreDataManager.shared.calculateAttendanceRate(year: Int(yearFormat.string(from: Date()))!, month: Int(monthFormat.string(from: Date()))!,    attendance: monthDate.count))%"
         
-        //외운 단어 수
         reportView.countNumberLabel.text = "\(studyData.studiedWords)개"
-
+    }
+    
+    func reloadData() {
+        monthDate = VocaCoreDataManager.shared.getVocaMonthDates(forYear: Int(yearFormat.string(from: Date()))!, month: Int(monthFormat.string(from: Date()))!)
+        difficulty = VocaCoreDataManager.shared.calculateMonthlyStudyData(vocaDates: monthDate)
+        studyData = VocaCoreDataManager.shared.calculateStudyData(vocaDates: monthDate)
+        bind()
+        setChart(data: difficultySet, values: difficultCount)
     }
     
     private func setChart(data: [String], values: [Double]) {
@@ -96,7 +106,6 @@ final class ReportViewController: BaseViewController {
         self.reportView.pieChart.isUserInteractionEnabled = false
         self.reportView.pieChart.holeRadiusPercent = 0.618
         
-        // 차트 가운데 입력값
         if studyData.studiedWords != 0 {
             let memorizeRate = Int(round(( Double(studyData.studiedWords) / Double(studyData.totalWords)) * 100 ))
             self.reportView.pieChart.centerText = "\(memorizeRate)%"
@@ -106,8 +115,6 @@ final class ReportViewController: BaseViewController {
         
         pieChartDataSet.drawValuesEnabled = false
     }
-    
-    
 }
 
 // MARK: - extension
@@ -127,38 +134,29 @@ extension ReportViewController: UICalendarViewDelegate, UICalendarSelectionSingl
         navigationController?.pushViewController(secondVC, animated: true)
     }
     
-    // 학습량 계산 후 달력에 업데이트
     func calendarView(_ calendarView: UICalendarView, decorationFor dateComponents: DateComponents) -> UICalendarView.Decoration? {
+        guard let date = VocaCoreDataManager.shared.dateComponentsToString(dateComponents) else {return nil}
+        guard let rates = studyData.dailyRates[date] else {return nil}
         
-        let date = dateComponents.date!
-        //print(date)
-        if self.studyData.dailyRates.keys.contains(date) {
-            //print(self.studyData.dailyRates[date]!)
-            switch self.studyData.dailyRates[date]! {
-            case (1.0)...(10.0):
-                return .image(UIImage(named: "Property_25"))
-            case (21.0)...(40.0):
-                return .image(UIImage(named: "Property_30"))
-            case (41.0)...(60.0):
-                return .image(UIImage(named: "Property_50"))
-            case (61.0)...(80.0):
-                return .image(UIImage(named: "Property_75"))
-            case (81.0)...(100.0):
-                return .image(UIImage(named: "Property_100"))
-            default:
-                return nil
-            }
-        }
-        else {
+        switch round(rates * 100.0) {
+        case (1.0)...(20.0):
+            return .image(UIImage(named: "Property_25"))
+        case (21.0)...(40.0):
+            return .image(UIImage(named: "Property_30"))
+        case (41.0)...(60.0):
+            return .image(UIImage(named: "Property_50"))
+        case (61.0)...(80.0):
+            return .image(UIImage(named: "Property_75"))
+        case (81.0)...(100.0):
+            return .image(UIImage(named: "Property_100"))
+        default:
             return nil
         }
     }
-    
     
     func reloadDateView(date: Date?) {
         if date == nil { return }
         let calendar = Calendar.current
         reportView.calendar.reloadDecorations(forDateComponents: [calendar.dateComponents([.day, .month, .year], from: date!)], animated: true)
     }
-    
 }

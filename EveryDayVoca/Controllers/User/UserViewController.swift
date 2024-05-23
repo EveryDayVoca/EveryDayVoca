@@ -24,6 +24,7 @@ final class UserViewController: BaseViewController {
     
     // MARK: - method
     override func configureStyle() {
+        
         let titleLabel = UILabel().then {
             $0.text = "사용자 정보"
             $0.font = UIFont.pretendard(size: 17, weight: .bold)
@@ -39,9 +40,13 @@ final class UserViewController: BaseViewController {
             $0.tintColor = .gray100
         }
         
+        userView.userNameLabel.text = UserDefaults.standard.string(forKey: UserData.userName.rawValue)
+        userView.userNickNameLabel.text = UserDefaults.standard.string(forKey: UserData.userNickName.rawValue)
+        userView.studyLevelLabel.text = UserDefaults.standard.string(forKey: UserData.studyLevel.rawValue)
+        userView.studyAmountLabel.text = UserDefaults.standard.string(forKey: UserData.studyAmount.rawValue)
+        
         navigationItem.titleView = titleLabel
         navigationItem.rightBarButtonItem = modifyButton
-        
     }
     
     override func bind() {
@@ -90,7 +95,7 @@ final class UserViewController: BaseViewController {
         let nextView = UserModifyViewController()
         navigationController?.pushViewController(nextView, animated: true)
     }
-
+    
     @objc func handleUserDefaultsChange(_ notification: Notification) {
         if let value = UserDefaults.standard.string(forKey: UserData.userName.rawValue) {
             self.userView.userNameLabel.text = value
@@ -113,5 +118,5 @@ final class UserViewController: BaseViewController {
     deinit {
         NotificationCenter.default.removeObserver(self, name: .userDefaultsDidChange, object: nil)
     }
-
+    
 }

@@ -106,4 +106,8 @@ final class UserDefaultsManager {
         
         return false
     }
+    func setImageConvert(value: UIImage, key: String) {
+            let imageData = value.jpegData(compressionQuality: 1.0)
+            userDefaults.set(imageData, forKey: key)
+        }
 }
