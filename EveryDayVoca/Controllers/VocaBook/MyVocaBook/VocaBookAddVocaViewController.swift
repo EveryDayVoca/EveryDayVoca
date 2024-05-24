@@ -24,8 +24,6 @@ class VocaBookAddVocaViewController: BaseViewController {
         super.viewDidLoad()
     }
     
-    
-    
     // MARK: - Methods
     override func configureStyle() {
         super.configureStyle()

@@ -22,7 +22,7 @@ class VocaBookBaseView: BaseView {
         $0.font = UIFont.pretendard(size: 14, weight: .medium)
     }
     
-    private let vocaBookChevronImage = UIImageView().then {
+    var vocaBookChevronImage = UIImageView().then {
         $0.image = UIImage(systemName: "chevron.forward")
         $0.contentMode = .scaleAspectFit
         $0.tintColor = UIColor.evText

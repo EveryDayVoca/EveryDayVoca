@@ -85,6 +85,7 @@ final class StudyViewController: BaseViewController {
     }
     
     @objc private func tappedVocaListButton() {
-        
+        let wordListVC = WordListViewController()
+        navigationController?.pushViewController(wordListVC, animated: true)
     }
 }

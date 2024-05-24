@@ -81,9 +81,6 @@ extension VocaBookDisplayOptionPopoverViewController: UITableViewDelegate {
         tableView.reloadData()
         
         selectedDisplayOption!(indexPath.row)
-        
-        
-        
     }
     
 }

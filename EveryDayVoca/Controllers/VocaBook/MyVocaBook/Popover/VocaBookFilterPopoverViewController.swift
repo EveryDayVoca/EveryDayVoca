@@ -54,7 +54,6 @@ class VocaBookFilterPopoverViewController: BaseViewController {
 
 extension VocaBookFilterPopoverViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return filters.count
         return dataManager.filters.count
     }
     
@@ -67,8 +66,6 @@ extension VocaBookFilterPopoverViewController: UITableViewDataSource {
         cell.bind(filter: dataManager.filters[indexPath.row])
         return cell
     }
-    
-    
 }
 
 extension VocaBookFilterPopoverViewController: UITableViewDelegate {

@@ -39,6 +39,7 @@
 		2E571B422BFED164006ED80E /* ManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E571B402BFED164006ED80E /* ManagementViewController.swift */; };
 		2E571B432BFED211006ED80E /* VocaCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E45B8032BFB5C2000BDFFEC /* VocaCoreDataManager.swift */; };
 		2E571B482BFEFD0B006ED80E /* StudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E571B472BFEFD0B006ED80E /* StudyView.swift */; };
+		2E571B4A2BFF60BA006ED80E /* WordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E571B492BFF60BA006ED80E /* WordListViewController.swift */; };
 		2E9DED9B2BF50C4500A85C42 /* FlashCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DED9A2BF50C4500A85C42 /* FlashCardView.swift */; };
 		2E9DEDD72BF9FD6800A85C42 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DEDD62BF9FD6800A85C42 /* Status.swift */; };
 		2E9DEDD92BFA167700A85C42 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9DEDD82BFA167700A85C42 /* CardView.swift */; };
@@ -113,6 +114,7 @@
 		2E571B3F2BFED164006ED80E /* ManagementAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagementAlertViewController.swift; sourceTree = "<group>"; };
 		2E571B402BFED164006ED80E /* ManagementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagementViewController.swift; sourceTree = "<group>"; };
 		2E571B472BFEFD0B006ED80E /* StudyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyView.swift; sourceTree = "<group>"; };
+		2E571B492BFF60BA006ED80E /* WordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordListViewController.swift; sourceTree = "<group>"; };
 		2E9DED9A2BF50C4500A85C42 /* FlashCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardView.swift; sourceTree = "<group>"; };
 		2E9DEDD62BF9FD6800A85C42 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		2E9DEDD82BFA167700A85C42 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				2E571B332BFED09E006ED80E /* StudyViewController.swift */,
+				2E571B492BFF60BA006ED80E /* WordListViewController.swift */,
 				2E571B442BFED6FF006ED80E /* FlashCard */,
 			);
 			path = Study;
@@ -599,6 +602,7 @@
 				2E1C31032BFC315E00CB6DDE /* VocaDeck+CoreDataClass.swift in Sources */,
 				2E1C31042BFC315E00CB6DDE /* VocaDeck+CoreDataProperties.swift in Sources */,
 				2E3A246D2BFD9D3100EF2738 /* TTS.swift in Sources */,
+				2E571B4A2BFF60BA006ED80E /* WordListViewController.swift in Sources */,
 				2E571B422BFED164006ED80E /* ManagementViewController.swift in Sources */,
 				37D777092BF30DBD0078D6E8 /* EveryDayVoca.xcdatamodeld in Sources */,
 				62F3A9202BFE2C920002508D /* UserModifyViewViewController.swift in Sources */,
