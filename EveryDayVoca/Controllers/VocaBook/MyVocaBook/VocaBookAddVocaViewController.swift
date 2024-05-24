@@ -12,6 +12,7 @@ class VocaBookAddVocaViewController: BaseViewController {
     // MARK: - Properties
     let vocaBookAddVocaView = VocaBookAddVocaView()
     
+    var completion: (() -> ())?
 
     // MARK: - Life Cycles
     
@@ -22,8 +23,6 @@ class VocaBookAddVocaViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    
     
     // MARK: - Methods
     override func configureStyle() {
@@ -93,7 +92,8 @@ class VocaBookAddVocaViewController: BaseViewController {
     
     func dismissModalAlert(title: String?, message: String?, vc: UIViewController) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let ok = UIAlertAction(title: "확인", style: .cancel) { [weak vc] _ in
+        let ok = UIAlertAction(title: "확인", style: .cancel) { [self, weak vc] _ in
+            completion!()
             vc?.dismiss(animated: true)
         }
         alert.addAction(ok)

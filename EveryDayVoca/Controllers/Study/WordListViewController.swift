@@ -11,7 +11,10 @@ final class WordListViewController: BaseViewController {
 
     // MARK: - properties
     private var wordListView: VocaBookVocaListView!
+    
     private var coreDataManager = VocaCoreDataManager.shared
+    private var userDefaultsManager = UserDefaultsManager.shared
+    
     private var wordData = [Voca]()
     
     
@@ -32,7 +35,6 @@ final class WordListViewController: BaseViewController {
             guard let self = self else { return }
             wordData = VocaBookData.shared.vocas
             wordListView.vocaListTableView.reloadData()
-            print("dataUpdate 클로저 실행됨")
         }
     }
     
@@ -75,8 +77,10 @@ final class WordListViewController: BaseViewController {
     
     override func bind() {
         super.bind()
-        VocaBookData.shared.vocas = coreDataManager.getVocaDataWithIndex(firstIndex: 1, count: 10)
-        wordData = coreDataManager.getVocaDataWithIndex(firstIndex: 1, count: 10)
+        let firstIndex = userDefaultsManager.fetchStartIndex()
+        let user = userDefaultsManager.fetchUser()
+        VocaBookData.shared.vocas = coreDataManager.getVocaDataWithIndex(firstIndex: firstIndex, count: user.amount)
+        wordData = coreDataManager.getVocaDataWithIndex(firstIndex: firstIndex, count: user.amount)
     }
     
     private func configureAddTarget() {

@@ -12,18 +12,23 @@ final class UserViewController: BaseViewController {
     // MARK: - property
     private let userView = UserView()
     
+    private let coreDataManager = VocaCoreDataManager.shared
+    private let userDefaultsManager = UserDefaultsManager.shared
+    
     // MARK: - life cycles
+    override func loadView() {
+        view = self.userView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view = self.userView
         
-        configureStyle()
-        bind()
         setProgressBar()
     }
     
     // MARK: - method
     override func configureStyle() {
+        
         let titleLabel = UILabel().then {
             $0.text = "사용자 정보"
             $0.font = UIFont.pretendard(size: 17, weight: .bold)
@@ -41,77 +46,59 @@ final class UserViewController: BaseViewController {
         
         navigationItem.titleView = titleLabel
         navigationItem.rightBarButtonItem = modifyButton
-        
     }
     
     override func bind() {
-        NotificationCenter.default.addObserver(self, selector: #selector(handleUserDefaultsChange(_:)), name: .userDefaultsDidChange, object: nil)
+        let user = userDefaultsManager.fetchUser()
+        userView.bind(user: user)
     }
     
     func calculateProgress(level: Int) -> Float {
-        var levels = UserData.total1
-        switch level {
-        case 1:
-            levels = UserData.total1
-        case 2:
-            levels = UserData.total2
-        case 3:
-            levels = UserData.total3
-        case 4:
-            levels = UserData.total4
-        case 5:
-            levels = UserData.total5
-        default:
-            levels = UserData.total1
-        }
+//        let cardDeckData = coreDataManager.cardDeckData
         
-        if UserDefaults.standard.integer(forKey: levels.rawValue) == 0 {
-            return 0
-        }else {
-            return Float(VocaCoreDataManager.shared.calculateMemorizedWordCountByLevel(level: level) / UserDefaults.standard.integer(forKey: levels.rawValue))
-        }
+        let totalLevel = [0, 288, 600, 388, 315, 335]
+        let startIndex = [0, 1, 289, 889, 1277, 1412]
+        let startIndexesFromLevel = userDefaultsManager.fetchStartIndexes()
+        print(userDefaultsManager)
+        print(startIndex[level])
+        print(startIndexesFromLevel[level-1])
+        let numerator = Double(startIndexesFromLevel[level-1] - startIndex[level])
+        let denominator = Double(totalLevel[level])
+        
+        return Float(numerator/denominator)
+        
     }
     
     func setProgressBar() {
+        
+        print(calculateProgress(level: 1))
+        print(calculateProgress(level: 2))
+        print(calculateProgress(level: 3))
+        print(calculateProgress(level: 4))
+        print(calculateProgress(level: 5))
+        
+        // 바 progress
         userView.oneProgressView.progress = self.calculateProgress(level: 1)
         userView.twoProgressView.progress = self.calculateProgress(level: 2)
         userView.threeProgressView.progress = self.calculateProgress(level: 3)
         userView.fourProgressView.progress = self.calculateProgress(level: 4)
         userView.fiveProgressView.progress = self.calculateProgress(level: 5)
         
-        userView.oneProgressPercentLabel.text = "\(calculateProgress(level: 1)*100)%"
-        userView.twoProgressPercentLabel.text = "\(calculateProgress(level: 2)*100)%"
-        userView.threeProgressPercentLabel.text = "\(calculateProgress(level: 3)*100)%"
-        userView.fourProgressPercentLabel.text = "\(calculateProgress(level: 4)*100)%"
-        userView.fiveProgressPercentLabel.text = "\(calculateProgress(level: 5)*100)%"
+        // 진도율 text
+        userView.oneProgressPercentLabel.text = "\(Int(calculateProgress(level: 1)*100))%"
+        userView.twoProgressPercentLabel.text = "\(Int(calculateProgress(level: 2)*100))%"
+        userView.threeProgressPercentLabel.text = "\(Int(calculateProgress(level: 3)*100))%"
+        userView.fourProgressPercentLabel.text = "\(Int(calculateProgress(level: 4)*100))%"
+        userView.fiveProgressPercentLabel.text = "\(Int(calculateProgress(level: 5)*100))%"
     }
     
     @objc func tappedModifyButton() {
         let nextView = UserModifyViewController()
+        nextView.completion = { [weak self] in
+            guard let self = self else { return }
+            
+            bind()
+        }
         navigationController?.pushViewController(nextView, animated: true)
     }
-
-    @objc func handleUserDefaultsChange(_ notification: Notification) {
-        if let value = UserDefaults.standard.string(forKey: UserData.userName.rawValue) {
-            self.userView.userNameLabel.text = value
-        }
-        if let value = UserDefaults.standard.string(forKey: UserData.userNickName.rawValue) {
-            self.userView.userNickNameLabel.text = value
-        }
-        if let value = UserDefaults.standard.string(forKey: UserData.studyLevel.rawValue) {
-            self.userView.studyLevelLabel.text = value
-        }
-        if let value = UserDefaults.standard.string(forKey: UserData.studyAmount.rawValue) {
-            self.userView.studyAmountLabel.text = value
-        }
-        if let imageData = UserDefaults.standard.data(forKey: UserData.profileImage.rawValue),
-           let image = UIImage(data: imageData) {
-            self.userView.profileImage.image = image
-        }
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: .userDefaultsDidChange, object: nil)
-    }
-
 }

@@ -94,20 +94,15 @@ class MyVocaFlashCardViewController: BaseViewController {
     @objc func tappedStatusButton(_ button: UIButton) {
         guard let voca = voca,
               let index = index else { return }
-        
         switch button.titleLabel?.text {
         case Status.difficult.rawValue:
             VocaBookData.shared.updateVocaStatus(voca, status: Status.difficult, index: index)
-            
         case Status.ambiguous.rawValue:
             VocaBookData.shared.updateVocaStatus(voca, status: Status.ambiguous, index: index)
-            
         case Status.memorized.rawValue:
             VocaBookData.shared.updateVocaStatus(voca, status: Status.memorized, index: index)
-            
         case Status.none.rawValue:
             VocaBookData.shared.updateVocaStatus(voca, status: Status.none, index: index)
-            
         default:
             VocaBookData.shared.updateVocaStatus(voca, status: Status.none, index: index)
         }
@@ -118,13 +113,11 @@ class MyVocaFlashCardViewController: BaseViewController {
         guard let currentIndex = index,
               let buttonTitle = button.titleLabel?.text else { return }
         
-        if buttonTitle == "이전 단어",
-           currentIndex != 0 {
+        if buttonTitle == "이전 단어", currentIndex != 0 {
             self.index! -= 1
             self.voca = VocaBookData.shared.vocas[self.index!]
-            
         } else if buttonTitle == "다음 단어",
-                  currentIndex != VocaBookData.shared.vocasCount {
+                  currentIndex != VocaBookData.shared.vocasCount - 1 {
             self.index! += 1
             self.voca = VocaBookData.shared.vocas[self.index!]
         }
